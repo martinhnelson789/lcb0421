@@ -1,0 +1,1720 @@
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/plain"; Charset=UTF-8">
+<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="https://cdn.rawgit.com/ethereumjs/browser-builds/master/dist/ethereumjs-tx/ethereumjs-tx-1.3.3.js"></script>
+
+</script> 
+  
+
+<STYLE TYPE="text/css">
+.answers li {
+list-style: upper-alpha;
+}
+
+label {
+margin-left: 0.5em;
+cursor: pointer;
+}
+
+#results {
+background: #dddada;
+color: 000000;
+padding: 3px;
+text-align: center;
+width: 200px;
+cursor: pointer;
+border: 1px solid gray;
+}
+
+#results:hover {
+background: #3d91b8;
+color: #ffffff;
+padding: 3px;
+text-align: center;
+width: 200px;
+cursor: pointer;
+border: 1px solid gray;
+}
+
+#categorylist {
+margin-top: 6px;
+display: none;
+}
+
+#category121w1, #category121w2, #category121w3, #category121w4, #category121w5, #category121w6, #category121w7, #category121w8, #category121w9, #category121w10, #category121w11, #category121w12, #category121w13, #category121w14, #category121w15, #category121w16, #category121w17, #category121w18, #category121w19, #category121w20, #category121w21, #category121w22, #category121w23, #category121w24, #category121w25, #category121w26, #category121w27, #category121w28, #category121w29, #category121w30, #category121w31, #category121w32, #category121w33, #category121w34, #category121w35, #category121w36, #category121w37, #category121w38, #category121w39, #category121w40, #category121w41, #category121w42, #category121w43, #category121w44, #category121w45, #category121w46, #category121w47, #category121w48, #category121w49, #category121w50, #category121w51, #category121w52, #category121w53, #category121w54, #category121w55, #category121w56, #category121w57, #category121w58, #category121w59, #category121w60, #category121w61, #category121w62, #category121w63, #category121w64, #category121w65, #category121w66, #category121w67, #category121w68, #category121w69, #category121w70, #category121w71, #category121w72, #category121w73, #category121w74, #category121w75, #category121w76, #category121w77, #category121w78, #category121w79, #category121w80, #category1Z81, #category121w82, #category1Z83, #category1Z84, #category1Z85, #category2Z1, #category2Z2, #category2Z3, #category2Z4, #category2Z5, #category2Z6, #category2Z7, #category2Z8, #category2Z9, #category2Z10, #category2Z11, #category2Z12, #category2Z13, #category2Z14, #category2Z15, #category2Z16, #category2Z17, #category2Z18, #category2Z19, #category2Z20, #category2Z21, #category2Z22, #category2Z23, #category2Z24, #category2Z25, #category2Z26, #category2Z27, #category2Z28, #category2Z29, #category2Z30, #category2Z31, #category2Z32, #category2Z33, #category2Z34, #category2Z35, #category2Z36, #category2Z37, #category2Z38, #category2Z39, #category2Z40, #category2Z41, #category2Z42, #category2Z43, #category2Z44, #category2Z45, #category2Z46, #category2Z47, #category2Z48, #category2Z49, #category2Z50, #category2Z51, #category2Z52,
+#category2Z53, #category2Z54, #category2Z55, #category2Z56, #category2Z57, #category2Z58, #category2Z59, #category2Z60, #category2Z61, #category2Z62, #category2Z63, #category2Z64, #category2Z65, #category2Z66, #category2Z66, #category2Z67, #category2Z68, #category2Z69, #category2Z70, #category2Z71, #category2Z72, #category2Z73, #category2Z74, #category2Z75, #category2Z76, #category2Z77, #category2Z78, #category2Z79, #category2Z80, #category3Z2, #category3Z3, #category3Z4, #category3Z5, #category3Z6, #category3Z7, #category3Z8, #category3Z9, #category3Z10, #category3Z11, #category3Z12, #category3Z13, #category3Z14, #category3Z15, #category3Z16, #category3Z17, #category3Z18, #category3Z19, #category3Z20, #category3Z21, #category3Z22, #category3Z23, #category3Z24, #category3Z25, #category3Z26, #category3Z27, #category3Z28, #category3Z29, #category3Z30, #category3Z31, #category3Z32, #category3Z33, #category3Z34, #category3Z35, #category3Z36, #category3Z37, #category3Z38, #category3Z39, #category3Z40, #category3Z41, #category3Z42, #category3Z43, #category3Z44, #category3Z45, #category3Z46, #category3Z47, #category3Z48, #category3Z49, #category3Z50, #category3Z51, #category3Z52, #category3Z53, #category3Z54, #category3Z55, #category3Z56, #category3Z57, #category3Z58, #category3Z59, #category3Z60, #category3Z61, #category3Z62, #category3Z63, #category3Z64, #category3Z65, #category3Z66, #category3Z67, #category3Z68, #category3Z69, #category3Z70, #category3Z71, #category3Z72, #category3Z73, #category3Z74, #category3Z75, #category3Z76, #category3Z77, #category3Z78, #category3Z79, #category3Z80, #category2Z82 {
+display: none;
+}
+
+#closing {
+display: none;
+#font-style: italic;
+}  
+
+#answers{
+    border:3px solid magenta;
+    width:249px;
+    float:left;
+    font-size: 0.875em;
+    padding:0 20px 0;
+}
+
+#answers[type="radio"]{
+    float: left;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1 style="color:grey; font-family: helvetica narrow, sans-serif;">&#9096 Customs Broker Exams &#9096</h3>
+<h2 style="color:grey; font-family: helvetica narrow, sans-serif;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; April 2021</h4>	
+
+   
+<div id=category121w1 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		
+<p class='question'>	1.  What is the CLASSIFICATION of the brassiere?	</p>
+<input type='radio' name='q121w1' value='A' id='q121w1'><label for=qZw1'A'>	A. 6212.10.3000	</label></br>
+<input type='radio' name='q121w1' value='B' id='q121w1'><label for=qZw1'B'>	B.  6212.10.5030	</label></br>
+<input type='radio' name='q121w1' value='C' id='q121w1'><label for=qZw1'C'>	C.  6212.10.7000	</label></br>
+<input type='radio' name='q121w1' value='D' id='q121w1'><label for=qZw1'D'>	D. 6212.20.0030	</label></br>
+<input type='radio' name='q121w1' value='E' id='q121w1'><label for=qZw1'E'>	E.  6212.30.0030	</label></br>
+</ul>		
+<p id="demo0"></p>		
+</div> 		
+<div id=category121w2 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 	Please use the identified commercial invoice to answer the question	
+<p class='question'>	2.   What is CLASSIFICATION of the necklace?	</p>
+<input type='radio' name='q121w2' value='A' id='q121w2'><label for=qZw2'A'>	A. 7116.10.2500	</label></br>
+<input type='radio' name='q121w2' value='B' id='q121w2'><label for=qZw2'B'>	B.  7116.20.1500	</label></br>
+<input type='radio' name='q121w2' value='C' id='q121w2'><label for=qZw2'C'>	C. 7113.19.2500	</label></br>
+<input type='radio' name='q121w2' value='D' id='q121w2'><label for=qZw2'D'>	D. 7113.11.5000	</label></br>
+<input type='radio' name='q121w2' value='E' id='q121w2'><label for=qZw2'E'>	E. 7117.90.9000	</label></br>
+</ul>		
+<p id="demo1"></p>		
+</div> 		
+<div id=category121w3 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 	Please use the identified commercial invoice to answer the question	
+<p class='question'>	3.   The port code to be identified on Block 20 of CBP Form 7501 is</p>
+<input type='radio' name='q121w3' value='A' id='q121w3'><label for=qZw3'A'>	A. 0904	</label></br>
+<input type='radio' name='q121w3' value='B' id='q121w3'><label for=qZw3'B'>	B.  0906	</label></br>
+<input type='radio' name='q121w3' value='C' id='q121w3'><label for=qZw3'C'>	C.  2811	</label></br>
+<input type='radio' name='q121w3' value='D' id='q121w3'><label for=qZw3'D'>	D. 3881	</label></br>
+<input type='radio' name='q121w3' value='E' id='q121w3'><label for=qZw3'E'>	E.  5501	</label></br>
+</ul>		
+<p id="demo2"></p>		
+</div> 		
+<div id=category121w4 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 	Please use the identified commercial invoice to answer the question.	
+<p class='question'>	4.  The party responsible for the payment of duties,taxes and fees is</p>
+<input type='radio' name='q121w4' value='A' id='q121w4'><label for=qZw4'A'>	A. the shipping line	</label></br>
+<input type='radio' name='q121w4' value='B' id='q121w4'><label for=qZw4'B'>	B.  Joy's Special Design	</label></br>
+<input type='radio' name='q121w4' value='C' id='q121w4'><label for=qZw4'C'>	C.  XYZ Brokers,Inc	</label></br>
+<input type='radio' name='q121w4' value='D' id='q121w4'><label for=qZw4'D'>	D. Sigma Coy E.X.T.	</label></br>
+<input type='radio' name='q121w4' value='E' id='q121w4'><label for=qZw4'E'>	E.  the nominal consignee	</label></br>
+</ul>		
+<p id="demo3"></p>		
+</div> 		
+<div id=category121w5 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 	Please use the identified commercial invoice to answer the question	
+<p class='question'>	5.  What is the Manufacturer Identification Code (MID)?	</p>
+<input type='radio' name='q121w5' value='A' id='q121w5'><label for=qZw5'A'>	A. DESIG1640ITA	</label></br>
+<input type='radio' name='q121w5' value='B' id='q121w5'><label for=qZw5'B'>	B.  ITSIGCOY4000DEL	</label></br>
+<input type='radio' name='q121w5' value='C' id='q121w5'><label for=qZw5'C'>	C.  ITSIGCOY1640SMY	</label></br>
+<input type='radio' name='q121w5' value='D' id='q121w5'><label for=qZw5'D'>	D. ITSIFCOY4000SMY 	</label></br>
+<input type='radio' name='q121w5' value='E' id='q121w5'><label for=qZw5'E'>	E.  S:MIGCOY1640ITA	</label></br>
+</ul>		
+<p id="demo4"></p>		
+</div> 		
+<div id=category121w6 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		
+	Please use the identified commercial invoice to answer the question.	
+<p class='question'>	6.   What is the Harbor Maintenance fee for this shipment?	</p>
+<input type='radio' name='q121w6' value='A' id='q121w6'><label for=qZw6'A'>	A. $0.00	</label></br>
+<input type='radio' name='q121w6' value='B' id='q121w6'><label for=qZw6'B'>	B. $3.00	</label></br>
+<input type='radio' name='q121w6' value='C' id='q121w6'><label for=qZw6'C'>	c. $5.61	</label></br>
+<input type='radio' name='q121w6' value='D' id='q121w6'><label for=qZw6'D'>	D. $15.53	</label></br>
+<input type='radio' name='q121w6' value='E' id='q121w6'><label for=qZw6'E'>	E.  $25.00	</label></br>
+</ul>		
+<p id="demo5"></p>		
+</div> 		
+<div id=category121w7 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		
+<p class='question'>	7.   If CBP requires supporting documents to be submitted when the rejected entry summary is	
+	re-transmitted,what will CBP send to the importer/broker?	</p>
+<input type='radio' name='q121w7' value='A' id='q121w7'><label for=qZw7'A'>	A. No-file liquidated damage case	</label></br>
+<input type='radio' name='q121w7' value='B' id='q121w7'><label for=qZw7'B'>	B. Late file liquidated damage case	</label></br>
+<input type='radio' name='q121w7' value='C' id='q121w7'><label for=qZw7'C'>	C.  CBP Form 28	</label></br>
+<input type='radio' name='q121w7' value='D' id='q121w7'><label for=qZw7'D'>	D. An entry summary reject	</label></br>
+<input type='radio' name='q121w7' value='E' id='q121w7'><label for=qZw7'E'>	E.  CBP Form 29	</label></br>
+</ul>		
+<p id="demo6"></p>		
+</div> 		
+<div id=category121w8 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		
+<p class='question'>	8.   CBP can receive and validate a single transaction bond (STB) either received electronically	
+	from a Surety or Surety Agent, or received from a Surety or Surety Agent by emailing a copy of the STB to</p>
+<input type='radio' name='q121w8' value='A' id='q121w8'><label for=qZw8'A'>	A. brokermanagement@cbp.dhs.gov	</label></br>
+<input type='radio' name='q121w8' value='B' id='q121w8'><label for=qZw8'B'>	B.  otsummaxv@cbo.dhs.gov	</label></br>
+<input type='radio' name='q121w8' value='C' id='q121w8'><label for=qZw8'C'>	C.  bondguestions@cbp.dhs.gov	</label></br>
+<input type='radio' name='q121w8' value='D' id='q121w8'><label for=qZw8'D'>	D. acebusinessroles@cbp.dhs.gov	</label></br>
+<input type='radio' name='q121w8' value='E' id='q121w8'><label for=qZw8'E'>	E.  acehelpdesk@cbp.dhs.gov	</label></br>
+</ul>		
+<p id="demo7"></p>		
+</div> 		
+<div id=category121w9 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		
+<p class='question'>	9.   ACE currently permits blanket declaration records with the EXCEPTION of which one of	
+	the following?	</p>
+<input type='radio' name='q121w9' value='A' id='q121w9'><label for=qZw9'A'>	A. Affidavit of Manufacturer	</label></br>
+<input type='radio' name='q121w9' value='B' id='q121w9'><label for=qZw9'B'>	B.  Importer Certifying Statement	</label></br>
+<input type='radio' name='q121w9' value='C' id='q121w9'><label for=qZw9'C'>	C.  North American Free Trade Agreement of Origin	</label></br>
+<input type='radio' name='q121w9' value='D' id='q121w9'><label for=qZw9'D'>	D. Non-Reimbursement Statement	</label></br>
+<input type='radio' name='q121w9' value='E' id='q121w9'><label for=qZw9'E'>	E.  Catalog of products with classification	</label></br>
+</ul>		
+<p id="demo8"></p>		
+</div> 		
+	
+<div id=category121w10 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		
+<p class='question'>	10. In regards to a power of attorney, what legal status of a grantor is limited to a specific time	
+	period from the date of execution per the Code of Federal Regulations?	</p>
+<input type='radio' name='q121w10' value='A' id='q121w10'><label for=qZw10'A'>	A. Nonresident corporation	</label></br>
+<input type='radio' name='q121w10' value='B' id='q121w10'><label for=qZw10'B'>	B.  Trosteeship	</label></br>
+<input type='radio' name='q121w10' value='C' id='q121w10'><label for=qZw10'C'>	C.  Resident corporation	</label></br>
+<input type='radio' name='q121w10' value='D' id='q121w10'><label for=qZw10'D'>	D. Parlnership	</label></br>
+<input type='radio' name='q121w10' value='E' id='q121w10'><label for=qZw10'E'>	E.  Association	</label></br>
+</ul>		
+<p id="demo9"></p>		
+</div> 		
+<div id=category121w11 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		
+<p class='question'>	11. Which of the following is the official regulatory process to revoke a power of attorney?	</p>
+<input type='radio' name='q121w11' value='A' id='q121w11'><label for=qZw11'A'>	A. Prior to being submitted to CBP	</label></br>
+<input type='radio' name='q121w11' value='B' id='q121w11'><label for=qZw11'B'>	B.  Within 30 days from execution	</label></br>
+<input type='radio' name='q121w11' value='C' id='q121w11'><label for=qZw11'C'>	C.  Upon written approval by the Port Director	</label></br>
+<input type='radio' name='q121w11' value='D' id='q121w11'><label for=qZw11'D'>	D. At any time by written notice given to and received by the Port Director	</label></br>
+<input type='radio' name='q121w11' value='E' id='q121w11'><label for=qZw11'E'>	E.  It may not be revoked	</label></br>
+</ul>		
+<p id="demo10"></p>		
+</div> 		
+<div id=category121w12 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		
+<p class='question'>	12. Peter Davis is the Import Manager of ABC Imports. He hires XYZ Brokers to clear	
+	shipments for ABC Imports.ABC Imports is a limited partnership under state law. Which of	
+	the following is REQUIRED as part of the power of attorney from ABC Imports?	</p>
+<input type='radio' name='q121w12' value='A' id='q121w12'><label for=qZw12'A'>	A. The signature of Peter Davis.	</label></br>
+<input type='radio' name='q121w12' value='B' id='q121w12'><label for=qZw12'B'>	B.  The signature of the President and a certification supporting the President's authority to sign the power of attorney.	</label></br>
+<input type='radio' name='q121w12' value='C' id='q121w12'><label for=qZw12'C'>	C.  The signature of all the partners to the limited partners.	</label></br>
+<input type='radio' name='q121w12' value='D' id='q121w12'><label for=qZw12'D'>	D. The signature of a general partner, the names of all the general partners,and a copy of the	
+	parlnership agreement.	</label></br>
+<input type='radio' name='q121w12' value='E' id='q121w12'><label for=qZw12'E'>	E.  The names of all the partners and the signature of one of the partners.	</label></br>
+</ul>		
+<p id="demo11"></p>		
+</div> 		
+	
+<div id=category121w13 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		
+<p class='question'>	13. At what value is a mail shipment REQUIRED to be formally entered for commercial	
+	merchandise imported into the United States, excluding special classes of merchandise?	</p>
+<input type='radio' name='q121w13' value='A' id='q121w13'><label for=qZw13'A'>	A. $800.00	</label></br>
+<input type='radio' name='q121w13' value='B' id='q121w13'><label for=qZw13'B'>	B. $2,000.00	</label></br>
+<input type='radio' name='q121w13' value='C' id='q121w13'><label for=qZw13'C'>	c. $2,550.00	</label></br>
+<input type='radio' name='q121w13' value='D' id='q121w13'><label for=qZw13'D'>	D. $10,000.00	</label></br>
+<input type='radio' name='q121w13' value='E' id='q121w13'><label for=qZw13'E'>	E.  There is no specified value.	</label></br>
+</ul>		
+<p id="demo12"></p>		
+</div> 		
+<div id=category121w14 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		
+<p class='question'>	14. When should an application to transport merchandise in-bond be submitted?	</p>
+<input type='radio' name='q121w14' value='A' id='q121w14'><label for=qZw14'A'>	A. Any time prior to the merchandise arriving at the port of destination.	</label></br>
+<input type='radio' name='q121w14' value='B' id='q121w14'><label for=qZw14'B'>	B.  Any time prior to the merchandise departing the origination port.	</label></br>
+<input type='radio' name='q121w14' value='C' id='q121w14'><label for=qZw14'C'>	C.  Any time prior to the merchandise arriving at the port of exportation. 	</label></br>
+<input type='radio' name='q121w14' value='D' id='q121w14'><label for=qZw14'D'>	D. 30 days after departing the origination port.	</label></br>
+<input type='radio' name='q121w14' value='E' id='q121w14'><label for=qZw14'E'>	E.  When the merchandise arrives at the port of destination.	</label></br>
+</ul>		
+<p id="demo13"></p>		
+</div> 		
+<div id=category121w15 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;">		
+<p class='question'>	15. A broker must provide specific information to the port director at each port where the broker	
+	intends to transact customs business (application for permit).That information must be	
+	provided in writing and include the following about each employee EXCEPT:	</p>
+<input type='radio' name='q121w15' value='A' id='q121w15'><label for=qZw15'A'>	A. Name	</label></br>
+<input type='radio' name='q121w15' value='B' id='q121w15'><label for=qZw15'B'>	B.  Citizenship	</label></br>
+<input type='radio' name='q121w15' value='C' id='q121w15'><label for=qZw15'C'>	C.  Social security number	</label></br>
+<input type='radio' name='q121w15' value='D' id='q121w15'><label for=qZw15'D'>	D. Date and place of birth	</label></br>
+<input type='radio' name='q121w15' value='E' id='q121w15'><label for=qZw15'E'>	E.  Current and prior home address	</label></br>
+</ul>		
+<p id="demo14"></p>		
+</div> 		
+<div id=category121w16 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;">		
+<p class='question'>	16. Under which scenario is a customs broker license REQUIRED in order to transact customs	
+	business?	</p>
+<input type='radio' name='q121w16' value='A' id='q121w16'><label for=qZw16'A'>	A. An importer or exporter transacting customs business solely on his own account and in no	
+	sense on behalf of another.	</label></br>
+<input type='radio' name='q121w16' value='B' id='q121w16'><label for=qZw16'B'>	B.  A person transacting business in connection with entry or clearance of vessels or other regulation of vessels under the navigation laws.	</label></br>
+<input type='radio' name='q121w16' value='C' id='q121w16'><label for=qZw16'C'>	C.  Any carrier bringing merchandise to the port of arrival or any bonded carrier transporting merchandise for another making entry for that merchandise for transportation in bond.	</label></br>
+<input type='radio' name='q121w16' value='D' id='q121w16'><label for=qZw16'D'>	D. An individual entering noncommercial merchandise for a partnership, association, or corporation,provided that the requirements of 19 CFR § 141.33 are met.	</label></br>
+<input type='radio' name='q121w16' value='E' id='q121w16'><label for=qZw16'E'>	E.  A foreign trade zone operator or user engaging in activities within a zone that do not	
+		
+		
+	involve the transfer of merchandise to the customs territory of the United States.	</label></br>
+</ul>		
+<p id="demo15"></p>		
+</div> 		
+<div id=category121w17 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;">		
+<p class='question'>	17. Which of the following statements is NOT subject to Grounds for Suspension or	
+	Revocation of License or Permit?	</p>
+<input type='radio' name='q121w17' value='A' id='q121w17'><label for=qZw17'A'>	A. The broker has violated any provision of any law enforced by Customs or the rules or	
+	regulations issued under any provision of any law enforced by Customs.	</label></br>
+<input type='radio' name='q121w17' value='B' id='q121w17'><label for=qZw17'B'>	B.  The broker has knowingly employed,or continues to employ, any person who has been convicted of a felony, with written approval of that employment from the Assistant Commissioner.	</label></br>
+<input type='radio' name='q121w17' value='C' id='q121w17'><label for=qZw17'C'>	C.  The broker has, in the course of customs business, with intent to defraud,inany manner willfully and knowingly deceived, misled or threatened any client or prospective client	</label></br>
+<input type='radio' name='q121w17' value='D' id='q121w17'><label for=qZw17'D'>	D. The broker no longer meets the applicable requirements of 19 CFR 111.11 - 111.19.	</label></br>
+<input type='radio' name='q121w17' value='E' id='q121w17'><label for=qZw17'E'>	The broker has counseled,commanded, induced, procured, or knowingly aided or abetted violations by any other person of any provision of any law enforced by Customs or the	
+	rules or regulations issued under any provision of any law enforced by Customs.	</label></br>
+</ul>		
+<p id="demo16"></p>		
+</div> 		
+<div id=category121w18 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;">		
+<p class='question'>	18. Which of the following statements is FALSE?	</p>
+<input type='radio' name='q121w18' value='A' id='q121w18'><label for=qZw18'A'>	A.  After a new employee has been employed by a broker for 30 consecutive days, the broker	
+	must submit new employee information to the port director including:social security number,last prior home address, and place of birth within 10 calendar days after the 30 day period.	</label></br>
+<input type='radio' name='q121w18' value='B' id='q121w18'><label for=qZw18'B'>	B.  Brokers that are partnerships, associations,or corporations may operate during any continuous period of up to 120 days after loss of the member of the partnership, or officer of the association or corporation, holding a valid individual broker license.After a continuous period of 120 days,failure to replace the licensed member or officer will	
+	result in revocation by operation of law of the license and any permits issued to the partnership, association,or corporation.	</label></br>
+<input type='radio' name='q121w18' value='C' id='q121w18'><label for=qZw18'C'>	C.  Regarding broker employee information, in the absence of culpability by the broker, Customs will not hold the broker responsible for the accuracy of information that is provided to the broker by their employee.	</label></br>
+<input type='radio' name='q121w18' value='D' id='q121w18'><label for=qZw18'D'>	D.  Each broker must exercise due diligence inmaking financial settlements.Payments must	
+be transmitted to the Government within 7 working days from receipt by the broker.	</label></br>
+<input type='radio' name='q121w18' value='E' id='q121w18'><label for=qZw18'E'>		E. In regards to brokers transacting customs business for an unlicensed person who is not the actual importer, the broker must transmit to the actual importer either a copy of his bill for services rendered or a copy of the entry, unless the importer has provided a	
+	written waiver.	</label></br>
+</ul>		
+<p id="demo17"></p>		
+</div> 		
+<div id=category121w19 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;">		
+<p class='question'>	19. All of the below are true with the EXCEPTION of:	</p>
+<input type='radio' name='q121w19' value='A' id='q121w19'><label for=qZw19'A'>	A. A person transacting business in connection with entry or clearance of vessels or other	
+	regulations under the navigation law is not required to be licensed as a broker.	</label></br>
+<input type='radio' name='q121w19' value='B' id='q121w19'><label for=qZw19'B'>	B. A cause for denial of a license would be any willful misstatement of pertinent facts in the application for the license.	</label></br>
+<input type='radio' name='q121w19' value='C' id='q121w19'><label for=qZw19'C'>	C. A national permit application must include the applicants broker license and date of issuance.	</label></br>
+<input type='radio' name='q121w19' value='D' id='q121w19'><label for=qZw19'D'>	D. Each broker must comply with the provisions of part 136 of this chapter when maintaining records that reflect on his transactions as a broker.	</label></br>
+<input type='radio' name='q121w19' value='E' id='q121w19'><label for=qZw19'E'>	E. A broker must not procure or attempt to procure, directly or indirectly,information from Government records or other Government sources of any kind to which access is not granted by proper authority.	</label></br>
+		
+</ul>		
+<p id="demo18"></p>		
+</div> 		
+<div id=category121w20 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;">		
+<p class='question'>	20. What is the CLASSIFICATION for a portable tabletop gas stove? The stove is made	
+	primarily of iron and steel, itis designed to use propane gas fuel, and is for domestic use.	</p>
+<input type='radio' name='q121w20' value='A' id='q121w20'><label for=qZw20'A'>	A. 7321.11.1030	</label></br>
+<input type='radio' name='q121w20' value='B' id='q121w20'><label for=qZw20'B'>	B.  7321.11.3010	</label></br>
+<input type='radio' name='q121w20' value='C' id='q121w20'><label for=qZw20'C'>	c. 7615.10.9100	</label></br>
+<input type='radio' name='q121w20' value='D' id='q121w20'><label for=qZw20'D'>	D. 8516.79.0000	</label></br>
+<input type='radio' name='q121w20' value='E' id='q121w20'><label for=qZw20'E'>	E.  9403.20.0050	</label></br>
+</ul>		
+<p id="demo19"></p>		
+</div> 		
+<div id=category121w21 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;">		
+<p class='question'>	21. What is the CLASSIFICATION of an automatic robot vacuum cleaner, with boundary	
+	strips,a remote control, a charging base,and an AC power adapter? The vacuum cleaner is	
+	1300 Wand disk-shaped measuring approximately 13 inches in diameter and 3 inches in height with a 0.5 L receptacle.The user can set boundary strips and the robotic vaclDlm only cleans certain areas.	</p>
+<input type='radio' name='q121w21' value='A' id='q121w21'><label for=qZw21'A'>	A. 8479.89.2000	</label></br>
+<input type='radio' name='q121w21' value='B' id='q121w21'><label for=qZw21'B'>	B.  8508.11.0000	</label></br>
+<input type='radio' name='q121w21' value='C' id='q121w21'><label for=qZw21'C'>	c. 8508.70.0000	</label></br>
+<input type='radio' name='q121w21' value='D' id='q121w21'><label for=qZw21'D'>	D. 8509.80.1000	</label></br>
+<input type='radio' name='q121w21' value='E' id='q121w21'><label for=qZw21'E'>	E.  8509.80.5080	</label></br>
+</ul>		
+<p id="demo20"></p>		
+</div> 		
+<div id=category121w22 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;">		
+<p class='question'>	22. What is the CLASSIFICATION of a plastic,battery-operated,video poker game that is	
+	designed for one to four players,ages 10 through adult?  The game is a hand-held electronic version of the poker thatis played in casinos.  Players take turns by passing the device from one to another. Each player begins the game with same amount of"cash"(points) and whoever reachesthe pre-determined amount of "money" (points) first, is the winner. On the face of the item there is an "On-Off'switch,a "Deal"button, a "Player''switch and "Hold" button. The "playing cards"are projected on the self-contained screen as well as each player's individual score including the "dealer's".Players can compete against each other or	
+	against the game's built-in "dealer.''	</p>
+<input type='radio' name='q121w22' value='A' id='q121w22'><label for=qZw22'A'>	A. 9503.00.0013	</label></br>
+<input type='radio' name='q121w22' value='B' id='q121w22'><label for=qZw22'B'>	B. 9503.00.0071	</label></br>
+<input type='radio' name='q121w22' value='C' id='q121w22'><label for=qZw22'C'>	c. 9504.30.0010	</label></br>
+<input type='radio' name='q121w22' value='D' id='q121w22'><label for=qZw22'D'>	D. 9504.40.0000	</label></br>
+<input type='radio' name='q121w22' value='E' id='q121w22'><label for=qZw22'E'>	E.  9504.50.0000	</label></br>
+</ul>		
+<p id="demo21"></p>		
+</div> 		
+<div id=category121w23 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;">		
+<p class='question'>	23. What is the CLASSIFICATION of a women's raincoat made from 60% polyester, 400/o	
+	cotton woven fabric?	</p>
+<input type='radio' name='q121w23' value='A' id='q121w23'><label for=qZw23'A'>	A. 6201.13.4015	</label></br>
+<input type='radio' name='q121w23' value='B' id='q121w23'><label for=qZw23'B'>	B.  6202.12.2010	</label></br>
+<input type='radio' name='q121w23' value='C' id='q121w23'><label for=qZw23'C'>	c. 6202.13.4005	</label></br>
+<input type='radio' name='q121w23' value='D' id='q121w23'><label for=qZw23'D'>	D. 6202.13.4010	</label></br>
+<input type='radio' name='q121w23' value='E' id='q121w23'><label for=qZw23'E'>	E.  6202.93.4800	</label></br>
+</ul>		
+<p id="demo22"></p>		
+</div> 		
+<div id=category121w24 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;">		
+<p class='question'>	24. What is the CLASSIFICATION of a wall panel which is manufactured by mixing natural	
+	gypsum plaster powder with water, molding it to shape, allowing it to dry, then reinforcing it with paper?	</p>
+<input type='radio' name='q121w24' value='A' id='q121w24'><label for=qZw24'A'>	A. 2520.10.0000	</label></br>
+<input type='radio' name='q121w24' value='B' id='q121w24'><label for=qZw24'B'>	B.  6802.99.0080	</label></br>
+<input type='radio' name='q121w24' value='C' id='q121w24'><label for=qZw24'C'>	c. 6805.20.0000	</label></br>
+<input type='radio' name='q121w24' value='D' id='q121w24'><label for=qZw24'D'>	D. 6809.11.0010	</label></br>
+<input type='radio' name='q121w24' value='E' id='q121w24'><label for=qZw24'E'>	E. 6904.90.0000	</label></br>
+</ul>		
+<p id="demo23"></p>		
+</div> 		
+<div id=category121w25 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;">		
+<p class='question'>	25. What is the CLASSIFICATION of a standard 90% polyester and 10% cotton textile fabric	
+	dentist seat manufactured in Switzerland and whose armrests, leg rest, footrest,backrest, and seat base are upholstered and affixed to an aluminum metal frame? The dentist seat frame encompasses the ability to rotate, recline,and elevate. The dentist seat does not incorporate dental appliances such as a cuspidor (spittoon), mouth rinser, or instruments for drillingor	
+	filling.	</p>
+<input type='radio' name='q121w25' value='A' id='q121w25'><label for=qZw25'A'>	A. 9018.49.8080	</label></br>
+<input type='radio' name='q121w25' value='B' id='q121w25'><label for=qZw25'B'>	B.  9401.30.8030	</label></br>
+<input type='radio' name='q121w25' value='C' id='q121w25'><label for=qZw25'C'>	c. 9401.71.0031	</label></br>
+<input type='radio' name='q121w25' value='D' id='q121w25'><label for=qZw25'D'>	D. 9402.10.0000	</label></br>
+<input type='radio' name='q121w25' value='E' id='q121w25'><label for=qZw25'E'>	E.  9402.90.0020	</label></br>
+</ul>		
+<p id="demo24"></p>		
+</div> 		
+<div id=category121w26 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;">		
+<p class='question'>	26. Florence Import Company is importingbackpacks into the United States.The backpacks are	
+	constructed with a man-made textile base. The textile is coated on the outer surface of the finished article with a continuous sheet of polyvinyl chloride (PVC). The PVC is embossed to simulate leather. What is the correct CLASSIFICATION of the backpacks?	</p>
+<input type='radio' name='q121w26' value='A' id='q121w26'><label for=qZw26'A'>	A. 4202.22.1500	</label></br>
+<input type='radio' name='q121w26' value='B' id='q121w26'><label for=qZw26'B'>	B. 4202.91.9030	</label></br>
+<input type='radio' name='q121w26' value='C' id='q121w26'><label for=qZw26'C'>	c. 4202.92.3120	</label></br>
+<input type='radio' name='q121w26' value='D' id='q121w26'><label for=qZw26'D'>	D. 4202.92.4500	</label></br>
+<input type='radio' name='q121w26' value='E' id='q121w26'><label for=qZw26'E'>	E.  4205.00.1000	</label></br>
+</ul>		
+<p id="demo25"></p>		
+</div> 		
+<div id=category121w27 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;">		
+<p class='question'>	27.What is the CLASSIFICATION of a women's hip-length jacket with an outer shell	
+	constructed from a laminated 100% polyester woven fabric bonded to a thermoplastic polyurethane film that is visible from the backside of the fabric? The garment is insulated with a 650 fill goose down containing an 80/20 down/feather ratio, has a full front opening secured with a zipper, a multi-adjustable hood, longsleeves with inner-protectivecuffs, an adjustable powder skirt, zippered pockets below the waist and on the sleeves, a zippered vent under each arm,odor control technology,and a hem threaded with an elastic cord fitted with locks for tightening around the body.	</p>
+<input type='radio' name='q121w27' value='A' id='q121w27'><label for=qZw27'A'>	A. 6202.93.0700	</label></br>
+<input type='radio' name='q121w27' value='B' id='q121w27'><label for=qZw27'B'>	B.  6202.93.0911	</label></br>
+<input type='radio' name='q121w27' value='C' id='q121w27'><label for=qZw27'C'>	C. 6210.40.5520	</label></br>
+<input type='radio' name='q121w27' value='D' id='q121w27'><label for=qZw27'D'>	D. 6210.50.5520	</label></br>
+<input type='radio' name='q121w27' value='E' id='q121w27'><label for=qZw27'E'>	E.  6210.50.8050	</label></br>
+</ul>		
+<p id="demo26"></p>		
+</div> 		
+<div id=category121w28 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;">		
+<p class='question'>	28.What is the CLASSIFICATION of a printed paper map of the UnitedStates measuring 24"x	
+	36"? The mmmtainous areas are in three dimensional relief. The printing is color lithography.	
+	The paper is .45 mm thick.	</p>
+<input type='radio' name='q121w28' value='A' id='q121w28'><label for=qZw28'A'>	A. 4905.91.0000	</label></br>
+<input type='radio' name='q121w28' value='B' id='q121w28'><label for=qZw28'B'>	B. 4905.99.0000	</label></br>
+<input type='radio' name='q121w28' value='C' id='q121w28'><label for=qZw28'C'>	C. 4911.99.6000	</label></br>
+<input type='radio' name='q121w28' value='D' id='q121w28'><label for=qZw28'D'>	D. 9014.80.5000	</label></br>
+<input type='radio' name='q121w28' value='E' id='q121w28'><label for=qZw28'E'>	E.  9023.00.0000	</label></br>
+</ul>		
+<p id="demo27"></p>		
+</div> 		
+<div id=category121w29 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;">		
+<p class='question'>	29.What is the CLASSIFICATION of a radiator to be solely used as a part of a self-propelled	
+	bulldozer, with rows of tubing though which coolant flows, and brazed aluminum fins,which transfer heat fromthe coolant to the air flowing through the radiator?	</p>
+<input type='radio' name='q121w29' value='A' id='q121w29'><label for=qZw29'A'>	A. 8419.50.10	</label></br>
+<input type='radio' name='q121w29' value='B' id='q121w29'><label for=qZw29'B'>	B.  8419.90.30	</label></br>
+<input type='radio' name='q121w29' value='C' id='q121w29'><label for=qZw29'C'>	c. 8429.51.10	</label></br>
+<input type='radio' name='q121w29' value='D' id='q121w29'><label for=qZw29'D'>	D. 8431.39.00	</label></br>
+<input type='radio' name='q121w29' value='E' id='q121w29'><label for=qZw29'E'>	E.  8431.49.90	</label></br>
+</ul>		
+<p id="demo28"></p>		
+</div> 		
+<div id=category121w30 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;">		
+<p class='question'>	30. Whatis the CLASSIFICATION of a power supply that is descnbed as a 100-Watt medical	
+	grade powersupply for use with a Portable Oxygen Concentrator (POC)? The power supply is a rectifying power supply and fimctionsto convert input AC input voltage to 29VDC electrical output that is supplied directly to the POC. The powersupply is said to provide power exclusively to a POC and is pennanently embossed stating its limited useas a medical AC/DC Adapter for a POC.	</p>
+<input type='radio' name='q121w30' value='A' id='q121w30'><label for=qZw30'A'>	A. 8504.40.6007	</label></br>
+<input type='radio' name='q121w30' value='B' id='q121w30'><label for=qZw30'B'>	B.  8504.40.8500	</label></br>
+<input type='radio' name='q121w30' value='C' id='q121w30'><label for=qZw30'C'>	c. 8504.40.9520	</label></br>
+<input type='radio' name='q121w30' value='D' id='q121w30'><label for=qZw30'D'>	D. 8504.40.9530	</label></br>
+<input type='radio' name='q121w30' value='E' id='q121w30'><label for=qZw30'E'>	E.  9019.20.0000	</label></br>
+</ul>		
+<p id="demo29"></p>		
+</div> 		
+<div id=category121w31 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		
+<p class='question'>	31. What is the CLASSIFICATION of a mineral oil-based grease,containing less than 30% of	
+	zinc and silica additives, and containingno salts or fatty acids of animal or plant based origin?	</p>
+<input type='radio' name='q121w31' value='A' id='q121w31'><label for=qZw31'A'>	A. 1518.00.2000	</label></br>
+<input type='radio' name='q121w31' value='B' id='q121w31'><label for=qZw31'B'>	B.  1522.00.0000	</label></br>
+<input type='radio' name='q121w31' value='C' id='q121w31'><label for=qZw31'C'>	C. 2710.19.3500	</label></br>
+<input type='radio' name='q121w31' value='D' id='q121w31'><label for=qZw31'D'>	D. 2710.19.4000	</label></br>
+<input type='radio' name='q121w31' value='E' id='q121w31'><label for=qZw31'E'>	E.  2710.99.3200	</label></br>
+</ul>		
+<p id="demo30"></p>		
+</div> 		
+<div id=category121w32 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;">		
+<p class='question'>	32. In which of the following 6-digit subheadings would you classify the imported product	
+	described in the paragraph below?	
+	The mixture contains chemical substances packaged for retail sale as a skin toner.	
+	It is a scented, blue, clear liquid that contains 0.5 percent salicylic acid.It is packaged for	
+	retail sale in eight fluid ounce bottles. Its other ingredients include water, alcohol, glycerin, isoteth-20, PEG-32, sodium citrate, fragrance, propylene glycol,dimethicone propyl PG­ betaine,benzophenone-4,algae extract, aloe barbadensis leaf extract, denatonium benzoate, and blue dye.	
+	The product is used to clear blotchy discolored patches on the skin for cosmetic purposes.	
+	Please be aware of the following Section and Chapter Notes in addition to the terms of each	
+	heading.	
+	Chapter 29 Note 1 (a-h);Section VI (Products of the Chemical or Allied Industries) Note 2;	
+	Chapter 33 Note 2.	</p>
+<input type='radio' name='q121w32' value='A' id='q121w32'><label for=qZw32'A'>	A. 2903.94	</label></br>
+<input type='radio' name='q121w32' value='B' id='q121w32'><label for=qZw32'B'>	B.  3302.10	</label></br>
+<input type='radio' name='q121w32' value='C' id='q121w32'><label for=qZw32'C'>	C. 3304.99	</label></br>
+<input type='radio' name='q121w32' value='D' id='q121w32'><label for=qZw32'D'>	D. 3808.92	</label></br>
+<input type='radio' name='q121w32' value='E' id='q121w32'><label for=qZw32'E'>	E.  3824.99	</label></br>
+</ul>		
+<p id="demo31"></p>		
+</div> 		
+<div id=category121w33 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;">		
+<p class='question'>	33.Whatis the tariff classification of a set of steel hand-tools that includes a screwdriver,	
+	hammer, slip joint pliers and a socket wrench?  The tools are imported packaged for retail sale in a plastic blister pack.	</p>
+<input type='radio' name='q121w33' value='A' id='q121w33'><label for=qZw33'A'>	A. 8203.20.4000	</label></br>
+<input type='radio' name='q121w33' value='B' id='q121w33'><label for=qZw33'B'>	B.  8204.20.0000	</label></br>
+<input type='radio' name='q121w33' value='C' id='q121w33'><label for=qZw33'C'>	C. 8205.40.0000	</label></br>
+<input type='radio' name='q121w33' value='D' id='q121w33'><label for=qZw33'D'>	D. 8205.90.6000	</label></br>
+<input type='radio' name='q121w33' value='E' id='q121w33'><label for=qZw33'E'>	E.  8206.00.0000	</label></br>
+</ul>		
+<p id="demo32"></p>		
+</div> 		
+<div id=category121w34 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;">		
+<p class='question'>	34.What is the CLASSIFICATION for the following scenario? A broker calls and asks for	
+	assistance classifying a clear plastic bag made for transporting food items from a store.The bag is made of polyethylene,it is not insulated and does not havehandles.Itmeasures 6 inches (152.4 mm)inlength and 6 inches in width.The bagalso has are-closable top seal	
+	with a slider that allows the bag to open and close.	</p>
+<input type='radio' name='q121w34' value='A' id='q121w34'><label for=qZw34'A'>	A. 3923.21.0011	</label></br>
+<input type='radio' name='q121w34' value='B' id='q121w34'><label for=qZw34'B'>	B.  3923.21.0020	</label></br>
+<input type='radio' name='q121w34' value='C' id='q121w34'><label for=qZw34'C'>	C. 4202.92.0809	</label></br>
+<input type='radio' name='q121w34' value='D' id='q121w34'><label for=qZw34'D'>	D. 4819.40.0040	</label></br>
+<input type='radio' name='q121w34' value='E' id='q121w34'><label for=qZw34'E'>	E.  6305.33.0080	</label></br>
+</ul>		
+<p id="demo33"></p>		
+</div> 		
+<div id=category121w35 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;">		
+		
+<p class='question'>	35.After filing a drawback notice of intent to export rejected merchandise, CBP will notify an	
+	importer or broker of its decision to examine the merchandise. How will the importer or broker arrange for that exam?	</p>
+<input type='radio' name='q121w35' value='A' id='q121w35'><label for=qZw35'A'>	A. Contact the inspection personnelinthe port at which the CBP Form 7553 was filed.	</label></br>
+<input type='radio' name='q121w35' value='B' id='q121w35'><label for=qZw35'B'>	B.  Contact the entry specialist inthe port at which the CBP Form 7501 was flled.	</label></br>
+<input type='radio' name='q121w35' value='C' id='q121w35'><label for=qZw35'C'>	C.  Contact the broker management office inthe port at which CBP Form 3461 was filed.	</label></br>
+<input type='radio' name='q121w35' value='D' id='q121w35'><label for=qZw35'D'>	D. Contact the import specialist in the port at which the CBP FORM 3495 was filed. 	</label></br>
+<input type='radio' name='q121w35' value='E' id='q121w35'><label for=qZw35'E'>	E.  Contact the inspection personnelinthe port at which CBP Form 6043 was filed.	</label></br>
+</ul>		
+<p id="demo34"></p>		
+</div> 		
+<div id=category121w36 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;">		
+<p class='question'>	36.What percentage of duties paid with respect to the imported merchandise may a claimant	
+	receive on filing a drawback claim?	</p>
+<input type='radio' name='q121w36' value='A' id='q121w36'><label for=qZw36'A'>	A. 1%	</label></br>
+<input type='radio' name='q121w36' value='B' id='q121w36'><label for=qZw36'B'>	B.  10%	</label></br>
+<input type='radio' name='q121w36' value='C' id='q121w36'><label for=qZw36'C'>	c. 35%	</label></br>
+<input type='radio' name='q121w36' value='D' id='q121w36'><label for=qZw36'D'>	D. 50%	</label></br>
+<input type='radio' name='q121w36' value='E' id='q121w36'><label for=qZw36'E'>	E. 99%	</label></br>
+</ul>		
+<p id="demo35"></p>		
+</div> 		
+<div id=category121w37 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;">		
+<p class='question'>	37.The drawback entry is to be flied through a CBP-authorized electronic system and must	
+	include all of the following EXCEPT:	</p>
+<input type='radio' name='q121w37' value='A' id='q121w37'><label for=qZw37'A'>	A.Claimant identification number	</label></br>
+<input type='radio' name='q121w37' value='B' id='q121w37'><label for=qZw37'B'>	B. Port code for the drawback office where the claim is being fi1ed	</label></br>
+<input type='radio' name='q121w37' value='C' id='q121w37'><label for=qZw37'C'>	C. Drawback entry number and provision(s) under which drawbackis claimed	</label></br>
+<input type='radio' name='q121w37' value='D' id='q121w37'><label for=qZw37'D'>	D.The 8-digit HTSUS classification,of each item beingexported	</label></br>
+<input type='radio' name='q121w37' value='E' id='q121w37'><label for=qZw37'E'>	E. Amount of refund claimed for each of relevant duties,taxes, and fees	</label></br>
+</ul>		
+<p id="demo36"></p>		
+</div> 		
+<div id=category121w38 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;">		
+<p class='question'>	38.Evidence of any transfers of merchandise must be evidenced by records as defined in	</p>
+<input type='radio' name='q121w38' value='A' id='q121w38'><label for=qZw38'A'>	A. 19 CFR  190.2	</label></br>
+<input type='radio' name='q121w38' value='B' id='q121w38'><label for=qZw38'B'>	B.  19 CFR  190.4	</label></br>
+<input type='radio' name='q121w38' value='C' id='q121w38'><label for=qZw38'C'>	C. 19 CFR  190.10	</label></br>
+<input type='radio' name='q121w38' value='D' id='q121w38'><label for=qZw38'D'>	D. 19 CFR  190.24	</label></br>
+<input type='radio' name='q121w38' value='E' id='q121w38'><label for=qZw38'E'>	E.  19 CFR  190.73	</label></br>
+</ul>		
+<p id="demo37"></p>		
+</div> 		
+<div id=category121w39 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;">		
+<p class='question'>	39.Select the appropriate term for the following definition:e entry of covered merchandise	
+	into the customs territory of the United States for consumption by means of any document or electronically transmitted data or information, written or oral statement, or act that is material and false, or any omission that is material, and that results in any cash deposit or other security or any amount of applicable antidumping or countervailing duties being reduced or not being applied with respect to the covered merchandise.	</p>
+<input type='radio' name='q121w39' value='A' id='q121w39'><label for=qZw39'A'>	A. Convection	</label></br>
+<input type='radio' name='q121w39' value='B' id='q121w39'><label for=qZw39'B'>	B.  Evasion	</label></br>
+<input type='radio' name='q121w39' value='C' id='q121w39'><label for=qZw39'C'>	C.  Investigation	</label></br>
+<input type='radio' name='q121w39' value='D' id='q121w39'><label for=qZw39'D'>	D. Allegation	</label></br>
+<input type='radio' name='q121w39' value='E' id='q121w39'><label for=qZw39'E'>	E.  Invasion	</label></br>
+</ul>		
+<p id="demo38"></p>		
+</div> 		
+<div id=category121w40 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;">		
+<p class='question'>	40.Who conducts the investigation of an alleged evasion?	</p>
+<input type='radio' name='q121w40' value='A' id='q121w40'><label for=qZw40'A'>	A. Department of Commerce	</label></br>
+<input type='radio' name='q121w40' value='B' id='q121w40'><label for=qZw40'B'>	B. Homeland Security Investigations	</label></br>
+<input type='radio' name='q121w40' value='C' id='q121w40'><label for=qZw40'C'>	C.  Trade Remedy Law Enforcement Directorate	</label></br>
+<input type='radio' name='q121w40' value='D' id='q121w40'><label for=qZw40'D'>	D. Regulations and Rulings	</label></br>
+<input type='radio' name='q121w40' value='E' id='q121w40'><label for=qZw40'E'>	E.  Regulatory Audit	</label></br>
+</ul>		
+<p id="demo39"></p>		
+</div> 		
+<div id=category121w41 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;">		
+<p class='question'>	41.Make Sure Company imported eight ball bearings with integral shafts from Germany, which	
+	are classified under subheading 8482.10.10, Harmoni.u:d Tariff Schedule of the United States,at a 2.4% ad valorem duty rate and subject to antidumping duties.  The ball bearings are shipped by air and fonnally entered at John F. Kennedy International AirporL  The total value of the shipment is $12,479.49. The applicable antidumpingduty case deposit rate is	
+	88.69%. What is the total amount of estimated duties and fees that should be reported on the	
+	CBP Form 7501?	</p>
+<input type='radio' name='q121w41' value='A' id='q121w41'><label for=qZw41'A'>	A. $299.50	</label></br>
+<input type='radio' name='q121w41' value='B' id='q121w41'><label for=qZw41'B'>	B. $11,067.63	</label></br>
+<input type='radio' name='q121w41' value='C' id='q121w41'><label for=qZw41'C'>	c. $11,110.86	</label></br>
+<input type='radio' name='q121w41' value='D' id='q121w41'><label for=qZw41'D'>	D. $11,367.13	</label></br>
+<input type='radio' name='q121w41' value='E' id='q121w41'><label for=qZw41'E'>	E.  $11,410.36	</label></br>
+</ul>		
+<p id="demo40"></p>		
+</div> 		
+<div id=category121w42 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		
+<p class='question'>	42.Goods are imported under a cons'lDD.ption entry on January 3, 2020. Estimated duties are	
+	deposited.On October 18, 2020,CBP liquidated the entry and assessed moreduty than was deposited. A bill was issued to the importer of record. The importer of record paid the bill on time.Based on the above,which of the followingis TRUE?	</p>
+<input type='radio' name='q121w42' value='A' id='q121w42'><label for=qZw42'A'>	A. The broker must maintain a consumption entry subject to an antidumping investigation	
+	until the entry liquidates.	</label></br>
+<input type='radio' name='q121w42' value='B' id='q121w42'><label for=qZw42'B'>	B.  The broker must maintain the consumption entry subject to an antidumping investigation for five years after the entry liquidates.	</label></br>
+<input type='radio' name='q121w42' value='C' id='q121w42'><label for=qZw42'C'>	C.  The broker must maintain the consumption entry subject to an antidumpinginvestigation for three years after the entry liquidates.	</label></br>
+<input type='radio' name='q121w42' value='D' id='q121w42'><label for=qZw42'D'>	D. The broker must maintain the consumption entry subject to an antidumping investigation for five years after the date of entry.	</label></br>
+<input type='radio' name='q121w42' value='E' id='q121w42'><label for=qZw42'E'>	E.  The broker must maintain the consumption entry subject to an antidumpinginvestigation	
+	for five years after the date of creation of the entry.	</label></br>
+</ul>		
+<p id="demo41"></p>		
+</div> 		
+<div id=category121w43 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 	
+<p class='question'>	43.To amend the actual owner identified on an entry summary filed with CBP, a CBP Form ? must be submitted within 90 days from the date of entry.	</p>
+<input type='radio' name='q121w43' value='A' id='q121w43'><label for=qZw43'A'>	A. CBP Form 3229	</label></br>
+<input type='radio' name='q121w43' value='B' id='q121w43'><label for=qZw43'B'>	B.  CBP Form 3347	</label></br>
+<input type='radio' name='q121w43' value='C' id='q121w43'><label for=qZw43'C'>	C.  CBP Form 4457	</label></br>
+<input type='radio' name='q121w43' value='D' id='q121w43'><label for=qZw43'D'>	D. CBP Form 4811	</label></br>
+<input type='radio' name='q121w43' value='E' id='q121w43'><label for=qZw43'E'>	E.  CBP Form 6043	</label></br>
+</ul>		
+<p id="demo42"></p>		
+</div> 		
+<div id=category121w44 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		
+<p class='question'>	44.If a CBP bond has NOT been satisfied and no measures have been takento file an	
+	application for relief or protest and the bond is NOT given for the production of free-entry or reduced-duty documents, how many days must pass until the matter will be reported to the Department of Justice for prosecution after the date liability has accrued under this bond?	</p>
+<input type='radio' name='q121w44' value='F' id='q121w44'><label for=qZw44'F'>	A. 45 days	</label></br>
+<input type='radio' name='q121w44' value='A' id='q121w44'><label for=qZw44'A'>	B.  60 days 	</label></br>
+<input type='radio' name='q121w44' value='B' id='q121w44'><label for=qZw44'B'>	C.  90 days 	</label></br>
+<input type='radio' name='q121w44' value='C' id='q121w44'><label for=qZw44'C'>	D. 135 days 	</label></br>
+<input type='radio' name='q121w44' value='D' id='q121w44'><label for=qZw44'D'>	E.  180 days	</label></br>
+</ul>		
+<p id="demo43"></p>		
+</div> 		
+<div id=category121w45 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		
+<p class='question'>	45.Whenever a bond is required or authorized by law, regulation, or instruction, the	
+	Commissioner of CBP may do all of the following EXCEPT:	</p>
+<input type='radio' name='q121w45' value='A' id='q121w45'><label for=qZw45'A'>	A. Prescnbe the conditions and form of the bond and fixthe amount of penalty,whether for	
+	the payment of liquidated damages,or of a penal sum,except as otherwise specifically provided by law.	</label></br>
+<input type='radio' name='q121w45' value='B' id='q121w45'><label for=qZw45'B'>	B.  Provide for the denial of the sureties on the bond, without regard to any general provision	
+	of law.	</label></br>
+<input type='radio' name='q121w45' value='C' id='q121w45'><label for=qZw45'C'>	C.  Authorize the execution of a term bond, the conditions of which will extend to and cover similar cases of importations over a period of time, not to exceed one year or such longer period as he may IIX, when in his opinion special circumstances warrant a longer period.	</label></br>
+<input type='radio' name='q121w45' value='D' id='q121w45'><label for=qZw45'D'>	D. Authorize the taking of a consolidated bond (single transaction or term) in lieu of	
+	separate bonds to assurecompliance with two or more provisions of law, regulation,or instruction. Such a consolidated bond will have the same force and effect as the separate bonds in lieu of which it was taken.	</label></br>
+<input type='radio' name='q121w45' value='E' id='q121w45'><label for=qZw45'E'>	E.  The Commissioner of CBP may fix the penalty for violation of a consolidated bond	
+	without regard to any other provision of law, regulation,or ins1ruction.	</label></br>
+</ul>		
+<p id="demo44"></p>		
+</div> 		
+<div id=category121w46 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		
+<p class='question'>	46.Which of the followingis INCORRECT regardingeffective dates ofbondsand riders?	</p>
+<input type='radio' name='q121w46' value='A' id='q121w46'><label for=qZw46'A'>	A. A continuousbond, and any associated application required by §113.11, or rider, may be	
+	filed up to 60 days prior to the effectivedate requested for the continuous bond or rider.	</label></br>
+<input type='radio' name='q121w46' value='B' id='q121w46'><label for=qZw46'B'>	B. Single transaction bond  A single transaction bond is effective on the date of the transaction identified on CBP Form 301.	</label></br>
+<input type='radio' name='q121w46' value='C' id='q121w46'><label for=qZw46'C'>	C.  Continuous bond. A continuous bond is effective on the effective date identified on CBP	
+	Form301.	</label></br>
+<input type='radio' name='q121w46' value='D' id='q121w46'><label for=qZw46'D'>	D. Riders for name change of principal, address change, and addition of trade names and unincorporated divisions of a corporate principal.Riders for a namechange of principal, address change,and addition of trade names and unincorporated divisions of a corporate principal are effective on the effective date identified on the rider.	</label></br>
+<input type='radio' name='q121w46' value='E' id='q121w46'><label for=qZw46'E'>	E. Rider to delete trade names and uninco1porated divisions of a corporate principal. A rider to delete trade names and unincorporated divisions of a corporate principalis effectiveon the effectivedate identified on the rider if the date is at least 20 business days after the date the port receivesthe rider.If the rider is not received 20 business days before the identified effective date or no effective dateis identified on the rider,it will be effectiveon the close of business of the tenth business day after it is received in the port.	</label></br>
+</ul>		
+<p id="demo45"></p>		
+</div> 		
+<div id=category121w47 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		</label></br>
+<p class='question'>	47.What is the MAXIMUM amount of time allowed for merchandise transported in-bond via	
+	truck other than barge to be delivered to CBP at the port of destination or port of exportaOOn.?	</p>
+<input type='radio' name='q121w47' value='A' id='q121w47'><label for=qZw47'A'>	A. 15 days	</label></br>
+<input type='radio' name='q121w47' value='B' id='q121w47'><label for=qZw47'B'>	B.  30 days 	</label></br>
+<input type='radio' name='q121w47' value='C' id='q121w47'><label for=qZw47'C'>	C.  45 days 	</label></br>
+<input type='radio' name='q121w47' value='D' id='q121w47'><label for=qZw47'D'>	D. 60 days	</label></br>
+<input type='radio' name='q121w47' value='E' id='q121w47'><label for=qZw47'E'>	E.  90 days	</label></br>
+</ul>		
+<p id="demo46"></p>		
+</div> 		
+<div id=category121w48 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		
+<p class='question'>	48.Whatis the MAXIMUM amount of time allowed for merchandise transported in-bond via	
+	barge to be delivered to CBP at the port of destination or port of exportation?	</p>
+<input type='radio' name='q121w48' value='A' id='q121w48'><label for=qZw48'A'>	A. 15 days	</label></br>
+<input type='radio' name='q121w48' value='B' id='q121w48'><label for=qZw48'B'>	B.  30 days 	</label></br>
+<input type='radio' name='q121w48' value='C' id='q121w48'><label for=qZw48'C'>	C.  45 days 	</label></br>
+<input type='radio' name='q121w48' value='D' id='q121w48'><label for=qZw48'D'>	D. 60 days 	</label></br>
+<input type='radio' name='q121w48' value='E' id='q121w48'><label for=qZw48'E'>	E.  90 days	</label></br>
+</ul>		
+<p id="demo47"></p>		
+</div> 		
+<div id=category121w49 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		
+<p class='question'>	49.Which of the following documents MUST be filed pursuant to 19 CFR § 10.1(a) in	
+	connection with the entry of articles ina shipment valued over $2,500.00 and claimed to be free of duty under subheading 9801.00.10 or 9802.00.20,Harmonized Tariff Schedule of the	
+	United States (HTSUS):	</p>
+<input type='radio' name='q121w49' value='A' id='q121w49'><label for=qZw49'A'>	A. A declaration by the assembler	</label></br>
+<input type='radio' name='q121w49' value='B' id='q121w49'><label for=qZw49'B'>	B.  An end use statement	</label></br>
+<input type='radio' name='q121w49' value='C' id='q121w49'><label for=qZw49'C'>	C.  A declaration by the foreign shipper	</label></br>
+<input type='radio' name='q121w49' value='D' id='q121w49'><label for=qZw49'D'>	D. Proofofpaymcnt	</label></br>
+<input type='radio' name='q121w49' value='E' id='q121w49'><label for=qZw49'E'>	E.  CBP Form 3495 (Application for Exportation of Articles under Special Bond)	</label></br>
+</ul>		
+<p id="demo48"></p>		
+</div> 		
+<div id=category121w50 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		
+<p class='question'>	50.Which of the followingstatements regarding an ATA Camet is INCORRECT?	</p>
+<input type='radio' name='q121w50' value='A' id='q121w50'><label for=qZw50'A'>	A. No ATA Camet shall be accepted with a validity period exceeding one year.	</label></br>
+<input type='radio' name='q121w50' value='B' id='q121w50'><label for=qZw50'B'>	B.  All carnets shall include an English translation whenever the goods descnbed by the camet are described in a foreign language.	</label></br>
+<input type='radio' name='q121w50' value='C' id='q121w50'><label for=qZw50'C'>	C.  A camet simultaneously serves as a customs document and as a customsbond	</label></br>
+<input type='radio' name='q121w50' value='D' id='q121w50'><label for=qZw50'D'>	D. Additions to the camet inventory list shall be added to the back of the carnet booklet. 	</label></br>
+<input type='radio' name='q121w50' value='E' id='q121w50'><label for=qZw50'E'>	E.  Merchandise covered by a camet may be examined prior to beingladen for direct	
+	exportation.	</label></br>
+</ul>		
+<p id="demo49"></p>		
+</div> 		
+<div id=category121w51 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		
+<p class='question'>	51. The following articles may not be designated as an eligible articles for the purposes of	
+	Generalized System of Preferences (GSP), which the EXCEPTION of:	</p>
+<input type='radio' name='q121w51' value='A' id='q121w51'><label for=qZw51'A'>	A. import-sensitive electronic articles	</label></br>
+<input type='radio' name='q121w51' value='B' id='q121w51'><label for=qZw51'B'>	B.  import-sensitive steel articles	</label></br>
+<input type='radio' name='q121w51' value='C' id='q121w51'><label for=qZw51'C'>	C.  import-sensitive semi manufactured and manufactured glass products	</label></br>
+<input type='radio' name='q121w51' value='D' id='q121w51'><label for=qZw51'D'>	D. watches, except as determined by the President pursuant to Section 503(c)(l)B of the Trade Act of 1974,as amended		</label></br>
+	
+<input type='radio' name='q121w51' value='E' id='q121w51'><label for=qZw51'E'>	E.  any other articles which the President determines to be import-sensitive in the context of theGSP.	</label></br>
+</ul>		
+<p id="demo50"></p>		
+</div> 		
+<div id=category121w52 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		
+<p class='question'>	52.Which person listed below CANNOT sign or certify the electronic transmission of the entry	
+	or entry summary?	</p>
+<input type='radio' name='q121w52' value='A' id='q121w52'><label for=qZw52'A'>	A. Buying or Selling Agent	</label></br>
+<input type='radio' name='q121w52' value='B' id='q121w52'><label for=qZw52'B'>	B. Owner	</label></br>
+<input type='radio' name='q121w52' value='C' id='q121w52'><label for=qZw52'C'>	C.  Purchaser	</label></br>
+<input type='radio' name='q121w52' value='D' id='q121w52'><label for=qZw52'D'>	D. Freight Forwarder	</label></br>
+<input type='radio' name='q121w52' value='E' id='q121w52'><label for=qZw52'E'>	E.  Broker	</label></br>
+</ul>		
+<p id="demo51"></p>		
+</div> 		
+<div id=category121w53 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		
+<p class='question'>	53.The following are examples of assembly operations which are incidental to the assembly	
+	process EXCEPT:	</p>
+<input type='radio' name='q121w53' value='A' id='q121w53'><label for=qZw53'A'>	A. Cleaning	</label></br>
+<input type='radio' name='q121w53' value='B' id='q121w53'><label for=qZw53'B'>	B.  Trimming filing, or cutting off of small ammmts of excess materials	</label></br>
+<input type='radio' name='q121w53' value='C' id='q121w53'><label for=qZw53'C'>	C.  Cutting to length of wire, thread, tape,foil, and other similar products exported in continuous length: separation by cuttingof f'mished components	</label></br>
+<input type='radio' name='q121w53' value='D' id='q121w53'><label for=qZw53'D'>	D. Removal of rust, grease, paint, or other preservative coating	</label></br>
+<input type='radio' name='q121w53' value='E' id='q121w53'><label for=qZw53'E'>	E.  Cutting of garment part according to pattern from exported material	</label></br>
+</ul>		
+<p id="demo52"></p>		
+</div> 		
+<div id=category121w54 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		
+<p class='question'>	54.Antique articles are prohibited entry under the Endangered Species Act of 1973 (19	
+	USC1521)with some exceptions.Which of the following statement is FALSE?	</p>
+<input type='radio' name='q121w54' value='A' id='q121w54'><label for=qZw54'A'>	A. The article is not less than 100 years	</label></br>
+<input type='radio' name='q121w54' value='B' id='q121w54'><label for=qZw54'B'>	B.  The articles are entered at a port designated in 19 CFR § 18.26	</label></br>
+<input type='radio' name='q121w54' value='C' id='q121w54'><label for=qZw54'C'>	C.  The articles are composed in whole or inpart of any endangered or threatened species as listed in 50 CFR § 17.11 or 50 CFR§ 17.12	</label></br>
+<input type='radio' name='q121w54' value='D' id='q121w54'><label for=qZw54'D'>	D. The articles have not been repaired or modified with any part of any such endangered or threatened species on or after December 28, 1973.	</label></br>
+<input type='radio' name='q121w54' value='E' id='q121w54'><label for=qZw54'E'>	E.  A declaration for Importation or Exportation ofFish or Wildlife (USFWF)  Form 3-177 or its electronic equivalent is filed at the time of entry with the port director who will	
+	forward the form to the U.S. Fish and Wildlife Service	</label></br>
+</ul>		
+<p id="demo53"></p>		
+</div> 		
+<div id=category121w55 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		
+<p class='question'>	55.Importers of films shall certify on which Customs Form that the imported films contain no	
+	obscene or immoral matter, nor any matter advocatingor urging tension or insurrection against the United States.	</p>
+<input type='radio' name='q121w55' value='A' id='q121w55'><label for=qZw55'A'>	A. CBP Form 3124	</label></br>
+<input type='radio' name='q121w55' value='B' id='q121w55'><label for=qZw55'B'>	B.  CBP Form 3291	</label></br>
+<input type='radio' name='q121w55' value='C' id='q121w55'><label for=qZw55'C'>	C.  CBP Form 339V	</label></br>
+<input type='radio' name='q121w55' value='D' id='q121w55'><label for=qZw55'D'>	 D. CBP Form 1-510	</label></br>
+<input type='radio' name='q121w55' value='E' id='q121w55'><label for=qZw55'E'>	E.  CBP Form 1-736	</label></br>
+</ul>		
+<p id="demo54"></p>		
+</div> 		
+<div id=category121w56 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		
+<p class='question'>	56.Which one of the following terms is used,for legal purposes, to determine	
+	CLASSIFICATION?	</p>
+<input type='radio' name='q121w56' value='A' id='q121w56'><label for=qZw56'A'>	A. The titles of sections	</label></br>
+<input type='radio' name='q121w56' value='B' id='q121w56'><label for=qZw56'B'>	B.  The section notes	</label></br>
+<input type='radio' name='q121w56' value='C' id='q121w56'><label for=qZw56'C'>	C.  The alphabetical index 	</label></br>
+<input type='radio' name='q121w56' value='D' id='q121w56'><label for=qZw56'D'>	D. The table of contents 	</label></br>
+<input type='radio' name='q121w56' value='E' id='q121w56'><label for=qZw56'E'>	E. The chapter number	</label></br>
+</ul>		
+<p id="demo55"></p>		
+</div> 		
+<div id=category121w57 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		
+<p class='question'>	57.When filing a Temporary Importation Bond Entry, which of the following is NOT a	
+	requirement per the Code of Federal Regulations?	</p>
+<input type='radio' name='q121w57' value='A' id='q121w57'><label for=qZw57'A'>	A. A statement of the use to be made of the articles in sufficient detail to enable the port	
+	director to determine whether they are entitled to entry as claimed.	</label></br>
+<input type='radio' name='q121w57' value='B' id='q121w57'><label for=qZw57'B'>	 B.  A Manufacturer's Mfidavit attesting to the origin of the goods.	</label></br>
+<input type='radio' name='q121w57' value='C' id='q121w57'><label for=qZw57'C'>	C.  A declaration that the articles are not to be put to any other use and that they are not imported for sale or sale on approval.	</label></br>
+<input type='radio' name='q121w57' value='D' id='q121w57'><label for=qZw57'D'>	D. A description of each article indetail.	</label></br>
+<input type='radio' name='q121w57' value='E' id='q121w57'><label for=qZw57'E'>	E. The HTSUS subheading number under which entry is claimed.	</label></br>
+</ul>		
+<p id="demo56"></p>		
+</div> 		
+<div id=category121w58 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		
+<p class='question'>	58.Which of the below total entered values is correctly formatted for use incomputation of duty	
+	and fees on an entry?	</p>
+<input type='radio' name='q121w58' value='A' id='q121w58'><label for=qZw58'A'>	A. $10,250.06	</label></br>
+<input type='radio' name='q121w58' value='B' id='q121w58'><label for=qZw58'B'>	B.  $12,450.00	</label></br>
+<input type='radio' name='q121w58' value='C' id='q121w58'><label for=qZw58'C'>	C.  $13,976.25	</label></br>
+<input type='radio' name='q121w58' value='D' id='q121w58'><label for=qZw58'D'>	D. $15,906.15	</label></br>
+<input type='radio' name='q121w58' value='E' id='q121w58'><label for=qZw58'E'>	E. $15,333.49	</label></br>
+</ul>		
+<p id="demo57"></p>		
+</div> 		
+<div id=category121w59 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 	Category X-Fines,Penalties and Forfeitures	
+<p class='question'>	59.Inaccordance with 19 CFR §Part 171AppendixB, which of the following circumstances	
+	would NOT be considered a "mitigating factor''inthe CBP administrative penalty decision	
+	for a proposed or assessed penalty claim?	</p>
+<input type='radio' name='q121w59' value='A' id='q121w59'><label for=qZw59'A'>	A. Demonstration of a consistent pattern of importations that is in compliance with all	
+	applicable CBP laws and regulations.	</label></br>
+<input type='radio' name='q121w59' value='B' id='q121w59'><label for=qZw59'B'>	B.  Timely compliance with lawful CBP requests for records related to the alleged violation(s) in accordance with 19 CFR § 163.6.	</label></br>
+<input type='radio' name='q121w59' value='C' id='q121w59'><label for=qZw59'C'>	C.  Providing CBP with additional information relating to the subject violation or other	
+	violations.	</label></br>
+<input type='radio' name='q121w59' value='D' id='q121w59'><label for=qZw59'D'>	D. Takingremedial action to pay the actual1oss of duties prior to a penalty notice and within	
+	30 days ofCBP's notification.	</label></br>
+<input type='radio' name='q121w59' value='E' id='q121w59'><label for=qZw59'E'>	E.  Demonstration that CBP had actual knowledge of the violation and, without justification, failed to inform the importer/broker so that an earlier corrective action could havebeen taken.	</label></br>
+</ul>		
+<p id="demo58"></p>		
+</div> 		
+<div id=category121w60 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		
+<p class='question'>	60.Which of the followingis subject to mandatory seizmeunder 19 USC 1595a(c)?	</p>
+<input type='radio' name='q121w60' value='A' id='q121w60'><label for=qZw60'A'>	A. Merchandise which is restricted or prohibited by law relating to health, safety,or	
+	conservation and is notincompliance.	</label></br>
+<input type='radio' name='q121w60' value='B' id='q121w60'><label for=qZw60'B'>	B.  Merchandise that requires a license to import and is not accompanied by such license. 	</label></br>
+<input type='radio' name='q121w60' value='C' id='q121w60'><label for=qZw60'C'>	C.  Merchandise in which copyright, trademark, or trade name protection violations are involved.	</label></br>
+<input type='radio' name='q121w60' value='D' id='q121w60'><label for=qZw60'D'>	D. Merchandise marked intentionally in violation of 19USC 1304.	</label></br>
+<input type='radio' name='q121w60' value='E' id='q121w60'><label for=qZw60'E'>	E.  Merchandise that is stolen, smuggled,or clandestinely imported or introduced.	</label></br>
+</ul>		
+<p id="demo59"></p>		
+</div> 		
+<div id=category121w61 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		
+<p class='question'>	61.Inorder to perfect a prior-disclosure under 19 CFR § 162.74, the disclosingparty must	
+	provide CBP with a description of the involved class or kind of merchandise, the impacted importation or drawbackclaim(s), specification of the material false statement(s) or omission(s), and-to the best of the disclosing party's knowledge - the true and accurate information that should have been provided to Customs,within which of the following	
+	timeframes?	</p>
+<input type='radio' name='q121w61' value='A' id='q121w61'><label for=qZw61'A'>	A. Within 30 days of the initial disclosure date,or additional time as granted by the	
+	concerned Fines, Penalties and Forfeitures Officer.	</label></br>
+<input type='radio' name='q121w61' value='B' id='q121w61'><label for=qZw61'B'>	B.  Within 30 days of CBP's formal request.	</label></br>
+<input type='radio' name='q121w61' value='C' id='q121w61'><label for=qZw61'C'>	C.  Within 30 days of the oral disclosure date, unlessadditional time has been formally requested from CBP within this same period.	</label></br>
+<input type='radio' name='q121w61' value='D' id='q121w61'><label for=qZw61'D'>	D. Within 30 days of CBP's formal request, unless a concurrent protest has been filed within the requirements of 19 CFR § 174.12 during the same period	</label></br>
+<input type='radio' name='q121w61' value='E' id='q121w61'><label for=qZw61'E'>	E.  Within 30 days of the initial disclosure date, unless the information or data is unavailable	
+	or unknown to the disclosing party.	</label></br>
+</ul>		
+<p id="demo60"></p>		
+</div> 		
+<div id=category121w62 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		
+<p class='question'>	62.Which time frame is INCORRECT?	</p>
+<input type='radio' name='q121w62' value='A' id='q121w62'><label for=qZw62'A'>	A. Petitions for relief from seizures must be filed within 30 days from the date of the	
+	mailing of the notice of seizme.	</label></br>
+<input type='radio' name='q121w62' value='B' id='q121w62'><label for=qZw62'B'>	B.  Supplemental petition must be filed within 60 days from the date of notice to the petitioner of the decision from which further relief is requested.	</label></br>
+<input type='radio' name='q121w62' value='C' id='q121w62'><label for=qZw62'C'>	C.  The penalty assessment shall inform the violator that he has 30 days to respond as to why a penalty should not be issued.	</label></br>
+<input type='radio' name='q121w62' value='D' id='q121w62'><label for=qZw62'D'>	D. The failure of a Customs Broker that is licensed as a corporation to have, for any continuous period of 180 days,at least one officer of the corporation validly licensed.	</label></br>
+<input type='radio' name='q121w62' value='E' id='q121w62'><label for=qZw62'E'>	E.  Failure of a Customs Broker granted a Permit to conduct business ina certain district	
+	to employ, for a continuous period of 180 days,at least one individual who is licensed within the district or region.	</label></br>
+</ul>		
+<p id="demo61"></p>		
+</div> 		
+<div id=category121w63 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		
+<p class='question'>	63. Based on the information provided, which statement is TRUE?	
+	>Cotton fabric woven in the US of US yarn	
+	>Fabric cut and assembled into trousers in South Africa	
+	>Waistband formed in Korea	
+	>Sewing thread from Korea	
+	>Trousers washed, packed and shipped from Kenya to US	</p>
+<input type='radio' name='q121w63' value='A' id='q121w63'><label for=qZw63'A'>	A. These trousers qualify for AGOA	</label></br>
+<input type='radio' name='q121w63' value='B' id='q121w63'><label for=qZw63'B'>	B. The Korean waistband disqualifies these garments for AGOA	</label></br>
+<input type='radio' name='q121w63' value='C' id='q121w63'><label for=qZw63'C'> C. The Korean sewing thread disqualifies these garments for AGOA	</label></br>
+<input type='radio' name='q121w63' value='D' id='q121w63'><label for=qZw63'D'> D. These trousers would be classified in Ch 61 of the HTSUS	</label></br>
+<input type='radio' name='q121w63' value='E' id='q121w63'><label for=qZw63'E'>	E. These trousers do no qualify for AGOA because they were not directly shipped from South Africa to the US	</label></br>
+</ul>		
+<p id="demo62"></p>		
+</div> 		
+<div id=category121w64 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		
+<p class='question'>	64. Based on the information provided, which statement is TRUE?	
+	>Cotton fabric woven in the US of US yarn	
+	>Fabric cut in Guatemala	
+	>Components sewn into a dress in Jamaica using US sewing thread	
+	>Dress embroidered in Guatemala using Guatemalan embroidery thread that comprises 24% of the costs of the components of the garment	
+	>Dress shipped from Guatemala to the US	</p>
+<input type='radio' name='q121w64' value='A' id='q121w64'><label for=qZw64'A'>	A. This dress qualifies for CBTPA	</label></br>
+<input type='radio' name='q121w64' value='B' id='q121w64'><label for=qZw64'B'>	B. This dress does not qualify for CBTPA because the fabric is cut in Guatemala	</label></br>
+<input type='radio' name='q121w64' value='C' id='q121w64'><label for=qZw64'C'>	C. This dress does not qualify for CBTPA because the embroidery thread exceeds the permissible de minimis value for foreign findings for trimmings	</label></br>
+<input type='radio' name='q121w64' value='D' id='q121w64'><label for=qZw64'D'>	D. This dress does not qualify for CBTPA because it does not meet the direct shipment requirement	</label></br>
+<input type='radio' name='q121w64' value='E' id='q121w64'><label for=qZw64'E'>	E. This dress would be classified in heading 6204 of the HTSUS	</label></br>
+</ul>		
+<p id="demo63"></p>		
+</div> 		
+<div id=category121w65 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		
+<p class='question'>	65. Some imported goods that qualify for preferential tariff treatment under various free trade agreements are exempt from payment of the merchandise processing fee.	
+	For which  selection below would the merchandise processing fee still be due and payable?	</p>
+<input type='radio' name='q121w65' value='A' id='q121w65'><label for=qZw65'A'>	A. Goods qualifying under the US-Singapore Free Trade Agreement	</label></br>
+<input type='radio' name='q121w65' value='B' id='q121w65'><label for=qZw65'B'>	B. Goods qualifying under the US-Chile Free Trade Agreement	</label></br>
+<input type='radio' name='q121w65' value='C' id='q121w65'><label for=qZw65'C'>	C. Goods qualifying under the US-Oman Free Trade Agreement	</label></br>
+<input type='radio' name='q121w65' value='D' id='q121w65'><label for=qZw65'D'>	D. Goods qualifying under the US-Morocco Free Trade Agreement	</label></br>
+<input type='radio' name='q121w65' value='E' id='q121w65'><label for=qZw65'E'>	E. Goods qualifying under the US-Bahrain Free Trade Agreement	</label></br>
+</ul>		</label></br>
+<p id="demo64"></p>		
+</div> 		
+<div id=category121w66 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		
+<p class='question'>	66. Based on the information provided, which statement is TRUE?	
+	>Wool yarn formed in Canada	
+	>Elastomeric yarn formed in Korea	
+	>96% wool; 4% spandex fabric woven in US	
+	>Visible lining fabric of subheading 5512.19 woven in Korea	
+	>Fabric cut and sewn into women's trousers with visible lining Mexico	
+	>Trousers shipped from Mexico to the US	</p>
+<input type='radio' name='q121w66' value='A' id='q121w66'><label for=qZw66'A'>	A. The elastomeric yarn from Korea disqualifies these trousers from NAFTA	</label></br>
+<input type='radio' name='q121w66' value='B' id='q121w66'><label for=qZw66'B'>	B. The Korean visible lining fabric does not disqualify these trousers from NAFTA	</label></br>
+<input type='radio' name='q121w66' value='C' id='q121w66'><label for=qZw66'C'>	C. The Korean visible lining fabric disqualifies these trousers from NAFTA	</label></br>
+<input type='radio' name='q121w66' value='D' id='q121w66'><label for=qZw66'D'>	D. The component that determines the classification of these trousers is classified in subheading 5512.19	</label></br>
+<input type='radio' name='q121w66' value='E' id='q121w66'><label for=qZw66'E'>	E. These trousers do not qualify for NAFTA becauset they do not make the necessary tariff shift	</label></br>
+</ul>		
+<p id="demo65"></p>		
+</div> 		
+<div id=category121w67 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		
+<p class='question'>	67.A U.S.-domiciled fashion designer contracts with an overseas factory to produce the	
+	designer's dresses for sale inthe United States. The designer purchases all the necessary materials for the dresses from various sources andcountries and ships the materials to the overseas factoty.The designer provides his dressdesigns to the factoty.The designer's invoice from the factoryis for the labor costs to make the dresses.The designer acts as importer of record to enter the dresses into the United States. What should the designer add to the factory invoice price to calculate the transaction value of the dresses and why should the addition(s) be made?  Select the answer which is most complete.	</p>
+<input type='radio' name='q121w67' value='A' id='q121w67'><label for=qZw67'A'>	A. The value of the designer's designs must be added because they are an assist to the factory.	</label></br>
+<input type='radio' name='q121w67' value='B' id='q121w67'><label for=qZw67'B'>	B.  Nothing must be added because the contract with the factory was simply for the labor to produce the dresses.	</label></br>
+<input type='radio' name='q121w67' value='C' id='q121w67'><label for=qZw67'C'>	C.  The costs of the materials provided by the designer to the factory must be added because they are an assist.	</label></br>
+<input type='radio' name='q121w67' value='D' id='q121w67'><label for=qZw67'D'>	D. The cost of shipping the materials provided by the designer to the factory must be added, in addition to the costs of the materials provided by the designer to the factory, because both the materials and cost of shipping the materials are considered to be assists.	</label></br>
+<input type='radio' name='q121w67' value='E' id='q121w67'><label for=qZw67'E'>	E.  The designer's profit per dress must be added.	</label></br>
+</ul>		
+<p id="demo66"></p>		
+</div> 		
+<div id=category121w68 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		
+<p class='question'>	68.A foreign subsidiary sells ore to its U.S. parent company. The price of the ore charged by the	
+	subsidiary to its parent is the price of ore on the New York Mercantile Exchange on the date the ore arrives in the United States.Select the statement that is TRUE regardingthis price.	</p>
+<input type='radio' name='q121w68' value='A' id='q121w68'><label for=qZw68'A'>	A. The price is acceptable under transaction value as it is based upon a formula which	
+	neither party can control.	</label></br>
+<input type='radio' name='q121w68' value='B' id='q121w68'><label for=qZw68'B'>	B.  The price is not acceptable because it is not known at the time of shipment	</label></br>
+<input type='radio' name='q121w68' value='C' id='q121w68'><label for=qZw68'C'>	C.  The price is not acceptable because the parties are related	</label></br>
+<input type='radio' name='q121w68' value='D' id='q121w68'><label for=qZw68'D'>	D. The price is acceptable under deductive value becauseit is based on the price of ore sold in the United States.	</label></br>
+<input type='radio' name='q121w68' value='E' id='q121w68'><label for=qZw68'E'>	E.  The price is acceptable because the parties are related	</label></br>
+</ul>		
+<p id="demo67"></p>		
+</div> 		
+<div id=category121w69 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		
+<p class='question'>	69.Company A imports a specialized mold from Italy for use in production of goods in the	
+	United States.The mold is valued at $2,000.00.Five years after importation, Company A sells the mold to Company B.CompanyB exports the mold to a company in Canada for use in production of goods in Canada. The Canadian company pays Company B a rental fee for use of the mold.The lease ofthemoldis limited to no more than 3 years.The Canadian company uses the mold for 2.5 yearsand then ships the mold back to CompanyB in the United States.While in Canada, the mold is simply used to producegoods and is notch in any way.The mold is returned to the United States in the same condition in which it was exported. Select the CORRECT answer below.	</p>
+<input type='radio' name='q121w69' value='A' id='q121w69'><label for=qZw69'A'>	A. The mold is fully dutiable upon importation into the United States from Canada.	</label></br>
+<input type='radio' name='q121w69' value='B' id='q121w69'><label for=qZw69'B'>	B.  The mold is eligible for duty-free entry under subheading9801.00.10, HTSUS. 	</label></br>
+<input type='radio' name='q121w69' value='C' id='q121w69'><label for=qZw69'C'>	C.  The mold is dutiable based upon its original $2000.00 value.	</label></br>
+<input type='radio' name='q121w69' value='D' id='q121w69'><label for=qZw69'D'>	D. The mold is dutiable based upon its original value less depreciation.	</label></br>
+<input type='radio' name='q121w69' value='E' id='q121w69'><label for=qZw69'E'>	E.  The mold is eligible for duty-free entry under subheading9801.00.20, HTSUS.	</label></br>
+</ul>		
+<p id="demo68"></p>		
+</div> 		
+<div id=category121w70 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		
+<p class='question'>	70.A German chemical producer sells chemicals to its related party in the United States at a 300/o	
+	discount of the price it sells the same chemicals to other unrelated parties in the United States.Its related party also resells the chemicals in the United States to other unrelated parties who use the chemicals in producing other goods. The German chemical producer acts as the importer of record and claims that transaction value is the proper method of appraisement for the importations of chemicals to its related party and to the unrelated parties. The German chemical producer offers no explanation as to why its related party receives a 30% discount on the price. Select the CORRECT statement below.	</p>
+<input type='radio' name='q121w70' value='A' id='q121w70'><label for=qZw70'A'>	A. The German chemical company is correct that it must use the transaction value method1D	
+	appraise the importations of chemicals for both the related party and unrelated parties. 	</label></br>
+<input type='radio' name='q121w70' value='B' id='q121w70'><label for=qZw70'B'>	B.  The German chemical company must use the computed value method to appraise the	
+	importations of chemicals for both the related party and unrelated partiesbecause the	
+	related party price is influenced by the relationship.	</label></br>
+<input type='radio' name='q121w70' value='C' id='q121w70'><label for=qZw70'C'>	C.  The German chemical company must use the transaction value to appraise the importations of chemicals for the unrelated parties, and it may not use this method for the related party because the 30% discount on the price of chemicals is only extended to the related party and this demonstrates that the relationship has influenced the price between the related parties, such that appraisement must follow the valuation hierarchy.	</label></br>
+<input type='radio' name='q121w70' value='D' id='q121w70'><label for=qZw70'D'>	D. The German chemical company must use the deductive value method to appraise the	
+	importations of chemicals for both the related party and unrelated parties because the related party price is influenced by the relationship and the chemicals are resold by the related party in the United States.	</label></br>
+<input type='radio' name='q121w70' value='E' id='q121w70'><label for=qZw70'E'>	E.  The German chemical company must use the deductive value method to appraise the	
+	importations of chemicals for the related party because the chemicals are resold by the related party inthe United States, and it must use the transaction value method to appraise the importation of chemicals for the unrelated parties.	</label></br>
+</ul>		
+<p id="demo69"></p>		
+</div> 		
+<div id=category121w71 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 	Category x:m- Marking	
+<p class='question'>	71.The articles descnbed or meetingthe specified conditions set forth below are exempt from	
+	marking requirements EXCEPT:	</p>
+<input type='radio' name='q121w71' value='A' id='q121w71'><label for=qZw71'A'>	A. Articles that are incapable ofbeing marked	</label></br>
+<input type='radio' name='q121w71' value='B' id='q121w71'><label for=qZw71'B'>	B.  Articles that can be marked prior to shipment to the United States without injury.	</label></br>
+<input type='radio' name='q121w71' value='C' id='q121w71'><label for=qZw71'C'>	C.  Articles that cannot be marked prior to shipment to the United States except at an expense economically prohibitiveof its importation.	</label></br>
+<input type='radio' name='q121w71' value='D' id='q121w71'><label for=qZw71'D'>	D. Articles for which the marking of the containers will reasonably indicate the origin of the articles.	</label></br>
+<input type='radio' name='q121w71' value='E' id='q121w71'><label for=qZw71'E'>	E.  Articles which are crude substances.	</label></br>
+</ul>		
+<p id="demo70"></p>		
+</div> 		
+<div id=category121w72 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		
+<p class='question'>	72.FSJ Imports orders a shipment of bulk perftune,manufactured in China,which will be	
+	repackaged into empty glass retail bottles that were manufactured and imported from ???? Mexico.The glass bottles bear the name and address ofFSJ imports.The perfume arrivesin a reusable metal container which will be returned to China far use in future imports.With regards to origin, the reusable metal container must be marked indicatingthe contents	
+	                           upon presentation to CBP and the empty glass containers must bear markings	
+	indicating that:the contents ??? and the bottles  ???</p>
+<input type='radio' name='q121w72' value=' A' id='q121w72'><label for=qZw72' '>	A. Were made in China; were made in China;were made in Mexico	</label></br>
+<input type='radio' name='q121w72' value='B' id='q121w72'><label for=qZw72'B'>	B.  None;were made in China;None	</label></br>
+<input type='radio' name='q121w72' value='C' id='q121w72'><label for=qZw72'C'>	C.  None;None; were made in Mexico	</label></br>
+<input type='radio' name='q121w72' value='D' id='q121w72'><label for=qZw72'D'>	D. Were made in China;None;were made in Mexico	</label></br>
+<input type='radio' name='q121w72' value='E' id='q121w72'><label for=qZw72'E'>	E.  None;None;None	</label></br>
+</ul>		
+<p id="demo71"></p>		
+</div> 		
+<div id=category121w73 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		
+<p class='question'>	73.Which of the below is FALSE regarding marking?	</p>
+<input type='radio' name='q121w73' value='A' id='q121w73'><label for=qZw73'A'>	A. Containers of articles excepted from marking shall be marked with the nameof the	
+	country of origin of the article unlessthe container is also excepted from marking.	</label></br>
+<input type='radio' name='q121w73' value='B' id='q121w73'><label for=qZw73'B'>	B.  Special markingmay be required by the Internal Revenue Serviceon alcoholic beverage bottles and other requirements may be imposed by reason of the natureof the contents by other Government agencies.	</label></br>
+<input type='radio' name='q121w73' value='C' id='q121w73'><label for=qZw73'C'>	C.  A good of a NAFTA country which is a usual container,whether or not disposable and whether or not imported empty or filled, is required to be marked with its own coun1Iy of ongm.	</label></br>
+<input type='radio' name='q121w73' value='D' id='q121w73'><label for=qZw73'D'>	D. Articles which are crude substances are excepted from markingrequirements.	</label></br>
+<input type='radio' name='q121w73' value='E' id='q121w73'><label for=qZw73'E'>	E.  Cut flowers are listed on the J-List	</label></br>
+</ul>		
+<p id="demo72"></p>		
+</div> 		
+<div id=category121w74 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		
+<p class='question'>	74.CBP can release umedacted information to a Right Holder of Trademarked merchandise after	
+	a pre-determined waiting period.How many days does an Importer of Record have to	
+	respond to CBP regardinga shipment officially detained for suspicion of counterfeit?	</p>
+<input type='radio' name='q121w74' value='A' id='q121w74'><label for=qZw74'A'>	A. 2 business days	</label></br>
+<input type='radio' name='q121w74' value='B' id='q121w74'><label for=qZw74'B'>	B.  5 business days	</label></br>
+<input type='radio' name='q121w74' value='C' id='q121w74'><label for=qZw74'C'>	C. 7 business days 	</label></br>
+<input type='radio' name='q121w74' value='D' id='q121w74'><label for=qZw74'D'>	D. 10 business days 	</label></br>
+<input type='radio' name='q121w74' value='E' id='q121w74'><label for=qZw74'E'>	E.  30 calendar days	</label></br>
+</ul>		
+<p id="demo73"></p>		
+</div> 		
+<div id=category121w75 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		
+<p class='question'>	75.A brand owner is submitting an application to record two of their trademarks,for two classes	
+	of goods each.How much will the applicant pay?	</p>
+<input type='radio' name='q121w75' value='A' id='q121w75'><label for=qZw75'A'>	A. $760.00	</label></br>
+<input type='radio' name='q121w75' value='B' id='q121w75'><label for=qZw75'B'>	B.  $190.00	</label></br>
+<input type='radio' name='q121w75' value='C' id='q121w75'><label for=qZw75'C'>	c. $380.00	</label></br>
+<input type='radio' name='q121w75' value='D' id='q121w75'><label for=qZw75'D'>	D. $570.00	</label></br>
+<input type='radio' name='q121w75' value='E' id='q121w75'><label for=qZw75'E'>	E. Nothing, it is free to record trademarks	</label></br>
+</ul>		
+<p id="demo74"></p>		
+</div> 		
+<div id=category121w76 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		
+<p class='question'>	76.A mail shipment consistingof one handbag valued at $900.00,bearing a spurious mark	
+	identical with, or substantially indistinguishable from, a mark registered on the Principal Register of the U.S. Patent and Trademark Office and recorded with CBP,is not subject to seizure under 19 CFR § 133.21(e) if:	</p>
+<input type='radio' name='q121w76' value='A' id='q121w76'><label for=qZw76'A'>	A. The handbagis intended for personal use,and the exemption for the same typeof article	
+	has not been taken within the 30-day detention period	</label></br>
+<input type='radio' name='q121w76' value='B' id='q121w76'><label for=qZw76'B'>	B. The handbagis intended for personal use,and the quantity does not exceed the exemption of one article of the type bearing the protected trademark.	</label></br>
+<input type='radio' name='q121w76' value='C' id='q121w76'><label for=qZw76'C'>	C. The circumstances allowing trademark or trade name restriction(s) set forth in 19 CFR §	
+	133.22(c) or 19 CFR § 133.23(d) are established	</label></br>
+<input type='radio' name='q121w76' value='D' id='q121w76'><label for=qZw76'D'>	D. The addressee appears in person at the appropriate CBP office and, at the time, removes or obliterates the mark on the handbag in a manner acceptable to CBP.	</label></br>
+<input type='radio' name='q121w76' value='E' id='q121w76'><label for=qZw76'E'>	E. None of the above.	</label></br>
+</ul>		
+<p id="demo75"></p>		
+</div> 		
+<div id=category121w77 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 	Category XV-Foreign Trade Zone/Warehouse	
+<p class='question'>	77.Only----- shall be stored in the bonded area of a bonded warehouse.	</p>
+<input type='radio' name='q121w77' value='A' id='q121w77'><label for=qZw77'A'>	A. Bonded Merchandise	</label></br>
+<input type='radio' name='q121w77' value='B' id='q121w77'><label for=qZw77'B'>	B. Explosive SubstancesMerchandise	</label></br>
+<input type='radio' name='q121w77' value='C' id='q121w77'><label for=qZw77'C'>	C. Class 6 Bonded Cigars Merchandise	</label></br>
+<input type='radio' name='q121w77' value='D' id='q121w77'><label for=qZw77'D'>	D. Zone Restricted Merchandise	</label></br>
+<input type='radio' name='q121w77' value='E' id='q121w77'><label for=qZw77'E'>	E. Duty Free Merchandise	</label></br>
+<p id="demo76"></p>		
+</div> 		
+<div id=category121w78 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		
+<p class='question'>	78.When transferring merchandise from a zone, merchandise in                          status may NOf	
+	be entered for warehouse.	</p>
+<input type='radio' name='q121w78' value='A' id='q121w78'><label for=qZw78'A'>	A. Nonprivileged Foreign	</label></br>
+<input type='radio' name='q121w78' value='B' id='q121w78'><label for=qZw78'B'>	B. Privileged Foreign	</label></br>
+<input type='radio' name='q121w78' value='C' id='q121w78'><label for=qZw78'C'>	C. Zone-Restricted	</label></br>
+<input type='radio' name='q121w78' value='D' id='q121w78'><label for=qZw78'D'>	D. Domestic	</label></br>
+<input type='radio' name='q121w78' value='E' id='q121w78'><label for=qZw78'E'>	E. Privileged Foreign or Domestic	</label></br>
+<p id="demo77"></p>		
+</div> 		
+<div id=category121w79 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		
+<p class='question'>	79.Based on the information below, how long will Plaid Chris1mas Tree Inc.be REQUIRED to	
+	maintain records identified within 19CFR    162.l(a)'l	
+	The entity Plaid Christmas Tree Inc.(Plaid) seeks flexibility inits manufacturing operations	
+	and the ability to delay entry procedtn"es and payments of duties on its foreign merchandise	
+	until those goods enter CBP territory for domestic consumption.At which point, Plaid will have the choice of paying duties at the rate of either the original foreign materials or the finished product To obtain this flexibility, Plaid intends to open and operate a Foreign Trade Zone (FfZ) in a warehouse next to their existing parts/assembly facility.Prior to making further FTZ arrangements, Plaid is ensuring they understand their obligations to retain records (recordkeeping), if any exist, as the operator of an FTZ.	</p>
+<input type='radio' name='q121w79' value='A' id='q121w79'><label for=qZw79'A'>	A. Plaid does not need to maintain the records because their licensed Customs Broker is	
+	required to maintain the records on their behalf.	</label></br>
+<input type='radio' name='q121w79' value='B' id='q121w79'><label for=qZw79'B'>	B.  The consignee of the merchandise shall keep all records pertainingto the merchandise for	
+	2 years from the date of entry.	</label></br>
+<input type='radio' name='q121w79' value='C' id='q121w79'><label for=qZw79'C'>	C. Records must be maintained by Plaid for five yearsfollowing the removal of the merchandise from the zone.	</label></br>
+<input type='radio' name='q121w79' value='D' id='q121w79'><label for=qZw79'D'>	D. The operator is only required to maintain the packinglists for a period of 60 calmdar days from the end of the release or conditional release of the merchandise.	</label></br>
+<input type='radio' name='q121w79' value='E' id='q121w79'><label for=qZw79'E'>	E. Foreign Trade Zone documents are not listed within the (a)(1)(A) list and are therefore exempt from CBP's recordkeeping requirements.	</label></br>
+<p id="demo78"></p>		
+</div> 		
+<div id=category121w80 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		
+<p class='question'>	80.Which of the followingis NOT a reason thataportdirectormay suspend, for cause the	
+	activated status of a zone or zone site,or the privilege to admit, manufacture,manipulate, exhibit, destroy, transfer or remove merchandise at a zone or zone site for a period not to exceed 90 days?	</p>
+<input type='radio' name='q121w80' value='A' id='q121w80'><label for=qZw80'A'>	A. The approval of the application to activate the zone was obtained through fraud or the misstatement of a material fact	</label></br>
+<input type='radio' name='q121w80' value='B' id='q121w80'><label for=qZw80'B'>	B.  The operator neglects or refusesto obey any proper order of a Customsofficer or any	Customs order, rule, or regulation relating to the operation or administration of a zone. </label></br>
+<input type='radio' name='q121w80' value='C' id='q121w80'><label for=qZw80'C'>	 C.  The operator fails to furnish a current list of names, addresses, or other information as	</label></br>required by 19 CFR § 146.7. </label></br>	
+<input type='radio' name='q121w80' value='D' id='q121w80'><label for=qZw80'D'>	D. The operator,or any officer,agent, or employeeof the operator,discloses to an unauthorized person proprietary information contained on a Customs form or in the inventory control and recordkeeping system.	</label></br>
+<input type='radio' name='q121w80' value='E' id='q121w80'><label for=qZw80'E'>	E.  The operator,or any officer of a corporation which has been granted the right to operate a zone, is convicted of or has committed any acts which would constitute a misdemeanor.	</label></br>
+<p id="demo79"></p>		
+</div> 		
+	
+	
+		
+
+		
+
+		
+
+
+
+
+
+
+	
+
+
+<div id=category121w83>		
+<input type="button" value="SUBMIT" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;" onClick="show3()"/>	
+</div>
+<div id=category121w83>		
+<input type="button" value="send_ether" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;" onClick="send_ether()"/>	
+</div>
+<div id=category121w82>	
+<input type="button" value="Show Answers" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;" onClick="containsX()"/>	
+</div>
+<div id="content"></div>
+
+	
+
+
+	
+
+
+
+
+
+<script>
+
+	
+
+	var i = 1;
+	var ii = 0
+	function increase()
+	{
+		
+		i++;
+		ii++;
+		
+		$("#category" + 121 + "w" + i).show();
+		$("#content").html("");
+	}
+	var mat1 = Math.floor((Math.random() * 3) + 1);
+        var mat = Math.floor((Math.random() * 85) + 1);
+	var count = 0;
+	var answers1 = []
+	var answers2 = []
+	function show3(){
+		
+		var q = $('input[name=q' + 121 + "w" + i + ']:checked').val();
+		
+		
+
+if (q == undefined){
+			doAgain();
+			}else{
+			var gv = getvalue(ii, q);
+		var gr = getvalue1(ii);
+		
+		
+			goOn();
+			
+			}
+		//alert(q)
+		
+		//alert(gv)
+		
+
+		    if (q == gv){
+			
+		    	//$("#content").html("The correct answer is:" + " " + gv);
+			//answers1.push("CORRECT" + " " + gv);
+			count += 1
+			
+			if (q == undefined){
+			answers1.pop();
+			}
+			if (i == 81){
+			containsX();
+			}
+		    }else{
+			//alert(q);
+			//alert(gv);
+			//$("#content").html("Incorrect. The answer is:" + " " + gv);
+			//answers1.push("INCORRECT" + " " + gv);
+			if (q == undefined){
+			answers1.pop();
+			}
+			
+			}
+			
+             }
+		
+
+
+        function show1()
+        {
+		
+                $.ajax({
+                url: "9.html",
+                cache: false,
+                success: function(html){
+                var str = html
+	            var o = str.indexOf(121 + "w" + i + "X")
+		    var oo = str.indexOf(121 + "w" + i + "XX")
+		    var ox = oo - o
+		    var p = str.substr(o, ox)
+		    var pp = str.substr(o + 7, ox - 8)
+		    var x = p.trim(p);
+		    var s = x.substr(o + 5, ox);
+		    var q = $('input[name=q' + 121 + "w" + i + ']:checked').val();
+		    var t = p.slice(0, 10)
+	            var n = t.search(q)	
+		    	    
+		    if (q == undefined){
+			doAgain();
+			}else{
+			goOn();
+			}
+
+		    if (n != -1 && q != undefined){
+			
+		    	//$("#content").html("The correct answer is:" + " " + pp);
+			//answers1.push("CORRECT" + " " + pp);
+			count += 1
+			
+			if (q == undefined){
+			answers1.pop();
+			}
+			if (i == 81){
+			containsX();
+			}
+		    }else{
+			
+			//$("#content").html("Incorrect. The answer is:" + " " + pp);
+			//answers1.push("INCORRECT" + " " + pp);
+			if (q == undefined){
+			answers1.pop();
+			}
+			if (i == 81){
+			containsX();
+			}
+			}
+			
+             }
+            });
+        }
+    var questions1 = [];
+	function doAgain(){
+		var r = confirm("Skip Question?");
+        if (r == true){
+            goOn();
+            answers1.push("ZZZZ");
+            questions1.push(i-1);
+        }
+	}
+
+       	function goOn(){
+            $("#category" + 121 + "w" + i).hide();
+		increase();	
+	}
+
+
+	
+
+    
+    function containsX(){
+        var x = answers1.indexOf("ZZZZ");
+        if (x != -1){
+            displayQuestion();}else{
+                finalresults();}
+    }
+     function finalresults(){
+	if(count/80 > 75){
+	alert("Congratulations! You passed!" + " " + count/80*100 + "%")
+	}else{
+	alert("You did not pass." + " " + count/80*100 + "%")
+		
+		}
+         
+	for (i = 1; i < 81; i++)
+		$("#category" + 121 + "w" + i).show();
+		document.getElementById("demo0").innerHTML = answers1[0] + answers2[0];
+		document.getElementById("demo1").innerHTML = answers1[1] + answers2[1];
+		document.getElementById("demo2").innerHTML = answers1[2] + answers2[2];
+document.getElementById("demo3").innerHTML = answers1[3] + answers2[3];
+document.getElementById("demo4").innerHTML = answers1[4] + answers2[4];
+document.getElementById("demo5").innerHTML = answers1[5] + answers2[5];
+document.getElementById("demo6").innerHTML = answers1[6] + answers2[6];
+document.getElementById("demo7").innerHTML = answers1[7] + answers2[7];
+document.getElementById("demo8").innerHTML = answers1[8] + answers2[8];
+document.getElementById("demo9").innerHTML = answers1[9] + answers2[9];
+document.getElementById("demo10").innerHTML = answers1[10] + answers2[10];
+document.getElementById("demo11").innerHTML = answers1[11] + answers2[11];
+document.getElementById("demo12").innerHTML = answers1[12] + answers2[12];
+document.getElementById("demo13").innerHTML = answers1[13] + answers2[13];
+document.getElementById("demo14").innerHTML = answers1[14] + answers2[14];
+document.getElementById("demo15").innerHTML = answers1[15] + answers2[15];
+document.getElementById("demo16").innerHTML = answers1[16] + answers2[16];
+document.getElementById("demo17").innerHTML = answers1[17] + answers2[17];
+document.getElementById("demo18").innerHTML = answers1[18] + answers2[18];
+document.getElementById("demo19").innerHTML = answers1[19] + answers2[19];
+document.getElementById("demo20").innerHTML = answers1[20] + answers2[20];
+document.getElementById("demo21").innerHTML = answers1[21] + answers2[21];
+document.getElementById("demo22").innerHTML = answers1[22] + answers2[22];
+document.getElementById("demo23").innerHTML = answers1[23] + answers2[23];
+document.getElementById("demo24").innerHTML = answers1[24] + answers2[24];
+document.getElementById("demo25").innerHTML = answers1[25] + answers2[25];
+document.getElementById("demo26").innerHTML = answers1[26] + answers2[26];
+document.getElementById("demo27").innerHTML = answers1[27] + answers2[27];
+document.getElementById("demo28").innerHTML = answers1[28] + answers2[28];
+document.getElementById("demo29").innerHTML = answers1[29] + answers2[29];
+document.getElementById("demo30").innerHTML = answers1[30] + answers2[30];
+document.getElementById("demo31").innerHTML = answers1[31] + answers2[31];
+document.getElementById("demo32").innerHTML = answers1[32] + answers2[32];
+document.getElementById("demo33").innerHTML = answers1[33] + answers2[33];
+document.getElementById("demo34").innerHTML = answers1[34] + answers2[34];
+document.getElementById("demo35").innerHTML = answers1[35] + answers2[35];
+document.getElementById("demo36").innerHTML = answers1[36] + answers2[36];
+document.getElementById("demo37").innerHTML = answers1[37] + answers2[37];
+document.getElementById("demo38").innerHTML = answers1[38] + answers2[38];
+document.getElementById("demo39").innerHTML = answers1[39] + answers2[39];
+document.getElementById("demo40").innerHTML = answers1[40] + answers2[40];
+document.getElementById("demo41").innerHTML = answers1[41] + answers2[41];
+document.getElementById("demo42").innerHTML = answers1[42] + answers2[42];
+document.getElementById("demo43").innerHTML = answers1[43] + answers2[43];
+document.getElementById("demo44").innerHTML = answers1[44] + answers2[44];
+document.getElementById("demo45").innerHTML = answers1[45] + answers2[45];
+document.getElementById("demo46").innerHTML = answers1[46] + answers2[46];
+document.getElementById("demo47").innerHTML = answers1[47] + answers2[47];
+document.getElementById("demo48").innerHTML = answers1[48] + answers2[48];
+document.getElementById("demo49").innerHTML = answers1[49] + answers2[49];
+document.getElementById("demo50").innerHTML = answers1[50] + answers2[50];
+document.getElementById("demo51").innerHTML = answers1[51] + answers2[51];
+document.getElementById("demo52").innerHTML = answers1[52] + answers2[52];
+document.getElementById("demo53").innerHTML = answers1[53] + answers2[53];
+document.getElementById("demo54").innerHTML = answers1[54] + answers2[54];
+document.getElementById("demo55").innerHTML = answers1[55] + answers2[55];
+document.getElementById("demo56").innerHTML = answers1[56] + answers2[56];
+document.getElementById("demo57").innerHTML = answers1[57] + answers2[57];
+document.getElementById("demo58").innerHTML = answers1[58] + answers2[58];
+document.getElementById("demo59").innerHTML = answers1[59] + answers2[59];
+document.getElementById("demo60").innerHTML = answers1[60] + answers2[60];
+document.getElementById("demo61").innerHTML = answers1[61] + answers2[61];
+document.getElementById("demo62").innerHTML = answers1[62] + answers2[62];
+document.getElementById("demo63").innerHTML = answers1[63] + answers2[63];
+document.getElementById("demo64").innerHTML = answers1[64] + answers2[64];
+document.getElementById("demo65").innerHTML = answers1[65] + answers2[65];
+document.getElementById("demo66").innerHTML = answers1[66] + answers2[66];
+document.getElementById("demo67").innerHTML = answers1[67] + answers2[67];
+document.getElementById("demo68").innerHTML = answers1[68] + answers2[68];
+document.getElementById("demo69").innerHTML = answers1[69] + answers2[69];
+document.getElementById("demo70").innerHTML = answers1[70] + answers2[70];
+document.getElementById("demo71").innerHTML = answers1[71] + answers2[71];
+document.getElementById("demo72").innerHTML = answers1[72] + answers2[72];
+document.getElementById("demo73").innerHTML = answers1[73] + answers2[73];
+document.getElementById("demo74").innerHTML = answers1[74] + answers2[74];
+document.getElementById("demo75").innerHTML = answers1[75] + answers2[75];
+document.getElementById("demo76").innerHTML = answers1[76] + answers2[76];
+document.getElementById("demo77").innerHTML = answers1[77] + answers2[77];
+document.getElementById("demo78").innerHTML = answers1[78] + answers2[78];
+document.getElementById("demo79").innerHTML = answers1[79] + answers2[79];
+//document.getElementById("demo80").innerHTML = answers1[80] + answers2[80];
+		//document.getElementById("demo81").innerHTML = answers1[80] + answers2[80];
+		
+         
+	
+         
+     }
+    var count1 = 0;
+    
+    function displayQuestion(){
+        
+        var q = $('input[name=q' + 121 + "w" + questions1[count1] + ']:checked').val();
+        
+        $("#category" + 121 + "w" + 83).hide();
+        $("#category" + 121 + "w" + 82).show();
+        if (q == undefined && count1 <= questions1.length-1){
+            $("#category" + 121 + "w" + questions1[count1]).show();}else{
+                //$("#category" + 121 + "w" + questions1[count1]).hide();
+                next();}
+         
+        
+    }
+    
+    function next(){
+        
+        $("#category" + 121 + "w" + questions1[count1]).hide();
+        if (count1 > questions1.length-1){
+                  count1 = 0;
+            displayQuestion();}else{
+                count1++
+                displayQuestion();}
+            }
+    
+  
+    
+     function show2()
+{
+                $.ajax({
+                url: "9.html",
+                cache: false,
+                success: function(html){
+                var str = html
+	            var o = str.indexOf(118 + "w" + questions1[count1] + "X")
+		    var oo = str.indexOf(118 + "w" + questions1[count1] + "XX")
+		    var ox = oo - o
+		    var p = str.substr(o, ox)
+		    var pp = str.substr(o + 7, ox - 8)
+		    var x = p.trim(p);
+		    var s = x.substr(p.length - 127);
+		    var q = $('input[name=q' + 118 + "w" + questions1[count1] + ']:checked').val();
+		    var t = p.slice(0, 10)
+	            var n = t.search(q)
+		    if (q == undefined){
+			doAgain1();
+			}else{
+            
+			//displayQuestion();
+			//}
+
+		    if (n != -1 && q != undefined){
+                
+		    	//$("#content").html("The correct answer is:" + " " + s);
+                
+                        answers1[questions1[count1]-1] = "CORRECT" + " " + pp
+			count += 1
+			containsX();
+		    }else{
+			
+			//$("#content").html("Incorrect. The answer is:" + " " + s);
+			answers1[questions1[count1]-1] = "INCORRECT" + " " + pp
+		
+			containsX();
+			}
+			}
+             }
+            });
+        }
+   
+ $(document).ready(function(){
+            $("#category" + 121 + "w" + 1).show();
+            //setInterval('show()',1000);
+        });
+    function doAgain1(){
+  
+         
+         var r = confirm("Skip Question?");
+        
+          if (r == true){
+          $("#category" + 121 + "w" + questions1[count1]).hide();
+            count1++
+            displayQuestion();
+              if (count1 > questions1.length-1){
+                  count1 = 0;
+                  displayQuestion(); 
+              }
+
+        }
+              }
+              
+        
+
+var web3 = new Web3(new Web3.providers.HttpProvider(
+    "https://ropsten.infura.io/v3/69462286c61f42d2891a2ced35c91f8d"
+));
+
+
+web3.eth.net.getNetworkType()
+.then(console.log);
+
+web3.eth.net.isListening()
+   .then(() => console.log('web3 is connected'))
+   .catch(e => console.log('Wow. Something went wrong'));
+
+const abi = [
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "n",
+				"type": "uint256"
+			},
+			{
+				"name": "str",
+				"type": "string"
+			}
+		],
+		"name": "set_map",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "n",
+				"type": "uint256"
+			},
+			{
+				"name": "str",
+				"type": "string"
+			}
+		],
+		"name": "set_map1",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "fallback"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "answers_array",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_sender",
+				"type": "address"
+			},
+			{
+				"name": "_num",
+				"type": "uint256"
+			}
+		],
+		"name": "getHashmap",
+		"outputs": [
+			{
+				"name": "success",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_sender",
+				"type": "address"
+			},
+			{
+				"name": "_num",
+				"type": "uint256"
+			}
+		],
+		"name": "getHashmap1",
+		"outputs": [
+			{
+				"name": "success",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_sender",
+				"type": "address"
+			}
+		],
+		"name": "isApproved",
+		"outputs": [
+			{
+				"name": "approved",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "refs_array",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
+
+
+const contract_address = web3.utils.toChecksumAddress("0x589bbd38a8108f47627c194e4b687d94cb4a977b")
+
+const contract_bal = new web3.eth.Contract(abi, contract_address);
+
+const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+
+
+function isApproved(){
+	const contract_address = web3.utils.toChecksumAddress("0x589bbd38a8108f47627c194e4b687d94cb4a977b")
+  	const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+	const contract_bal = new web3.eth.Contract(abi, contract_address);
+	const bal = contract_bal.methods.isApproved(wallet_address).call();
+	//alert(bal)
+	return bal
+	}
+
+var approve = (async function(){
+  var result = await isApproved()
+  console.log('Woo done!', result)
+  balance = result
+  //alert(balance)
+
+})()
+
+function getvalue(n, q){
+//q = $('input[name=drone]:checked').val();	
+	//alert(bal)
+	
+var val = (async function(){
+  const contract_address = await web3.utils.toChecksumAddress("0x589bbd38a8108f47627c194e4b687d94cb4a977b")
+  const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+  const contract_bal = await new web3.eth.Contract(abi, contract_address);
+  const bal = await contract_bal.methods.getHashmap(wallet_address, n).call();
+  //alert(bal);
+  //var result = await getvalue()
+  //console.log('Woo done!', result)
+  if (q == bal){
+	count += 1;
+  	answers1.push("Correct: " + " " + bal);
+	
+  }else{
+	answers1.push("incorrect: " + " " + bal);
+  }
+	
+
+})()
+//return val
+	}
+
+function getvalue1(n){
+//q = $('input[name=drone]:checked').val();	
+	//alert(bal)
+	
+var val = (async function(){
+  const contract_address = await web3.utils.toChecksumAddress("0x589bbd38a8108f47627c194e4b687d94cb4a977b")
+  const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+  const contract_bal = await new web3.eth.Contract(abi, contract_address);
+  const bal = await contract_bal.methods.getHashmap1(wallet_address, n).call();
+  //alert(bal)
+  //var result = await getvalue()
+  //console.log('Woo done!', result)
+  answers2.push(" " + bal);
+if (i > 80){
+			containsX();
+			}
+})()
+//return val
+	}
+
+
+
+function send_ether(){
+var nonce = (async function(){
+  	const contract_address = await web3.utils.toChecksumAddress("0x589bbd38a8108f47627c194e4b687d94cb4a977b")
+  
+	const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+	
+	var result = await web3.eth.getTransactionCount(wallet_address)
+  
+	console.log('Woo done!', result)
+  
+	_nonce = result
+  
+	//alert(_nonce)
+	
+  
+	const txn_dict = {'gas': web3.utils.toHex(250000),'gasPrice': web3.utils.toHex(web3.utils.toWei('250', 'gwei')), 'to': contract_address, 'from': wallet_address, 'value': web3.utils.toHex(3000000),'nonce': _nonce}
+  
+	const private_key = await new ethereumjs.Buffer.Buffer('5719b1f584994efc976d1e4af93597c9116a76a67dc442082b34c26a0aecf424', 'hex')
+  
+	const tx = await new ethereumjs.Tx(txn_dict, {chain:'ropsten'})
+
+	tx.sign(private_key)
+
+	const serializedTx = await tx.serialize();
+
+	const raw = '0x' + serializedTx.toString('hex')
+
+	const transaction = await web3.eth.sendSignedTransaction(raw, (err, tx) => {
+	web3.eth.transactionPollingTimeout = 2000;
+	console.log(tx)
+	})
+
+
+})()
+}
+
+function setvalue(){
+	
+q = $('input[name=drone]:checked').val();
+var nonce = (async function(){
+  	const contract_address = await web3.utils.toChecksumAddress("0x589bbd38a8108f47627c194e4b687d94cb4a977b")
+  	const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+	
+	
+	//alert(data)
+	
+	var result = await web3.eth.getTransactionCount(wallet_address)
+  
+	console.log('Woo done!', result)
+  
+	_nonce = result
+  
+	//alert(_nonce)
+	//var data = await new web3.eth.Contract(abi, contract_address).methods.set_value(web3.utils.toHex(1)).call();
+//var data = (async function(){	
+	var _data = new web3.eth.Contract(abi, contract_address).methods.getHashmap(q).encodeABI();
+  	//alert(_data)
+	//})()
+	const txn_dict = {'gas': web3.utils.toHex(40000),'gasPrice': web3.utils.toHex(web3.utils.toWei('40', 'gwei')), 'from': wallet_address, 'to': contract_address, 'nonce': web3.utils.toHex(_nonce),'data': _data}
+  	//alert(txn_dict['nonce'])
+	const private_key = await new ethereumjs.Buffer.Buffer('5719b1f584994efc976d1e4af93597c9116a76a67dc442082b34c26a0aecf424', 'hex')
+  
+	const tx = await new ethereumjs.Tx(txn_dict, {chain:'ropsten'})
+
+	tx.sign(private_key)
+
+	const serializedTx = await tx.serialize();
+
+	const raw = '0x' + serializedTx.toString('hex')
+
+	const transaction = await web3.eth.sendSignedTransaction(raw, (err, tx) => {
+	web3.eth.transactionPollingTimeout = 2000;
+	console.log(tx)
+	})
+
+
+})()
+}
+    
+    
+          
+    </script>
+	
+</body>
+</html>
