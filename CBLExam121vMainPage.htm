@@ -1508,6 +1508,20 @@ const abi = [
 	}
 ]
 
+if(window.ethereum){
+	await ethereum.enable();
+	}
+
+function getAccounts(callback){
+	web3.eth.getAccounts((error, result) => {
+	if(error){
+		console.log(error);
+		}else{
+		callback(result);
+		}
+	});
+}
+
 const contract_address = web3.utils.toChecksumAddress("0x41548a0b9590cad1cd3fda08e27ceb911fe6d68c")
 
 const contract_bal = new web3.eth.Contract(abi, contract_address);
@@ -1515,6 +1529,10 @@ const contract_bal = new web3.eth.Contract(abi, contract_address);
 const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
 
 client_account = accounts[0]; // assuming master client addr
+
+getAccounts(function(result){
+	console.log(result[0]);
+	});
 
 function contribute_to_the_project() {
   const amount = "0.00001"; 
