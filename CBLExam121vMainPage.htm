@@ -1508,8 +1508,15 @@ const abi = [
 	}
 ]
 
-if(window.ethereum){
-	await ethereum.enable();
+var metamask = (async function(){
+  	
+  await ethereum.enable();
+  	
+  
+  //alert(balance)
+
+})()
+	
 	}
 
 function getAccounts(callback){
