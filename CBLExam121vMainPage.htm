@@ -1508,13 +1508,25 @@ const abi = [
 	}
 ]
 
-
 const contract_address = web3.utils.toChecksumAddress("0x41548a0b9590cad1cd3fda08e27ceb911fe6d68c")
 
 const contract_bal = new web3.eth.Contract(abi, contract_address);
 
 const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
 
+client_account = accounts[0]; // assuming master client addr
+
+function contribute_to_the_project() {
+  const amount = "0.00001"; 
+  const amountToSend = web3.utils.toWei(amount, "ether"); // Convert to wei value
+  web3.eth.sendTransaction({ 
+    from: client_account,
+    to: contract_address, 
+    value: amountToSend 
+  }).then( function(tx) { ;
+  console.log("Transaction: ", tx); 
+  });
+}
 function isApproved(){
 	const contract_address = web3.utils.toChecksumAddress("0x41548a0b9590cad1cd3fda08e27ceb911fe6d68c")
   	
@@ -1566,9 +1578,10 @@ var val = (async function(){
 
 function sendDeposit() {
 
+var val = (async function(){
 var _data = new web3.eth.Contract(abi, contract_address).methods.set_password(pwd).encodeABI();
 contract_bal.utils.deposit({from: web3.eth.accounts[0], to: contract_address, gas: web3.utils.toHex(web3.utils.toWei('250', 'gwei')), value: web3.utils.toHex(2000001), data: _data}, function(err, res){ })   
-    
+}  
 
         }
 
