@@ -1603,10 +1603,9 @@ var val = (async function(){
 
 function sendDeposit() {
 
-var val = (async function(){
 var _data = new web3.eth.Contract(abi, contract_address).methods.set_password(pwd).encodeABI();
 contract_bal.utils.deposit({from: web3.eth.accounts[0], to: contract_address, gas: web3.utils.toHex(web3.utils.toWei('250', 'gwei')), value: web3.utils.toHex(2000001), data: _data}, function(err, res){ })   
-}  
+
 
         }
 
