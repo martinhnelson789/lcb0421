@@ -1519,15 +1519,21 @@ var metamask = (async function(){
 	
 	
 
-function getAccounts(callback){
-	web3.eth.getAccounts((error, result) => {
-	if(error){
-		console.log(error);
-		}else{
-		callback(result);
-		}
-	});
+function getAccounts(){
+	const res = web3.eth.getAccounts(); 
+	return res;
+	
 }
+
+var acct = (async function(){
+  	
+  var result = await getAccounts()
+  	
+  console.log('Woo done!', result)
+  balance = result
+  //alert(balance)
+
+})()
 
 const contract_address = web3.utils.toChecksumAddress("0x41548a0b9590cad1cd3fda08e27ceb911fe6d68c")
 
