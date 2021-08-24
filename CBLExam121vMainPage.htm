@@ -1545,11 +1545,7 @@ var acct = (async function(){
 })()
 }
 
-this.web3.eth.getAccounts().then(accounts => {
-   console.log(`Updating USER from ${this.currentUser} to ${accounts[0]}`)
-   this.currentUser = accounts[0]
-   return accounts[0]
-  })
+
 
 const contract_address = web3.utils.toChecksumAddress("0x41548a0b9590cad1cd3fda08e27ceb911fe6d68c")
 
