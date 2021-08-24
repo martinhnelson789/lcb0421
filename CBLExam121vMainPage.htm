@@ -1407,10 +1407,21 @@ document.getElementById("demo79").innerHTML = answers1[79] + answers2[79];
               
         
 
-var web3 = new Web3(new Web3.providers.HttpProvider(
-    "https://mainnet.infura.io/v3/69462286c61f42d2891a2ced35c91f8d"
-));
+//var web3 = new Web3(new Web3.providers.HttpProvider(
+    //"https://mainnet.infura.io/v3/69462286c61f42d2891a2ced35c91f8d"
+//));
 
+import detectEthereumProvider from '@metamask/detect-provider';
+
+const provider = await detectEthereumProvider();
+
+if (provider) {
+  // From now on, this should always be true:
+  // provider === window.ethereum
+  startApp(provider); // initialize your app
+} else {
+  console.log('Please install MetaMask!');
+}
 
 web3.eth.net.getNetworkType()
 .then(console.log);
