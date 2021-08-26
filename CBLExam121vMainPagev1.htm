@@ -1409,9 +1409,20 @@ document.getElementById("demo79").innerHTML = answers1[79] + answers2[79];
               
         
 
-var web3 = new Web3(new Web3.providers.HttpProvider(
-    "https://mainnet.infura.io/v3/69462286c61f42d2891a2ced35c91f8d"
-));
+var metamask = (async function(){
+  	
+  await ethereum.enable();
+  	
+  
+  //alert(balance)
+
+})()
+
+web3 = new Web3(web3.currentProvider);  
+
+//var web3 = new Web3(new Web3.providers.HttpProvider(
+    //"https://mainnet.infura.io/v3/69462286c61f42d2891a2ced35c91f8d"
+//));
 
 
 web3.eth.net.getNetworkType()
