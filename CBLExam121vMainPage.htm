@@ -1575,13 +1575,12 @@ function contribute_to_the_project() {
 }
 function isApproved(){
 
-(function (global) {
-    document.getElementById("save").addEventListener("click", function () {
-        global.localStorage.setItem("mySharedData", document.getElementById("password").value);
-    }, false);
+
+        localStorage.setItem("mySharedData", document.getElementById("password").value);
+    
 	
-	var pwdx = global.localStorage.getItem("mySharedData");
-}(window));
+	var pwdx = localStorage.getItem("mySharedData");
+
 	const contract_address = web3.utils.toChecksumAddress("0x41548a0b9590cad1cd3fda08e27ceb911fe6d68c")
   	
 	
