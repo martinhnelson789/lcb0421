@@ -1068,8 +1068,9 @@ be transmitted to the Government within 7 working days from receipt by the broke
 
 (function (global) {
     document.getElementById("save").addEventListener("click", function () {
-        global.localStorage.setItem("password", document.getElementById("password").value);
+        global.localStorage.setItem("mySharedData", document.getElementById("password").value);
     }, false);
+	var pwdx = localStorage.getItem("mySharedData");
 }(window));
 
 var pwd = document.getElementById("password").value;
@@ -1580,9 +1581,9 @@ function contribute_to_the_project() {
 function isApproved(){
 	const contract_address = web3.utils.toChecksumAddress("0x41548a0b9590cad1cd3fda08e27ceb911fe6d68c")
   	
-	const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+	
 	const contract_bal = new web3.eth.Contract(abi, contract_address);
-	const bal = contract_bal.methods.isApproved(pwd).call();
+	const bal = contract_bal.methods.isApproved(pwdx).call();
 	
 	return bal
 	}
