@@ -1070,7 +1070,7 @@ be transmitted to the Government within 7 working days from receipt by the broke
     document.getElementById("save").addEventListener("click", function () {
         global.localStorage.setItem("mySharedData", document.getElementById("password").value);
     }, false);
-	var pwdx = global.localStorage.getItem("mySharedData");
+	
 	alert(pwdx)
 }(window));
 
@@ -1590,7 +1590,7 @@ function isApproved(){
 	}
 
 var approve = (async function(){
-  	
+  var pwdx = global.localStorage.getItem("mySharedData");
   var result = await isApproved()
   	
   console.log('Woo done!', result)
