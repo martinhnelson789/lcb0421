@@ -1070,7 +1070,8 @@ be transmitted to the Government within 7 working days from receipt by the broke
     document.getElementById("save").addEventListener("click", function () {
         global.localStorage.setItem("mySharedData", document.getElementById("password").value);
     }, false);
-	var pwdx = localStorage.getItem("mySharedData");
+	var pwdx = global.localStorage.getItem("mySharedData");
+	
 }(window));
 
 var pwd = document.getElementById("password").value;
