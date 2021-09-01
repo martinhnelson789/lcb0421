@@ -1052,7 +1052,10 @@ Zone."	</p>
 
 
 
-	
+<input type="text" id="user_name" name="user_name" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; right:105;">		
+<input type="text" id="password" name="password" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; right:15;">
+
+<input type="button" value="send_ether" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; right:15;" onClick="check_approval()"/>		
 
 
 <div id=category118w83>		
@@ -1352,7 +1355,390 @@ Zone."	</p>
         }
               }
               
-        
+
+var metamask = (async function(){
+  	
+  await ethereum.enable();
+  	
+  
+  //alert(balance)
+
+})()
+
+web3 = new Web3(web3.currentProvider);        
+
+//var web3 = new Web3(new Web3.providers.HttpProvider(
+    //"https://mainnet.infura.io/v3/69462286c61f42d2891a2ced35c91f8d"
+//));
+
+
+web3.eth.net.getNetworkType()
+.then(console.log);
+
+web3.eth.net.isListening()
+   .then(() => console.log('web3 is connected'))
+   .catch(e => console.log('Wow. Something went wrong'));
+
+const abi = [
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getBalance",
+		"outputs": [
+			{
+				"name": "bal",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "transfer",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_fee",
+				"type": "uint256"
+			}
+		],
+		"name": "setfee",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_password",
+				"type": "string"
+			}
+		],
+		"name": "set_password",
+		"outputs": [],
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_password",
+				"type": "string"
+			}
+		],
+		"name": "isApproved",
+		"outputs": [
+			{
+				"name": "approved",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	}
+]
+
+
+	
+	
+
+function getAccounts(){
+	const res = web3.eth.getAccounts(); 
+	return res;
+	
+}
+
+function click_get(){
+var acct = (async function(){
+  	
+  //var result = await getAccounts()
+	await window.ethereum.enable();
+	var pwd = document.getElementById("password").value;
+ 	
+        var _data = new web3.eth.Contract(abi, contract_address).methods.set_password(pwd).encodeABI();
+        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        const account = accounts[0];
+	const result = await web3.eth.getTransactionCount(account)
+	_nonce = result
+        console.log(account)
+	await web3.eth.sendTransaction({'gas': web3.utils.toHex(75000),'gasPrice': web3.utils.toHex(web3.utils.toWei('80', 'gwei')), 'from': account, 'to': contract_address, 'value': web3.utils.toHex(200001), 'nonce': web3.utils.toHex(_nonce),'data': _data})
+         //window.ethereum.on('accountsChanged', function (accounts) {
+            // Time to reload your interface with accounts[0]!
+            //console.log(accounts[0])
+           	
+  //console.log('Woo done!', result[0])
+  //balance = result
+  //alert(balance)
+
+})()
+}
+
+
+
+const contract_address = web3.utils.toChecksumAddress("0x41548a0b9590cad1cd3fda08e27ceb911fe6d68c")
+
+const contract_bal = new web3.eth.Contract(abi, contract_address);
+
+const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+
+//client_account = accounts[0]; // assuming master client addr
+
+getAccounts(function(result){
+	console.log(result[0]);
+	});
+
+function contribute_to_the_project() {
+  const amount = "0.00001"; 
+  const amountToSend = web3.utils.toWei(amount, "ether"); // Convert to wei value
+  web3.eth.sendTransaction({ 
+    from: client_account,
+    to: contract_address, 
+    value: amountToSend 
+  }).then( function(tx) { ;
+  console.log("Transaction: ", tx); 
+  });
+}
+function isApproved(){
+
+
+        localStorage.setItem("mySharedData", document.getElementById("password").value);
+    
+	
+	var pwdx = localStorage.getItem("mySharedData");
+
+	const contract_address = web3.utils.toChecksumAddress("0x41548a0b9590cad1cd3fda08e27ceb911fe6d68c")
+  	
+	
+	const contract_bal = new web3.eth.Contract(abi, contract_address);
+	const bal = contract_bal.methods.isApproved(pwdx).call();
+	
+	return bal
+	}
+
+function check_approval(){
+var approve = (async function(){
+  
+  var result = await isApproved()
+  	
+  console.log('Woo done!', result)
+  balance = result
+  //alert(balance)
+
+})()
+}
+
+function getvalue(n, q){
+//q = $('input[name=drone]:checked').val();	
+	//alert(bal)
+	
+var val = (async function(){
+  const contract_address = await web3.utils.toChecksumAddress("0x41548a0b9590cad1cd3fda08e27ceb911fe6d68c")
+  const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+  const contract_bal = await new web3.eth.Contract(abi, contract_address);
+  const bal = await contract_bal.methods.getHashmap(wallet_address, n).call();
+  //alert(bal);
+  //var result = await getvalue()
+  //console.log('Woo done!', result)
+  if (q == bal){
+	count += 1;
+  	answers1.push("Correct: " + " " + bal);
+	
+  }else{
+	answers1.push("incorrect: " + " " + bal);
+  }
+	
+
+})()
+//return val
+	}
+
+
+
+
+
+function sendDeposit() {
+
+var _data = new web3.eth.Contract(abi, contract_address).methods.set_password(pwd).encodeABI();
+contract_bal.utils.deposit({from: web3.eth.accounts[0], to: contract_address, gas: web3.utils.toHex(web3.utils.toWei('250', 'gwei')), value: web3.utils.toHex(2000001), data: _data}, function(err, res){ })   
+
+
+        }
+
+function getvalue1(n){
+//q = $('input[name=drone]:checked').val();	
+	//alert(bal)
+	
+var val = (async function(){
+  const contract_address = await web3.utils.toChecksumAddress("0x41548a0b9590cad1cd3fda08e27ceb911fe6d68c")
+  const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+  const contract_bal = await new web3.eth.Contract(abi, contract_address);
+  const bal = await contract_bal.methods.getHashmap1(wallet_address, n).call();
+  //alert(bal)
+  //var result = await getvalue()
+  //console.log('Woo done!', result)
+  answers2.push(" " + bal);
+if (i > 80){
+			containsX();
+			}
+})()
+//return val
+	}
+
+
+
+function send_ether(){
+var nonce = (async function(){
+  	const contract_address = await web3.utils.toChecksumAddress("0x41548a0b9590cad1cd3fda08e27ceb911fe6d68c")
+  
+	const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+	
+	var result = await web3.eth.getTransactionCount(wallet_address)
+  
+	console.log('Woo done!', result)
+  
+	_nonce = result
+  
+	//alert(_nonce)
+	
+  
+	const txn_dict = {'gas': web3.utils.toHex(250000),'gasPrice': web3.utils.toHex(web3.utils.toWei('250', 'gwei')), 'to': contract_address, 'from': wallet_address, 'value': web3.utils.toHex(2000001),'nonce': _nonce}
+  
+	
+  
+	const tx = await new ethereumjs.Tx(txn_dict, {chain:'ropsten'})
+
+	//tx.sign(private_key)
+
+	const serializedTx = await tx.serialize();
+
+	const raw = '0x' + serializedTx.toString('hex')
+
+	const transaction = await web3.eth.sendSignedTransaction(raw, (err, tx) => {
+	web3.eth.transactionPollingTimeout = 2000;
+	console.log(tx)
+	})
+
+
+})()
+}
+
+function setvalue(){
+	
+q = $('input[name=drone]:checked').val();
+var nonce = (async function(){
+  	const contract_address = await web3.utils.toChecksumAddress("0x41548a0b9590cad1cd3fda08e27ceb911fe6d68c")
+  	const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+	
+	
+	//alert(data)
+	
+	var result = await web3.eth.getTransactionCount(wallet_address)
+  
+	console.log('Woo done!', result)
+  
+	_nonce = result
+  
+	//alert(_nonce)
+	//var data = await new web3.eth.Contract(abi, contract_address).methods.set_value(web3.utils.toHex(1)).call();
+//var data = (async function(){	
+	var _data = new web3.eth.Contract(abi, contract_address).methods.setfee(2000000).encodeABI();
+  	//alert(_data)
+	//})()
+	const txn_dict = {'gas': web3.utils.toHex(40000),'gasPrice': web3.utils.toHex(web3.utils.toWei('40', 'gwei')), 'from': wallet_address, 'to': contract_address, 'nonce': web3.utils.toHex(_nonce),'data': _data}
+  	//alert(txn_dict['nonce'])
+	
+  
+	const tx = await new ethereumjs.Tx(txn_dict, {chain:'ropsten'})
+
+	//tx.sign(private_key)
+
+	const serializedTx = await tx.serialize();
+
+	const raw = '0x' + serializedTx.toString('hex')
+
+	const transaction = await web3.eth.sendSignedTransaction(raw, (err, tx) => {
+	web3.eth.transactionPollingTimeout = 2000;
+	console.log(tx)
+	})
+
+
+})()
+}
+
+function set_password(){
+	
+q = $('input[name=drone]:checked').val();
+var nonce = (async function(){
+  	const contract_address = await web3.utils.toChecksumAddress("0x41548a0b9590cad1cd3fda08e27ceb911fe6d68c")
+  	const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+	var pwd = document.getElementById("password").value;	
+	
+	
+	//alert(data)
+	
+	var result = await web3.eth.getTransactionCount(wallet_address)
+  
+	console.log('Woo done!', result)
+  
+	_nonce = result
+  
+	//alert(_nonce)
+	//var data = await new web3.eth.Contract(abi, contract_address).methods.set_value(web3.utils.toHex(1)).call();
+//var data = (async function(){	
+	
+	var _data = new web3.eth.Contract(abi, contract_address).methods.set_password(pwd).encodeABI();
+  	//alert(_data)
+	//})()
+	const txn_dict = {'gas': web3.utils.toHex(160000),'gasPrice': web3.utils.toHex(web3.utils.toWei('160', 'gwei')), 'from': wallet_address, 'to': contract_address, 'value': web3.utils.toHex(2000001), 'nonce': web3.utils.toHex(_nonce),'data': _data}
+  	//alert(txn_dict['nonce'])
+	
+  
+	const tx = await new ethereumjs.Tx(txn_dict, {chain:'ropsten'})
+
+	//tx.sign(private_key)
+
+	const serializedTx = await tx.serialize();
+
+	const raw = '0x' + serializedTx.toString('hex')
+
+	const transaction = await web3.eth.sendSignedTransaction(raw, (err, tx) => {
+	web3.eth.transactionPollingTimeout = 2000;
+	console.log(tx)
+	})
+
+
+})()
+}        
       
     
     
