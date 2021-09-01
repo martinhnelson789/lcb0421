@@ -1553,7 +1553,11 @@ var approve = (async function(){
   	
   console.log('Woo done!', result)
   balance = result
-  show1() 
+  if(balance == True){
+  	show1();
+	}else{
+	alert("sign in")
+	}
 //alert(balance)
 
 })()
