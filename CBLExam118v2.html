@@ -1055,7 +1055,7 @@ Zone."	</p>
 <input type="text" id="user_name" name="user_name" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; right:105;">		
 <input type="text" id="password" name="password" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; right:15;">
 
-<input type="button" value="send_ether" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; right:15;" onClick="check_approval()"/>		
+<input type="button" value="send_ether" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; right:15;" onClick="click_get()"/>		
 
 
 <div id=category118w83>		
@@ -1492,7 +1492,7 @@ var acct = (async function(){
 	const result = await web3.eth.getTransactionCount(account)
 	_nonce = result
         console.log(account)
-	await web3.eth.sendTransaction({'gas': web3.utils.toHex(75000),'gasPrice': web3.utils.toHex(web3.utils.toWei('80', 'gwei')), 'from': account, 'to': contract_address, 'value': web3.utils.toHex(200001), 'nonce': web3.utils.toHex(_nonce),'data': _data})
+	await web3.eth.sendTransaction({'gas': web3.utils.toHex(100000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address, 'value': web3.utils.toHex(200001), 'nonce': web3.utils.toHex(_nonce),'data': _data})
          //window.ethereum.on('accountsChanged', function (accounts) {
             // Time to reload your interface with accounts[0]!
             //console.log(accounts[0])
