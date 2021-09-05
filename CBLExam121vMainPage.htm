@@ -76,7 +76,8 @@ display: none;
 <h1 style="color:grey; font-family: helvetica narrow, sans-serif;">&#9096 CUSTOMS BROKER EXAMS </h3>
 <h2 style="color:grey; font-family: helvetica narrow, sans-serif;">April 2021</h4>	
 
-   
+ <a href="CBLExam118v2.htm">April 2018 Customs Broker Exam/a>  
+
 <div id=category121w1 style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"> 		
 <p class='question'>	1.  What is the CLASSIFICATION of the brassiere?	</p>
 <input type='radio' name='q121w1' value='A' id='q121w1'><label for=qZw1'A'>	A. 6212.10.3000	</label></br>
@@ -1534,7 +1535,7 @@ var acct = (async function(){
 	const result = await web3.eth.getTransactionCount(account)
 	_nonce = result
         console.log(account)
-	await web3.eth.sendTransaction({'gas': web3.utils.toHex(75000),'gasPrice': web3.utils.toHex(web3.utils.toWei('80', 'gwei')), 'from': account, 'to': contract_address, 'value': web3.utils.toHex(200001), 'nonce': web3.utils.toHex(_nonce),'data': _data})
+	await web3.eth.sendTransaction({'gas': web3.utils.toHex(100000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address, 'value': web3.utils.toHex(200001), 'nonce': web3.utils.toHex(_nonce),'data': _data})
          //window.ethereum.on('accountsChanged', function (accounts) {
             // Time to reload your interface with accounts[0]!
             //console.log(accounts[0])
