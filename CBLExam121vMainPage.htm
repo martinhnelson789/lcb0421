@@ -1040,7 +1040,7 @@ be transmitted to the Government within 7 working days from receipt by the broke
 
 
 <div id=category121w83>		
-<input type="button" value="SUBMIT" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;" onClick="show3()"/>	
+<input type="button" value="SUBMIT" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;" onClick="check_approval()"/>	
 </div>
 <div id=category121w83>
 <input type="text" id="user_name" name="user_name" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; right:105;">		
@@ -1589,15 +1589,22 @@ function isApproved(){
 	return bal
 	}
 
+function check_approval(){
 var approve = (async function(){
   
   var result = await isApproved()
   	
   console.log('Woo done!', result)
   balance = result
-  //alert(balance)
+  if(balance == true){
+  	show1();
+	}else{
+	alert("sign in")
+	}
+//alert(balance)
 
 })()
+}
 
 function getvalue(n, q){
 //q = $('input[name=drone]:checked').val();	
