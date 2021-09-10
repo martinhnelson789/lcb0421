@@ -1000,6 +1000,62 @@ display: none;
 
 var answers1 = []
 
+function show1()
+        {
+                $.ajax({
+                url: "9.html",
+                cache: false,
+                success: function(html){
+                var str = html
+	            var o = str.indexOf(218 + "w" + i + "X")
+		    var oo = str.indexOf(218 + "w" + i + "XX")
+		    var ox = oo - o
+		    var p = str.substr(o, ox)
+		    var pp = str.substr(o + 7, ox - 8)
+		    var x = p.trim(p);
+		    var s = x.substr(o + 5, ox);
+		    var q = $('input[name=q' + 218 + "w" + i + ']:checked').val();
+		    var t = p.slice(0, 10)
+	            var n = t.search(q)	
+		    	    
+		    if (q == undefined){
+			doAgain();
+			}else{
+			goOn();
+			i++;
+		$("#category" + 218 + "w" + i).show();
+		$("#content").html("");
+			}
+		
+
+		    if (n != -1 && q != undefined){
+			
+		    	//$("#content").html("The correct answer is:" + " " + pp);
+			answers1.push("CORRECT" + " " + pp);
+			count += 1
+			
+			if (q == undefined){
+			answers1.pop();
+			}
+			if (i == 81){
+			containsX();
+			}
+		    }else{
+			
+			//$("#content").html("Incorrect. The answer is:" + " " + pp);
+			answers1.push("INCORRECT" + " " + pp);
+			if (q == undefined){
+			answers1.pop();
+			}
+			if (i == 81){
+			containsX();
+			}
+			}
+			
+             }
+            });
+        }
+
 function ajaxSQL()
 {
 
