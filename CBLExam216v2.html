@@ -1412,11 +1412,11 @@ var data = "q=" + i + "&" + "r=" + exm;
 		    var oo = str.indexOf(216 + "w" + i + "XX")
 		    var ox = oo - o
 		    var p = str.substr(o, ox)
-		    var pp = str.substr(o + 5, ox - 8)
+		    var pp = str.substr(o + 7, ox - 8)
 		    var x = p.trim(p);
 		    var s = x.substr(o + 5, ox);
 		    var q = $('input[name=q' + 216 + "w" + i + ']:checked').val();
-		    var t = p.slice(0, 9)
+		    var t = p.slice(0, 10)
 	            var n = t.search(q)	
 		    	    
 		    if (q == undefined){
@@ -1427,7 +1427,7 @@ var data = "q=" + i + "&" + "r=" + exm;
 
 		    if (n != -1 && q != undefined){
 			
-		    	//$("#content").html("The correct answer is:" + " " + s);
+		    	//$("#content").html("The correct answer is:" + " " + pp);
 			answers1.push("CORRECT" + " " + pp);
 			count += 1
 			
@@ -1439,7 +1439,7 @@ var data = "q=" + i + "&" + "r=" + exm;
 			}
 		    }else{
 			
-			//$("#content").html("Incorrect. The answer is:" + " " + s);
+			//$("#content").html("Incorrect. The answer is:" + " " + pp);
 			answers1.push("INCORRECT" + " " + pp);
 			if (q == undefined){
 			answers1.pop();
