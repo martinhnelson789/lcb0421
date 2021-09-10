@@ -1006,14 +1006,14 @@ function show1()
                 cache: false,
                 success: function(html){
                 var str = html
-	            var o = str.indexOf(217 + "w" + i + "X")
-		    var oo = str.indexOf(217 + "w" + i + "XX")
+	            var o = str.indexOf(218 + "w" + i + "X")
+		    var oo = str.indexOf(218 + "w" + i + "XX")
 		    var ox = oo - o
 		    var p = str.substr(o, ox)
 		    var pp = str.substr(o + 7, ox - 8)
 		    var x = p.trim(p);
 		    var s = x.substr(o + 5, ox);
-		    var q = $('input[name=q' + 217 + "w" + i + ']:checked').val();
+		    var q = $('input[name=q' + 218 + "w" + i + ']:checked').val();
 		    var t = p.slice(0, 10)
 	            var n = t.search(q)	
 		    	    
