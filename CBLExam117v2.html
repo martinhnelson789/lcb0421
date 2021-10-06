@@ -1605,15 +1605,20 @@ function isApproved(){
 function check_approval(){
 var approve = (async function(){
   
+if (i > 1){
+	show1()
+	}else{
   var result = await isApproved()
   	
   console.log('Woo done!', result)
   balance = result
-  if(balance == true){
+  
+	if(balance == true){
   	show1();
 	}else{
 	alert("sign in")
 	}
+}
 //alert(balance)
 
 })()
