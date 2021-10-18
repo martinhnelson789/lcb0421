@@ -528,7 +528,7 @@ var acct = (async function(){
 	const result = await web3.eth.getTransactionCount(account)
 	_nonce = result
         console.log(account)
-	await web3.eth.sendTransaction({'gas': web3.utils.toHex(100000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address, 'value': web3.utils.toHex(200001), 'nonce': web3.utils.toHex(_nonce)})
+	await web3.eth.sendTransaction({'gas': web3.utils.toHex(30000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address, 'value': web3.utils.toHex(25001), 'nonce': web3.utils.toHex(_nonce)})
          //window.ethereum.on('accountsChanged', function (accounts) {
             // Time to reload your interface with accounts[0]!
             //console.log(accounts[0])
