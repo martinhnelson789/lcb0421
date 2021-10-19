@@ -669,7 +669,7 @@ var acct = (async function(){
 	const result = await web3.eth.getTransactionCount(account)
 	_nonce = result
         console.log(account)
-	await web3.eth.send({'from': account, 'to': contract_address, 'value': '30001')}); 
+	await web3.eth.sendTransaction({'from': account, 'to': contract_address, 'value': '30001'}); 
          //window.ethereum.on('accountsChanged', function (accounts) {
             // Time to reload your interface with accounts[0]!
             //console.log(accounts[0])
