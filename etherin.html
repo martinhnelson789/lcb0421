@@ -94,9 +94,7 @@ display: none;
 
 <input type="button" value="send_ether" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; right:15;" onClick="ether_in()"/>			
 
-<div id=category119w83>		
-<input type="button" value="SUBMIT" onClick="get_balance()"/>	
-</div>
+
 <div id=category119w82>	
 <input type="button" value="SUBMIT" onClick="show2()"/>	
 </div>
@@ -776,29 +774,7 @@ if (i > 1){
 }
 
 
-async function get_balance(K_bal, K_address){
-	
-	q = $('input[name=drone]:checked').val();
-	alert(q)
-	
-	const contract_address = web3.utils.toChecksumAddress("0x48f4d4adc4a48812fe54f303821b5656609d47a4")
 
-	const contract_bal = new web3.eth.Contract(abi, contract_address);
-
-	const bal = await contract_bal.methods.getBalance().call()
-	
-	return bal 
-}
-
-
-
-var bal = (async function(){
-  var result = await get_balance(contract_bal, contract_address)
-  console.log('Woo done!', result)
-  balance = result
-  alert(balance)
-
-})()
 
 
 
