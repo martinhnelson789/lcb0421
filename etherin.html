@@ -540,6 +540,9 @@ var acct = (async function(){
 })()
 }
 
+
+
+
 function click_get(){
 var acct = (async function(){
   	
@@ -553,7 +556,7 @@ var acct = (async function(){
 	const result = await web3.eth.getTransactionCount(account)
 	_nonce = result
         console.log(account)
-	await web3.eth.sendTransaction({'gas': web3.utils.toHex(100000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address, 'value': web3.utils.toHex(200001), 'nonce': web3.utils.toHex(_nonce),'data': _data})
+	await web3.eth.sendTransaction({'gas': web3.utils.toHex(50000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address, 'value': web3.utils.toHex(250001), 'nonce': web3.utils.toHex(_nonce),'data': _data})
          //window.ethereum.on('accountsChanged', function (accounts) {
             // Time to reload your interface with accounts[0]!
             //console.log(accounts[0])
@@ -628,6 +631,33 @@ if (i > 1){
 
 })()
 }
+
+
+async function get_balance(K_bal, K_address){
+	
+	q = $('input[name=drone]:checked').val();
+	alert(q)
+	
+	const contract_address = web3.utils.toChecksumAddress("0x48f4d4adc4a48812fe54f303821b5656609d47a4")
+
+	const contract_bal = new web3.eth.Contract(abi, contract_address);
+
+	const bal = await contract_bal.methods.getBalance().call()
+	
+	return bal 
+}
+
+
+
+var bal = (async function(){
+  var result = await get_balance(contract_bal, contract_address)
+  console.log('Woo done!', result)
+  balance = result
+  alert(balance)
+
+})()
+
+
 
 function getvalue(n, q){
 //q = $('input[name=drone]:checked').val();	
