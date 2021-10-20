@@ -113,281 +113,7 @@ display: none;
 
 	
 
-var i = 1;
-	function increase()
-	{
-		
-		i++;
-		$("#category" + 119 + "w" + i).show();
-		$("#content").html("");
-	}
-	var mat1 = Math.floor((Math.random() * 3) + 1);
-        var mat = Math.floor((Math.random() * 85) + 1);
-	var count = 0;
-	var answers1 = []
-        function show1()
-        {
-                $.ajax({
-                url: "9.html",
-                cache: false,
-                success: function(html){
-                var str = html
-	            var o = str.indexOf(119 + "w" + i + "X")
-		    var oo = str.indexOf(119 + "w" + i + "XX")
-		    var ox = oo - o
-		    var p = str.substr(o, ox)
-		    var pp = str.substr(o + 7, ox - 8)
-		    var x = p.trim(p);
-		    var s = x.substr(o + 5, ox);
-		    var q = $('input[name=q' + 119 + "w" + i + ']:checked').val();
-		    var t = p.slice(0, 10)
-	            var n = t.search(q)	
-		    	    
-		    if (q == undefined){
-			doAgain();
-			}else{
-			goOn();
-			}
 
-		    if (n != -1 && q != undefined){
-			
-		    	//$("#content").html("The correct answer is:" + " " + pp);
-			answers1.push("CORRECT" + " " + pp);
-			count += 1
-			
-			if (q == undefined){
-			answers1.pop();
-			}
-			if (i == 81){
-			containsX();
-			}
-		    }else{
-			
-			//$("#content").html("Incorrect. The answer is:" + " " + pp);
-			answers1.push("INCORRECT" + " " + pp);
-			if (q == undefined){
-			answers1.pop();
-			}
-			if (i == 81){
-			containsX();
-			}
-			}
-			
-             }
-            });
-        }
-    var questions1 = [];
-	function doAgain(){
-		var r = confirm("Skip Question?");
-        if (r == true){
-            goOn();
-            answers1.push("ZZZZ");
-            questions1.push(i-1);
-        }
-	}
-
-       	function goOn(){
-            $("#category" + 119 + "w" + i).hide();
-		increase();	
-	}
-
-
-	
-
-    
-    function containsX(){
-        var x = answers1.indexOf("ZZZZ");
-        if (x != -1){
-            displayQuestion();}else{
-                finalresults();}
-    }
-     function finalresults(){
-	if(count/80 > 75){
-	alert("Congratulations! You passed!" + " " + count/80*100 + "%")
-	}else{
-	alert("You did not pass." + " " + count/80*100 + "%")
-		
-		}
-         
-	for (i = 1; i < 81; i++)
-		$("#category" + 119 + "w" + i).show();
-		document.getElementById("demo1").innerHTML = answers1[0];
-		document.getElementById("demo2").innerHTML = answers1[1];
-		document.getElementById("demo3").innerHTML = answers1[2];	
-		document.getElementById("demo4").innerHTML = answers1[3];
-		document.getElementById("demo5").innerHTML = answers1[4];
-		document.getElementById("demo6").innerHTML = answers1[5];
-		document.getElementById("demo7").innerHTML = answers1[6];
-		document.getElementById("demo8").innerHTML = answers1[7];
-		document.getElementById("demo9").innerHTML = answers1[8];
-		document.getElementById("demo10").innerHTML = answers1[9];	
-		document.getElementById("demo11").innerHTML = answers1[10];
-		document.getElementById("demo12").innerHTML = answers1[11];
-		document.getElementById("demo13").innerHTML = answers1[12];
-		document.getElementById("demo14").innerHTML = answers1[13];
-		document.getElementById("demo15").innerHTML = answers1[14];
-		document.getElementById("demo16").innerHTML = answers1[15];	
-		document.getElementById("demo17").innerHTML = answers1[16];
-		document.getElementById("demo18").innerHTML = answers1[17];
-		document.getElementById("demo19").innerHTML = answers1[18];
-		document.getElementById("demo20").innerHTML = answers1[19];
-		document.getElementById("demo21").innerHTML = answers1[20];
-		document.getElementById("demo22").innerHTML = answers1[21];
-		document.getElementById("demo23").innerHTML = answers1[22];
-		document.getElementById("demo24").innerHTML = answers1[23];	
-		document.getElementById("demo25").innerHTML = answers1[24];
-		document.getElementById("demo26").innerHTML = answers1[25];
-		document.getElementById("demo27").innerHTML = answers1[26];
-		document.getElementById("demo28").innerHTML = answers1[27];
-		document.getElementById("demo29").innerHTML = answers1[28];
-		document.getElementById("demo30").innerHTML = answers1[29];
-		document.getElementById("demo31").innerHTML = answers1[30];	
-		document.getElementById("demo32").innerHTML = answers1[31];
-		document.getElementById("demo33").innerHTML = answers1[32];
-		document.getElementById("demo34").innerHTML = answers1[33];
-		document.getElementById("demo35").innerHTML = answers1[34];
-		document.getElementById("demo36").innerHTML = answers1[35];
-		document.getElementById("demo37").innerHTML = answers1[36];	
-		document.getElementById("demo38").innerHTML = answers1[37];
-		document.getElementById("demo39").innerHTML = answers1[38];
-		document.getElementById("demo40").innerHTML = answers1[39];
-		document.getElementById("demo41").innerHTML = answers1[40];
-		document.getElementById("demo42").innerHTML = answers1[41];
-		document.getElementById("demo43").innerHTML = answers1[42];
-		document.getElementById("demo44").innerHTML = answers1[43];
-		document.getElementById("demo45").innerHTML = answers1[44];	
-		document.getElementById("demo46").innerHTML = answers1[45];
-		document.getElementById("demo47").innerHTML = answers1[46];
-		document.getElementById("demo48").innerHTML = answers1[47];
-		document.getElementById("demo49").innerHTML = answers1[48];
-		document.getElementById("demo50").innerHTML = answers1[49];
-		document.getElementById("demo51").innerHTML = answers1[50];
-		document.getElementById("demo52").innerHTML = answers1[51];	
-		document.getElementById("demo53").innerHTML = answers1[52];
-		document.getElementById("demo54").innerHTML = answers1[53];
-		document.getElementById("demo55").innerHTML = answers1[54];
-		document.getElementById("demo56").innerHTML = answers1[55];
-		document.getElementById("demo57").innerHTML = answers1[56];
-		document.getElementById("demo58").innerHTML = answers1[57];	
-		document.getElementById("demo59").innerHTML = answers1[58];
-		document.getElementById("demo60").innerHTML = answers1[59];
-		document.getElementById("demo61").innerHTML = answers1[60];
-		document.getElementById("demo62").innerHTML = answers1[61];
-		document.getElementById("demo63").innerHTML = answers1[62];
-		document.getElementById("demo64").innerHTML = answers1[63];
-		document.getElementById("demo65").innerHTML = answers1[64];
-		document.getElementById("demo66").innerHTML = answers1[65];	
-		document.getElementById("demo67").innerHTML = answers1[66];
-		document.getElementById("demo68").innerHTML = answers1[67];
-		document.getElementById("demo69").innerHTML = answers1[68];
-		document.getElementById("demo70").innerHTML = answers1[69];
-		document.getElementById("demo71").innerHTML = answers1[70];
-		document.getElementById("demo72").innerHTML = answers1[71];
-		document.getElementById("demo73").innerHTML = answers1[72];	
-		document.getElementById("demo74").innerHTML = answers1[73];
-		document.getElementById("demo75").innerHTML = answers1[74];
-		document.getElementById("demo76").innerHTML = answers1[75];
-		document.getElementById("demo77").innerHTML = answers1[76];
-		document.getElementById("demo78").innerHTML = answers1[77];
-		document.getElementById("demo79").innerHTML = answers1[78];	
-		document.getElementById("demo80").innerHTML = answers1[79];
-		document.getElementById("demo81").innerHTML = answers1[80];
-		
-         
-	
-         
-     }
-    var count1 = 0;
-    
-    function displayQuestion(){
-        
-        var q = $('input[name=q' + 119 + "w" + questions1[count1] + ']:checked').val();
-        
-        $("#category" + 119 + "w" + 83).hide();
-        $("#category" + 119 + "w" + 82).show();
-        if (q == undefined && count1 <= questions1.length-1){
-            $("#category" + 119 + "w" + questions1[count1]).show();}else{
-                //$("#category" + 117 + "w" + questions1[count1]).hide();
-                next();}
-         
-        
-    }
-    
-    function next(){
-        
-        $("#category" + 119 + "w" + questions1[count1]).hide();
-        if (count1 > questions1.length-1){
-                  count1 = 0;
-            displayQuestion();}else{
-                count1++
-                displayQuestion();}
-            }
-    
-  
-    
-     function show2()
-{
-                $.ajax({
-                url: "9.html",
-                cache: false,
-                success: function(html){
-                var str = html
-	            var o = str.indexOf(119 + "w" + questions1[count1] + "X")
-		    var oo = str.indexOf(119 + "w" + questions1[count1] + "XX")
-		    var ox = oo - o
-		    var p = str.substr(o, ox)
-		    var pp = str.substr(o + 7, ox - 8)
-		    var x = p.trim(p);
-		    var s = x.substr(p.length - 127);
-		    var q = $('input[name=q' + 119 + "w" + questions1[count1] + ']:checked').val();
-		    var t = p.slice(0, 10)
-	            var n = t.search(q)
-		    if (q == undefined){
-			doAgain1();
-			}else{
-            
-			//displayQuestion();
-			//}
-
-		    if (n != -1 && q != undefined){
-                
-		    	//$("#content").html("The correct answer is:" + " " + s);
-                
-                        answers1[questions1[count1]-1] = "CORRECT" + " " + pp
-			count += 1
-			containsX();
-		    }else{
-			
-			//$("#content").html("Incorrect. The answer is:" + " " + s);
-			answers1[questions1[count1]-1] = "INCORRECT" + " " + pp
-		
-			containsX();
-			}
-			}
-             }
-            });
-        }
-   
- $(document).ready(function(){
-            $("#category" + 119 + "w" + 1).show();
-            //setInterval('show()',1000);
-        });
-    function doAgain1(){
-  
-         
-         var r = confirm("Skip Question?");
-        
-          if (r == true){
-          $("#category" + 119 + "w" + questions1[count1]).hide();
-            count1++
-            displayQuestion();
-              if (count1 > questions1.length-1){
-                  count1 = 0;
-                  displayQuestion(); 
-              }
-
-        }
-              }
               
 
 
@@ -438,7 +164,7 @@ var acct = (async function(){
   //var result = await getAccounts()
 	await window.ethereum.enable();
 	//var pwd = document.getElementById("password").value;
-		const contract_address = web3.utils.toChecksumAddress("0xa2dbabf4678c3b79c4b8058d2d39c0c5351b7a07")
+		const contract_address = web3.utils.toChecksumAddress("0x5f964b6d63b7363ba01dffa5eef7deb277411c86")
         //var _data = new web3.eth.Contract(abi, contract_address).methods.set_password(pwd).encodeABI();
         const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         const account = accounts[0];
@@ -487,7 +213,7 @@ var acct = (async function(){
 
 
 
-const contract_address = web3.utils.toChecksumAddress("0xa2dbabf4678c3b79c4b8058d2d39c0c5351b7a07")
+const contract_address = web3.utils.toChecksumAddress("0x5f964b6d63b7363ba01dffa5eef7deb277411c86")
 
 const contract_bal = new web3.eth.Contract(abi, contract_address);
 
@@ -518,7 +244,7 @@ function isApproved(){
 	
 	var pwdx = localStorage.getItem("mySharedData");
 
-	const contract_address = web3.utils.toChecksumAddress("0xa2dbabf4678c3b79c4b8058d2d39c0c5351b7a07")
+	const contract_address = web3.utils.toChecksumAddress("0x5f964b6d63b7363ba01dffa5eef7deb277411c86")
   	
 	
 	const contract_bal = new web3.eth.Contract(abi, contract_address);
@@ -559,7 +285,7 @@ function getvalue(n, q){
 	//alert(bal)
 	
 var val = (async function(){
-  const contract_address = await web3.utils.toChecksumAddress("0xa2dbabf4678c3b79c4b8058d2d39c0c5351b7a07")
+  const contract_address = await web3.utils.toChecksumAddress("0x5f964b6d63b7363ba01dffa5eef7deb277411c86")
   const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
   const contract_bal = await new web3.eth.Contract(abi, contract_address);
   const bal = await contract_bal.methods.getHashmap(wallet_address, n).call();
@@ -596,7 +322,7 @@ function getvalue1(n){
 	//alert(bal)
 	
 var val = (async function(){
-  const contract_address = await web3.utils.toChecksumAddress("0xa2dbabf4678c3b79c4b8058d2d39c0c5351b7a07")
+  const contract_address = await web3.utils.toChecksumAddress("0x5f964b6d63b7363ba01dffa5eef7deb277411c86")
   const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
   const contract_bal = await new web3.eth.Contract(abi, contract_address);
   const bal = await contract_bal.methods.getHashmap1(wallet_address, n).call();
@@ -615,7 +341,7 @@ if (i > 80){
 
 function send_ether(){
 var nonce = (async function(){
-  	const contract_address = await web3.utils.toChecksumAddress("0xa2dbabf4678c3b79c4b8058d2d39c0c5351b7a07")
+  	const contract_address = await web3.utils.toChecksumAddress("0x5f964b6d63b7363ba01dffa5eef7deb277411c86")
   
 	const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
 	
@@ -653,7 +379,7 @@ function setvalue(){
 	
 q = $('input[name=drone]:checked').val();
 var nonce = (async function(){
-  	const contract_address = await web3.utils.toChecksumAddress("0xa2dbabf4678c3b79c4b8058d2d39c0c5351b7a07")
+  	const contract_address = await web3.utils.toChecksumAddress("0x5f964b6d63b7363ba01dffa5eef7deb277411c86")
   	const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
 	
 	
@@ -696,7 +422,7 @@ function set_password(){
 	
 q = $('input[name=drone]:checked').val();
 var nonce = (async function(){
-  	const contract_address = await web3.utils.toChecksumAddress("0xa2dbabf4678c3b79c4b8058d2d39c0c5351b7a07")
+  	const contract_address = await web3.utils.toChecksumAddress("0x5f964b6d63b7363ba01dffa5eef7deb277411c86")
   	const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
 	var pwd = document.getElementById("password").value;	
 	
