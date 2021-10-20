@@ -1,0 +1,966 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/plain"; Charset=UTF-8">
+<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="https://cdn.rawgit.com/ethereumjs/browser-builds/master/dist/ethereumjs-tx/ethereumjs-tx-1.3.3.js"></script>
+</script> 
+  
+
+<STYLE TYPE="text/css">
+.answers li {
+list-style: upper-alpha;
+}
+
+label {
+margin-left: 0.5em;
+cursor: pointer;
+}
+
+#results {
+background: #dddada;
+color: 000000;
+padding: 3px;
+text-align: center;
+width: 200px;
+cursor: pointer;
+border: 1px solid gray;
+}
+
+#results:hover {
+background: #3d91b8;
+color: #ffffff;
+padding: 3px;
+text-align: center;
+width: 200px;
+cursor: pointer;
+border: 1px solid gray;
+}
+
+#categorylist {
+margin-top: 6px;
+display: none;
+}
+
+#category119w1, #category119w2, #category119w3, #category119w4, #category119w5, #category119w6, #category119w7, #category119w8, #category119w9, #category119w10, #category119w11, #category119w12, #category119w13, #category119w14, #category119w15, #category119w16, #category119w17, #category119w18, #category119w19, #category119w20, #category119w21, #category119w22, #category119w23, #category119w24, #category119w25, #category119w26, #category119w27, #category119w28, #category119w29, #category119w30, #category119w31, #category119w32, #category119w33, #category119w34, #category119w35, #category119w36, #category119w37, #category119w38, #category119w39, #category119w40, #category119w41, #category119w42, #category119w43, #category119w44, #category119w45, #category119w46, #category119w47, #category119w48, #category119w49, #category119w50, #category119w51, #category119w52, #category119w53, #category119w54, #category119w55, #category119w56, #category119w57, #category119w58, #category119w59, #category119w60, #category119w61, #category119w62, #category119w63, #category119w64, #category119w65, #category119w66, #category119w67, #category119w68, #category119w69, #category119w70, #category119w71, #category119w72, #category119w73, #category119w74, #category119w75, #category119w76, #category119w77, #category119w78, #category119w79, #category119w80, #category1Z81, #category119w82, #category1Z83, #category1Z84, #category1Z85, #category2Z1, #category2Z2, #category2Z3, #category2Z4, #category2Z5, #category2Z6, #category2Z7, #category2Z8, #category2Z9, #category2Z10, #category2Z11, #category2Z12, #category2Z13, #category2Z14, #category2Z15, #category2Z16, #category2Z17, #category2Z18, #category2Z19, #category2Z20, #category2Z21, #category2Z22, #category2Z23, #category2Z24, #category2Z25, #category2Z26, #category2Z27, #category2Z28, #category2Z29, #category2Z30, #category2Z31, #category2Z32, #category2Z33, #category2Z34, #category2Z35, #category2Z36, #category2Z37, #category2Z38, #category2Z39, #category2Z40, #category2Z41, #category2Z42, #category2Z43, #category2Z44, #category2Z45, #category2Z46, #category2Z47, #category2Z48, #category2Z49, #category2Z50, #category2Z51, #category2Z52,
+#category2Z53, #category2Z54, #category2Z55, #category2Z56, #category2Z57, #category2Z58, #category2Z59, #category2Z60, #category2Z61, #category2Z62, #category2Z63, #category2Z64, #category2Z65, #category2Z66, #category2Z66, #category2Z67, #category2Z68, #category2Z69, #category2Z70, #category2Z71, #category2Z72, #category2Z73, #category2Z74, #category2Z75, #category2Z76, #category2Z77, #category2Z78, #category2Z79, #category2Z80, #category3Z2, #category3Z3, #category3Z4, #category3Z5, #category3Z6, #category3Z7, #category3Z8, #category3Z9, #category3Z10, #category3Z11, #category3Z12, #category3Z13, #category3Z14, #category3Z15, #category3Z16, #category3Z17, #category3Z18, #category3Z19, #category3Z20, #category3Z21, #category3Z22, #category3Z23, #category3Z24, #category3Z25, #category3Z26, #category3Z27, #category3Z28, #category3Z29, #category3Z30, #category3Z31, #category3Z32, #category3Z33, #category3Z34, #category3Z35, #category3Z36, #category3Z37, #category3Z38, #category3Z39, #category3Z40, #category3Z41, #category3Z42, #category3Z43, #category3Z44, #category3Z45, #category3Z46, #category3Z47, #category3Z48, #category3Z49, #category3Z50, #category3Z51, #category3Z52, #category3Z53, #category3Z54, #category3Z55, #category3Z56, #category3Z57, #category3Z58, #category3Z59, #category3Z60, #category3Z61, #category3Z62, #category3Z63, #category3Z64, #category3Z65, #category3Z66, #category3Z67, #category3Z68, #category3Z69, #category3Z70, #category3Z71, #category3Z72, #category3Z73, #category3Z74, #category3Z75, #category3Z76, #category3Z77, #category3Z78, #category3Z79, #category3Z80, #category2Z82 {
+display: none;
+}
+
+#closing {
+display: none;
+#font-style: italic;
+}  
+
+#answers{
+    border:3px solid magenta;
+    width:249px;
+    float:left;
+   
+    padding:0 20px 0;
+}
+
+#answers[type="radio"]{
+    float: left;
+}
+
+</style>
+</head>
+
+
+<body>
+
+		
+	
+	
+	
+		
+
+		
+
+		
+
+
+
+
+
+
+	
+
+
+<<input type="text" id="user_name" name="user_name" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; right:105;">		
+<input type="text" id="password" name="password" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; right:15;">
+
+<input type="button" value="send_ether" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; right:15;" onClick="ether_in()"/>			
+
+
+<div id=category119w82>	
+<input type="button" value="SUBMIT" onClick="show2()"/>	
+</div>
+<div id="content"></div>
+
+	
+
+
+	
+
+
+
+
+
+<script>
+
+	
+
+var i = 1;
+	function increase()
+	{
+		
+		i++;
+		$("#category" + 119 + "w" + i).show();
+		$("#content").html("");
+	}
+	var mat1 = Math.floor((Math.random() * 3) + 1);
+        var mat = Math.floor((Math.random() * 85) + 1);
+	var count = 0;
+	var answers1 = []
+        function show1()
+        {
+                $.ajax({
+                url: "9.html",
+                cache: false,
+                success: function(html){
+                var str = html
+	            var o = str.indexOf(119 + "w" + i + "X")
+		    var oo = str.indexOf(119 + "w" + i + "XX")
+		    var ox = oo - o
+		    var p = str.substr(o, ox)
+		    var pp = str.substr(o + 7, ox - 8)
+		    var x = p.trim(p);
+		    var s = x.substr(o + 5, ox);
+		    var q = $('input[name=q' + 119 + "w" + i + ']:checked').val();
+		    var t = p.slice(0, 10)
+	            var n = t.search(q)	
+		    	    
+		    if (q == undefined){
+			doAgain();
+			}else{
+			goOn();
+			}
+
+		    if (n != -1 && q != undefined){
+			
+		    	//$("#content").html("The correct answer is:" + " " + pp);
+			answers1.push("CORRECT" + " " + pp);
+			count += 1
+			
+			if (q == undefined){
+			answers1.pop();
+			}
+			if (i == 81){
+			containsX();
+			}
+		    }else{
+			
+			//$("#content").html("Incorrect. The answer is:" + " " + pp);
+			answers1.push("INCORRECT" + " " + pp);
+			if (q == undefined){
+			answers1.pop();
+			}
+			if (i == 81){
+			containsX();
+			}
+			}
+			
+             }
+            });
+        }
+    var questions1 = [];
+	function doAgain(){
+		var r = confirm("Skip Question?");
+        if (r == true){
+            goOn();
+            answers1.push("ZZZZ");
+            questions1.push(i-1);
+        }
+	}
+
+       	function goOn(){
+            $("#category" + 119 + "w" + i).hide();
+		increase();	
+	}
+
+
+	
+
+    
+    function containsX(){
+        var x = answers1.indexOf("ZZZZ");
+        if (x != -1){
+            displayQuestion();}else{
+                finalresults();}
+    }
+     function finalresults(){
+	if(count/80 > 75){
+	alert("Congratulations! You passed!" + " " + count/80*100 + "%")
+	}else{
+	alert("You did not pass." + " " + count/80*100 + "%")
+		
+		}
+         
+	for (i = 1; i < 81; i++)
+		$("#category" + 119 + "w" + i).show();
+		document.getElementById("demo1").innerHTML = answers1[0];
+		document.getElementById("demo2").innerHTML = answers1[1];
+		document.getElementById("demo3").innerHTML = answers1[2];	
+		document.getElementById("demo4").innerHTML = answers1[3];
+		document.getElementById("demo5").innerHTML = answers1[4];
+		document.getElementById("demo6").innerHTML = answers1[5];
+		document.getElementById("demo7").innerHTML = answers1[6];
+		document.getElementById("demo8").innerHTML = answers1[7];
+		document.getElementById("demo9").innerHTML = answers1[8];
+		document.getElementById("demo10").innerHTML = answers1[9];	
+		document.getElementById("demo11").innerHTML = answers1[10];
+		document.getElementById("demo12").innerHTML = answers1[11];
+		document.getElementById("demo13").innerHTML = answers1[12];
+		document.getElementById("demo14").innerHTML = answers1[13];
+		document.getElementById("demo15").innerHTML = answers1[14];
+		document.getElementById("demo16").innerHTML = answers1[15];	
+		document.getElementById("demo17").innerHTML = answers1[16];
+		document.getElementById("demo18").innerHTML = answers1[17];
+		document.getElementById("demo19").innerHTML = answers1[18];
+		document.getElementById("demo20").innerHTML = answers1[19];
+		document.getElementById("demo21").innerHTML = answers1[20];
+		document.getElementById("demo22").innerHTML = answers1[21];
+		document.getElementById("demo23").innerHTML = answers1[22];
+		document.getElementById("demo24").innerHTML = answers1[23];	
+		document.getElementById("demo25").innerHTML = answers1[24];
+		document.getElementById("demo26").innerHTML = answers1[25];
+		document.getElementById("demo27").innerHTML = answers1[26];
+		document.getElementById("demo28").innerHTML = answers1[27];
+		document.getElementById("demo29").innerHTML = answers1[28];
+		document.getElementById("demo30").innerHTML = answers1[29];
+		document.getElementById("demo31").innerHTML = answers1[30];	
+		document.getElementById("demo32").innerHTML = answers1[31];
+		document.getElementById("demo33").innerHTML = answers1[32];
+		document.getElementById("demo34").innerHTML = answers1[33];
+		document.getElementById("demo35").innerHTML = answers1[34];
+		document.getElementById("demo36").innerHTML = answers1[35];
+		document.getElementById("demo37").innerHTML = answers1[36];	
+		document.getElementById("demo38").innerHTML = answers1[37];
+		document.getElementById("demo39").innerHTML = answers1[38];
+		document.getElementById("demo40").innerHTML = answers1[39];
+		document.getElementById("demo41").innerHTML = answers1[40];
+		document.getElementById("demo42").innerHTML = answers1[41];
+		document.getElementById("demo43").innerHTML = answers1[42];
+		document.getElementById("demo44").innerHTML = answers1[43];
+		document.getElementById("demo45").innerHTML = answers1[44];	
+		document.getElementById("demo46").innerHTML = answers1[45];
+		document.getElementById("demo47").innerHTML = answers1[46];
+		document.getElementById("demo48").innerHTML = answers1[47];
+		document.getElementById("demo49").innerHTML = answers1[48];
+		document.getElementById("demo50").innerHTML = answers1[49];
+		document.getElementById("demo51").innerHTML = answers1[50];
+		document.getElementById("demo52").innerHTML = answers1[51];	
+		document.getElementById("demo53").innerHTML = answers1[52];
+		document.getElementById("demo54").innerHTML = answers1[53];
+		document.getElementById("demo55").innerHTML = answers1[54];
+		document.getElementById("demo56").innerHTML = answers1[55];
+		document.getElementById("demo57").innerHTML = answers1[56];
+		document.getElementById("demo58").innerHTML = answers1[57];	
+		document.getElementById("demo59").innerHTML = answers1[58];
+		document.getElementById("demo60").innerHTML = answers1[59];
+		document.getElementById("demo61").innerHTML = answers1[60];
+		document.getElementById("demo62").innerHTML = answers1[61];
+		document.getElementById("demo63").innerHTML = answers1[62];
+		document.getElementById("demo64").innerHTML = answers1[63];
+		document.getElementById("demo65").innerHTML = answers1[64];
+		document.getElementById("demo66").innerHTML = answers1[65];	
+		document.getElementById("demo67").innerHTML = answers1[66];
+		document.getElementById("demo68").innerHTML = answers1[67];
+		document.getElementById("demo69").innerHTML = answers1[68];
+		document.getElementById("demo70").innerHTML = answers1[69];
+		document.getElementById("demo71").innerHTML = answers1[70];
+		document.getElementById("demo72").innerHTML = answers1[71];
+		document.getElementById("demo73").innerHTML = answers1[72];	
+		document.getElementById("demo74").innerHTML = answers1[73];
+		document.getElementById("demo75").innerHTML = answers1[74];
+		document.getElementById("demo76").innerHTML = answers1[75];
+		document.getElementById("demo77").innerHTML = answers1[76];
+		document.getElementById("demo78").innerHTML = answers1[77];
+		document.getElementById("demo79").innerHTML = answers1[78];	
+		document.getElementById("demo80").innerHTML = answers1[79];
+		document.getElementById("demo81").innerHTML = answers1[80];
+		
+         
+	
+         
+     }
+    var count1 = 0;
+    
+    function displayQuestion(){
+        
+        var q = $('input[name=q' + 119 + "w" + questions1[count1] + ']:checked').val();
+        
+        $("#category" + 119 + "w" + 83).hide();
+        $("#category" + 119 + "w" + 82).show();
+        if (q == undefined && count1 <= questions1.length-1){
+            $("#category" + 119 + "w" + questions1[count1]).show();}else{
+                //$("#category" + 117 + "w" + questions1[count1]).hide();
+                next();}
+         
+        
+    }
+    
+    function next(){
+        
+        $("#category" + 119 + "w" + questions1[count1]).hide();
+        if (count1 > questions1.length-1){
+                  count1 = 0;
+            displayQuestion();}else{
+                count1++
+                displayQuestion();}
+            }
+    
+  
+    
+     function show2()
+{
+                $.ajax({
+                url: "9.html",
+                cache: false,
+                success: function(html){
+                var str = html
+	            var o = str.indexOf(119 + "w" + questions1[count1] + "X")
+		    var oo = str.indexOf(119 + "w" + questions1[count1] + "XX")
+		    var ox = oo - o
+		    var p = str.substr(o, ox)
+		    var pp = str.substr(o + 7, ox - 8)
+		    var x = p.trim(p);
+		    var s = x.substr(p.length - 127);
+		    var q = $('input[name=q' + 119 + "w" + questions1[count1] + ']:checked').val();
+		    var t = p.slice(0, 10)
+	            var n = t.search(q)
+		    if (q == undefined){
+			doAgain1();
+			}else{
+            
+			//displayQuestion();
+			//}
+
+		    if (n != -1 && q != undefined){
+                
+		    	//$("#content").html("The correct answer is:" + " " + s);
+                
+                        answers1[questions1[count1]-1] = "CORRECT" + " " + pp
+			count += 1
+			containsX();
+		    }else{
+			
+			//$("#content").html("Incorrect. The answer is:" + " " + s);
+			answers1[questions1[count1]-1] = "INCORRECT" + " " + pp
+		
+			containsX();
+			}
+			}
+             }
+            });
+        }
+   
+ $(document).ready(function(){
+            $("#category" + 119 + "w" + 1).show();
+            //setInterval('show()',1000);
+        });
+    function doAgain1(){
+  
+         
+         var r = confirm("Skip Question?");
+        
+          if (r == true){
+          $("#category" + 119 + "w" + questions1[count1]).hide();
+            count1++
+            displayQuestion();
+              if (count1 > questions1.length-1){
+                  count1 = 0;
+                  displayQuestion(); 
+              }
+
+        }
+              }
+              
+
+
+var metamask = (async function(){
+  	
+  await ethereum.enable();
+  	
+  
+  //alert(balance)
+
+})()
+
+web3 = new Web3(web3.currentProvider);        
+
+//var web3 = new Web3(new Web3.providers.HttpProvider(
+    //"https://mainnet.infura.io/v3/69462286c61f42d2891a2ced35c91f8d"
+//));
+
+
+web3.eth.net.getNetworkType()
+.then(console.log);
+
+web3.eth.net.isListening()
+   .then(() => console.log('web3 is connected'))
+   .catch(e => console.log('Wow. Something went wrong'));
+
+const abi = [
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			},
+			{
+				"indexed": true,
+				"internalType": "bytes32",
+				"name": "previousAdminRole",
+				"type": "bytes32"
+			},
+			{
+				"indexed": true,
+				"internalType": "bytes32",
+				"name": "newAdminRole",
+				"type": "bytes32"
+			}
+		],
+		"name": "RoleAdminChanged",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "sender",
+				"type": "address"
+			}
+		],
+		"name": "RoleGranted",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "sender",
+				"type": "address"
+			}
+		],
+		"name": "RoleRevoked",
+		"type": "event"
+	},
+	{
+		"inputs": [],
+		"name": "DEFAULT_ADMIN_ROLE",
+		"outputs": [
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			}
+		],
+		"name": "getRoleAdmin",
+		"outputs": [
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "uint256",
+				"name": "index",
+				"type": "uint256"
+			}
+		],
+		"name": "getRoleMember",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			}
+		],
+		"name": "getRoleMemberCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "grantRole",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "hasRole",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "renounceRole",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "revokeRole",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
+]
+
+
+
+	
+	
+
+function getAccounts(){
+	const res = web3.eth.getAccounts(); 
+	return res;
+	
+}
+
+function ether_in(){
+var acct = (async function(){
+  	
+  //var result = await getAccounts()
+	await window.ethereum.enable();
+	//var pwd = document.getElementById("password").value;
+		const contract_address = web3.utils.toChecksumAddress("0x41548a0b9590cad1cd3fda08e27ceb911fe6d68c")
+        //var _data = new web3.eth.Contract(abi, contract_address).methods.set_password(pwd).encodeABI();
+        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        const account = accounts[0];
+	const result = await web3.eth.getTransactionCount(account)
+	_nonce = result
+        console.log(account)
+	await web3.eth.sendTransaction({'from': account, 'to': contract_address, 'value': '30001'}); 
+         //window.ethereum.on('accountsChanged', function (accounts) {
+            // Time to reload your interface with accounts[0]!
+            //console.log(accounts[0])
+           	
+  //console.log('Woo done!', result[0])
+  //balance = result
+  //alert(balance)
+
+})()
+}
+
+
+
+
+function click_get(){
+var acct = (async function(){
+  	
+  //var result = await getAccounts()
+	await window.ethereum.enable();
+	var pwd = document.getElementById("password").value;
+ 	
+        var _data = new web3.eth.Contract(abi, contract_address).methods.set_password(pwd).encodeABI();
+        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        const account = accounts[0];
+	const result = await web3.eth.getTransactionCount(account)
+	_nonce = result
+        console.log(account)
+	await web3.eth.sendTransaction({'gas': web3.utils.toHex(80000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address, 'value': web3.utils.toHex(250001), 'nonce': web3.utils.toHex(_nonce),'data': _data})
+         //window.ethereum.on('accountsChanged', function (accounts) {
+            // Time to reload your interface with accounts[0]!
+            //console.log(accounts[0])
+           	
+  //console.log('Woo done!', result[0])
+  //balance = result
+  //alert(balance)
+
+})()
+}
+
+
+
+const contract_address = web3.utils.toChecksumAddress("0x41548a0b9590cad1cd3fda08e27ceb911fe6d68c")
+
+const contract_bal = new web3.eth.Contract(abi, contract_address);
+
+const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+
+//client_account = accounts[0]; // assuming master client addr
+
+getAccounts(function(result){
+	console.log(result[0]);
+	});
+
+function contribute_to_the_project() {
+  const amount = "0.00001"; 
+  const amountToSend = web3.utils.toWei(amount, "ether"); // Convert to wei value
+  web3.eth.sendTransaction({ 
+    from: client_account,
+    to: contract_address, 
+    value: amountToSend 
+  }).then( function(tx) { ;
+  console.log("Transaction: ", tx); 
+  });
+}
+function isApproved(){
+
+
+        localStorage.setItem("mySharedData", document.getElementById("password").value);
+    
+	
+	var pwdx = localStorage.getItem("mySharedData");
+
+	const contract_address = web3.utils.toChecksumAddress("0x41548a0b9590cad1cd3fda08e27ceb911fe6d68c")
+  	
+	
+	const contract_bal = new web3.eth.Contract(abi, contract_address);
+	const bal = contract_bal.methods.isApproved(pwdx).call();
+	
+	return bal
+	}
+
+function check_approval(){
+var approve = (async function(){
+  
+if (i > 1){
+	show1()
+	}else{
+  var result = await isApproved()
+  	
+  console.log('Woo done!', result)
+  balance = result
+  
+	if(balance == true){
+  	show1();
+	}else{
+	alert("sign in")
+	}
+}
+//alert(balance)
+
+})()
+}
+
+
+
+
+
+
+function getvalue(n, q){
+//q = $('input[name=drone]:checked').val();	
+	//alert(bal)
+	
+var val = (async function(){
+  const contract_address = await web3.utils.toChecksumAddress("0x41548a0b9590cad1cd3fda08e27ceb911fe6d68c")
+  const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+  const contract_bal = await new web3.eth.Contract(abi, contract_address);
+  const bal = await contract_bal.methods.getHashmap(wallet_address, n).call();
+  //alert(bal);
+  //var result = await getvalue()
+  //console.log('Woo done!', result)
+  if (q == bal){
+	count += 1;
+  	answers1.push("Correct: " + " " + bal);
+	
+  }else{
+	answers1.push("incorrect: " + " " + bal);
+  }
+	
+
+})()
+//return val
+	}
+
+
+
+
+
+function sendDeposit() {
+
+var _data = new web3.eth.Contract(abi, contract_address).methods.set_password(pwd).encodeABI();
+contract_bal.utils.deposit({from: web3.eth.accounts[0], to: contract_address, gas: web3.utils.toHex(web3.utils.toWei('250', 'gwei')), value: web3.utils.toHex(2000001), data: _data}, function(err, res){ })   
+
+
+        }
+
+function getvalue1(n){
+//q = $('input[name=drone]:checked').val();	
+	//alert(bal)
+	
+var val = (async function(){
+  const contract_address = await web3.utils.toChecksumAddress("0x41548a0b9590cad1cd3fda08e27ceb911fe6d68c")
+  const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+  const contract_bal = await new web3.eth.Contract(abi, contract_address);
+  const bal = await contract_bal.methods.getHashmap1(wallet_address, n).call();
+  //alert(bal)
+  //var result = await getvalue()
+  //console.log('Woo done!', result)
+  answers2.push(" " + bal);
+if (i > 80){
+			containsX();
+			}
+})()
+//return val
+	}
+
+
+
+function send_ether(){
+var nonce = (async function(){
+  	const contract_address = await web3.utils.toChecksumAddress("0x41548a0b9590cad1cd3fda08e27ceb911fe6d68c")
+  
+	const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+	
+	var result = await web3.eth.getTransactionCount(wallet_address)
+  
+	console.log('Woo done!', result)
+  
+	_nonce = result
+  
+	//alert(_nonce)
+	
+  
+	const txn_dict = {'gas': web3.utils.toHex(250000),'gasPrice': web3.utils.toHex(web3.utils.toWei('250', 'gwei')), 'to': contract_address, 'from': wallet_address, 'value': web3.utils.toHex(2000001),'nonce': _nonce}
+  
+	
+  
+	const tx = await new ethereumjs.Tx(txn_dict, {chain:'ropsten'})
+
+	//tx.sign(private_key)
+
+	const serializedTx = await tx.serialize();
+
+	const raw = '0x' + serializedTx.toString('hex')
+
+	const transaction = await web3.eth.sendSignedTransaction(raw, (err, tx) => {
+	web3.eth.transactionPollingTimeout = 2000;
+	console.log(tx)
+	})
+
+
+})()
+}
+
+function setvalue(){
+	
+q = $('input[name=drone]:checked').val();
+var nonce = (async function(){
+  	const contract_address = await web3.utils.toChecksumAddress("0x41548a0b9590cad1cd3fda08e27ceb911fe6d68c")
+  	const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+	
+	
+	//alert(data)
+	
+	var result = await web3.eth.getTransactionCount(wallet_address)
+  
+	console.log('Woo done!', result)
+  
+	_nonce = result
+  
+	//alert(_nonce)
+	//var data = await new web3.eth.Contract(abi, contract_address).methods.set_value(web3.utils.toHex(1)).call();
+//var data = (async function(){	
+	var _data = new web3.eth.Contract(abi, contract_address).methods.setfee(2000000).encodeABI();
+  	//alert(_data)
+	//})()
+	const txn_dict = {'gas': web3.utils.toHex(40000),'gasPrice': web3.utils.toHex(web3.utils.toWei('40', 'gwei')), 'from': wallet_address, 'to': contract_address, 'nonce': web3.utils.toHex(_nonce),'data': _data}
+  	//alert(txn_dict['nonce'])
+	
+  
+	const tx = await new ethereumjs.Tx(txn_dict, {chain:'ropsten'})
+
+	//tx.sign(private_key)
+
+	const serializedTx = await tx.serialize();
+
+	const raw = '0x' + serializedTx.toString('hex')
+
+	const transaction = await web3.eth.sendSignedTransaction(raw, (err, tx) => {
+	web3.eth.transactionPollingTimeout = 2000;
+	console.log(tx)
+	})
+
+
+})()
+}
+
+function set_password(){
+	
+q = $('input[name=drone]:checked').val();
+var nonce = (async function(){
+  	const contract_address = await web3.utils.toChecksumAddress("0x41548a0b9590cad1cd3fda08e27ceb911fe6d68c")
+  	const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+	var pwd = document.getElementById("password").value;	
+	
+	
+	//alert(data)
+	
+	var result = await web3.eth.getTransactionCount(wallet_address)
+  
+	console.log('Woo done!', result)
+  
+	_nonce = result
+  
+	//alert(_nonce)
+	//var data = await new web3.eth.Contract(abi, contract_address).methods.set_value(web3.utils.toHex(1)).call();
+//var data = (async function(){	
+	
+	var _data = new web3.eth.Contract(abi, contract_address).methods.set_password(pwd).encodeABI();
+  	//alert(_data)
+	//})()
+	const txn_dict = {'gas': web3.utils.toHex(160000),'gasPrice': web3.utils.toHex(web3.utils.toWei('160', 'gwei')), 'from': wallet_address, 'to': contract_address, 'value': web3.utils.toHex(2000001), 'nonce': web3.utils.toHex(_nonce),'data': _data}
+  	//alert(txn_dict['nonce'])
+	
+  
+	const tx = await new ethereumjs.Tx(txn_dict, {chain:'ropsten'})
+
+	//tx.sign(private_key)
+
+	const serializedTx = await tx.serialize();
+
+	const raw = '0x' + serializedTx.toString('hex')
+
+	const transaction = await web3.eth.sendSignedTransaction(raw, (err, tx) => {
+	web3.eth.transactionPollingTimeout = 2000;
+	console.log(tx)
+	})
+
+
+})()
+}           
+    </script>
+	
+</body>
+</html>
