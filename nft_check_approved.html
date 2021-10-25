@@ -142,7 +142,23 @@ const abi = [
 	}
 ]
 
+function getApproved(){
 
+
+        localStorage.setItem("mySharedData", document.getElementById("password").value);
+		localStorage.setItem("mySharedData1", document.getElementById("user_name").value);
+	
+	var pwdx = localStorage.getItem("mySharedData");
+	var token_nx = localStorage.getItem("mySharedData1");
+	
+	const contract_address = web3.utils.toChecksumAddress("0x41548a0b9590cad1cd3fda08e27ceb911fe6d68c")
+  	
+	
+	const contract_bal = new web3.eth.Contract(abi, contract_address);
+	const bal = contract_bal.methods.getApproved(pwdx, token_nx).call();
+	
+	return bal
+	}
 
 function check_approved(){
 var approve = (async function(){
