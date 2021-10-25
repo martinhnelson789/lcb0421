@@ -142,7 +142,7 @@ const abi = [
 	}
 ]
 
-function check_approved(){
+function getapproved(){
 
 
         localStorage.setItem("mySharedData", document.getElementById("password").value);
@@ -156,7 +156,7 @@ function check_approved(){
 	
 	const contract_bal = new web3.eth.Contract(abi, contract_address);
 	const bal = contract_bal.methods.check_approved(pwdx, token_nx).call();
-	
+	console.log(bal)
 	return bal
 	}
 
@@ -164,7 +164,7 @@ function check_approved(){
 var approve = (async function(){
   
   
-  var result = await check_approved()
+  var result = await getapproved()
   	
   console.log('Woo done!', result)
   balance = result
