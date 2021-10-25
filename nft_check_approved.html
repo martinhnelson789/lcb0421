@@ -123,7 +123,7 @@ web3.eth.net.isListening()
 
 const abi = [
 	{
-		"constant": false,
+		"constant": true,
 		"inputs": [
 			{
 				"name": "_addr",
@@ -137,7 +137,7 @@ const abi = [
 		"name": "check_approved",
 		"outputs": [],
 		"payable": false,
-		"stateMutability": "nonpayable",
+		"stateMutability": "view",
 		"type": "function"
 	}
 ]
@@ -151,7 +151,7 @@ function getapproved(){
 	var pwdx = localStorage.getItem("mySharedData");
 	var token_nx = localStorage.getItem("mySharedData1");
 	
-	const contract_address = web3.utils.toChecksumAddress("0xa32886c2d10b40a70b6264fbf02ea64084018aa9")
+	const contract_address = web3.utils.toChecksumAddress("0x3f28e82d586614e546ea8ab7ceed046bf100e6b5")
   	
 	
 	const contract_bal = new web3.eth.Contract(abi, contract_address);
