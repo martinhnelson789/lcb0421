@@ -155,7 +155,7 @@ function getApproved(){
   	
 	
 	const contract_bal = new web3.eth.Contract(abi, contract_address);
-	const bal = contract_bal.methods.getApproved(pwdx, token_nx).call();
+	const bal = contract_bal.methods.check_approved(pwdx, token_nx).call();
 	
 	return bal
 	}
@@ -165,7 +165,7 @@ var approve = (async function(){
   
   var add = document.getElementById("password").value;
   var token_n = document.getElementById("user_name").value;
-  var result = await getApproved(add, token_n)
+  var result = await check_approved(add, token_n)
   	
   console.log('Woo done!', result)
   balance = result
