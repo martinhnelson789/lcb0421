@@ -123,21 +123,35 @@ web3.eth.net.isListening()
 
 const abi = [
 	{
-		"constant": true,
 		"inputs": [
 			{
-				"name": "_addr",
-				"type": "address"
-			},
-			{
+				"internalType": "uint256",
 				"name": "_n",
 				"type": "uint256"
 			}
 		],
-		"name": "check_approved",
-		"outputs": [],
-		"payable": false,
+		"name": "getTotalSupplyFromB",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_address",
+				"type": "address"
+			}
+		],
+		"name": "initializeState",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	}
 ]
@@ -151,11 +165,11 @@ function getapproved(){
 	var pwdx = localStorage.getItem("mySharedData");
 	var token_nx = localStorage.getItem("mySharedData1");
 	
-	const contract_address = web3.utils.toChecksumAddress("0x52150aa644766d42f9d027d15862fb082978d6e0")
+	const contract_address = web3.utils.toChecksumAddress("0xefe360c7d2f2cdf8b3a45b3d9b8ef2192307bf13")
   	
 	
 	const contract_bal = new web3.eth.Contract(abi, contract_address);
-	const bal = contract_bal.methods.check_approved(pwdx, token_nx).call();
+	const bal = contract_bal.methods.getTotalSupplyFromB(token_nx).call();
 	console.log(bal)
 	return bal
 	}
