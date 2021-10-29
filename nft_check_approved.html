@@ -644,8 +644,8 @@ var acct = (async function(){
 	var add2x = localStorage.getItem("mySharedData2");
 	var token_nx = localStorage.getItem("mySharedData1");
 	
- 	
-        var _data = new web3.eth.Contract(abi, contract_address).methods.approve(add1x, token_nx).encodeABI();
+ 	contract_address1 = '0x19545D326fA247c495dcDbB99f88E0FAeBb956E5'
+        var _data = new web3.eth.Contract(abi, contract_address1).methods.approve(add1x, token_nx).encodeABI();
         const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         const account = accounts[0];
 	const result = await web3.eth.getTransactionCount(account)
