@@ -82,7 +82,7 @@ display: none;
 <input type="text" id="user_name" name="user_name" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; right:105;">		
 <input type="text" id="password" name="password" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; right:15;">
 
-<input type="button" value="check_approved" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; right:15;" onClick="check_approved()"/>	
+<input type="button" value="reclaim asset" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; right:15;" onClick="reclaim_asset()"/>	
 </div>
 <div id=category121w82>	
 <input type="button" value="Show Answers" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;" onClick="prompt_approve()"/>	
@@ -335,6 +335,38 @@ var acct = (async function(){
 })()
 }
 
+function reclaim_asset(){
+var acct = (async function(){
+  	
+  //var result = await getAccounts()
+	await window.ethereum.enable();
+	localStorage.setItem("mySharedData", document.getElementById("password").value);
+	localStorage.setItem("mySharedData1", document.getElementById("user_name").value);
+	localStorage.setItem("mySharedData2", document.getElementById("user_name1").value);
+	
+	var add1x = localStorage.getItem("mySharedData");
+	var add2x = localStorage.getItem("mySharedData2");
+	var token_nx = localStorage.getItem("mySharedData1");
+	
+ 	//const contract_address1 = web3.utils.toChecksumAddress("0x19545d326fa247c495dcdbb99f88e0faebb956e5")
+        var _data = new web3.eth.Contract(abi, contract_address).ReturnToBorrower(add2x).encodeABI();
+        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        const account = accounts[0];
+	const result = await web3.eth.getTransactionCount(account)
+	_nonce = result
+        console.log(account)
+		
+	await web3.eth.sendTransaction({'gas': web3.utils.toHex(100000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address, 'value': web3.utils.toHex(3000001), 'nonce': web3.utils.toHex(_nonce),'data': _data})
+         //window.ethereum.on('accountsChanged', function (accounts) {
+            // Time to reload your interface with accounts[0]!
+            //console.log(accounts[0])
+           	
+  //console.log('Woo done!', result[0])
+  //balance = result
+  //alert(balance)
+
+})()
+}
 
 
 const contract_address = web3.utils.toChecksumAddress("0x2b47569c5d5ab3680893a3e296f97ff6f4cca152")
