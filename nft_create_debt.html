@@ -539,20 +539,20 @@ function loan_amount(){
 function check_loan_amount(){
 var approve = (async function(){
   
-if (i > 1){
-	show1()
-	}else{
+//if (i > 1){
+	//show1()
+	//}else{
   var result = await loan_amount()
   	
   console.log('Woo done!', result)
   balance = result
   
-	if(balance == true){
-  	show1();
-	}else{
-	alert("sign in")
-	}
-}
+	//if(balance == true){
+  	//show1();
+	//}else{
+	//alert("sign in")
+	//}
+//}
 //alert(balance)
 
 })()
