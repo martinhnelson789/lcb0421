@@ -83,6 +83,7 @@ display: none;
 <input type="text" id="password" name="password" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; right:15;">
 
 <input type="button" value="reclaim asset" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; right:15;" onClick="reclaim_asset()"/>	
+<input type="button" value="check loan" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; right:15;" onClick="check_loan_amount()"/>	
 </div>
 <div id=category121w82>	
 <input type="button" value="Show Answers" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;" onClick="prompt_approve()"/>	
@@ -518,7 +519,7 @@ function contribute_to_the_project() {
   console.log("Transaction: ", tx); 
   });
 }
-function isApproved(){
+function loan_amount(){
 
 
         localStorage.setItem("mySharedData", document.getElementById("password").value);
@@ -530,18 +531,18 @@ function isApproved(){
   	
 	
 	const contract_bal = new web3.eth.Contract(abi, contract_address);
-	const bal = contract_bal.methods.isApproved(pwdx).call();
+	const bal = contract_bal.methods.loan_amount_list(pwdx).call();
 	
 	return bal
 	}
 
-function check_approval(){
+function check_loan_amount(){
 var approve = (async function(){
   
 if (i > 1){
 	show1()
 	}else{
-  var result = await isApproved()
+  var result = await loan_amount()
   	
   console.log('Woo done!', result)
   balance = result
