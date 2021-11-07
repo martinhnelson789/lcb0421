@@ -484,6 +484,7 @@ var acct = (async function(){
 }
 
 
+
 const contract_address = web3.utils.toChecksumAddress("0xdd6e83cc3843cac694b5aefb5aae8229a40f2d88")
 
 const contract_bal = new web3.eth.Contract(abi, contract_address);
@@ -532,7 +533,8 @@ function loan_amount(){
 	
 	const contract_bal = new web3.eth.Contract(abi, contract_address);
 	const bal = contract_bal.methods.token_contracts_list(pwdx).call();
-	
+	const loan_ = contract_bal.methods.loan_amount_list(pwdx).call();
+	console.log(loan)
 	return bal
 	}
 
