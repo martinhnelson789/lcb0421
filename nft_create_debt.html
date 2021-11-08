@@ -373,6 +373,31 @@ const abi = [
 	}
 ]
 
+var display = (async function(){
+  
+  
+  localStorage.setItem("mySharedData", document.getElementById("password").value);
+    
+	
+	var pwdx = localStorage.getItem("mySharedData");
+
+	const contract_address = web3.utils.toChecksumAddress("0xdd6e83cc3843cac694b5aefb5aae8229a40f2d88")
+  	
+	
+	const contract_bal = new web3.eth.Contract(abi, contract_address);
+	const contract_ID = await contract_bal.methods.token_contracts_list(pwdx).call();
+	console.log(contract_ID)
+	const loan_ = await contract_bal.methods.loan_amount_list(pwdx).call();
+	console.log(loan_)
+	const term = await contract_bal.methods.loan_term_list(pwdx).call();
+	console.log(term)
+  
+	console.log(balance)
+
+//alert(balance)
+
+})()
+
 function prompt_approve(){
 	web3.eth.abi.encodeFunctionSignature('approve(address,uint256)');
 }
