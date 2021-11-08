@@ -83,7 +83,7 @@ display: none;
 <input type="text" id="password" name="password" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; right:15;">
 
 <input type="button" value="reclaim asset" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; right:15;" onClick="reclaim_asset()"/>	
-<input type="button" value="check loan" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; right:15;" onClick="check_loan_amount()"/>	
+<input type="button" value="display loan info" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; right:15;" onClick="display_loan_info()"/>	
 </div>
 <div id=category121w82>	
 <input type="button" value="Show Answers" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;" onClick="prompt_approve()"/>	
@@ -373,6 +373,7 @@ const abi = [
 	}
 ]
 
+function display_loan_info(){
 var display = (async function(){
   
   
@@ -387,16 +388,21 @@ var display = (async function(){
 	const contract_bal = new web3.eth.Contract(abi, contract_address);
 	const contract_ID = await contract_bal.methods.token_contracts_list(pwdx).call();
 	console.log(contract_ID)
+	const token_ID = await contract_bal.methods.tokens_list(pwdx).call();
+	console.log(token_ID)
 	const loan_ = await contract_bal.methods.loan_amount_list(pwdx).call();
 	console.log(loan_)
 	const term = await contract_bal.methods.loan_term_list(pwdx).call();
 	console.log(term)
+	const obligation = await contract_bal.methods.debt_obligation_list(pwdx).call();
+	console.log(obligation)
   
-	console.log(balance)
+	
 
 //alert(balance)
 
 })()
+}
 
 function prompt_approve(){
 	web3.eth.abi.encodeFunctionSignature('approve(address,uint256)');
