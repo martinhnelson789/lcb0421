@@ -499,8 +499,8 @@ var acct = (async function(){
 	
 	var nft_k = localStorage.getItem("NFT Contract");
 	var nft_id = localStorage.getItem("NFT Token ID");
-	var loan_amt = localStorage.getItem("loan_amount");
-	var loan_term = localStorage.getItem("loan_term");
+	var loan_amt = localStorage.getItem("Loan Amount");
+	var loan_term = localStorage.getItem("Loan Term");
 	
  	//const contract_address1 = web3.utils.toChecksumAddress("0x19545d326fa247c495dcdbb99f88e0faebb956e5")
         var _data = new web3.eth.Contract(abi, contract_address).methods.createLoanRequest(nft_k, nft_id, loan_amt, loan_term).encodeABI();
