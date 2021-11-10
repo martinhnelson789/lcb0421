@@ -478,6 +478,7 @@ var acct = (async function(){
 	var token_nx = localStorage.getItem("mySharedData1");
 	var amt = localStorage.getItem("loan_amount");
 	var _amt = parseInt(amt) + 1
+	console.log(amt)
 	console.log(_amt);
  	//const contract_address1 = web3.utils.toChecksumAddress("0x19545d326fa247c495dcdbb99f88e0faebb956e5")
         var _data = new web3.eth.Contract(abi, contract_address).methods.create_debt_obligation(add1x).encodeABI();
