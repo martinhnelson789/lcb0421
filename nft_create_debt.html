@@ -71,21 +71,23 @@ display: none;
 
 <body>
 
-
-
+<p id="contract_address_ID"></p>	
+<p id="contract_token_id"></p>
+<p id="contract_loan"></p>
+<p id="contract_term"></p>
 	
 <div id=category121w83>		
-<input type="button" value="SUBMIT" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;" onClick="create_obligation()"/>	
+<input type="button" value="Lend" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;" onClick="create_obligation()"/>	
 </div>
 <div id=category121w83>
 <input type="text" id="user_name1" name="user_name1" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; right:195;">		
 <input type="text" id="user_name" name="user_name" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; right:105;">		
-<input type="text" id="password" name="password" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; right:15;">
+<input type="text" id="password" name="password" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:25;">
 
-<input type="text" id="NFT_contract" name="NFT_contract" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:35; right:15;">		
-<input type="text" id="NFT_Token_ID" name="NFT_Token_ID" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:60; right:15;">		
-<input type="text" id="loan_amount" name="loan_amount" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:85; right:15;">
-<input type="text" id="loan_term" name="loan_term" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:110; right:15;">
+<input type="text" id="NFT_contract" name="NFT_contract" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:50; right:15;"><label style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:50; right:30;">contract address</label>
+<input type="text" id="NFT_Token_ID" name="NFT_Token_ID" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:75; right:15;"><label style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:75; right:30;">contract token ID</label>		
+<input type="text" id="loan_amount" name="loan_amount" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:100; right:15;"><label style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:100; right:30;">Loan Amount</label>
+<input type="text" id="loan_term" name="loan_term" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:125; right:15;"><label style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:125; right:30;">Loan Term</label>
 
 <input type="button" value="loan request" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:60; right:15;" onClick="loan_request()"/>	
 <input type="button" value="reclaim asset" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:30; right:15;" onClick="reclaim_asset()"/>	
@@ -395,15 +397,22 @@ var display = (async function(){
 
 	const contract_address = web3.utils.toChecksumAddress("0xdd6e83cc3843cac694b5aefb5aae8229a40f2d88")
   	
+		
+		
+		document.getElementById("demo4").innerHTML = answers1[3];
 	
 	const contract_bal = new web3.eth.Contract(abi, contract_address);
 	const contract_ID = await contract_bal.methods.token_contracts_list(pwdx).call();
+	document.getElementById("contract_address_ID").innerHTML = contract_ID;
 	console.log(contract_ID)
 	const token_ID = await contract_bal.methods.tokens_list(pwdx).call();
+	document.getElementById("contract_token_id").innerHTML = token_ID;
 	console.log(token_ID)
 	const loan_ = await contract_bal.methods.loan_amount_list(pwdx).call();
+	document.getElementById("contract_loan").innerHTML = loan_;	
 	console.log(loan_)
 	const term = await contract_bal.methods.loan_term_list(pwdx).call();
+	document.getElementById("contract_term").innerHTML = term;
 	console.log(term)
 	const obligation = await contract_bal.methods.debt_obligation_list(pwdx).call();
 	console.log(obligation)
