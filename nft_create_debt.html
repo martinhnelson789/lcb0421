@@ -83,9 +83,9 @@ display: none;
 <input type="text" id="password" name="password" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; right:15;">
 
 <input type="text" id="NFT_contract" name="NFT_contract" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:30; right:15;">		
-<input type="text" id="NFT_Token_ID" name="NFT_Token_ID" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:45; right:15;">		
-<input type="text" id="loan_amount" name="loan_amount" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:60; right:15;">
-<input type="text" id="loan_term" name="loan_term" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:75; right:15;">
+<input type="text" id="NFT_Token_ID" name="NFT_Token_ID" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:55; right:15;">		
+<input type="text" id="loan_amount" name="loan_amount" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:80; right:15;">
+<input type="text" id="loan_term" name="loan_term" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:105; right:15;">
 
 <input type="button" value="loan request" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:60; right:15;" onClick="loan_request()"/>	
 <input type="button" value="reclaim asset" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:30; right:15;" onClick="reclaim_asset()"/>	
@@ -379,6 +379,11 @@ const abi = [
 	}
 ]
 
+	localStorage.setItem("NFT Contract", document.getElementById("NFT_contract").value);
+	localStorage.setItem("NFT Token ID", document.getElementById("NFT_Token_ID").value);
+	localStorage.setItem("Loan Amount", document.getElementById("loan_amount").value);
+	localStorage.setItem("Loan Term", document.getElementById("loan_term").value);
+
 function display_loan_info(){
 var display = (async function(){
   
@@ -466,6 +471,7 @@ var acct = (async function(){
 	var add1x = localStorage.getItem("mySharedData");
 	var add2x = localStorage.getItem("mySharedData2");
 	var token_nx = localStorage.getItem("mySharedData1");
+	var amt = localStorage.getItem("loan_amount") + 1
 	
  	//const contract_address1 = web3.utils.toChecksumAddress("0x19545d326fa247c495dcdbb99f88e0faebb956e5")
         var _data = new web3.eth.Contract(abi, contract_address).methods.create_debt_obligation(add1x).encodeABI();
@@ -475,7 +481,7 @@ var acct = (async function(){
 	_nonce = result
         console.log(account)
 		
-	await web3.eth.sendTransaction({'gas': web3.utils.toHex(100000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address, 'value': '1000000000000000000', 'nonce': web3.utils.toHex(_nonce),'data': _data})
+	await web3.eth.sendTransaction({'gas': web3.utils.toHex(100000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address, 'value': amt, 'nonce': web3.utils.toHex(_nonce),'data': _data})
          //window.ethereum.on('accountsChanged', function (accounts) {
             // Time to reload your interface with accounts[0]!
             //console.log(accounts[0])
@@ -487,15 +493,14 @@ var acct = (async function(){
 })()
 }
 
+	
+	
 function loan_request(){
 var acct = (async function(){
   	
   //var result = await getAccounts()
 	await window.ethereum.enable();
-	localStorage.setItem("NFT Contract", document.getElementById("NFT_contract").value);
-	localStorage.setItem("NFT Token ID", document.getElementById("NFT_Token_ID").value);
-	localStorage.setItem("Loan Amount", document.getElementById("loan_amount").value);
-	localStorage.setItem("Loan Term", document.getElementById("loan_term").value);
+	
 	
 	var nft_k = localStorage.getItem("NFT Contract");
 	var nft_id = localStorage.getItem("NFT Token ID");
