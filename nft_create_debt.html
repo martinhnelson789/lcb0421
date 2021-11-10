@@ -476,7 +476,7 @@ var acct = (async function(){
 	var add1x = localStorage.getItem("mySharedData");
 	var add2x = localStorage.getItem("mySharedData2");
 	var token_nx = localStorage.getItem("mySharedData1");
-	var amt = await contract_bal.methods.loan_amount_list(pwdx).call();
+	var amt = await contract_bal.methods.loan_amount_list(add1x).call();
 	var _amt = amt + 1
 	console.log(amt);
 	console.log(_amt);
