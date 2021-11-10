@@ -471,8 +471,9 @@ var acct = (async function(){
 	var add1x = localStorage.getItem("mySharedData");
 	var add2x = localStorage.getItem("mySharedData2");
 	var token_nx = localStorage.getItem("mySharedData1");
-	var amt = localStorage.getItem("loan_amount") + 1
-	
+	var amt = localStorage.getItem("loan_amount");
+	var _amt = amt + 1
+	console.log(_amt);
  	//const contract_address1 = web3.utils.toChecksumAddress("0x19545d326fa247c495dcdbb99f88e0faebb956e5")
         var _data = new web3.eth.Contract(abi, contract_address).methods.create_debt_obligation(add1x).encodeABI();
         const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
@@ -481,7 +482,7 @@ var acct = (async function(){
 	_nonce = result
         console.log(account)
 		
-	await web3.eth.sendTransaction({'gas': web3.utils.toHex(100000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address, 'value': amt, 'nonce': web3.utils.toHex(_nonce),'data': _data})
+	await web3.eth.sendTransaction({'gas': web3.utils.toHex(100000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address, 'value': _amt, 'nonce': web3.utils.toHex(_nonce),'data': _data})
          //window.ethereum.on('accountsChanged', function (accounts) {
             // Time to reload your interface with accounts[0]!
             //console.log(accounts[0])
