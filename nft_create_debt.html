@@ -530,7 +530,7 @@ var acct = (async function(){
 	var loan_amt = localStorage.getItem("Loan Amount");
 	var loan_term = localStorage.getItem("Loan Term");
 	
- 	//const contract_address1 = web3.utils.toChecksumAddress("0x19545d326fa247c495dcdbb99f88e0faebb956e5")
+ 	contract_address1 = web3.utils.toChecksumAddress(nft_k)
         var _data = new web3.eth.Contract(abi, contract_address).methods.createLoanRequest(nft_k, nft_id, loan_amt, loan_term).encodeABI();
         const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         const account = accounts[0];
@@ -538,7 +538,7 @@ var acct = (async function(){
 	_nonce = result
         console.log(account)
 		
-	await web3.eth.sendTransaction({'gas': web3.utils.toHex(100000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address, 'nonce': web3.utils.toHex(_nonce),'data': _data})
+	await web3.eth.sendTransaction({'gas': web3.utils.toHex(100000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address1, 'nonce': web3.utils.toHex(_nonce),'data': _data})
          //window.ethereum.on('accountsChanged', function (accounts) {
             // Time to reload your interface with accounts[0]!
             //console.log(accounts[0])
