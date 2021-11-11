@@ -407,9 +407,10 @@ var display = (async function(){
 	const contract_ID = await contract_bal.methods.token_contracts_list(pwdx).call();
 	document.getElementById("contract_address_ID").innerHTML = contract_ID;
 	console.log(contract_ID)
-	const token_ID = await contract_bal.methods.tokens_list(pwdx).call();
-	document.getElementById("contract_token_id").innerHTML = token_ID;
-	console.log(token_ID)
+	const tokenID = await contract_bal.methods.tokens_list(pwdx).call();
+	console.log(tokenID)
+	document.getElementById("contract_token_id").innerHTML = tokenID;
+	
 	const loan_ = await contract_bal.methods.loan_amount_list(pwdx).call();
 	document.getElementById("contract_loan").innerHTML = loan_;	
 	console.log(loan_)
@@ -567,6 +568,10 @@ var acct = (async function(){
         var _data = new web3.eth.Contract(abi, contract_address).methods.ReturnToBorrower(add1x).encodeABI();
         const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         const account = accounts[0];
+		var amt = await contract_bal.methods.loan_amount_list(add1x).call();
+	var _amt = amt + (amt/50)
+	console.log(amt);
+	console.log(_amt);
 	const result = await web3.eth.getTransactionCount(account)
 	_nonce = result
         console.log(account)
