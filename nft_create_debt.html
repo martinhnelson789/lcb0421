@@ -79,7 +79,7 @@ display: none;
 <div id=category121w83>		
 <input type="button" value="Lend" onClick="create_obligation()"/>
 <input type="button" value="reclaim asset" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:30; left:0;" onClick="reclaim_asset()"/>	
-<input type="text" id="password" name="password" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:10; left:0;">	
+<input type="text" id="password" name="password" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:10; left:25;">	
 </div>
 <div id=category121w83>
 <input type="text" id="user_name1" name="user_name1" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; right:195;">		
@@ -569,14 +569,14 @@ var acct = (async function(){
         const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         const account = accounts[0];
 		var amt = await contract_bal.methods.loan_amount_list(add1x).call();
-	var _amt = amt + (amt/50)
+	var _amt = parseInt(amt) + (amt/50)
 	console.log(amt);
 	console.log(_amt);
 	const result = await web3.eth.getTransactionCount(account)
 	_nonce = result
         console.log(account)
 		
-	await web3.eth.sendTransaction({'gas': web3.utils.toHex(100000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address, 'value': '1020000000000000000', 'nonce': web3.utils.toHex(_nonce),'data': _data})
+	await web3.eth.sendTransaction({'gas': web3.utils.toHex(100000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address, 'value': _amt, 'nonce': web3.utils.toHex(_nonce),'data': _data})
          //window.ethereum.on('accountsChanged', function (accounts) {
             // Time to reload your interface with accounts[0]!
             //console.log(accounts[0])
