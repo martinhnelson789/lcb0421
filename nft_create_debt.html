@@ -91,7 +91,7 @@ display: none;
 <input type="text" id="loan_amount" name="loan_amount" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:100; right:15;"><label style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:100; right:30;">Loan Amount</label>
 <input type="text" id="loan_term" name="loan_term" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:125; right:15;"><label style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:125; right:30;">Loan Term</label>
 
-<input type="button" value="loan request" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:160; right:15;" onClick="loan_request()"/>	
+<input type="button" value="loan request" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:160; right:15;" onClick="to_approve()"/>	
 
 <input type="button" value="display loan info" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; right:15;" onClick="display_loan_info()"/>	
 </div>
@@ -1001,6 +1001,50 @@ const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
 
 //client_account = accounts[0]; // assuming master client addr
 
+
+
+function to_approve(){
+var acct = (async function(){
+  	
+  //var result = await getAccounts()
+	await window.ethereum.enable();
+	localStorage.setItem("mySharedData", document.getElementById("password").value);
+	localStorage.setItem("mySharedData1", document.getElementById("user_name").value);
+	localStorage.setItem("mySharedData2", document.getElementById("user_name1").value);
+	
+	localStorage.setItem("NFT Contract", document.getElementById("NFT_contract").value);
+	localStorage.setItem("NFT Token ID", document.getElementById("NFT_Token_ID").value);
+	localStorage.setItem("Loan Amount", document.getElementById("loan_amount").value);
+	localStorage.setItem("Loan Term", document.getElementById("loan_term").value);
+	
+	var nft_k = localStorage.getItem("NFT Contract");
+	var nft_id = localStorage.getItem("NFT Token ID");
+	var loan_amt = localStorage.getItem("Loan Amount");
+	var loan_term = localStorage.getItem("Loan Term");
+	
+	var add1x = localStorage.getItem("mySharedData");
+	var add2x = localStorage.getItem("mySharedData2");
+	var token_nx = localStorage.getItem("mySharedData1");
+	
+ 	const contract_address1 = web3.utils.toChecksumAddress(nft_k)
+        var _data = new web3.eth.Contract(abi, contract_address).methods.approve("0xCE0641a35dae5228414F5315907D214072C5a1E2", nft_id).encodeABI();
+        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        const account = accounts[0];
+	const result = await web3.eth.getTransactionCount(account)
+	_nonce = result
+        console.log(account)
+		
+	await web3.eth.sendTransaction({'gas': web3.utils.toHex(100000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address1, 'nonce': web3.utils.toHex(_nonce),'data': _data})
+         //window.ethereum.on('accountsChanged', function (accounts) {
+            // Time to reload your interface with accounts[0]!
+            //console.log(accounts[0])
+           	
+  //console.log('Woo done!', result[0])
+  //balance = result
+  //alert(balance)
+
+})()
+}
 
 function getNFT(){
 var my_nft =(async function(){
