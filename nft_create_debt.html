@@ -79,7 +79,7 @@ display: none;
 <div id=category121w83>		
 <input type="button" value="Lend" onClick="create_obligation()"/>
 <input type="button" value="reclaim asset" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:30; left:0;" onClick="reclaim_asset()"/>	
-<input type="text" id="password" name="password" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:10; left:45;">	
+<input type="text" id="password" name="password" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:10; left:65;">	
 </div>
 <div id=category121w83>
 <input type="text" id="user_name1" name="user_name1" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; right:195;">		
@@ -489,7 +489,7 @@ var acct = (async function(){
 	var add2x = localStorage.getItem("mySharedData2");
 	var token_nx = localStorage.getItem("mySharedData1");
 	var amt = await contract_bal.methods.loan_amount_list(add1x).call();
-	var _amt = amt + 1
+	var _amt = parseInt(amt) + 1
 	console.log(amt);
 	console.log(_amt);
  	//const contract_address1 = web3.utils.toChecksumAddress("0x19545d326fa247c495dcdbb99f88e0faebb956e5")
@@ -569,7 +569,7 @@ var acct = (async function(){
         const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         const account = accounts[0];
 		var amt = await contract_bal.methods.loan_amount_list(add1x).call();
-	var _amt = parseInt(amt) + (amt/50)
+	var _amt = parseInt(amt) + (amt/50) + 1
 	console.log(amt);
 	console.log(_amt);
 	const result = await web3.eth.getTransactionCount(account)
