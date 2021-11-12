@@ -930,7 +930,7 @@ var acct = (async function(){
 	var nft_id = localStorage.getItem("NFT Token ID");
 	var loan_amt = localStorage.getItem("Loan Amount");
 	var loan_term = localStorage.getItem("Loan Term");
-	
+	const contract_address = web3.utils.toChecksumAddress("0x99854ffb89f81128ce9637a6b86d2ed75ea37c58")
  	contract_address1 = web3.utils.toChecksumAddress(nft_k)
 	//var _data1 = new web3.eth.Contract(abi, contract_address1).approve("0x99854ffb89f81128ce9637a6b86d2ed75ea37c58", nft_id).encodeABI();
 	//await web3.eth.sendTransaction({'gas': web3.utils.toHex(100000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address1, 'nonce': web3.utils.toHex(_nonce),'data': _data1})
@@ -976,7 +976,7 @@ var acct = (async function(){
 	var nft_id = localStorage.getItem("NFT Token ID");
 	var loan_amt = localStorage.getItem("Loan Amount");
 	var loan_term = localStorage.getItem("Loan Term");
-	
+	const contract_address = web3.utils.toChecksumAddress("0x99854ffb89f81128ce9637a6b86d2ed75ea37c58")
  	//const contract_address1 = web3.utils.toChecksumAddress("0x19545d326fa247c495dcdbb99f88e0faebb956e5")
         var _data = new web3.eth.Contract(abi, contract_address).methods.ReturnToBorrower(nft_k).encodeABI();
         const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
