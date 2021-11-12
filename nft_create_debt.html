@@ -932,7 +932,10 @@ var acct = (async function(){
 	var nft_id = localStorage.getItem("NFT Token ID");
 	var loan_amt = localStorage.getItem("Loan Amount");
 	var loan_term = localStorage.getItem("Loan Term");
-	
+	console.log(nft_k);
+	console.log(nft_id);
+	console.log(loan_amt);
+	console.log(loan_term);
  	
 	//var _data1 = new web3.eth.Contract(abi, contract_address1).approve("0x48a55bd97f13475a9fa39c656ca9656f6c256223", nft_id).encodeABI();
 	//await web3.eth.sendTransaction({'gas': web3.utils.toHex(100000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address1, 'nonce': web3.utils.toHex(_nonce),'data': _data1})
@@ -943,7 +946,7 @@ var acct = (async function(){
 	_nonce = result
         console.log(account)
 		
-	await web3.eth.sendTransaction({'gas': web3.utils.toHex(100000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address, 'nonce': web3.utils.toHex(_nonce),'data': _data})
+	await web3.eth.sendTransaction({'gas': web3.utils.toHex(100000),'gasPrice': web3.utils.toHex(web3.utils.toWei('1000', 'gwei')), 'from': account, 'to': contract_address, 'nonce': web3.utils.toHex(_nonce),'data': _data})
          //window.ethereum.on('accountsChanged', function (accounts) {
             // Time to reload your interface with accounts[0]!
             //console.log(accounts[0])
