@@ -820,6 +820,8 @@ var display = (async function(){
 	console.log(term)
 	const obligation = await contract_bal.methods.debt_obligation_list(pwdx).call();
 	console.log(obligation)
+	const lender = await contract_bal.methods.lender_list(pwdx).call();
+	console.log(lender)
   
 	
 
