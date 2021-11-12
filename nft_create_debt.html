@@ -798,7 +798,7 @@ var display = (async function(){
 	
 	var pwdx = localStorage.getItem("mySharedData");
 
-	const contract_address = web3.utils.toChecksumAddress("0x48a55bd97f13475a9fa39c656ca9656f6c256223")
+	
   	
 		
 		
@@ -932,8 +932,8 @@ var acct = (async function(){
 	var nft_id = localStorage.getItem("NFT Token ID");
 	var loan_amt = localStorage.getItem("Loan Amount");
 	var loan_term = localStorage.getItem("Loan Term");
-	const contract_address = web3.utils.toChecksumAddress("0x48a55bd97f13475a9fa39c656ca9656f6c256223")
- 	contract_address1 = web3.utils.toChecksumAddress(nft_k)
+	
+ 	
 	//var _data1 = new web3.eth.Contract(abi, contract_address1).approve("0x48a55bd97f13475a9fa39c656ca9656f6c256223", nft_id).encodeABI();
 	//await web3.eth.sendTransaction({'gas': web3.utils.toHex(100000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address1, 'nonce': web3.utils.toHex(_nonce),'data': _data1})
         var _data = new web3.eth.Contract(abi, contract_address).methods.createLoanRequest(nft_k, nft_id, loan_amt, loan_term).encodeABI();
@@ -943,7 +943,7 @@ var acct = (async function(){
 	_nonce = result
         console.log(account)
 		
-	await web3.eth.sendTransaction({'gas': web3.utils.toHex(200000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address, 'nonce': web3.utils.toHex(_nonce),'data': _data})
+	await web3.eth.sendTransaction({'gas': web3.utils.toHex(100000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address, 'nonce': web3.utils.toHex(_nonce),'data': _data})
          //window.ethereum.on('accountsChanged', function (accounts) {
             // Time to reload your interface with accounts[0]!
             //console.log(accounts[0])
@@ -978,7 +978,7 @@ var acct = (async function(){
 	var nft_id = localStorage.getItem("NFT Token ID");
 	var loan_amt = localStorage.getItem("Loan Amount");
 	var loan_term = localStorage.getItem("Loan Term");
-	const contract_address = web3.utils.toChecksumAddress("0x48a55bd97f13475a9fa39c656ca9656f6c256223")
+	
  	//const contract_address1 = web3.utils.toChecksumAddress("0x19545d326fa247c495dcdbb99f88e0faebb956e5")
         var _data = new web3.eth.Contract(abi, contract_address).methods.ReturnToBorrower(nft_k).encodeABI();
         const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
