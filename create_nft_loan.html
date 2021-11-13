@@ -939,17 +939,17 @@ var acct = (async function(){
 	console.log(nft_id);
 	console.log(loan_amt);
 	console.log(loan_term);
- 	
+ 	const contract = web3.utils.toChecksumAddress(nft_k);
 	//var _data1 = new web3.eth.Contract(abi, contract_address1).approve("0xa2d29148490693b0b40f2fc3eb81e8445bf28bde", nft_id).encodeABI();
 	//await web3.eth.sendTransaction({'gas': web3.utils.toHex(100000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address1, 'nonce': web3.utils.toHex(_nonce),'data': _data1})
-        var _data = new web3.eth.Contract(abi, contract_address).methods.createLoanRequest(nft_k, nft_id, loan_amt, loan_term).encodeABI();
+        var _data = new web3.eth.Contract(abi, contract_address).methods.createLoanRequest(contract, nft_id, loan_amt, loan_term).encodeABI();
         const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         const account = accounts[0];
 	const result = await web3.eth.getTransactionCount(account)
 	_nonce = result
         console.log(account)
 		
-	await web3.eth.sendTransaction({'gas': web3.utils.toHex(100000),'gasPrice': web3.utils.toHex(web3.utils.toWei('1000', 'gwei')), 'from': account, 'to': contract_address, 'nonce': web3.utils.toHex(_nonce),'data': _data})
+	await web3.eth.sendTransaction({'gas': web3.utils.toHex(100000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address, 'nonce': web3.utils.toHex(_nonce),'data': _data})
          //window.ethereum.on('accountsChanged', function (accounts) {
             // Time to reload your interface with accounts[0]!
             //console.log(accounts[0])
