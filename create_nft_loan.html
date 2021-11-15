@@ -76,7 +76,9 @@ display: none;
 <p id="contract_token_id" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:55; left:0;"></p>
 <p id="contract_loan" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:75; left:0;"></p>
 <p id="contract_term" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:95; left:0;"></p>
-	
+<p id="loan_obligation" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:95; left:0;"></p>
+<p id="latest_block" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:95; left:0;"></p>
+
 <div id=category121w83>		
 <input type="button" value="Lend" onClick="create_obligation()"/>
 <input type="button" value="reclaim asset" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:30; left:0;" onClick="reclaim_asset()"/>	
@@ -827,9 +829,13 @@ var display = (async function(){
 	document.getElementById("contract_term").innerHTML = term;
 	console.log(term)
 	const obligation = await contract_bal.methods.debt_obligation_list(pwdx).call();
+	document.getElementById("loan_obligation").innerHTML = "Loan is already made" + obligation;
 	console.log(obligation)
 	const lender = await contract_bal.methods.lender_list(pwdx).call();
 	console.log(lender)
+	const latest = await web3.eth.getBlockNumber()
+	document.getElementById("latest_block").innerHTML = latest;
+	console.log(latest)
   
 	
 
