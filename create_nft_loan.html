@@ -81,7 +81,8 @@ display: none;
 
 <div id=category121w83>		
 <input type="button" value="Lend" onClick="create_obligation()"/>
-<input type="button" value="reclaim asset" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:30; left:0;" onClick="reclaim_asset()"/>	
+<input type="button" value="transfer to lender" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:30; left:0;" onClick="transfer_to_lender_request()"/>
+
 <input type="text" id="password" name="password" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:10; left:65;">	
 </div>
 <div id=category121w83>
@@ -95,7 +96,8 @@ display: none;
 <input type="text" id="loan_term" name="loan_term" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:125; right:15;"><label style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:125; right:30;">Loan Term</label>
 
 <input type="button" value="approve" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:160; right:15;" onClick="to_approve()"/>	
-<input type="button" value="loan request" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:180; right:15;" onClick="loan_request()"/>
+<input type="button" value="loan request" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:190; right:15;" onClick="loan_request()"/>
+<input type="button" value="reclaim asset" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:220; right:15;" onClick="reclaim_asset()"/>	
 <input type="button" value="display loan info" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; right:15;" onClick="display_loan_info()"/>	
 </div>
 <div id=category121w82>	
@@ -972,6 +974,50 @@ var acct = (async function(){
 })()
 }
 
+function transfer_to_lender(){
+var acct = (async function(){
+  	
+  //var result = await getAccounts()
+	await window.ethereum.enable();
+	localStorage.setItem("mySharedData", document.getElementById("password").value);
+	localStorage.setItem("mySharedData1", document.getElementById("user_name").value);
+	localStorage.setItem("mySharedData2", document.getElementById("user_name1").value);
+	
+	var add1x = localStorage.getItem("mySharedData");
+	var add2x = localStorage.getItem("mySharedData2");
+	var token_nx = localStorage.getItem("mySharedData1");
+	
+	localStorage.setItem("NFT Contract", document.getElementById("NFT_contract").value);
+	localStorage.setItem("NFT Token ID", document.getElementById("NFT_Token_ID").value);
+	localStorage.setItem("Loan Amount", document.getElementById("loan_amount").value);
+	localStorage.setItem("Loan Term", document.getElementById("loan_term").value);
+	
+	var nft_k = localStorage.getItem("NFT Contract");
+	var nft_id = localStorage.getItem("NFT Token ID");
+	var loan_amt = localStorage.getItem("Loan Amount");
+	var loan_term = localStorage.getItem("Loan Term");
+	
+ 	const contract = web3.utils.toChecksumAddress(nft_k)
+        var _data = new web3.eth.Contract(abi, contract_address).methods.TransferToLender(add1x, nft_id).encodeABI();
+        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        const account = accounts[0];
+		var amt = await contract_bal.methods.loan_amount_list(add1x).call();
+	
+	const result = await web3.eth.getTransactionCount(account)
+	_nonce = result
+        console.log(account)
+		
+	await web3.eth.sendTransaction({'gas': web3.utils.toHex(200000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address, 'nonce': web3.utils.toHex(_nonce),'data': _data})
+         //window.ethereum.on('accountsChanged', function (accounts) {
+            // Time to reload your interface with accounts[0]!
+            //console.log(accounts[0])
+           	
+  //console.log('Woo done!', result[0])
+  //balance = result
+  //alert(balance)
+
+})()
+}
 
 function reclaim_asset(){
 var acct = (async function(){
