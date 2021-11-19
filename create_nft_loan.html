@@ -778,6 +778,8 @@ const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
 
 const account_address = [];
 
+document.getElementById("contract_token_id").innerHTML = account_address[0];
+
 function display_loan_info(){
 var display = (async function(){
   
@@ -799,7 +801,7 @@ var display = (async function(){
 	console.log(contract_ID)
 	const tokenID = await contract_bal.methods.tokens_list(pwdx).call();
 	console.log(tokenID)
-	document.getElementById("contract_token_id").innerHTML = account_address[0];
+	
 	//document.write(account_address[0])
 	
 	const loan_ = await contract_bal.methods.loan_amount_list(pwdx).call();
