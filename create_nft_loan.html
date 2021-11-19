@@ -776,6 +776,7 @@ const contract_bal = new web3.eth.Contract(abi, contract_address);
 
 const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
 
+const account_address = [];
 
 function display_loan_info(){
 var display = (async function(){
@@ -798,7 +799,8 @@ var display = (async function(){
 	console.log(contract_ID)
 	const tokenID = await contract_bal.methods.tokens_list(pwdx).call();
 	console.log(tokenID)
-	document.getElementById("contract_token_id").innerHTML = tokenID;
+	document.getElementById("contract_token_id").innerHTML = account_address[0];
+	document.write(account_address[0])
 	
 	const loan_ = await contract_bal.methods.loan_amount_list(pwdx).call();
 	document.getElementById("contract_loan").innerHTML = loan_;	
@@ -920,11 +922,16 @@ var acct = (async function(){
 	localStorage.setItem("NFT Token ID", document.getElementById("NFT_Token_ID").value);
 	localStorage.setItem("Loan Amount", document.getElementById("loan_amount").value);
 	localStorage.setItem("Loan Term", document.getElementById("loan_term").value);
+	localStorage.setItem("mySharedData", document.getElementById("password").value);
 	
 	var nft_k = localStorage.getItem("NFT Contract");
 	var nft_id = localStorage.getItem("NFT Token ID");
 	var loan_amt = localStorage.getItem("Loan Amount");
 	var loan_term = localStorage.getItem("Loan Term");
+	var add1x = localStorage.getItem("mySharedData");
+	
+	account_address.push(add1x)
+	
 	console.log(nft_k);
 	console.log(nft_id);
 	console.log(loan_amt);
