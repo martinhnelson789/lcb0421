@@ -815,6 +815,8 @@ var display = (async function(){
 		
 	
 	const contract_bal = new web3.eth.Contract(abi, contract_address);
+	const last_num = await contract_bal.methods.last().call();
+	console.log(last_num)
 	const address = await contract_bal.methods.account_list(1).call();
 	
 	var chat = document.getElementById("contract_address_ID"); // finds the container
@@ -824,24 +826,22 @@ var display = (async function(){
 	//document.write(address)
 	const contract_ID = await contract_bal.methods.token_contracts_list(address).call();
 	//document.getElementById("contract_address_ID").innerHTML = contract_ID;
-	var y = document.createElement("div");
-	y.textContent = contract_ID
-	x.appendChild(y);
+	
 	//document.write(contract_ID)
 	console.log(contract_ID)
 	const tokenID = await contract_bal.methods.tokens_list(address).call();
 	console.log(tokenID)
-	document.getElementById("contract_token_id").innerHTML = tokenID;
+	//document.getElementById("contract_token_id").innerHTML = tokenID;
 	//document.write(account_address[0])
-	var z = document.createElement("div");
-	z.textContent = contract_ID
-	y.appendChild(z);
+	
 	const loan_ = await contract_bal.methods.loan_amount_list(address).call();
-	document.getElementById("contract_loan").innerHTML = loan_;	
+	//document.getElementById("contract_loan").innerHTML = loan_;	
 	console.log(loan_)
+	
 	const term = await contract_bal.methods.loan_term_list(address).call();
 	document.getElementById("contract_term").innerHTML = term;
 	console.log(term)
+	
 	const obligation = await contract_bal.methods.debt_obligation_list(address).call();
 	document.getElementById("loan_obligation").innerHTML = "Loan is already made is " + obligation;
 	console.log(obligation)
