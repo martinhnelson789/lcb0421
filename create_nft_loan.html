@@ -449,6 +449,19 @@ const abi = [
 		"type": "function"
 	},
 	{
+		"inputs": [],
+		"name": "last",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"inputs": [
 			{
 				"internalType": "address",
@@ -783,7 +796,6 @@ const abi = [
 		"type": "receive"
 	}
 ]
-
 	localStorage.setItem("NFT Contract", document.getElementById("NFT_contract").value);
 	localStorage.setItem("NFT Token ID", document.getElementById("NFT_Token_ID").value);
 	localStorage.setItem("Loan Amount", document.getElementById("loan_amount").value);
@@ -815,7 +827,7 @@ var display = (async function(){
 		
 	
 	const contract_bal = new web3.eth.Contract(abi, contract_address);
-	const last_num = await contract_bal.last.call();
+	const last_num = await contract_bal.methods.last().call();
 	console.log(last_num)
 	const address = await contract_bal.methods.account_list(1).call();
 	
