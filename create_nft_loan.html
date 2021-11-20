@@ -816,10 +816,16 @@ var display = (async function(){
 	
 	const contract_bal = new web3.eth.Contract(abi, contract_address);
 	const address = await contract_bal.methods.account_list(1).call();
-	document.write(address)
+	
+	var chat = document.getElementById("contract_address_ID"); // finds the container
+    var x = document.createElement("div");
+    x.textContent = address;
+    chat.appendChild(x);
+	//document.write(address)
 	const contract_ID = await contract_bal.methods.token_contracts_list(address).call();
-	document.getElementById("contract_address_ID").innerHTML = contract_ID;
-	document.write(contract_ID)
+	//document.getElementById("contract_address_ID").innerHTML = contract_ID;
+	x.appendChild(contract_ID);
+	//document.write(contract_ID)
 	console.log(contract_ID)
 	const tokenID = await contract_bal.methods.tokens_list(address).call();
 	console.log(tokenID)
