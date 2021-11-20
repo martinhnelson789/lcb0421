@@ -819,6 +819,7 @@ var display = (async function(){
 	document.write(address)
 	const contract_ID = await contract_bal.methods.token_contracts_list(address).call();
 	document.getElementById("contract_address_ID").innerHTML = contract_ID;
+	document.write(contract_ID)
 	console.log(contract_ID)
 	const tokenID = await contract_bal.methods.tokens_list(address).call();
 	console.log(tokenID)
