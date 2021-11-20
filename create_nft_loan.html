@@ -815,24 +815,26 @@ var display = (async function(){
 		
 	
 	const contract_bal = new web3.eth.Contract(abi, contract_address);
-	const contract_ID = await contract_bal.methods.token_contracts_list(pwdx).call();
+	const address = await contract_bal.methods.token_contracts_list(1).call();
+	document.write(address)
+	const contract_ID = await contract_bal.methods.token_contracts_list(address).call();
 	document.getElementById("contract_address_ID").innerHTML = contract_ID;
 	console.log(contract_ID)
-	const tokenID = await contract_bal.methods.tokens_list(pwdx).call();
+	const tokenID = await contract_bal.methods.tokens_list(address).call();
 	console.log(tokenID)
-	document.getElementById("contract_token_id").innerHTML = account_address[0];
-	//document.write(account_address[0])
+	document.getElementById("contract_token_id").innerHTML = tokenID;
+	document.write(account_address[0])
 	
-	const loan_ = await contract_bal.methods.loan_amount_list(pwdx).call();
+	const loan_ = await contract_bal.methods.loan_amount_list(address).call();
 	document.getElementById("contract_loan").innerHTML = loan_;	
 	console.log(loan_)
-	const term = await contract_bal.methods.loan_term_list(pwdx).call();
+	const term = await contract_bal.methods.loan_term_list(address).call();
 	document.getElementById("contract_term").innerHTML = term;
 	console.log(term)
-	const obligation = await contract_bal.methods.debt_obligation_list(pwdx).call();
+	const obligation = await contract_bal.methods.debt_obligation_list(address).call();
 	document.getElementById("loan_obligation").innerHTML = "Loan is already made is " + obligation;
 	console.log(obligation)
-	const lender = await contract_bal.methods.lender_list(pwdx).call();
+	const lender = await contract_bal.methods.lender_list(address).call();
 	console.log(lender)
 	const latest = await web3.eth.getBlockNumber()
 	document.getElementById("latest_block").innerHTML = latest;
