@@ -827,7 +827,7 @@ var display = (async function(){
 		
 	
 	const contract_bal = new web3.eth.Contract(abi, contract_address);
-	web3.eth.getStorageAt('0x02a11616d0bf4f7c1d1a8dee5778c6749060d142', 1,
+	web3.eth.getStorageAt('0x02a11616d0bf4f7c1d1a8dee5778c6749060d142', 0,
   function (err, num) {
     console.log("Current last: " + num);
   });
