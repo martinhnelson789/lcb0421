@@ -861,13 +861,13 @@ var display = (async function(){
     chat.appendChild(x);
 	//document.write(address)
 	const contract_ID = await contract_bal.methods.token_contracts_list(address).call();
-	//document.getElementById("contract_address_ID").innerHTML = contract_ID;
+	document.getElementById("contract_address_ID").innerHTML = contract_ID;
 	
 	//document.write(contract_ID)
 	console.log(contract_ID)
 	const tokenID = await contract_bal.methods.tokens_list(address).call();
 	console.log(tokenID)
-	//document.getElementById("contract_token_id").innerHTML = tokenID;
+	document.getElementById("contract_token_id").innerHTML = tokenID;
 	//document.write(account_address[0])
 	
 	const loan_ = await contract_bal.methods.loan_amount_list(address).call();
