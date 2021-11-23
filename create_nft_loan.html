@@ -829,7 +829,7 @@ var display = (async function(){
 	const contract_bal = new web3.eth.Contract(abi, contract_address);
 	web3.eth.getStorageAt('0x02a11616d0bf4f7c1d1a8dee5778c6749060d142', 1,
   function (err, last) {
-    console.log("Current last: " + parseInt(last, 16));
+    console.log("Current last: " + last);
   });
 	const last_num = await contract_bal.methods.last.call();
 	console.log(last_num)
