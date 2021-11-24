@@ -86,7 +86,7 @@ display: none;
 <input type="text" id="password" name="password" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:65;">	
 </div>
 <div id=category121w83>
-	
+<table id="thetable"></table>	
 
 
 <input type="text" id="NFT_contract" name="NFT_contract" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:50; right:35;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:50; right:30;">contract address</label>
@@ -852,10 +852,17 @@ var display = (async function(){
 	const addressCount = await contract_bal.methods.Address_listCount().call();
 	console.log(addressCount);
 	
+	var toAdd = document.createDocumentFragment();
 	for (var i = 0; i<=addressCount; i++){
 	const address = await contract_bal.methods.address_list(i).call();
 	console.log(address);
-	
+	var newDiv = document.createElement('div');
+	newDiv.id = 'r'+i;
+	newDiv.className = 'ansbox';
+	newDiv.textContent = address
+	toAdd.appendChild(newDiv);
+	document.appendChild(toAdd);
+
 	var chat = document.getElementById("contract_address_ID"); // finds the container
     var x = document.createElement("div");
     x.textContent = address;
@@ -889,7 +896,7 @@ var display = (async function(){
 	console.log(latest)
 	}
   
-	
+	document.getElementById("thetable").appendChild(toAdd);
 
 //alert(balance)
 
