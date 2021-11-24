@@ -829,7 +829,8 @@ const account_address = [];
 
 
 
-function display_loan_info(){
+ $(document).ready(function(){
+//function display_loan_info(){
 var display = (async function(){
   
   
@@ -893,7 +894,7 @@ var display = (async function(){
 //alert(balance)
 
 })()
-}
+        });
 
 function prompt_approve(){
 	web3.eth.abi.encodeFunctionSignature('approve(address,uint256)');
