@@ -86,8 +86,7 @@ display: none;
 <input type="text" id="password" name="password" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:65;">	
 </div>
 <div id=category121w83>
-<input type="text" id="user_name1" name="user_name1" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; right:195;">		
-<input type="text" id="user_name" name="user_name" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; right:105;">		
+	
 
 
 <input type="text" id="NFT_contract" name="NFT_contract" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:50; right:35;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:50; right:30;">contract address</label>
@@ -852,7 +851,8 @@ var display = (async function(){
 	const addressCount = await contract_bal.methods.Address_listCount().call();
 	console.log(addressCount);
 	
-	const address = await contract_bal.methods.address_list(0).call();
+	for (var i; i<=addressCount; i++){
+	const address = await contract_bal.methods.address_list(i).call();
 	console.log(address);
 	
 	var chat = document.getElementById("contract_address_ID"); // finds the container
@@ -886,6 +886,7 @@ var display = (async function(){
 	const latest = await web3.eth.getBlockNumber()
 	document.getElementById("latest_block").innerHTML = latest;
 	console.log(latest)
+	}
   
 	
 
