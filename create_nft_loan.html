@@ -851,7 +851,7 @@ var display = (async function(){
 	const addressCount = await contract_bal.methods.Address_listCount().call();
 	console.log(addressCount);
 	
-	for (var i; i<=addressCount; i++){
+	for (var i = 0; i<=addressCount; i++){
 	const address = await contract_bal.methods.address_list(i).call();
 	console.log(address);
 	
