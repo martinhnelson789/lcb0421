@@ -84,13 +84,12 @@ display: none;
 <input type="button" value="transfer to lender" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:40; left:0;" onClick="transfer_to_lender()"/>
 
 <input type="text" id="password" name="password" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:65;">	
-<table id="thetable" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:515; left:65;></table>	
+
 
 </div>
 
 
-
-<input type="text" id="NFT_contract" name="NFT_contract" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:50; right:35;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:50; right:30;">contract address</label>
+<input type="text" id="NFT_contract" name="NFT_contract" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:50; right:35;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:50; right:30;">contract token ID</label>	
 <input type="text" id="NFT_Token_ID" name="NFT_Token_ID" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:75; right:35;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:75; right:30;">contract token ID</label>		
 <input type="text" id="loan_amount" name="loan_amount" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:100; right:35;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:100; right:30;">Loan Amount</label>
 <input type="text" id="loan_term" name="loan_term" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:125; right:35;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:125; right:30;">Loan Term</label>
@@ -859,9 +858,9 @@ var display = (async function(){
 	console.log(address);
 	var newDiv = document.createElement('div');
 	newDiv.id = 'r'+i;
-	newDiv.className = 'ansbox';
-	newDiv.textContent = address
-	toAdd.appendChild(newDiv);
+	
+	//newDiv.textContent = address
+	
 	//document.appendChild(toAdd);
 
 	var chat = document.getElementById("contract_address_ID"); // finds the container
@@ -870,7 +869,7 @@ var display = (async function(){
     chat.appendChild(x);
 	//document.write(address)
 	const contract_ID = await contract_bal.methods.token_contracts_list(address).call();
-	document.getElementById("contract_address_ID").innerHTML = contract_ID;
+	document.getElementById("r" + i).innerHTML = address;
 	
 	//document.write(contract_ID)
 	console.log(contract_ID)
