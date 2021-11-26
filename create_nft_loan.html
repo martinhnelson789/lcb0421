@@ -856,21 +856,23 @@ var display = (async function(){
 	for (var i = 0; i<=addressCount; i++){
 	const address = await contract_bal.methods.address_list(i).call();
 	console.log(address);
+	var chat = document.getElementById("contract_address_ID"); // finds the container
 	var newDiv = document.createElement('div');
 	newDiv.id = 'r'+i;
-	
+	document.appendChild(chat);
 	//newDiv.textContent = address
 	
-	//document.appendChild(toAdd);
+	
 
-	var chat = document.getElementById("contract_address_ID"); // finds the container
+	
     var x = document.createElement("div");
-    x.textContent = address;
-    chat.appendChild(x);
+	
+    //x.textContent = address;
+    //chat.appendChild(x);
 	//document.write(address)
 	const contract_ID = await contract_bal.methods.token_contracts_list(address).call();
 	document.getElementById("r" + i).innerHTML = address;
-	
+		
 	//document.write(contract_ID)
 	console.log(contract_ID)
 	const tokenID = await contract_bal.methods.tokens_list(address).call();
