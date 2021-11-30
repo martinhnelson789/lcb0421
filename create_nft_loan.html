@@ -868,7 +868,7 @@ var display = (async function(){
 	
     
 	const contract_ID = await contract_bal.methods.token_contracts_list(address).call();
-	chat.getElementById("r" + i).innerHTML = address;
+	document.getElementById("r" + i).innerHTML = address;
 	
 		
 	//document.write(contract_ID)
