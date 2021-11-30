@@ -860,6 +860,9 @@ var display = (async function(){
 	var newDiv = document.createElement('div');
 	newDiv.id = 'r'+i;
 	chat.appendChild(newDiv);
+	var newDiv = document.createElement('div');
+	newDiv.id = 's'+i;
+	chat.appendChild(newDiv);
 	//newDiv.textContent = address
 	
 	
@@ -871,13 +874,15 @@ var display = (async function(){
     //chat.appendChild(x);
 	//document.write(address)
 	const contract_ID = await contract_bal.methods.token_contracts_list(address).call();
-	document.getElementById("r" + i).innerHTML = address;
+	chat.getElementById("r" + i).innerHTML = address;
+	
 		
 	//document.write(contract_ID)
 	console.log(contract_ID)
 	const tokenID = await contract_bal.methods.tokens_list(address).call();
 	console.log(tokenID)
-	document.getElementById("contract_token_id").innerHTML = tokenID;
+	chat.getElementById("s" + i).innerHTML = tokenID;
+	//document.getElementById("contract_token_id").innerHTML = tokenID;
 	//document.write(account_address[0])
 	
 	const loan_ = await contract_bal.methods.loan_amount_list(address).call();
@@ -885,20 +890,20 @@ var display = (async function(){
 	console.log(loan_)
 	
 	const term = await contract_bal.methods.loan_term_list(address).call();
-	document.getElementById("contract_term").innerHTML = term;
+	//document.getElementById("contract_term").innerHTML = term;
 	console.log(term)
 	
 	const obligation = await contract_bal.methods.debt_obligation_list(address).call();
-	document.getElementById("loan_obligation").innerHTML = "Loan is already made is " + obligation;
+	//document.getElementById("loan_obligation").innerHTML = "Loan is already made is " + obligation;
 	console.log(obligation)
 	const lender = await contract_bal.methods.lender_list(address).call();
 	console.log(lender)
 	const latest = await web3.eth.getBlockNumber()
-	document.getElementById("latest_block").innerHTML = latest;
+	//document.getElementById("latest_block").innerHTML = latest;
 	console.log(latest)
 	}
   
-	document.getElementById("thetable").appendChild(toAdd);
+	//document.getElementById("thetable").appendChild(toAdd);
 
 //alert(balance)
 
