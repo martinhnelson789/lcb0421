@@ -860,9 +860,7 @@ var display = (async function(){
 	var newDiv = document.createElement('div');
 	newDiv.id = 'r'+i;
 	chat.appendChild(newDiv);
-	var newDiv = document.createElement('div');
-	newDiv.id = 's'+i;
-	chat.appendChild(newDiv);
+	
 	//newDiv.textContent = address
 	
 	
@@ -879,6 +877,9 @@ var display = (async function(){
 		
 	//document.write(contract_ID)
 	console.log(contract_ID)
+	var newDiv = document.createElement('div');
+	newDiv.id = 's'+i;
+	chat.appendChild(newDiv);
 	const tokenID = await contract_bal.methods.tokens_list(address).call();
 	console.log(tokenID)
 	chat.getElementById("s" + i).innerHTML = tokenID;
