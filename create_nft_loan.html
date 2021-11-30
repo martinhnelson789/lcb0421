@@ -858,6 +858,10 @@ var display = (async function(){
 	console.log(address);
 	var chat = document.getElementById("contract_address_ID"); // finds the container
 	var newDiv = document.createElement('div');
+	newDiv.id = 'q'+i;
+	chat.appendChild(newDiv);
+	document.getElementById("q" + i).innerHTML = <hr>;
+	var newDiv = document.createElement('div');
 	newDiv.id = 'r'+i;
 	chat.appendChild(newDiv);
 	
