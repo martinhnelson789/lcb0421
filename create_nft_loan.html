@@ -837,7 +837,7 @@ var display = (async function(){
   localStorage.setItem("mySharedData", document.getElementById("password").value);
     
 	
-	var pwdx = localStorage.getItem("mySharedData");
+	//var pwdx = localStorage.getItem("mySharedData");
 
 	
   	
@@ -866,23 +866,17 @@ var display = (async function(){
 	
 
 	
-    var x = document.createElement("div");
-	
-    //x.textContent = address;
-    //chat.appendChild(x);
-	//document.write(address)
+    
 	const contract_ID = await contract_bal.methods.token_contracts_list(address).call();
 	chat.getElementById("r" + i).innerHTML = address;
 	
 		
 	//document.write(contract_ID)
 	console.log(contract_ID)
-	var newDiv = document.createElement('div');
-	newDiv.id = 's'+i;
-	chat.appendChild(newDiv);
+	
 	const tokenID = await contract_bal.methods.tokens_list(address).call();
 	console.log(tokenID)
-	chat.getElementById("s" + i).innerHTML = tokenID;
+	
 	//document.getElementById("contract_token_id").innerHTML = tokenID;
 	//document.write(account_address[0])
 	
