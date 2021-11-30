@@ -887,17 +887,37 @@ var display = (async function(){
 	const loan_ = await contract_bal.methods.loan_amount_list(address).call();
 	//document.getElementById("contract_loan").innerHTML = loan_;	
 	console.log(loan_)
+	var newDiv = document.createElement('div');
+	newDiv.id = 't'+i;
+	chat.appendChild(newDiv);
+	
+	document.getElementById("t" + i).innerHTML = loan_;
 	
 	const term = await contract_bal.methods.loan_term_list(address).call();
 	//document.getElementById("contract_term").innerHTML = term;
 	console.log(term)
+	var newDiv = document.createElement('div');
+	newDiv.id = 'u'+i;
+	chat.appendChild(newDiv);
+	
+	document.getElementById("u" + i).innerHTML = term;
 	
 	const obligation = await contract_bal.methods.debt_obligation_list(address).call();
 	//document.getElementById("loan_obligation").innerHTML = "Loan is already made is " + obligation;
 	console.log(obligation)
+	var newDiv = document.createElement('div');
+	newDiv.id = 'v'+i;
+	chat.appendChild(newDiv);
+	
+	document.getElementById("v" + i).innerHTML = obligation;
 	const lender = await contract_bal.methods.lender_list(address).call();
 	console.log(lender)
 	const latest = await web3.eth.getBlockNumber()
+	var newDiv = document.createElement('div');
+	newDiv.id = 'w'+i;
+	chat.appendChild(newDiv);
+	
+	document.getElementById("w" + i).innerHTML = latest;
 	//document.getElementById("latest_block").innerHTML = latest;
 	console.log(latest)
 	}
