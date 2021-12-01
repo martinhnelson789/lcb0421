@@ -1124,12 +1124,12 @@ var acct = (async function(){
   //var result = await getAccounts()
 	await window.ethereum.enable();
 	localStorage.setItem("mySharedData", document.getElementById("password").value);
-	localStorage.setItem("mySharedData1", document.getElementById("user_name").value);
-	localStorage.setItem("mySharedData2", document.getElementById("user_name1").value);
+	//localStorage.setItem("mySharedData1", document.getElementById("user_name").value);
+	//localStorage.setItem("mySharedData2", document.getElementById("user_name1").value);
 	
 	var add1x = localStorage.getItem("mySharedData");
-	var add2x = localStorage.getItem("mySharedData2");
-	var token_nx = localStorage.getItem("mySharedData1");
+	//var add2x = localStorage.getItem("mySharedData2");
+	//var token_nx = localStorage.getItem("mySharedData1");
 	
 	localStorage.setItem("NFT Contract", document.getElementById("NFT_contract").value);
 	localStorage.setItem("NFT Token ID", document.getElementById("NFT_Token_ID").value);
