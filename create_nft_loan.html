@@ -880,9 +880,10 @@ var display = (async function(){
 		
 	//document.write(contract_ID)
 	console.log(contract_ID)
-	document.getElementById("s" + i).innerHTML = "nft contract: " + contract_ID;
+	document.getElementById("rr" + i).innerHTML = "nft contract: " + contract_ID;
 	const tokenID = await contract_bal.methods.tokens_list(address).call();
 	console.log(tokenID)
+	
 	var newDiv = document.createElement('div');
 	newDiv.id = 's'+i;
 	chat.appendChild(newDiv);
