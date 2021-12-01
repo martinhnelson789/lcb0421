@@ -873,19 +873,21 @@ var display = (async function(){
 	
     
 	const contract_ID = await contract_bal.methods.token_contracts_list(address).call();
-	document.getElementById("r" + i).innerHTML = address;
-	
+	document.getElementById("r" + i).innerHTML = "account address: " + address;
+	var newDiv = document.createElement('div');
+	newDiv.id = 'rr'+i;
+	chat.appendChild(newDiv);
 		
 	//document.write(contract_ID)
 	console.log(contract_ID)
-	
+	document.getElementById("s" + i).innerHTML = "nft contract: " + contract_ID;
 	const tokenID = await contract_bal.methods.tokens_list(address).call();
 	console.log(tokenID)
 	var newDiv = document.createElement('div');
 	newDiv.id = 's'+i;
 	chat.appendChild(newDiv);
 	
-	document.getElementById("s" + i).innerHTML = tokenID;
+	document.getElementById("s" + i).innerHTML = "nft token id: " + tokenID;
 	//document.getElementById("contract_token_id").innerHTML = tokenID;
 	//document.write(account_address[0])
 	
@@ -896,7 +898,7 @@ var display = (async function(){
 	newDiv.id = 't'+i;
 	chat.appendChild(newDiv);
 	
-	document.getElementById("t" + i).innerHTML = loan_;
+	document.getElementById("t" + i).innerHTML = "loan amount: " + loan_;
 	
 	const term = await contract_bal.methods.loan_term_list(address).call();
 	//document.getElementById("contract_term").innerHTML = term;
@@ -905,7 +907,7 @@ var display = (async function(){
 	newDiv.id = 'u'+i;
 	chat.appendChild(newDiv);
 	
-	document.getElementById("u" + i).innerHTML = term;
+	document.getElementById("u" + i).innerHTML = "loan due at block " + term;
 	
 	const obligation = await contract_bal.methods.debt_obligation_list(address).call();
 	//document.getElementById("loan_obligation").innerHTML = "Loan is already made is " + obligation;
@@ -914,7 +916,7 @@ var display = (async function(){
 	newDiv.id = 'v'+i;
 	chat.appendChild(newDiv);
 	
-	document.getElementById("v" + i).innerHTML = obligation;
+	document.getElementById("v" + i).innerHTML = "loan is approved: " + obligation;
 	const lender = await contract_bal.methods.lender_list(address).call();
 	console.log(lender)
 	const latest = await web3.eth.getBlockNumber()
@@ -922,7 +924,7 @@ var display = (async function(){
 	newDiv.id = 'w'+i;
 	chat.appendChild(newDiv);
 	
-	document.getElementById("w" + i).innerHTML = latest;
+	document.getElementById("w" + i).innerHTML = "latest block: " latest;
 	//document.getElementById("latest_block").innerHTML = latest;
 	console.log(latest)
 	}
