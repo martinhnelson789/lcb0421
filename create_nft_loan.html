@@ -97,7 +97,7 @@ display: none;
 <input type="button" value="approve" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:160; right:15;" onClick="to_approve()"/>	
 <input type="button" value="loan request" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:190; right:15;" onClick="loan_request()"/>
 <input type="button" value="reclaim asset" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:220; right:15;" onClick="reclaim_asset()"/>	
-<input type="button" value="display loan info" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; right:15;" onClick="display_loan_info()"/>	
+
 </div>
 <div id=category121w82>	
 <input type="button" value="Show Answers" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;" onClick="prompt_approve()"/>	
@@ -988,12 +988,12 @@ var acct = (async function(){
 	localStorage.setItem("Loan Term", document.getElementById("loan_term").value);
 
 	localStorage.setItem("mySharedData", document.getElementById("password").value);
-	localStorage.setItem("mySharedData1", document.getElementById("user_name").value);
-	localStorage.setItem("mySharedData2", document.getElementById("user_name1").value);
+	//localStorage.setItem("mySharedData1", document.getElementById("user_name").value);
+	//localStorage.setItem("mySharedData2", document.getElementById("user_name1").value);
 	
 	var add1x = localStorage.getItem("mySharedData");
-	var add2x = localStorage.getItem("mySharedData2");
-	var token_nx = localStorage.getItem("mySharedData1");
+	//var add2x = localStorage.getItem("mySharedData2");
+	//var token_nx = localStorage.getItem("mySharedData1");
 	var amt = await contract_bal.methods.loan_amount_list(add1x).call();
 	var _amt = parseInt(amt) + 1
 	console.log(amt);
