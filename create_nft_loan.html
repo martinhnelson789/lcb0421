@@ -909,7 +909,7 @@ var display = (async function(){
 	chat.appendChild(newBtn);
 	
 	document.getElementById("t" + i).innerHTML = "loan amount: " + loan_;
-	<input type="button" value="Lend" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:0;" onClick="create_obligation()"/>
+	//<input type="button" value="Lend" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:0;" onClick="create_obligation()"/>
 	
 	const term = await contract_bal.methods.loan_term_list(address).call();
 	//document.getElementById("contract_term").innerHTML = term;
