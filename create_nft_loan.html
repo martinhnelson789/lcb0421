@@ -900,10 +900,11 @@ var display = (async function(){
 	console.log(loan_)
 	var newDiv = document.createElement('div');
 	var newBtn = document.createElement('input');
-	newBtn.type = "button"
+	newBtn.type = "button";
 	newBtn.value = "Lend";
+	newBtn.addEventListener("click", create_obligation(address);)
 	//newBtn.style = "color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:0;";
-	newBtn.onclick = "create_obligation(" + address + ")";
+	
 	newBtn.id = 'b' + i;
 	newDiv.id = 't'+i;
 	chat.appendChild(newDiv);
