@@ -899,7 +899,8 @@ var display = (async function(){
 	//document.getElementById("contract_loan").innerHTML = loan_;	
 	console.log(loan_)
 	var newDiv = document.createElement('div');
-	var newBtn = document.createElement('button');
+	var newBtn = document.createElement('div');
+	newBtn.type = "button"
 	newBtn.value = "Lend";
 	//newBtn.style = "color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:0;";
 	newBtn.onclick = function(){
