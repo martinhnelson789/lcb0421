@@ -72,7 +72,7 @@ display: none;
 
 <body>
 <h2 style="color:grey; font-family: helvetica narrow, sans-serif; position:absolute; top:0; left:0;">collateralify</h2>
-<h3 style="color:grey; font-family: helvetica narrow, sans-serif; font-weight:200; position:absolute; top:0; left:150;"><a href="create_nft_loan_form.html">Get a Loan</a></h3>
+<h3 style="color:grey; font-family: helvetica narrow, sans-serif; font-weight:200; position:absolute; top:0; right:0;"><a href="create_nft_loan_form.html">Get a Loan</a></h3>
 <p id="contract_address_ID" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; font-weight:200; position:absolute; top:35; left:0;"></p>
 
 </div>
@@ -899,10 +899,17 @@ var display = (async function(){
 	//document.getElementById("contract_loan").innerHTML = loan_;	
 	console.log(loan_)
 	var newDiv = document.createElement('div');
+	var newBtn = document.createElement('button');
+	newBtn.value = "Lend";
+	newBtn.style = "color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:0;";
+	newBtn.onClick = ="create_obligation(" + address + ")";
+	newBtn.id = 'b' + i;
 	newDiv.id = 't'+i;
 	chat.appendChild(newDiv);
+	chat.appendChild(newBtn);
 	
 	document.getElementById("t" + i).innerHTML = "loan amount: " + loan_;
+	<input type="button" value="Lend" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:0;" onClick="create_obligation()"/>
 	
 	const term = await contract_bal.methods.loan_term_list(address).call();
 	//document.getElementById("contract_term").innerHTML = term;
@@ -984,7 +991,7 @@ function getAccounts(){
 	
 }
 
-function create_obligation(){
+function create_obligation(addx){
 var acct = (async function(){
   	
   //var result = await getAccounts()
@@ -998,7 +1005,8 @@ var acct = (async function(){
 	//localStorage.setItem("mySharedData1", document.getElementById("user_name").value);
 	//localStorage.setItem("mySharedData2", document.getElementById("user_name1").value);
 	
-	var add1x = localStorage.getItem("mySharedData");
+	//var add1x = localStorage.getItem("mySharedData");
+	var add1x = addx
 	//var add2x = localStorage.getItem("mySharedData2");
 	//var token_nx = localStorage.getItem("mySharedData1");
 	var amt = await contract_bal.methods.loan_amount_list(add1x).call();
