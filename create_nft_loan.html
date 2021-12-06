@@ -903,9 +903,7 @@ var display = (async function(){
 	newBtn.type = "button"
 	newBtn.value = "Lend";
 	//newBtn.style = "color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:0;";
-	newBtn.onclick = function(){
-		"create_obligation(" + address + ")";
-		};
+	newBtn.onclick = "create_obligation(" + address + ")";
 	newBtn.id = 'b' + i;
 	newDiv.id = 't'+i;
 	chat.appendChild(newDiv);
