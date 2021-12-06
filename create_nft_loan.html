@@ -899,16 +899,16 @@ var display = (async function(){
 	//document.getElementById("contract_loan").innerHTML = loan_;	
 	console.log(loan_)
 	var newDiv = document.createElement('div');
-	let newBtn = document.createElement('button');
-	//newBtn.type = "button";
+	let newBtn = document.createElement('input');
+	newBtn.type = "button";
 	newBtn.value = "Lend";
-	newBtn.onclick = "create_obligation(" + address + ")"
+	newBtn.onclick = "create_obligation()";
 	//newBtn.style = "color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:0;";
 	
 	newBtn.id = 'b' + i;
 	newDiv.id = 't'+i;
 	chat.appendChild(newDiv);
-	document.body.appendChild(newBtn);
+	chat.appendChild(newBtn);
 	
 	document.getElementById("t" + i).innerHTML = "loan amount: " + loan_;
 	//<input type="button" value="Lend" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:0;" onClick="create_obligation()"/>
