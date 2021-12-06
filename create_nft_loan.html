@@ -899,10 +899,10 @@ var display = (async function(){
 	//document.getElementById("contract_loan").innerHTML = loan_;	
 	console.log(loan_)
 	var newDiv = document.createElement('div');
-	var newBtn = document.createElement('input');
+	let newBtn = document.createElement('input');
 	newBtn.type = "button";
 	newBtn.value = "Lend";
-	newBtn.addEventListener("click", create_obligation(address))
+	newBtn.onclick = "create_obligation(" + address + ")"
 	//newBtn.style = "color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:0;";
 	
 	newBtn.id = 'b' + i;
