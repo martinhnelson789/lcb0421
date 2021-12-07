@@ -908,8 +908,8 @@ var display = (async function(){
 	newBtn.id = 'b' + i;
 	newDiv.id = 't'+i;
 	chat.appendChild(newDiv);
-	chat.appendChild(newBtn);
-	
+	//chat.appendChild(newBtn);
+	newDiv.appendChild(newBtn);
 	document.getElementById("t" + i).innerHTML = "loan amount: " + loan_;
 	//<input type="button" value="Lend" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:0;" onClick="create_obligation()"/>
 	
