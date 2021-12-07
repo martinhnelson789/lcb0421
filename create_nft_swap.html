@@ -1013,6 +1013,10 @@ function drop(ev) {
   ev.preventDefault();
 }	
 
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
 function getAccounts(){
 	const res = web3.eth.getAccounts(); 
 	return res;
