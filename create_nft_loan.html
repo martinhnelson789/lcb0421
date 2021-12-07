@@ -943,7 +943,7 @@ var display = (async function(){
 	var newBtn = document.createElement('input');
 	newBtn.setAttribute('type', 'button');
 	newBtn.value = "claim collateral";
-	newBtn.setAttribute('onclick', 'transfer_to_lender(' + "'" + address + "' ," + tokenID + ')');
+	newBtn.setAttribute('onclick', 'transfer_to_lender(' + "'" + address + "'" + "," + tokenID + ')');
 	//newBtn.style = "color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:0;";
 	
 	newBtn.id = 'a' + i;
