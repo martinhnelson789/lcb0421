@@ -901,7 +901,7 @@ var display = (async function(){
 	var newDiv = document.createElement('div');
 	var newBtn = document.createElement('input');
 	newBtn.setAttribute('type', 'button');
-	newBtn.value = "Lend";
+	newBtn.value = "lend";
 	newBtn.setAttribute('onclick', 'create_obligation(' + "'" + address + "'" +')');
 	//newBtn.style = "color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:0;";
 	
@@ -944,9 +944,9 @@ var display = (async function(){
 	
 	var newBtn = document.createElement('input');
 	newBtn.setAttribute('type', 'button');
-	newBtn.value = "Lend";
+	newBtn.value = "claim collateral";
 	newBtn.setAttribute('onclick', 'transfer_to_lender(' + "'" + address + "' ," + tokenID + ')');
-	newBtn.style = "color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:0;";
+	//newBtn.style = "color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:0;";
 	
 	newBtn.id = 'a' + i;
 	
