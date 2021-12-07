@@ -903,7 +903,7 @@ var display = (async function(){
 	newBtn.setAttribute('type', 'button');
 	newBtn.value = "Lend";
 	newBtn.setAttribute('onclick', 'create_obligation(' + "'" + address + "'" +')');
-	//newBtn.style = "color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:0;";
+	newBtn.style = "color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:0;";
 	
 	newBtn.id = 'b' + i;
 	newDiv.id = 't'+i;
@@ -941,6 +941,17 @@ var display = (async function(){
 	//document.getElementById("latest_block").innerHTML = latest;
 	console.log(latest)
 	}
+	
+	var newBtn = document.createElement('input');
+	newBtn.setAttribute('type', 'button');
+	newBtn.value = "Lend";
+	newBtn.setAttribute('onclick', 'transfer_to_lender(' + "'" + address + "' ," + tokenID + ')');
+	newBtn.style = "color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:0;";
+	
+	newBtn.id = 'a' + i;
+	
+	
+	chat.appendChild(newBtn);
   
 	//document.getElementById("thetable").appendChild(toAdd);
 
@@ -1086,7 +1097,7 @@ var acct = (async function(){
 })()
 }
 
-function transfer_to_lender(){
+function transfer_to_lender(addx, id){
 var acct = (async function(){
   	
   //var result = await getAccounts()
@@ -1095,7 +1106,8 @@ var acct = (async function(){
 	//localStorage.setItem("mySharedData1", document.getElementById("user_name").value);
 	//localStorage.setItem("mySharedData2", document.getElementById("user_name1").value);
 	
-	var add1x = localStorage.getItem("mySharedData");
+	//var add1x = localStorage.getItem("mySharedData");
+	var addx = add1x
 	//var add2x = localStorage.getItem("mySharedData2");
 	//var token_nx = localStorage.getItem("mySharedData1");
 	
@@ -1105,7 +1117,8 @@ var acct = (async function(){
 	localStorage.setItem("Loan Term", document.getElementById("loan_term").value);
 	
 	var nft_k = localStorage.getItem("NFT Contract");
-	var nft_id = localStorage.getItem("NFT Token ID");
+	//var nft_id = localStorage.getItem("NFT Token ID");
+	var id = nft_id
 	var loan_amt = localStorage.getItem("Loan Amount");
 	var loan_term = localStorage.getItem("Loan Term");
 	
