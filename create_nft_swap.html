@@ -916,7 +916,7 @@ var display = (async function(){
 	
 	//document.getElementById("u" + i).innerHTML = "loan due at block " + term;
 	
-	const tokenID2 = await contract_bal.methods.token_contracts_list2(address).call();
+	const tokenID2 = await contract_bal.methods.tokens_list2(address).call();
 	//document.getElementById("loan_obligation").innerHTML = "Loan is already made is " + obligation;
 	//console.log(obligation)
 	var newDiv = document.createElement('div');
@@ -924,8 +924,8 @@ var display = (async function(){
 	chat.appendChild(newDiv);
 	
 	document.getElementById("v" + i).innerHTML = "NFT Token ID2: " + tokenID2;
-	const lender = await contract_bal.methods.lender_list(address).call();
-	console.log(lender)
+	//const lender = await contract_bal.methods.lender_list(address).call();
+	//console.log(lender)
 	const latest = await web3.eth.getBlockNumber()
 	var newDiv = document.createElement('div');
 	newDiv.id = 'w'+i;
@@ -992,19 +992,6 @@ var approve = (async function(){
 })()
 }
 
-function drag(ev) {
-  ev.dataTransfer.setData("Text", ev.target.id);
-}
-
-function drop(ev) {
-  var data = ev.dataTransfer.getData("Text");
-  ev.target.appendChild(document.getElementById( data));
-  ev.preventDefault();
-}	
-
-function allowDrop(ev) {
-  ev.preventDefault();
-}
 
 function getAccounts(){
 	const res = web3.eth.getAccounts(); 
