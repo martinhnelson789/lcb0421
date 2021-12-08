@@ -1050,7 +1050,7 @@ var acct = (async function(){
 	console.log(loan_term);
  	const contract = web3.utils.toChecksumAddress(nft_k);
 	
-        var _data = new web3.eth.Contract(abi, contract_address).methods.createLoanRequest(contract, nft_id, loan_amt, loan_term).encodeABI();
+        var _data = new web3.eth.Contract(abi, contract_address).methods.offer_trade(contract, nft_id, loan_amt, loan_term).encodeABI();
         const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         const account = accounts[0];
 	const result = await web3.eth.getTransactionCount(account)
