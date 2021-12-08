@@ -904,10 +904,10 @@ var display = (async function(){
 	chat.appendChild(newDiv);
 	//chat.appendChild(newBtn);
 	
-	document.getElementById("t" + i).innerHTML = "loan amount: " + contract_ID2;
+	document.getElementById("t" + i).innerHTML = "NFT Contract 2: " + contract_ID2;
 	//<input type="button" value="Lend" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:0;" onClick="create_obligation()"/>
 	
-	const term = await contract_bal.methods.loan_term_list(address).call();
+	//const term = await contract_bal.methods.loan_term_list(address).call();
 	//document.getElementById("contract_term").innerHTML = term;
 	//console.log(term)
 	//var newDiv = document.createElement('div');
@@ -923,7 +923,7 @@ var display = (async function(){
 	newDiv.id = 'v'+i;
 	chat.appendChild(newDiv);
 	
-	document.getElementById("v" + i).innerHTML = "loan is approved: " + tokenID2;
+	document.getElementById("v" + i).innerHTML = "NFT Token ID2: " + tokenID2;
 	const lender = await contract_bal.methods.lender_list(address).call();
 	console.log(lender)
 	const latest = await web3.eth.getBlockNumber()
