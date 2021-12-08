@@ -875,7 +875,7 @@ var display = (async function(){
 	chat.appendChild(newDiv);
 		
 	//document.write(contract_ID)
-	console.log(contract_ID)
+	console.log(contract_ID1)
 	document.getElementById("rr" + i).innerHTML = "nft contract: " + contract_ID1;
 	
 	const tokenID = await contract_bal.methods.tokens_list1(address).call();
@@ -893,13 +893,13 @@ var display = (async function(){
 	//document.getElementById("contract_loan").innerHTML = loan_;	
 	console.log(loan_)
 	var newDiv = document.createElement('div');
-	var newBtn = document.createElement('input');
-	newBtn.setAttribute('type', 'button');
-	newBtn.value = "lend";
-	newBtn.setAttribute('onclick', 'create_obligation(' + "'" + address + "'" +')');
+	//var newBtn = document.createElement('input');
+	//newBtn.setAttribute('type', 'button');
+	//newBtn.value = "lend";
+	//newBtn.setAttribute('onclick', 'create_obligation(' + "'" + address + "'" +')');
 	//newBtn.style = "color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:0;";
 	
-	newBtn.id = 'b' + i;
+	//newBtn.id = 'b' + i;
 	newDiv.id = 't'+i;
 	chat.appendChild(newDiv);
 	chat.appendChild(newBtn);
@@ -934,13 +934,13 @@ var display = (async function(){
 	document.getElementById("w" + i).innerHTML = "latest block: " + latest;
 	//document.getElementById("latest_block").innerHTML = latest;
 	console.log(latest)
-	var newBtn = document.createElement('input');
-	newBtn.setAttribute('type', 'button');
-	newBtn.value = "claim collateral";
-	newBtn.setAttribute('onclick', 'transfer_to_lender(' + "'" + address + "'" + "," + tokenID + ')');
+	//var newBtn = document.createElement('input');
+	//newBtn.setAttribute('type', 'button');
+	//newBtn.value = "claim collateral";
+	//newBtn.setAttribute('onclick', 'transfer_to_lender(' + "'" + address + "'" + "," + tokenID + ')');
 	//newBtn.style = "color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:0;";
 	
-	newBtn.id = 'a' + i;
+	//newBtn.id = 'a' + i;
 	
 	
 	chat.appendChild(newBtn);
