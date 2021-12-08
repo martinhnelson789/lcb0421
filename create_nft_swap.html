@@ -876,7 +876,7 @@ var display = (async function(){
 		
 	//document.write(contract_ID)
 	console.log(contract_ID1)
-	document.getElementById("rr" + i).innerHTML = "nft contract: " + contract_ID1;
+	document.getElementById("rr" + i).innerHTML = "NFT Contract 1: " + contract_ID1;
 	
 	const tokenID = await contract_bal.methods.tokens_list1(address).call();
 	console.log(tokenID)
@@ -885,7 +885,7 @@ var display = (async function(){
 	newDiv.id = 's'+i;
 	chat.appendChild(newDiv);
 	
-	document.getElementById("s" + i).innerHTML = "nft token id: " + tokenID;
+	document.getElementById("s" + i).innerHTML = "NFT Token ID1: " + tokenID;
 	//document.getElementById("contract_token_id").innerHTML = tokenID;
 	//document.write(account_address[0])
 	
