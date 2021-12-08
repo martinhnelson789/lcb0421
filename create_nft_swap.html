@@ -902,19 +902,19 @@ var display = (async function(){
 	//newBtn.id = 'b' + i;
 	newDiv.id = 't'+i;
 	chat.appendChild(newDiv);
-	chat.appendChild(newBtn);
+	//chat.appendChild(newBtn);
 	
 	document.getElementById("t" + i).innerHTML = "loan amount: " + contract_ID2;
 	//<input type="button" value="Lend" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:0;" onClick="create_obligation()"/>
 	
 	const term = await contract_bal.methods.loan_term_list(address).call();
 	//document.getElementById("contract_term").innerHTML = term;
-	console.log(term)
-	var newDiv = document.createElement('div');
-	newDiv.id = 'u'+i;
-	chat.appendChild(newDiv);
+	//console.log(term)
+	//var newDiv = document.createElement('div');
+	//newDiv.id = 'u'+i;
+	//chat.appendChild(newDiv);
 	
-	document.getElementById("u" + i).innerHTML = "loan due at block " + term;
+	//document.getElementById("u" + i).innerHTML = "loan due at block " + term;
 	
 	const tokenID2 = await contract_bal.methods.token_contracts_list2(address).call();
 	//document.getElementById("loan_obligation").innerHTML = "Loan is already made is " + obligation;
