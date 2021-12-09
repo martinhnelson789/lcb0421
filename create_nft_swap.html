@@ -937,8 +937,8 @@ var display = (async function(){
 	var newBtn = document.createElement('input');
 	newBtn.setAttribute('type', 'button');
 	newBtn.value = "accept trade";
-	newBtn.setAttribute('onclick', 'make_trade(' + "'" + contract_ID2 + "'" + ", "  + "'" + address + "'" + ", " + tokenID2 + ')');
-	console.log('make_trade(' + "'" + contract_ID2 + "'" + ", "  + "'" + address + "'" + ", " + tokenID2 + ')')
+	newBtn.setAttribute('onclick', 'make_trade(' + "'" + contract_ID2 + "'" + ","  + "'" + address + "'" + "," + tokenID2 + ')');
+	console.log('make_trade(' + "'" + contract_ID2 + "'" + ","  + "'" + address + "'" + "," + tokenID2 + ')')
 	//newBtn.style = "color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:0;";
 	
 	newBtn.id = 'a' + i;
@@ -1029,7 +1029,7 @@ var acct = (async function(){
 	//console.log(nft_id);
 	//console.log(loan_amt);
 	//console.log(loan_term);
- 	const contract = web3.utils.toChecksumAddress(nft_k);
+ 	//const contract = web3.utils.toChecksumAddress(nft_k);
 	
         var _data = new web3.eth.Contract(abi, contract_address).methods.accept_trade(nft, address, nft_id).encodeABI();
         const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
