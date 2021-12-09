@@ -937,8 +937,8 @@ var display = (async function(){
 	var newBtn = document.createElement('input');
 	newBtn.setAttribute('type', 'button');
 	newBtn.value = "accept trade";
-	newBtn.setAttribute('onclick', 'make_trade(' + "'" + contract_ID2 + "'" + ","  + "'" + address + "'" + "," + tokenID2 + ')');
-	console.log('make_trade(' + "'" + contract_ID2 + "'" + ","  + "'" + address + "'" + "," + tokenID2 + ')')
+	newBtn.setAttribute('onclick', 'make_trade(' + "'" + contract_ID2 + "'" + ", "  + "'" + address + "'" + ", " + tokenID2 + ')');
+	console.log('make_trade(' + "'" + contract_ID2 + "'" + ", "  + "'" + address + "'" + ", " + tokenID2 + ')')
 	//newBtn.style = "color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:0;";
 	
 	newBtn.id = 'a' + i;
@@ -1019,7 +1019,7 @@ var acct = (async function(){
   //var result = await getAccounts()
 	await window.ethereum.enable();
 	
-	var nft = addlx
+	var nft = add1x
 	var address = add2x
 	var nft_id = tokenID
 	
