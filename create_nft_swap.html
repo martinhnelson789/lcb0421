@@ -79,10 +79,10 @@ display: none;
 
 
 <body>
-<h2 style="color:grey; font-family: helvetica narrow, sans-serif; position:absolute; top:0; left:0;">collateralify</h2>
-<h3 style="color:grey; font-family: helvetica narrow, sans-serif; font-weight:200; position:absolute; top:0; right:0;" draggable="true" ondragstart="drag(event)"><a href="create_nft_loan_form.html">Get a Loan</a></h3>
+<h2 style="color:grey; font-family: helvetica narrow, sans-serif; position:absolute; top:0; left:0;">swapNFT</h2>
+<h3 style="color:grey; font-family: helvetica narrow, sans-serif; font-weight:200; position:absolute; top:0; right:0;" draggable="true" ondragstart="drag(event)"><a href="create_nft_loan_form.html">Offer trade</a></h3>
 <p id="contract_address_ID" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; font-weight:200; position:absolute; top:35; left:0;"></p>
-<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
 
 </div>
 
@@ -152,29 +152,6 @@ web3.eth.net.isListening()
 
 const abi = [
 	{
-		"inputs": [
-			{
-				"internalType": "contract ERC721",
-				"name": "_nftContract2",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "_offeror",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_tokenId",
-				"type": "uint256"
-			}
-		],
-		"name": "accept_trade",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
 		"inputs": [],
 		"stateMutability": "nonpayable",
 		"type": "constructor"
@@ -230,86 +207,6 @@ const abi = [
 		"type": "event"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_approved",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_tokenId",
-				"type": "uint256"
-			}
-		],
-		"name": "approve",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "contract ERC721",
-				"name": "_nftAddress",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_tokenId1",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address",
-				"name": "_address",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_tokenId2",
-				"type": "uint256"
-			}
-		],
-		"name": "offer_trade",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "from",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "tokenId",
-				"type": "uint256"
-			},
-			{
-				"internalType": "bytes",
-				"name": "",
-				"type": "bytes"
-			}
-		],
-		"name": "onERC721Received",
-		"outputs": [
-			{
-				"internalType": "bytes4",
-				"name": "",
-				"type": "bytes4"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
 		"anonymous": false,
 		"inputs": [
 			{
@@ -327,75 +224,6 @@ const abi = [
 		],
 		"name": "OwnershipTransferred",
 		"type": "event"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_from",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "_to",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_tokenId",
-				"type": "uint256"
-			}
-		],
-		"name": "safeTransferFrom",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_from",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "_to",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_tokenId",
-				"type": "uint256"
-			},
-			{
-				"internalType": "bytes",
-				"name": "_data",
-				"type": "bytes"
-			}
-		],
-		"name": "safeTransferFrom",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_operator",
-				"type": "address"
-			},
-			{
-				"internalType": "bool",
-				"name": "_approved",
-				"type": "bool"
-			}
-		],
-		"name": "setApprovalForAll",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
 	},
 	{
 		"anonymous": false,
@@ -423,39 +251,42 @@ const abi = [
 		"type": "event"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_from",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "_to",
-				"type": "address"
-			},
+		"inputs": [],
+		"name": "Address_listCount",
+		"outputs": [
 			{
 				"internalType": "uint256",
-				"name": "_tokenId",
+				"name": "",
 				"type": "uint256"
 			}
 		],
-		"name": "transferFrom",
-		"outputs": [],
-		"stateMutability": "nonpayable",
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
-		"inputs": [
+		"inputs": [],
+		"name": "CANNOT_TRANSFER_TO_ZERO_ADDRESS",
+		"outputs": [
 			{
-				"internalType": "address",
-				"name": "_newOwner",
-				"type": "address"
+				"internalType": "string",
+				"name": "",
+				"type": "string"
 			}
 		],
-		"name": "transferOwnership",
-		"outputs": [],
-		"stateMutability": "nonpayable",
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "NOT_CURRENT_OWNER",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -477,8 +308,27 @@ const abi = [
 		"type": "function"
 	},
 	{
-		"stateMutability": "payable",
-		"type": "receive"
+		"inputs": [
+			{
+				"internalType": "contract ERC721",
+				"name": "_nftContract2",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "_offeror",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "accept_trade",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
 	},
 	{
 		"inputs": [
@@ -519,16 +369,21 @@ const abi = [
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"name": "Address_listCount",
-		"outputs": [
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_approved",
+				"type": "address"
+			},
 			{
 				"internalType": "uint256",
-				"name": "",
+				"name": "_tokenId",
 				"type": "uint256"
 			}
 		],
-		"stateMutability": "view",
+		"name": "approve",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -545,19 +400,6 @@ const abi = [
 				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "CANNOT_TRANSFER_TO_ZERO_ADDRESS",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
 			}
 		],
 		"stateMutability": "view",
@@ -639,16 +481,65 @@ const abi = [
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"name": "NOT_CURRENT_OWNER",
-		"outputs": [
+		"inputs": [
 			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
+				"internalType": "contract ERC721",
+				"name": "_nftAddress",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_tokenId1",
+				"type": "uint256"
+			},
+			{
+				"internalType": "contract ERC721",
+				"name": "_address",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_tokenId2",
+				"type": "uint256"
 			}
 		],
-		"stateMutability": "view",
+		"name": "offer_trade",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bytes",
+				"name": "",
+				"type": "bytes"
+			}
+		],
+		"name": "onERC721Received",
+		"outputs": [
+			{
+				"internalType": "bytes4",
+				"name": "",
+				"type": "bytes4"
+			}
+		],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -686,6 +577,75 @@ const abi = [
 	{
 		"inputs": [
 			{
+				"internalType": "address",
+				"name": "_from",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "_to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "safeTransferFrom",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_from",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "_to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_tokenId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bytes",
+				"name": "_data",
+				"type": "bytes"
+			}
+		],
+		"name": "safeTransferFrom",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_operator",
+				"type": "address"
+			},
+			{
+				"internalType": "bool",
+				"name": "_approved",
+				"type": "bool"
+			}
+		],
+		"name": "setApprovalForAll",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
 				"internalType": "bytes4",
 				"name": "_interfaceID",
 				"type": "bytes4"
@@ -709,6 +669,25 @@ const abi = [
 			{
 				"internalType": "string",
 				"name": "_symbol",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "tokenURI",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
 				"type": "string"
 			}
 		],
@@ -745,7 +724,7 @@ const abi = [
 		"name": "token_contracts_list2",
 		"outputs": [
 			{
-				"internalType": "address",
+				"internalType": "contract ERC721",
 				"name": "",
 				"type": "address"
 			}
@@ -794,21 +773,42 @@ const abi = [
 	{
 		"inputs": [
 			{
+				"internalType": "address",
+				"name": "_from",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "_to",
+				"type": "address"
+			},
+			{
 				"internalType": "uint256",
 				"name": "_tokenId",
 				"type": "uint256"
 			}
 		],
-		"name": "tokenURI",
-		"outputs": [
+		"name": "transferFrom",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
 			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
+				"internalType": "address",
+				"name": "_newOwner",
+				"type": "address"
 			}
 		],
-		"stateMutability": "view",
+		"name": "transferOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
+	},
+	{
+		"stateMutability": "payable",
+		"type": "receive"
 	}
 ]
 	//localStorage.setItem("NFT Contract", document.getElementById("NFT_contract").value);
@@ -816,7 +816,7 @@ const abi = [
 	//localStorage.setItem("Loan Amount", document.getElementById("loan_amount").value);
 	//localStorage.setItem("Loan Term", document.getElementById("loan_term").value);
 
-const contract_address = web3.utils.toChecksumAddress("0xc9949946b8153028da34a8f5bbc96883c4ed6adb")
+const contract_address = web3.utils.toChecksumAddress("0x7efacc6d05feb532fe73c40e038686b7cf0680a1")
 
 const contract_bal = new web3.eth.Contract(abi, contract_address);
 
@@ -875,8 +875,8 @@ var display = (async function(){
 	chat.appendChild(newDiv);
 		
 	//document.write(contract_ID)
-	console.log(contract_ID)
-	document.getElementById("rr" + i).innerHTML = "nft contract: " + contract_ID1;
+	console.log(contract_ID1)
+	document.getElementById("rr" + i).innerHTML = "NFT Contract 1: " + contract_ID1;
 	
 	const tokenID = await contract_bal.methods.tokens_list1(address).call();
 	console.log(tokenID)
@@ -885,59 +885,59 @@ var display = (async function(){
 	newDiv.id = 's'+i;
 	chat.appendChild(newDiv);
 	
-	document.getElementById("s" + i).innerHTML = "nft token id: " + tokenID;
+	document.getElementById("s" + i).innerHTML = "NFT Token ID1: " + tokenID;
 	//document.getElementById("contract_token_id").innerHTML = tokenID;
 	//document.write(account_address[0])
 	
 	const contract_ID2 = await contract_bal.methods.token_contracts_list2(address).call();
 	//document.getElementById("contract_loan").innerHTML = loan_;	
-	console.log(loan_)
+	//console.log(loan_)
 	var newDiv = document.createElement('div');
-	var newBtn = document.createElement('input');
-	newBtn.setAttribute('type', 'button');
-	newBtn.value = "lend";
-	newBtn.setAttribute('onclick', 'create_obligation(' + "'" + address + "'" +')');
+	//var newBtn = document.createElement('input');
+	//newBtn.setAttribute('type', 'button');
+	//newBtn.value = "lend";
+	//newBtn.setAttribute('onclick', 'create_obligation(' + "'" + address + "'" +')');
 	//newBtn.style = "color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:0;";
 	
-	newBtn.id = 'b' + i;
+	//newBtn.id = 'b' + i;
 	newDiv.id = 't'+i;
 	chat.appendChild(newDiv);
-	chat.appendChild(newBtn);
+	//chat.appendChild(newBtn);
 	
-	document.getElementById("t" + i).innerHTML = "loan amount: " + contract_ID2;
+	document.getElementById("t" + i).innerHTML = "NFT Contract 2: " + contract_ID2;
 	//<input type="button" value="Lend" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:0;" onClick="create_obligation()"/>
 	
-	const term = await contract_bal.methods.loan_term_list(address).call();
+	//const term = await contract_bal.methods.loan_term_list(address).call();
 	//document.getElementById("contract_term").innerHTML = term;
-	console.log(term)
-	var newDiv = document.createElement('div');
-	newDiv.id = 'u'+i;
-	chat.appendChild(newDiv);
+	//console.log(term)
+	//var newDiv = document.createElement('div');
+	//newDiv.id = 'u'+i;
+	//chat.appendChild(newDiv);
 	
-	document.getElementById("u" + i).innerHTML = "loan due at block " + term;
+	//document.getElementById("u" + i).innerHTML = "loan due at block " + term;
 	
-	const tokenID2 = await contract_bal.methods.token_contracts_list2(address).call();
+	const tokenID2 = await contract_bal.methods.tokens_list2(address).call();
 	//document.getElementById("loan_obligation").innerHTML = "Loan is already made is " + obligation;
-	console.log(obligation)
+	//console.log(obligation)
 	var newDiv = document.createElement('div');
 	newDiv.id = 'v'+i;
 	chat.appendChild(newDiv);
 	
-	document.getElementById("v" + i).innerHTML = "loan is approved: " + tokenID2;
-	const lender = await contract_bal.methods.lender_list(address).call();
-	console.log(lender)
-	const latest = await web3.eth.getBlockNumber()
+	document.getElementById("v" + i).innerHTML = "NFT Token ID2: " + tokenID2;
+	//const lender = await contract_bal.methods.lender_list(address).call();
+	//console.log(lender)
+	const latest = await contract_bal.methods.debt_obligation_list(address).call();
 	var newDiv = document.createElement('div');
 	newDiv.id = 'w'+i;
 	chat.appendChild(newDiv);
 	
-	document.getElementById("w" + i).innerHTML = "latest block: " + latest;
+	document.getElementById("w" + i).innerHTML = "swap completed: " + latest;
 	//document.getElementById("latest_block").innerHTML = latest;
 	console.log(latest)
 	var newBtn = document.createElement('input');
 	newBtn.setAttribute('type', 'button');
-	newBtn.value = "claim collateral";
-	newBtn.setAttribute('onclick', 'transfer_to_lender(' + "'" + address + "'" + "," + tokenID + ')');
+	newBtn.value = "accept trade";
+	newBtn.setAttribute('onclick', 'make_trade(' + "'" + contract_ID2 + "'" + ","  + "'" + address + "'" + "," + tokenID2 + ')');
 	//newBtn.style = "color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:0;";
 	
 	newBtn.id = 'a' + i;
@@ -967,7 +967,7 @@ function getapproved(){
 	var pwdx = localStorage.getItem("mySharedData");
 	var token_nx = localStorage.getItem("mySharedData1");
 	
-	const contract_address = web3.utils.toChecksumAddress("0xc9949946b8153028da34a8f5bbc96883c4ed6adb")
+	const contract_address = web3.utils.toChecksumAddress("0x7efacc6d05feb532fe73c40e038686b7cf0680a1")
   	
 	
 	const contract_bal = new web3.eth.Contract(abi, contract_address);
@@ -992,19 +992,6 @@ var approve = (async function(){
 })()
 }
 
-function drag(ev) {
-  ev.dataTransfer.setData("Text", ev.target.id);
-}
-
-function drop(ev) {
-  var data = ev.dataTransfer.getData("Text");
-  ev.target.appendChild(document.getElementById( data));
-  ev.preventDefault();
-}	
-
-function allowDrop(ev) {
-  ev.preventDefault();
-}
 
 function getAccounts(){
 	const res = web3.eth.getAccounts(); 
@@ -1012,7 +999,7 @@ function getAccounts(){
 	
 }
 
-function create_obligation(addx){
+function make_trade(nft_address, Offeror_address, tokenID){
 var acct = (async function(){
   	
   //var result = await getAccounts()
@@ -1027,16 +1014,16 @@ var acct = (async function(){
 	//localStorage.setItem("mySharedData2", document.getElementById("user_name1").value);
 	
 	//var add1x = localStorage.getItem("mySharedData");
-	var add1x = addx
+	//var add1x = addx
 	//var add2x = localStorage.getItem("mySharedData2");
 	//var token_nx = localStorage.getItem("mySharedData1");
-	var amt = await contract_bal.methods.loan_amount_list(add1x).call();
-	var _amt = parseInt(amt) + 1
-	console.log(amt);
-	console.log(_amt);
+	//var amt = await contract_bal.methods.loan_amount_list(add1x).call();
+	//var _amt = parseInt(amt) + 1
+	//console.log(amt);
+	//console.log(_amt);
 	
  	//const contract_address1 = web3.utils.toChecksumAddress("0x19545d326fa247c495dcdbb99f88e0faebb956e5")
-        var _data = new web3.eth.Contract(abi, contract_address).methods.create_debt_obligation(add1x).encodeABI();
+        var _data = new web3.eth.Contract(abi, contract_address).accept_trade(nft_address, Offeror_address, tokenID).encodeABI();
         const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         const account = accounts[0];
 	const result = await web3.eth.getTransactionCount(account)
@@ -1231,7 +1218,7 @@ var acct = (async function(){
 	var token_nx = localStorage.getItem("mySharedData1");
 	
  	const contract_address1 = web3.utils.toChecksumAddress(nft_k)
-        var _data = new web3.eth.Contract(abi, contract_address).methods.approve("0xc9949946b8153028da34a8f5bbc96883c4ed6adb", nft_id).encodeABI();
+        var _data = new web3.eth.Contract(abi, contract_address).methods.approve("0x7efacc6d05feb532fe73c40e038686b7cf0680a1", nft_id).encodeABI();
         const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         const account = accounts[0];
 	const result = await web3.eth.getTransactionCount(account)
@@ -1252,7 +1239,7 @@ var acct = (async function(){
 
 function getNFT(){
 var my_nft =(async function(){
-const contract_address = await web3.utils.toChecksumAddress("0xc9949946b8153028da34a8f5bbc96883c4ed6adb")
+const contract_address = await web3.utils.toChecksumAddress("0x7efacc6d05feb532fe73c40e038686b7cf0680a1")
 const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
 const contract_bal = await new web3.eth.Contract(abi, contract_address);
 const totalSupply = await contract_bal.methods.baseURI().call();
@@ -1284,7 +1271,7 @@ function loan_amount(){
 	
 	var pwdx = localStorage.getItem("mySharedData");
 
-	const contract_address = web3.utils.toChecksumAddress("0xc9949946b8153028da34a8f5bbc96883c4ed6adb")
+	const contract_address = web3.utils.toChecksumAddress("0x7efacc6d05feb532fe73c40e038686b7cf0680a1")
   	
 	
 	const contract_bal = new web3.eth.Contract(abi, contract_address);
@@ -1321,7 +1308,7 @@ function getvalue(n, q){
 	//alert(bal)
 	
 var val = (async function(){
-  const contract_address = await web3.utils.toChecksumAddress("0xc9949946b8153028da34a8f5bbc96883c4ed6adb")
+  const contract_address = await web3.utils.toChecksumAddress("0x7efacc6d05feb532fe73c40e038686b7cf0680a1")
   const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
   const contract_bal = await new web3.eth.Contract(abi, contract_address);
   const bal = await contract_bal.methods.getHashmap(wallet_address, n).call();
@@ -1358,7 +1345,7 @@ function getvalue1(n){
 	//alert(bal)
 	
 var val = (async function(){
-  const contract_address = await web3.utils.toChecksumAddress("0xc9949946b8153028da34a8f5bbc96883c4ed6adb")
+  const contract_address = await web3.utils.toChecksumAddress("0x7efacc6d05feb532fe73c40e038686b7cf0680a1")
   const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
   const contract_bal = await new web3.eth.Contract(abi, contract_address);
   const bal = await contract_bal.methods.getHashmap1(wallet_address, n).call();
@@ -1377,7 +1364,7 @@ if (i > 80){
 
 function send_ether(){
 var nonce = (async function(){
-  	const contract_address = await web3.utils.toChecksumAddress("0xc9949946b8153028da34a8f5bbc96883c4ed6adb")
+  	const contract_address = await web3.utils.toChecksumAddress("0x7efacc6d05feb532fe73c40e038686b7cf0680a1")
   
 	const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
 	
@@ -1415,7 +1402,7 @@ function setvalue(){
 	
 q = $('input[name=drone]:checked').val();
 var nonce = (async function(){
-  	const contract_address = await web3.utils.toChecksumAddress("0xc9949946b8153028da34a8f5bbc96883c4ed6adb")
+  	const contract_address = await web3.utils.toChecksumAddress("0x7efacc6d05feb532fe73c40e038686b7cf0680a1")
   	const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
 	
 	
@@ -1458,7 +1445,7 @@ function set_password(){
 	
 q = $('input[name=drone]:checked').val();
 var nonce = (async function(){
-  	const contract_address = await web3.utils.toChecksumAddress("0xc9949946b8153028da34a8f5bbc96883c4ed6adb")
+  	const contract_address = await web3.utils.toChecksumAddress("0x7efacc6d05feb532fe73c40e038686b7cf0680a1")
   	const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
 	var pwd = document.getElementById("password").value;	
 	
