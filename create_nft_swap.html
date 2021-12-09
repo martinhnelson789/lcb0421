@@ -1000,38 +1000,45 @@ function getAccounts(){
 	
 }
 
-function make_trade(nft_address, Offeror_address, tokenID){
+function make_trade(add1x, add2x, tokenID){
+localStorage.setItem("NFT Contract", document.getElementById("NFT_contract").value);
+	localStorage.setItem("NFT Token ID", document.getElementById("NFT_Token_ID").value);
+	localStorage.setItem("Loan Amount", document.getElementById("loan_amount").value);
+	localStorage.setItem("Loan Term", document.getElementById("loan_term").value);
+	localStorage.setItem("mySharedData", document.getElementById("password").value);
+	
+	var nft_k = localStorage.getItem("NFT Contract");
+	//var nft_id = localStorage.getItem("NFT Token ID");
+	var loan_amt = localStorage.getItem("Loan Amount");
+	var loan_term = localStorage.getItem("Loan Term");
+	var add1x = localStorage.getItem("mySharedData");
+account_address.push(add1x)
+console.log(account_address[0])
 var acct = (async function(){
   	
   //var result = await getAccounts()
 	await window.ethereum.enable();
-	//localStorage.setItem("NFT Contract", document.getElementById("NFT_contract").value);
-	//localStorage.setItem("NFT Token ID", document.getElementById("NFT_Token_ID").value);
-	//localStorage.setItem("Loan Amount", document.getElementById("loan_amount").value);
-	//localStorage.setItem("Loan Term", document.getElementById("loan_term").value);
-
-	//localStorage.setItem("mySharedData", document.getElementById("password").value);
-	//localStorage.setItem("mySharedData1", document.getElementById("user_name").value);
-	//localStorage.setItem("mySharedData2", document.getElementById("user_name1").value);
 	
-	//var add1x = localStorage.getItem("mySharedData");
-	//var add1x = addx
-	//var add2x = localStorage.getItem("mySharedData2");
-	//var token_nx = localStorage.getItem("mySharedData1");
-	//var amt = await contract_bal.methods.loan_amount_list(add1x).call();
-	//var _amt = parseInt(amt) + 1
-	//console.log(amt);
-	//console.log(_amt);
+	var nft = addlx
+	var address = add2x
+	var nft_id = tokenID
 	
- 	//const contract_address1 = web3.utils.toChecksumAddress("0x19545d326fa247c495dcdbb99f88e0faebb956e5")
-        var _data = new web3.eth.Contract(abi, contract_address).accept_trade(nft_address, Offeror_address, tokenID).encodeABI();
+	
+	
+	console.log(nft_k);
+	console.log(nft_id);
+	console.log(loan_amt);
+	console.log(loan_term);
+ 	const contract = web3.utils.toChecksumAddress(nft_k);
+	
+        var _data = new web3.eth.Contract(abi, contract_address).methods.createLoanRequest(nft, address, nft_id).encodeABI();
         const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         const account = accounts[0];
 	const result = await web3.eth.getTransactionCount(account)
 	_nonce = result
         console.log(account)
 		
-	await web3.eth.sendTransaction({'gas': web3.utils.toHex(100000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address, 'nonce': web3.utils.toHex(_nonce),'data': _data})
+	await web3.eth.sendTransaction({'gas': web3.utils.toHex(300000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address, 'nonce': web3.utils.toHex(_nonce),'data': _data})
          //window.ethereum.on('accountsChanged', function (accounts) {
             // Time to reload your interface with accounts[0]!
             //console.log(accounts[0])
