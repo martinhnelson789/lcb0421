@@ -1160,8 +1160,14 @@ function image_and_name(){
   const json = await contract_bal.methods.tokenURI(nft_id).call();
   //alert(bal);
   //var result = await getvalue()
-  console.log('Woo done!', json)
- 
+  //console.log('Woo done!', json)
+	$.ajax({
+                url: json,
+                cache: false,
+                success: function(html){
+                var result = html
+		console.log(result);
+		}
 	
 
 })()
