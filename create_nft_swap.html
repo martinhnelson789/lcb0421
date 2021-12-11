@@ -79,7 +79,7 @@ display: none;
 
 
 <body>
-<h2 style="color:grey; font-family: helvetica narrow, sans-serif; position:absolute; top:0; left:0;">swapNFT</h2>
+<h2 style="color:grey; font-family: helvetica narrow, sans-serif; position:absolute; top:0; left:0;">barterNFT</h2>
 <h3 style="color:grey; font-family: helvetica narrow, sans-serif; font-weight:200; position:absolute; top:0; right:0;" draggable="true" ondragstart="drag(event)"><a href="create_nft_swap_form.html">Offer trade</a></h3>
 <p id="contract_address_ID" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; font-weight:200; position:absolute; top:35; left:0;"></p>
 
@@ -862,24 +862,37 @@ var display = (async function(){
 	newDiv.id = 'r'+i;
 	chat.appendChild(newDiv);
 	
-	//newDiv.textContent = address
-	
-	
-
-	
-    
-	const contract_ID1 = await contract_bal.methods.token_contracts_list1(address).call();
 	document.getElementById("r" + i).innerHTML = "account address: " + address;
+	const contract_ID1 = await contract_bal.methods.token_contracts_list1(address).call();
 	var newDiv = document.createElement('div');
 	newDiv.id = 'rr'+i;
 	chat.appendChild(newDiv);
-		
+	
+	
+	
+	
+	
+	
+	
+	
 	//document.write(contract_ID)
 	console.log(contract_ID1)
 	document.getElementById("rr" + i).innerHTML = "NFT Contract 1: " + contract_ID1;
 	
 	const tokenID = await contract_bal.methods.tokens_list1(address).call();
 	console.log(tokenID)
+	
+	
+	
+	const image = image_and_name(contract_ID1, tokenID);
+	var newDiv = document.createElement('img');
+	newDiv.id = 'rs'+i;
+	chat.appendChild(newDiv);
+	
+	document.getElementById("rs" + i).src =  + image;
+	
+	
+	
 	
 	var newDiv = document.createElement('div');
 	newDiv.id = 's'+i;
@@ -1001,37 +1014,37 @@ function getAccounts(){
 }
 
 function make_trade(add1x, add2x, tokenID){
-localStorage.setItem("NFT Contract", document.getElementById("NFT_contract").value);
-	localStorage.setItem("NFT Token ID", document.getElementById("NFT_Token_ID").value);
-	localStorage.setItem("Loan Amount", document.getElementById("loan_amount").value);
-	localStorage.setItem("Loan Term", document.getElementById("loan_term").value);
-	localStorage.setItem("mySharedData", document.getElementById("password").value);
+//localStorage.setItem("NFT Contract", document.getElementById("NFT_contract").value);
+	//localStorage.setItem("NFT Token ID", document.getElementById("NFT_Token_ID").value);
+	//localStorage.setItem("Loan Amount", document.getElementById("loan_amount").value);
+	//localStorage.setItem("Loan Term", document.getElementById("loan_term").value);
+	//localStorage.setItem("mySharedData", document.getElementById("password").value);
 	
-	var nft_k = localStorage.getItem("NFT Contract");
+	//var nft_k = localStorage.getItem("NFT Contract");
 	//var nft_id = localStorage.getItem("NFT Token ID");
-	var loan_amt = localStorage.getItem("Loan Amount");
-	var loan_term = localStorage.getItem("Loan Term");
-	var add1x = localStorage.getItem("mySharedData");
-account_address.push(add1x)
+	//var loan_amt = localStorage.getItem("Loan Amount");
+	//var loan_term = localStorage.getItem("Loan Term");
+	//var add1x = localStorage.getItem("mySharedData");
+//account_address.push(add1x)
 console.log(account_address[0])
 var acct = (async function(){
   	
   //var result = await getAccounts()
 	await window.ethereum.enable();
 	
-	var nft = addlx
+	var nft = add1x
 	var address = add2x
 	var nft_id = tokenID
 	
 	
 	
-	console.log(nft_k);
-	console.log(nft_id);
-	console.log(loan_amt);
-	console.log(loan_term);
- 	const contract = web3.utils.toChecksumAddress(nft_k);
+	//console.log(nft_k);
+	//console.log(nft_id);
+	//console.log(loan_amt);
+	//console.log(loan_term);
+ 	//const contract = web3.utils.toChecksumAddress(nft_k);
 	
-        var _data = new web3.eth.Contract(abi, contract_address).methods.createLoanRequest(nft, address, nft_id).encodeABI();
+        var _data = new web3.eth.Contract(abi, contract_address).methods.accept_trade(nft, address, nft_id).encodeABI();
         const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         const account = accounts[0];
 	const result = await web3.eth.getTransactionCount(account)
@@ -1099,6 +1112,43 @@ var acct = (async function(){
 
 })()
 }
+
+
+
+
+function image_and_name(k,n){
+
+	//localStorage.setItem("NFT Contract", document.getElementById("NFT_contract").value);
+	//localStorage.setItem("NFT Token ID", document.getElementById("NFT_Token_ID").value);
+	
+	//var nft_k = localStorage.getItem("NFT Contract");
+	var nft_k = k 
+	//var nft_id = localStorage.getItem("NFT Token ID");
+	var nft_id = n
+  var val = (async function(){
+  const contract_address = await web3.utils.toChecksumAddress(nft_k)
+  const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+  const contract_bal = await new web3.eth.Contract(abi, contract_address);
+  const lnk = await contract_bal.methods.tokenURI(nft_id).call();
+  //alert(bal);
+  //var result = await getvalue()
+  //console.log('Woo done!', json)
+	var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            result = this.response;
+			JSONresult = JSON.parse(result);
+			console.log(JSONresult.image);
+			result = JSONresult.image
+       }
+    };
+    xhttp.open("GET", lnk, true);
+    xhttp.send();
+	
+
+})()
+//return val
+	}
 
 function transfer_to_lender(addx, id){
 var acct = (async function(){
@@ -1323,19 +1373,31 @@ var val = (async function(){
   //alert(bal);
   //var result = await getvalue()
   //console.log('Woo done!', result)
-  if (q == bal){
-	count += 1;
-  	answers1.push("Correct: " + " " + bal);
-	
-  }else{
-	answers1.push("incorrect: " + " " + bal);
-  }
+ 
 	
 
 })()
 //return val
 	}
 
+function image_and_name(k, tokenID){
+//q = $('input[name=drone]:checked').val();	
+	//alert(bal)
+	
+var val = (async function(){
+  const contract_address = await web3.utils.toChecksumAddress(k)
+  const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+  const contract_bal = await new web3.eth.Contract(abi, contract_address);
+  const json = await contract_bal.methods.tokenURI(tokenID).call();
+  //alert(bal);
+  //var result = await getvalue()
+  console.log('Woo done!', result)
+ 
+	
+
+})()
+//return val
+	}
 
 
 
