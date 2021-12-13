@@ -885,6 +885,7 @@ var display = (async function(){
 	
 	
 	const image = image_and_name(contract_ID1, tokenID);
+	console.log(image);
 	var newDiv = document.createElement('img');
 	newDiv.id = 'rs'+i;
 	chat.appendChild(newDiv);
@@ -1143,7 +1144,7 @@ function image_and_name(k,n){
 			return result1
        }
     };
-    xhttp.open("GET", lnk, true);
+    xhttp.open("GET", lnk, false);
     xhttp.send();
 	
 
