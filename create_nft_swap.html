@@ -896,9 +896,10 @@ var display = (async function(){
 			console.log(JSONresult.image);
 			//var result1 = JSONresult.image
 			//return result1
-	document.getElementById("rs" + i).src =  JSONresult.image;
-	//document.getElementById("rs" + i).setAttribute('width', '25%');
-	//document.getElementById("rs" + i).setAttribute('height', '25%');
+	
+	document.getElementById("rs" + i).src = JSONresult.image;
+	document.getElementById("rs" + i).setAttribute('width', '25%');
+	document.getElementById("rs" + i).setAttribute('height', '25%');
 	}
 	
 	
