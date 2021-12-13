@@ -884,13 +884,22 @@ var display = (async function(){
 	
 	
 	
-	const image = image_and_name(contract_ID1, tokenID);
+	const image = image_and_name(contract_ID1, tokenID, getImage);
+	console.log(image);
 	var newDiv = document.createElement('img');
 	newDiv.id = 'rs'+i;
+	
 	chat.appendChild(newDiv);
-	
-	document.getElementById("rs" + i).src =  + image;
-	
+	function getImage(xhttp){
+			var result = xhttp.response;
+			JSONresult = JSON.parse(result);
+			console.log(JSONresult.image);
+			//var result1 = JSONresult.image
+			//return result1
+	document.getElementById("rs" + i).src =  JSONresult.image;
+	document.getElementById("rs" + i).setAttribute('width', '25%');
+	document.getElementById("rs" + i).setAttribute('height', '25%');
+	}
 	
 	
 	
@@ -1116,7 +1125,7 @@ var acct = (async function(){
 
 
 
-function image_and_name(k,n){
+function image_and_name(k,n, getImage){
 
 	//localStorage.setItem("NFT Contract", document.getElementById("NFT_contract").value);
 	//localStorage.setItem("NFT Token ID", document.getElementById("NFT_Token_ID").value);
@@ -1125,8 +1134,8 @@ function image_and_name(k,n){
 	var nft_k = k 
 	//var nft_id = localStorage.getItem("NFT Token ID");
 	var nft_id = n
-  //var val = (async function(){
-  const contract_address = await web3.utils.toChecksumAddress(nft_k)
+  var val = (async function(){
+  const contract_address = web3.utils.toChecksumAddress(nft_k)
   const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
   const contract_bal = await new web3.eth.Contract(abi, contract_address);
   const lnk = await contract_bal.methods.tokenURI(nft_id).call();
@@ -1136,28 +1145,30 @@ function image_and_name(k,n){
 	var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            var result = this.response;
-			JSONresult = JSON.parse(result);
-			console.log(JSONresult.image);
-			var result1 = JSONresult.image
+            getImage(this)
+			//var result = this.response;
+			//JSONresult = JSON.parse(result);
+			//console.log(JSONresult.image);
+			//var result1 = JSONresult.image
+			//return result1
        }
     };
     xhttp.open("GET", lnk, true);
     xhttp.send();
 	
-return result1
-//})()
+
+})()
 //return val
 	}
 	
 	
-function get_image(k,n)
+function get_image(k,n){
 var image = (async function(){
 
 var img = await image_and_name(k,n)
   	
   console.log('Woo done!', img)
-  img = result
+  
   
 	return img
 
@@ -1394,35 +1405,7 @@ var val = (async function(){
 //return val
 	}
 
-function image_and_name(k, tokenID){
-//q = $('input[name=drone]:checked').val();	
-	//alert(bal)
-	
-var val = (async function(){
-  const contract_address = await web3.utils.toChecksumAddress(k)
-  const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
-  const contract_bal = await new web3.eth.Contract(abi, contract_address);
-  const lnk = await contract_bal.methods.tokenURI(tokenID).call();
-  //alert(bal);
-  //var result = await getvalue()
-  //console.log('Woo done!', json)
-	var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            result = this.response;
-			console.log(result)
-			JSONresult = JSON.parse(result);
-			console.log(JSONresult.image);
-			result = JSONresult.image
-			return result
-       }
-    };
-    xhttp.open("GET", lnk, true);
-    xhttp.send();	
-	//return result
-})()
-//return val
-	}
+
 
 
 
