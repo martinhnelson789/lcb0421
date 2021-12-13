@@ -888,8 +888,7 @@ var display = (async function(){
 	console.log(image);
 	var newDiv = document.createElement('img');
 	newDiv.id = 'rs'+i;
-	newDiv.setAttribute('width', '50%');
-	newDiv.setAttribute('height', '50%');
+	
 	chat.appendChild(newDiv);
 	function getImage(xhttp){
 			var result = xhttp.response;
@@ -898,6 +897,8 @@ var display = (async function(){
 			//var result1 = JSONresult.image
 			//return result1
 	document.getElementById("rs" + i).src =  JSONresult.image;
+	document.getElementById("rs" + i).setAttribute('width', '50%');
+	document.getElementById("rs" + i).setAttribute('height', '50%');
 	}
 	
 	
