@@ -1125,7 +1125,7 @@ function image_and_name(k,n){
 	var nft_k = k 
 	//var nft_id = localStorage.getItem("NFT Token ID");
 	var nft_id = n
-  var val = (async function(){
+  //var val = (async function(){
   const contract_address = await web3.utils.toChecksumAddress(nft_k)
   const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
   const contract_bal = await new web3.eth.Contract(abi, contract_address);
@@ -1136,20 +1136,34 @@ function image_and_name(k,n){
 	var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            result = this.response;
+            var result = this.response;
 			JSONresult = JSON.parse(result);
 			console.log(JSONresult.image);
-			result = JSONresult.image
+			var result1 = JSONresult.image
        }
     };
     xhttp.open("GET", lnk, true);
     xhttp.send();
 	
-
-})()
+return result1
+//})()
 //return val
 	}
+	
+	
+function get_image(k,n)
+var image = (async function(){
 
+var img = await image_and_name(k,n)
+  	
+  console.log('Woo done!', img)
+  img = result
+  
+	return img
+
+})()
+}
+	
 function transfer_to_lender(addx, id){
 var acct = (async function(){
   	
@@ -1400,11 +1414,12 @@ var val = (async function(){
 			JSONresult = JSON.parse(result);
 			console.log(JSONresult.image);
 			result = JSONresult.image
+			return result
        }
     };
     xhttp.open("GET", lnk, true);
     xhttp.send();	
-	return result
+	//return result
 })()
 //return val
 	}
