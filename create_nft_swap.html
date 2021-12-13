@@ -884,14 +884,19 @@ var display = (async function(){
 	
 	
 	
-	const image = image_and_name(contract_ID1, tokenID);
+	const image = image_and_name(contract_ID1, tokenID, getImage);
 	console.log(image);
 	var newDiv = document.createElement('img');
 	newDiv.id = 'rs'+i;
 	chat.appendChild(newDiv);
-	
-	document.getElementById("rs" + i).src =  image;
-	
+	function getImage(xhttp){
+			var result = xttp.response;
+			JSONresult = JSON.parse(result);
+			console.log(JSONresult.image);
+			//var result1 = JSONresult.image
+			//return result1
+	document.getElementById("rs" + i).src =  JSONresult.image;
+	}
 	
 	
 	
@@ -1117,7 +1122,7 @@ var acct = (async function(){
 
 
 
-function image_and_name(k,n){
+function image_and_name(k,n, getImage){
 
 	//localStorage.setItem("NFT Contract", document.getElementById("NFT_contract").value);
 	//localStorage.setItem("NFT Token ID", document.getElementById("NFT_Token_ID").value);
@@ -1137,14 +1142,15 @@ function image_and_name(k,n){
 	var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            var result = this.response;
-			JSONresult = JSON.parse(result);
-			console.log(JSONresult.image);
-			var result1 = JSONresult.image
-			return result1
+            getImage(this)
+			//var result = this.response;
+			//JSONresult = JSON.parse(result);
+			//console.log(JSONresult.image);
+			//var result1 = JSONresult.image
+			//return result1
        }
     };
-    xhttp.open("GET", lnk, false);
+    xhttp.open("GET", lnk, true);
     xhttp.send();
 	
 
