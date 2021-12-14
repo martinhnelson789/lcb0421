@@ -898,8 +898,8 @@ var display = (async function(){
 			//return result1
 	
 	document.getElementById("rs" + i).src = JSONresult.image;
-	document.getElementById("rs" + i).setAttribute('width', '25%');
-	document.getElementById("rs" + i).setAttribute('height', '25%');
+	document.getElementById("rs" + i).setAttribute('width', '15%');
+	document.getElementById("rs" + i).setAttribute('height', '15%');
 	}
 	
 	
@@ -945,6 +945,32 @@ var display = (async function(){
 	var newDiv = document.createElement('div');
 	newDiv.id = 'v'+i;
 	chat.appendChild(newDiv);
+	
+	
+	
+	
+	const image1 = image_and_name(contract_ID2, tokenID2, getImage);
+	console.log(image);
+	var newDiv = document.createElement('img');
+	newDiv.id = 'vs'+i;
+	
+	chat.appendChild(newDiv);
+	function getImage(xhttp){
+			var result = xhttp.response;
+			JSONresult = JSON.parse(result);
+			console.log(JSONresult.image);
+			//var result1 = JSONresult.image
+			//return result1
+	
+	document.getElementById("vs" + i).src = JSONresult.image;
+	document.getElementById("vs" + i).setAttribute('width', '15%');
+	document.getElementById("vs" + i).setAttribute('height', '15%');
+	}
+	
+	
+	
+	
+	
 	
 	document.getElementById("v" + i).innerHTML = "NFT Token ID2: " + tokenID2;
 	//const lender = await contract_bal.methods.lender_list(address).call();
