@@ -888,7 +888,7 @@ var display = (async function(){
 	//console.log(image);
 	var newDiv = document.createElement('img');
 	newDiv.id = 'rs'+i;
-	newDiv.onload(image_and_name(contract_ID1, tokenID, getImage))
+	newDiv.onload = "(image_and_name(" + contract_ID1 + ", " + tokenID + ", getImage))
 	chat.appendChild(newDiv);
 	function getImage(xhttp){
 			var result = xhttp.response;
