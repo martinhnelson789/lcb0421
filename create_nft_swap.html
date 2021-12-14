@@ -884,7 +884,7 @@ var display = (async function(){
 	
 	
 	
-	const image = image_and_name(contract_ID1, tokenID, getImage);
+	const image = await image_and_name(contract_ID1, tokenID, getImage);
 	console.log(image);
 	var newDiv = document.createElement('img');
 	newDiv.id = 'rs'+i;
@@ -892,14 +892,14 @@ var display = (async function(){
 	//newDiv.onload = "(image_and_name(" + contract_ID1 + ", " + tokenID + ", getImage))"
 	//newDiv.addEventListener("load", "(image_and_name(" + contract_ID1 + ", " + tokenID + ", getImage))");
 	chat.appendChild(newDiv);
-	function async getImage(xhttp){
-			var result = await xhttp.response;
+	function getImage(xhttp){
+			var result = xhttp.response;
 			JSONresult = JSON.parse(result);
 			console.log(JSONresult.image);
 			//var result1 = JSONresult.image
 			//return result1
 	
-	document.getElementById("rs" + i).loading = "lazy";
+	//document.getElementById("rs" + i).loading = "lazy";
 	document.getElementById("rs" + i).src = JSONresult.image;
 	document.getElementById("rs" + i).setAttribute('width', '15%');
 	document.getElementById("rs" + i).setAttribute('height', '15%');
