@@ -892,8 +892,8 @@ var display = (async function(){
 	//newDiv.onload = "(image_and_name(" + contract_ID1 + ", " + tokenID + ", getImage))"
 	//newDiv.addEventListener("load", "(image_and_name(" + contract_ID1 + ", " + tokenID + ", getImage))");
 	chat.appendChild(newDiv);
-	function getImage(xhttp){
-			var result = xhttp.response;
+	function async getImage(xhttp){
+			var result = await xhttp.response;
 			JSONresult = JSON.parse(result);
 			console.log(JSONresult.image);
 			//var result1 = JSONresult.image
