@@ -884,12 +884,12 @@ var display = (async function(){
 	
 	
 	
-	const image = await image_and_name(contract_ID1, tokenID, getImage);
-	console.log(image);
+	//const image = await image_and_name(contract_ID1, tokenID, getImage);
+	//console.log(image);
 	var newDiv = document.createElement('img');
 	newDiv.id = 'rs'+i;
 	newDiv.loading = "lazy";
-	//newDiv.onload = "(image_and_name(" + contract_ID1 + ", " + tokenID + ", getImage))"
+	newDiv.onload = await "(image_and_name(" + contract_ID1 + ", " + tokenID + ", getImage))"
 	//newDiv.addEventListener("load", "(image_and_name(" + contract_ID1 + ", " + tokenID + ", getImage))");
 	chat.appendChild(newDiv);
 	function getImage(xhttp){
