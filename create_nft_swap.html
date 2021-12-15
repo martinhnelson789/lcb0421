@@ -891,7 +891,7 @@ var display = (async function(){
 	newDiv.loading = "lazy";
 	newDiv.onload = await "(image_and_name(" + contract_ID1 + ", " + tokenID + ", getImage))"
 	//newDiv.addEventListener("load", "(image_and_name(" + contract_ID1 + ", " + tokenID + ", getImage))");
-	chat.appendChild(newDiv);
+	//chat.appendChild(newDiv);
 	function getImage(xhttp){
 			var result = xhttp.response;
 			JSONresult = JSON.parse(result);
@@ -899,10 +899,15 @@ var display = (async function(){
 			//var result1 = JSONresult.image
 			//return result1
 	
+			var img = new Image();
+            img.src = JSONresult.image
+            chat.appendChild(img);
+			chat.setAttribute('width', '15%');
+			chat.setAttribute('height', '15%');
 	//document.getElementById("rs" + i).loading = "lazy";
-	document.getElementById("rs" + i).src = JSONresult.image;
-	document.getElementById("rs" + i).setAttribute('width', '15%');
-	document.getElementById("rs" + i).setAttribute('height', '15%');
+	//document.getElementById("rs" + i).src = JSONresult.image;
+	//document.getElementById("rs" + i).setAttribute('width', '15%');
+	//document.getElementById("rs" + i).setAttribute('height', '15%');
 	}
 	
 	
@@ -967,9 +972,11 @@ var display = (async function(){
 			var img = new Image();
             img.src = JSONresult.image
             chat.appendChild(img);
+			chat.setAttribute('width', '15%');
+			chat.setAttribute('height', '15%');
 	//document.getElementById("vs" + i).src = JSONresult.image;
-	document.getElementById("vs" + i).setAttribute('width', '15%');
-	document.getElementById("vs" + i).setAttribute('height', '15%');
+	//document.getElementById("vs" + i).setAttribute('width', '15%');
+	//document.getElementById("vs" + i).setAttribute('height', '15%');
 	}
 	
 	
