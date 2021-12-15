@@ -903,10 +903,10 @@ var display = (async function(){
 	
 			var img = new Image();
             img.src = JSONresult.image
-			img.width = '15%'
-			img.height = '15%'
-			img.setAttribute('width', '15%');
-			img.setAttribute('height', '15%');
+			img.style.width = '15%'
+			img.style.height = '15%'
+			//img.setAttribute('width', '15%');
+			//img.setAttribute('height', '15%');
             chat.appendChild(img);
 			
 	//document.getElementById("rs" + i).loading = "lazy";
