@@ -957,7 +957,7 @@ var display = (async function(){
 	var newDiv = document.createElement('img');
 	newDiv.id = 'vs'+i;
 	
-	chat.appendChild(newDiv);
+	//chat.appendChild(newDiv);
 	function getImage(xhttp){
 			var result = xhttp.response;
 			JSONresult = JSON.parse(result);
@@ -966,7 +966,7 @@ var display = (async function(){
 			//return result1
 			var img = new Image();
             img.src = JSONresult.image
-            document.getElementById('vs'+i).appendChild(img);
+            chat.appendChild(img);
 	//document.getElementById("vs" + i).src = JSONresult.image;
 	document.getElementById("vs" + i).setAttribute('width', '15%');
 	document.getElementById("vs" + i).setAttribute('height', '15%');
