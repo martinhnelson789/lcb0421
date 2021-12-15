@@ -911,16 +911,18 @@ var display = (async function(){
 	
 			var img = new Image();
             img.src = JSONresult.image
+			img.id = "rs" & i
 			img.style.width = '15%'
 			img.style.height = '15%'
 			//img.setAttribute('width', '15%');
 			//img.setAttribute('height', '15%');
+			
             chat.appendChild(img);
 			
 	//document.getElementById("rs" + i).loading = "lazy";
 	//document.getElementById("rs" + i).src = JSONresult.image;
-	//document.getElementById("rs" + i).setAttribute('width', '15%');
-	//document.getElementById("rs" + i).setAttribute('height', '15%');
+	document.getElementById("rs" + i).setAttribute('width', '15%');
+	document.getElementById("rs" + i).setAttribute('height', '15%');
 	}
 	
 	
