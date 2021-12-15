@@ -1170,14 +1170,10 @@ function image_and_name(){
 			console.log(JSONresult.image);
 			result = JSONresult.image
 			
-			var image = document.createElement('img');
-			image.id = "pic"
-			var downloadingImage = new Image();
-			downloadingImage.onload = function(){
-				image.src = this.src;   
-};
-downloadingImage.src = result;
-	document.getElementById("pic").appendChild(downloadingImage)
+			var img = new Image();
+            img.src = JSONresult.image
+            document.getElementById('body').appendChild(img);
+            //down.innerHTML = "Image Element Added.";
        }
     };
     xhttp.open("GET", lnk, true);
