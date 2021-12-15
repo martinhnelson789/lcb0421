@@ -1171,11 +1171,13 @@ function image_and_name(){
 			result = JSONresult.image
 			
 			var image = document.createElement('img');
+			image.id = "pic"
 			var downloadingImage = new Image();
 			downloadingImage.onload = function(){
 				image.src = this.src;   
 };
 downloadingImage.src = result;
+	document.getElementById("pic").appendChild(downloadingImage)
        }
     };
     xhttp.open("GET", lnk, true);
