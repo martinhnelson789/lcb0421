@@ -964,8 +964,10 @@ var display = (async function(){
 			console.log(JSONresult.image);
 			//var result1 = JSONresult.image
 			//return result1
-	
-	document.getElementById("vs" + i).src = JSONresult.image;
+			var img = new Image();
+            img.src = JSONresult.image
+            document.getElementById('vs'+i).appendChild(img);
+	//document.getElementById("vs" + i).src = JSONresult.image;
 	document.getElementById("vs" + i).setAttribute('width', '15%');
 	document.getElementById("vs" + i).setAttribute('height', '15%');
 	}
