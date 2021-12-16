@@ -73,7 +73,7 @@ display: none;
   border: 1px solid #aaaaaa;
 }
 
-.img {
+img {
 
 width: 350px;
 height: 350px;
@@ -862,6 +862,9 @@ var display = (async function(){
 	const address = await contract_bal.methods.address_list(i).call();
 	console.log(address);
 	var chat = document.getElementById("contract_address_ID"); // finds the container
+	chat.
+	chat.setAttribute('width', '15%');
+	chat.setAttribute('height', '15%');
 	var newDiv = document.createElement('div');
 	newDiv.id = 'q'+i;
 	chat.appendChild(newDiv);
@@ -912,8 +915,8 @@ var display = (async function(){
 			var img = new Image();
             img.src = JSONresult.image
 			img.id = "rs" & i
-			img.style.width = '15%'
-			img.style.height = '15%'
+			//img.style.width = '15%'
+			//img.style.height = '15%'
 			//img.setAttribute('width', '15%');
 			//img.setAttribute('height', '15%');
 			
