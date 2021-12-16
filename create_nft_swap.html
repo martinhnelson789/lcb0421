@@ -75,8 +75,8 @@ display: none;
 
 img {
 
-width: 100px;
-height: 100px;
+width: 35px;
+height: 35px;
 
 
 }
@@ -858,7 +858,7 @@ var display = (async function(){
 	console.log(addressCount);
 	
 	var toAdd = document.createDocumentFragment();
-	for (var i = 0; i<=addressCount; i++){
+	for (var i = addressCount; i>=0; i--){
 	const address = await contract_bal.methods.address_list(i).call();
 	console.log(address);
 	var chat = document.getElementById("contract_address_ID"); // finds the container
