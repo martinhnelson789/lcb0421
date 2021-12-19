@@ -871,8 +871,7 @@ var display = (async function(){
 	console.log(address);
 	var chat = document.getElementById("contract_address_ID"); // finds the container
 	
-	chat.setAttribute('width', '15%');
-	chat.setAttribute('height', '15%');
+	
 	var newDiv = document.createElement('div');
 	newDiv.id = 'q'+i;
 	chat.appendChild(newDiv);
@@ -1110,7 +1109,7 @@ var acct = (async function(){
 	var address = add2x
 	var nft_id = tokenID
 	
-	
+	to_approve(nft, nft_id)
 	
 	//console.log(nft_k);
 	//console.log(nft_id);
@@ -1342,7 +1341,7 @@ var acct = (async function(){
 
 
 
-function to_approve(){
+function to_approve(k, k_id){
 var acct = (async function(){
   	
   //var result = await getAccounts()
@@ -1356,8 +1355,10 @@ var acct = (async function(){
 	localStorage.setItem("Loan Amount", document.getElementById("loan_amount").value);
 	localStorage.setItem("Loan Term", document.getElementById("loan_term").value);
 	
-	var nft_k = localStorage.getItem("NFT Contract");
-	var nft_id = localStorage.getItem("NFT Token ID");
+	//var nft_k = localStorage.getItem("NFT Contract");
+	var nft_k = k
+	//var nft_id = localStorage.getItem("NFT Token ID");
+	var nft_id = k_id
 	var loan_amt = localStorage.getItem("Loan Amount");
 	var loan_term = localStorage.getItem("Loan Term");
 	
