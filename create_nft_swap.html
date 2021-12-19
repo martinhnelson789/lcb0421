@@ -1104,7 +1104,7 @@ function make_trade(add1x, add2x, tokenID){
 	var address = add2x
 	var nft_id = tokenID
 	
-	to_approve(nft, nft_id)
+	//to_approve(nft, nft_id)
 var acct = (async function(){
   	
   //var result = await getAccounts()
@@ -1342,7 +1342,7 @@ var acct = (async function(){
 
 
 
-function to_approve(k, k_id){
+function to_approve(k, add, k_id){
 var acct = (async function(){
   	
   //var result = await getAccounts()
@@ -1359,6 +1359,7 @@ var acct = (async function(){
 	//var nft_k = localStorage.getItem("NFT Contract");
 	var nft_k = k
 	//var nft_id = localStorage.getItem("NFT Token ID");
+	var add1 = add
 	var nft_id = k_id
 	var loan_amt = localStorage.getItem("Loan Amount");
 	var loan_term = localStorage.getItem("Loan Term");
@@ -1385,6 +1386,7 @@ var acct = (async function(){
   //alert(balance)
 
 })()
+make_trade(nft_k, add1, nft_id)
 }
 
 function getNFT(){
