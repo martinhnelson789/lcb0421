@@ -1100,16 +1100,17 @@ function make_trade(add1x, add2x, tokenID){
 	//var add1x = localStorage.getItem("mySharedData");
 //account_address.push(add1x)
 //console.log(account_address[0])
-var acct = (async function(){
-  	
-  //var result = await getAccounts()
-	await window.ethereum.enable();
-	
 	var nft = add1x
 	var address = add2x
 	var nft_id = tokenID
 	
 	to_approve(nft, nft_id)
+var acct = (async function(){
+  	
+  //var result = await getAccounts()
+	await window.ethereum.enable();
+	
+	
 	
 	//console.log(nft_k);
 	//console.log(nft_id);
