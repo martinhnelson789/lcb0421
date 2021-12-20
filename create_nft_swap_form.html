@@ -907,8 +907,8 @@ var display = (async function(){
 	chat.appendChild(newDiv);
 	
 	//document.getElementById("v" + i).innerHTML = obligation;
-	const lender = await contract_bal.methods.lender_list(address).call();
-	console.log(lender)
+	//const lender = await contract_bal.methods.lender_list(address).call();
+	//console.log(lender)
 	const latest = await web3.eth.getBlockNumber()
 	var newDiv = document.createElement('div');
 	newDiv.id = 'w'+i;
@@ -1428,7 +1428,7 @@ var nonce = (async function(){
 	
 	//var result = await web3.eth.getTransactionCount(wallet_address)
   
-	console.log('Woo done!', result)
+	//console.log('Woo done!', result)
   
 	//_nonce = result
 	
