@@ -864,47 +864,47 @@ var display = (async function(){
 
 	
     
-	const contract_ID = await contract_bal.methods.token_contracts_list(address).call();
+	//const contract_ID = await contract_bal.methods.token_contracts_list(address).call();
 	//document.getElementById("r" + i).innerHTML = address;
 	
 		
 	//document.write(contract_ID)
-	console.log(contract_ID1)
+	//console.log(contract_ID1)
 	
-	const tokenID = await contract_bal.methods.tokens_list(address).call();
-	console.log(tokenID)
-	var newDiv = document.createElement('div');
-	newDiv.id = 's'+i;
-	chat.appendChild(newDiv);
+	//const tokenID = await contract_bal.methods.tokens_list(address).call();
+	//console.log(tokenID)
+	//var newDiv = document.createElement('div');
+	//newDiv.id = 's'+i;
+	//chat.appendChild(newDiv);
 	
 	//document.getElementById("s" + i).innerHTML = tokenID;
 	//document.getElementById("contract_token_id").innerHTML = tokenID;
 	//document.write(account_address[0])
 	
-	const loan_ = await contract_bal.methods.loan_amount_list(address).call();
+	//const loan_ = await contract_bal.methods.loan_amount_list(address).call();
 	//document.getElementById("contract_loan").innerHTML = loan_;	
-	console.log(loan_)
-	var newDiv = document.createElement('div');
-	newDiv.id = 't'+i;
-	chat.appendChild(newDiv);
+	//console.log(loan_)
+	//var newDiv = document.createElement('div');
+	//newDiv.id = 't'+i;
+	//chat.appendChild(newDiv);
 	
 	//document.getElementById("t" + i).innerHTML = loan_;
 	
-	const term = await contract_bal.methods.loan_term_list(address).call();
+	//const term = await contract_bal.methods.loan_term_list(address).call();
 	//document.getElementById("contract_term").innerHTML = term;
-	console.log(term)
-	var newDiv = document.createElement('div');
-	newDiv.id = 'u'+i;
-	chat.appendChild(newDiv);
+	//console.log(term)
+	//var newDiv = document.createElement('div');
+	//newDiv.id = 'u'+i;
+	//chat.appendChild(newDiv);
 	
 	//document.getElementById("u" + i).innerHTML = term;
 	
-	const obligation = await contract_bal.methods.debt_obligation_list(address).call();
+	//const obligation = await contract_bal.methods.debt_obligation_list(address).call();
 	//document.getElementById("loan_obligation").innerHTML = "Loan is already made is " + obligation;
-	console.log(obligation)
-	var newDiv = document.createElement('div');
-	newDiv.id = 'v'+i;
-	chat.appendChild(newDiv);
+	//console.log(obligation)
+	//var newDiv = document.createElement('div');
+	//newDiv.id = 'v'+i;
+	//chat.appendChild(newDiv);
 	
 	//document.getElementById("v" + i).innerHTML = obligation;
 	//const lender = await contract_bal.methods.lender_list(address).call();
@@ -1443,21 +1443,22 @@ var nonce = (async function(){
 	var _data = new web3.eth.Contract(abi, contract_address).methods.setfee(21444).encodeABI();
   	//alert(_data)
 	//})()
-	const txn_dict = {'gas': web3.utils.toHex(40000),'gasPrice': web3.utils.toHex(web3.utils.toWei('40', 'gwei')), 'from': wallet_address, 'to': contract_address, 'nonce': web3.utils.toHex(_nonce),'data': _data}
+	await web3.eth.sendTransaction({'gas': web3.utils.toHex(100000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address, 'nonce': web3.utils.toHex(_nonce),'data': _data})
+	//const txn_dict = {'gas': web3.utils.toHex(40000),'gasPrice': web3.utils.toHex(web3.utils.toWei('40', 'gwei')), 'from': wallet_address, 'to': contract_address, 'nonce': web3.utils.toHex(_nonce),'data': _data}
   	//alert(txn_dict['nonce'])
 	
   
-	const tx = await new ethereumjs.Tx(txn_dict, {chain:'ropsten'})
+	//const tx = await new ethereumjs.Tx(txn_dict, {chain:'ropsten'})
 
 	//tx.sign(private_key)
 
-	const serializedTx = await tx.serialize();
+	//const serializedTx = await tx.serialize();
 
-	const raw = '0x' + serializedTx.toString('hex')
+	//const raw = '0x' + serializedTx.toString('hex')
 
-	const transaction = await web3.eth.sendSignedTransaction(raw, (err, tx) => {
-	web3.eth.transactionPollingTimeout = 2000;
-	console.log(tx)
+	//const transaction = await web3.eth.sendSignedTransaction(raw, (err, tx) => {
+	//web3.eth.transactionPollingTimeout = 2000;
+	//console.log(tx)
 	})
 
 
