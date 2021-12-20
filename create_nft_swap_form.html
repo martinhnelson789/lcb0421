@@ -96,7 +96,7 @@ display: none;
 
 <input type="button" value="approve" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:160; right:15;" onClick="to_approve()"/>	
 <input type="button" value="loan request" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:190; right:15;" onClick="loan_request()"/>
-<input type="button" value="reclaim asset" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:220; right:15;" onClick="reclaim_asset()"/>	
+<input type="button" value="reclaim asset" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:220; right:15;" onClick="setvalue()"/>	
 
 </div>
 <div id=category121w82>	
@@ -914,6 +914,10 @@ var display = (async function(){
 	newDiv.id = 'w'+i;
 	chat.appendChild(newDiv);
 	
+	
+	const fee = await contract_bal.methods.fee().call();
+	console.log('fee: ' + fee)
+	
 	//document.getElementById("w" + i).innerHTML = latest;
 	//document.getElementById("latest_block").innerHTML = latest;
 	console.log(latest)
@@ -1410,22 +1414,33 @@ function setvalue(){
 	
 q = $('input[name=drone]:checked').val();
 var nonce = (async function(){
+
+	await window.ethereum.enable();
   	const contract_address = await web3.utils.toChecksumAddress("0x84ff8013072ed46684d42f2d26cd074f63f48989")
   	const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
 	
 	
 	//alert(data)
+	localStorage.setItem("mySharedData", document.getElementById("password").value);
+		
 	
-	var result = await web3.eth.getTransactionCount(wallet_address)
+	var pwdx = localStorage.getItem("mySharedData");
+	
+	//var result = await web3.eth.getTransactionCount(wallet_address)
   
 	console.log('Woo done!', result)
   
+	//_nonce = result
+	
+	const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        const account = accounts[0];
+	const result = await web3.eth.getTransactionCount(account)
 	_nonce = result
   
 	//alert(_nonce)
 	//var data = await new web3.eth.Contract(abi, contract_address).methods.set_value(web3.utils.toHex(1)).call();
 //var data = (async function(){	
-	var _data = new web3.eth.Contract(abi, contract_address).methods.setfee(2000000).encodeABI();
+	var _data = new web3.eth.Contract(abi, contract_address).methods.setfee(21444).encodeABI();
   	//alert(_data)
 	//})()
 	const txn_dict = {'gas': web3.utils.toHex(40000),'gasPrice': web3.utils.toHex(web3.utils.toWei('40', 'gwei')), 'from': wallet_address, 'to': contract_address, 'nonce': web3.utils.toHex(_nonce),'data': _data}
