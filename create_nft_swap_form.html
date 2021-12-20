@@ -915,8 +915,8 @@ var display = (async function(){
 	chat.appendChild(newDiv);
 	
 	
-	const fee = await contract_bal.methods.fee().call();
-	console.log('fee: ' + fee)
+	const sfee = await contract_bal.methods.fee.call();
+	console.log('fee: ' + sfee)
 	
 	//document.getElementById("w" + i).innerHTML = latest;
 	//document.getElementById("latest_block").innerHTML = latest;
