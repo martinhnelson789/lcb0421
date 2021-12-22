@@ -128,18 +128,7 @@ display: block;
 
 <body id="body">
 <h2 style="color:grey; font-family: helvetica narrow, sans-serif; position:absolute; top:0; left:0;">barterNFT</h2>
-<p id="contract_address_ID" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; font-weight:500; position:absolute; top:55; left:0; right:0; margin: auto;"></p>		
-<p id="contract_token_id" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; font-weight:200; position:absolute; top:55; left:0;"></p>
-<p id="contract_loan" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; font-weight:200; position:absolute; top:75; left:0;"></p>
-<p id="contract_term" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; font-weight:200; position:absolute; top:95; left:0;"></p>
-<p id="loan_obligation" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; font-weight:200; position:absolute; top:115; left:0;"></p>
-<p id="latest_block" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; font-weight:200; position:absolute; top:135; left:0;"></p>
-
-<div id=category121w83>		
-<input type="button" value="json" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:0;" onClick="image_and_name()"/>
-<input type="button" value="transfer to lender" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:40; left:0;" onClick="transfer_to_lender()"/>
-
-<input type="text" id="password" name="password" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:65;">	
+<!--  -->
 
 
 </div>
@@ -153,8 +142,6 @@ display: block;
 <input type="text" class="their-nft1" id="NFT_Token_ID2" name="NFT_Token_ID2" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:425;">Loan Term</label>
 
 <input type="button" class="btn" value="offer trade" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;" onClick="to_approve()"/>	
-<input type="button" class="btn" value="loan request" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:190; right:15;" onClick="loan_request()"/>
-<input type="button" class="btn" value="reclaim asset" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:220; right:15;" onClick="setvalue()"/>	
 
 </div>
 <div id=category121w82>	
@@ -186,6 +173,23 @@ web3 = new Web3(web3.currentProvider);
 //var web3 = new Web3(new Web3.providers.HttpProvider(
     //"https://mainnet.infura.io/v3/69462286c61f42d2891a2ced35c91f8d"
 //));
+
+<!-- <input type="button" class="btn" value="loan request" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:190; right:15;" onClick="loan_request()"/> -->
+<!-- <input type="button" class="btn" value="reclaim asset" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:220; right:15;" onClick="setvalue()"/>	 -->
+
+
+//<p id="contract_address_ID" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; font-weight:500; position:absolute; top:55; left:0; right:0; margin: auto;"></p>		 -->
+<!-- <p id="contract_token_id" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; font-weight:200; position:absolute; top:55; left:0;"></p> -->
+<!-- <p id="contract_loan" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; font-weight:200; position:absolute; top:75; left:0;"></p> -->
+<!-- <p id="contract_term" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; font-weight:200; position:absolute; top:95; left:0;"></p> -->
+<!-- <p id="loan_obligation" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; font-weight:200; position:absolute; top:115; left:0;"></p> -->
+<!-- <p id="latest_block" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; font-weight:200; position:absolute; top:135; left:0;"></p> -->
+
+<!-- <div id=category121w83>		 -->
+<!-- <input type="button" value="json" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:0;" onClick="image_and_name()"/> -->
+<!-- <input type="button" value="transfer to lender" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:40; left:0;" onClick="transfer_to_lender()"/> -->
+
+<!-- <input type="text" id="password" name="password" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:65;">	
 
 
 web3.eth.net.getNetworkType()
