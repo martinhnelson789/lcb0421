@@ -66,13 +66,69 @@ display: none;
     float: left;
 }
 
+input.your-nft {
+display: block;
+  
+  border-radius: 15px;
+  margin-top:200px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 300px
+  height:15px
+}
+
+input.your-nft1 {
+display: block;
+  
+  border-radius: 15px;
+  margin-top:1px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 300px
+  height:15px
+}
+
+input.their-nft {
+display: block;
+  
+  border-radius: 15px;
+  margin-top:50px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 300px
+  height:15px
+}
+
+input.their-nft1 {
+display: block;
+  
+  border-radius: 15px;
+  margin-top:1px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 300px
+  height:15px
+}
+
+input.btn {
+display: block;
+  
+  border-radius: 15px;
+  margin-top:5px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 300px
+  height:15px
+}
+
+
 </style>
 </head>
 
 
 <body id="body">
 <h2 style="color:grey; font-family: helvetica narrow, sans-serif; position:absolute; top:0; left:0;">barterNFT</h2>
-<p id="contract_address_ID" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; font-weight:200; position:absolute; top:35; left:0;"></p>		
+<p id="contract_address_ID" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; font-weight:500; position:absolute; top:55; left:0; right:0; margin: auto;"></p>		
 <p id="contract_token_id" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; font-weight:200; position:absolute; top:55; left:0;"></p>
 <p id="contract_loan" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; font-weight:200; position:absolute; top:75; left:0;"></p>
 <p id="contract_term" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; font-weight:200; position:absolute; top:95; left:0;"></p>
@@ -89,14 +145,16 @@ display: none;
 </div>
 
 
-<input type="text" id="NFT_contract" name="NFT_contract" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:50; right:35;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:50; right:30;">contract token ID</label>	
-<input type="text" id="NFT_Token_ID" name="NFT_Token_ID" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:75; right:35;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:75; right:30;">contract token ID</label>		
-<input type="text" id="loan_amount" name="loan_amount" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:100; right:35;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:100; right:30;">Loan Amount</label>
-<input type="text" id="loan_term" name="loan_term" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:125; right:35;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:125; right:30;">Loan Term</label>
+<input type="text" class="your-nft" id="NFT_contract1" name="NFT_contract1" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:200;">contract token ID</label>	
+<input type="text" class="your-nft1" id="NFT_Token_ID1" name="NFT_Token_ID1" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:225;">contract token ID</label>		
 
-<input type="button" value="approve" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:160; right:15;" onClick="to_approve()"/>	
-<input type="button" value="loan request" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:190; right:15;" onClick="loan_request()"/>
-<input type="button" value="reclaim asset" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:220; right:15;" onClick="setvalue()"/>	
+
+<input type="text" class="their-nft" id="NFT_contract2" name="NFT_contract2" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:400;">Loan Amount</label>
+<input type="text" class="their-nft1" id="NFT_Token_ID2" name="NFT_Token_ID2" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:425;">Loan Term</label>
+
+<input type="button" class="btn" value="offer trade" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;" onClick="to_approve()"/>	
+<input type="button" class="btn" value="loan request" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:190; right:15;" onClick="loan_request()"/>
+<input type="button" class="btn" value="reclaim asset" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:220; right:15;" onClick="setvalue()"/>	
 
 </div>
 <div id=category121w82>	
@@ -1054,7 +1112,7 @@ var acct = (async function(){
 	_nonce = result
         console.log(account)
 		
-	await web3.eth.sendTransaction({'gas': web3.utils.toHex(300000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address, 'value': 21001, 'nonce': web3.utils.toHex(_nonce),'data': _data})
+	await web3.eth.sendTransaction({'gas': web3.utils.toHex(300000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address, 'value': 25000, 'nonce': web3.utils.toHex(_nonce),'data': _data})
          //window.ethereum.on('accountsChanged', function (accounts) {
             // Time to reload your interface with accounts[0]!
             //console.log(accounts[0])
