@@ -81,7 +81,7 @@ display: block;
   margin-top:5px;
   margin-right: auto;
   margin-left: auto;
-  width: 400px
+  width: 500px
   height:15px
 }
 
@@ -92,7 +92,7 @@ display: block;
   margin-top:1px;
   margin-right: auto;
   margin-left: auto;
-  width: 400px
+  width: 500px
   height:15px
 }
 
@@ -105,7 +105,7 @@ display: block;
   margin-top:25px;
   margin-right: auto;
   margin-left: auto;
-  width: 400px
+  width: 500px
   height:15px
 }
 
@@ -116,7 +116,7 @@ display: block;
   margin-top:1px;
   margin-right: auto;
   margin-left: auto;
-  width: 400px
+  width: 500px
   height:15px
 }
 
@@ -150,7 +150,7 @@ display: block;
 <input type="text" class="your-nft" id="NFT_contract1" name="NFT_contract1" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:175; right:775;">NFT contract address 1</label>	
 <input type="text" class="your-nft1" id="NFT_Token_ID1" name="NFT_Token_ID1" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:200; right:775;">NFT contract token ID 1</label>		
 
-<center style='font-size:100px;'>&#8645;</center>
+<center style="color:grey; font-family: helvetica narrow, sans-serif; font-size:100px;">&#8645;</center>
 
 <center style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;">their NFT</center>
 <input type="text" class="their-nft" id="NFT_contract2" name="NFT_contract2" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:400; right:775">NFT contract address 2</label>
@@ -1096,16 +1096,16 @@ var acct = (async function(){
 	
 	
 function loan_request(){
-localStorage.setItem("NFT Contract", document.getElementById("NFT_contract").value);
-	localStorage.setItem("NFT Token ID", document.getElementById("NFT_Token_ID").value);
-	localStorage.setItem("Loan Amount", document.getElementById("loan_amount").value);
-	localStorage.setItem("Loan Term", document.getElementById("loan_term").value);
+localStorage.setItem("NFT_contract1", document.getElementById("NFT_contract1").value);
+	localStorage.setItem("NFT_Token_ID1", document.getElementById("NFT_Token_ID1").value);
+	localStorage.setItem("NFT_contract2", document.getElementById("NFT_contract2").value);
+	localStorage.setItem("NFT_Token_ID2", document.getElementById("NFT_Token_ID2").value);
 	localStorage.setItem("mySharedData", document.getElementById("password").value);
 	
-	var nft_k = localStorage.getItem("NFT Contract");
-	var nft_id = localStorage.getItem("NFT Token ID");
-	var loan_amt = localStorage.getItem("Loan Amount");
-	var loan_term = localStorage.getItem("Loan Term");
+	var nft_k = localStorage.getItem("NFT_contract1");
+	var nft_id = localStorage.getItem("NFT_Token_ID1");
+	var loan_amt = localStorage.getItem("NFT_contract2");
+	var loan_term = localStorage.getItem("NFT_Token_ID2");
 	var add1x = localStorage.getItem("mySharedData");
 account_address.push(add1x)
 console.log(account_address[0])
