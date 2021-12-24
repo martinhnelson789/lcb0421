@@ -1023,7 +1023,7 @@ var display = (async function(){
 	var newBtn = document.createElement('input');
 	newBtn.setAttribute('type', 'button');
 	newBtn.value = "accept trade";
-	newBtn.setAttribute('onclick', 'to_approve(' + "'" + address + "'" + ')');
+	newBtn.setAttribute('onclick', 'to_approve(' + "'" + address + "', " + "'" + tokenID2 + "'" + ')');
 	console.log('make_trade(' + "'" + contract_ID2 + "'" + ","  + "'" + address + "'" + "," + tokenID2 + ')')
 	//newBtn.style = "color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:0;";
 	
@@ -1345,7 +1345,7 @@ var acct = (async function(){
 
 
 
-function to_approve(k, add, k_id){
+function to_approve(add, k_id){
 var acct = (async function(){
   	
   //var result = await getAccounts()
@@ -1360,16 +1360,16 @@ var acct = (async function(){
 	//localStorage.setItem("Loan Term", document.getElementById("loan_term").value);
 	
 	//var nft_k = localStorage.getItem("NFT Contract");
-	var nft_k = k
+	//var nft_k = k
 	//var nft_id = localStorage.getItem("NFT Token ID");
 	var add1 = add
 	var nft_id = k_id
-	var loan_amt = localStorage.getItem("Loan Amount");
-	var loan_term = localStorage.getItem("Loan Term");
+	<!-- var loan_amt = localStorage.getItem("Loan Amount"); -->
+	<!-- var loan_term = localStorage.getItem("Loan Term"); -->
 	
-	var add1x = localStorage.getItem("mySharedData");
-	var add2x = localStorage.getItem("mySharedData2");
-	var token_nx = localStorage.getItem("mySharedData1");
+	<!-- var add1x = localStorage.getItem("mySharedData"); -->
+	<!-- var add2x = localStorage.getItem("mySharedData2"); -->
+	<!-- var token_nx = localStorage.getItem("mySharedData1"); -->
 	
  	const contract_address1 = web3.utils.toChecksumAddress(nft_k)
         var _data = new web3.eth.Contract(abi, contract_address).methods.approve("0xcf360a8bcf95c0206ce529d4971590a06c36f33f", nft_id).encodeABI();
@@ -1387,7 +1387,7 @@ var acct = (async function(){
   //console.log('Woo done!', result[0])
   //balance = result
   //alert(balance)
-	make_trade(nft_k, add1, nft_id)
+	make_trade(add1)
 })()
 
 }
