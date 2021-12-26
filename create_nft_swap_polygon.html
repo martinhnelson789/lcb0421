@@ -869,7 +869,7 @@ var display = (async function(){
 	const contract_ID1 = await contract_bal.methods.token_contracts_list1(address).call();
 	const tokenID = await contract_bal.methods.tokens_list1(address).call();
 	const owned = await contract_bal.methods.token_contracts_list1(tokenID).call();
-	console.log(owned)
+	console.log("owned: " + owned)
 		if(latest == false){
 	
 	console.log(address);
