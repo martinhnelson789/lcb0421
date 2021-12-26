@@ -866,6 +866,10 @@ var display = (async function(){
 	for (var i = addressCount-1; i>=0; i--){
 	const address = await contract_bal.methods.address_list(i).call();
 	const latest = await contract_bal.methods.debt_obligation_list(address).call();
+	const contract_ID1 = await contract_bal.methods.token_contracts_list1(address).call();
+	const tokenID = await contract_bal.methods.tokens_list1(address).call();
+	const owned = await contract_bal.methods.token_contracts_list1(tokenID).call();
+	console.log(owned)
 		if(latest == false){
 	
 	console.log(address);
@@ -881,7 +885,7 @@ var display = (async function(){
 	chat.appendChild(newDiv);
 	
 	document.getElementById("r" + i).innerHTML = "account address: " + address;
-	const contract_ID1 = await contract_bal.methods.token_contracts_list1(address).call();
+	
 	var newDiv = document.createElement('div');
 	newDiv.id = 'rr'+i;
 	chat.appendChild(newDiv);
@@ -897,7 +901,7 @@ var display = (async function(){
 	console.log(contract_ID1)
 	document.getElementById("rr" + i).innerHTML = "NFT Contract 1: " + contract_ID1;
 	
-	const tokenID = await contract_bal.methods.tokens_list1(address).call();
+	
 	console.log(tokenID)
 	
 	
@@ -1343,6 +1347,26 @@ var acct = (async function(){
 
 //client_account = accounts[0]; // assuming master client addr
 
+function own(k_id){
+var acct = (async function(){
+  	
+ 
+	await window.ethereum.enable();
+	
+	
+	
+	var nft_id = k_id
+	
+	
+	
+ 	const contract_address1 = web3.utils.toChecksumAddress(nft_k)
+        var contract = new web3.eth.Contract(abi, contract_address1);
+        const own_ed = contract.methods.ownerOf(nft_id).call();
+		return own_ed
+		
+})()
+
+}
 
 
 function to_approve(k, add, k_id){
@@ -1439,21 +1463,13 @@ function loan_amount(){
 function check_loan_amount(){
 var approve = (async function(){
   
-//if (i > 1){
-	//show1()
-	//}else{
+
   var result = await loan_amount()
   	
   console.log('Woo done!', result)
   balance = result
   
-	//if(balance == true){
-  	//show1();
-	//}else{
-	//alert("sign in")
-	//}
-//}
-//alert(balance)
+	
 
 })()
 }
