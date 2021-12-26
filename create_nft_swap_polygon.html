@@ -1362,11 +1362,11 @@ var acct = (async function(){
  	const contract_address1 = web3.utils.toChecksumAddress(nft_k)
         var contract = new web3.eth.Contract(abi, contract_address1);
         const own_ed = await contract.methods.ownerOf(nft_id).call();
-		console.log(own_ed);
-		return own_ed
+		console.log("own_ed: " + own_ed);
+		
 		
 })()
-
+return own_ed
 }
 
 
