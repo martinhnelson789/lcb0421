@@ -868,7 +868,7 @@ var display = (async function(){
 	const latest = await contract_bal.methods.debt_obligation_list(address).call();
 	const contract_ID1 = await contract_bal.methods.token_contracts_list1(address).call();
 	const tokenID = await contract_bal.methods.tokens_list1(address).call();
-	const owned = own(tokenID);
+	const owned = own(contract_ID1, tokenID);
 	console.log("owned: " + owned)
 		if(latest == false){
 	
@@ -1347,7 +1347,7 @@ var acct = (async function(){
 
 //client_account = accounts[0]; // assuming master client addr
 
-function own(k_id){
+function own(k, k_id){
 var acct = (async function(){
   	
  
@@ -1355,11 +1355,11 @@ var acct = (async function(){
 	
 	
 	
-	var nft_id = k_id
+	var nft_id = k_id;
+	var nft_k = k;
 	
 	
-	
- 	const contract_address1 = web3.utils.toChecksumAddress(nft_k)
+ 	const contract_address1 = web3.utils.toChecksumAddress(nft_k);
         var contract = new web3.eth.Contract(abi, contract_address1);
         const own_ed = await contract.methods.ownerOf(nft_id).call();
 		console.log("own_ed: " + own_ed);
