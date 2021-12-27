@@ -870,7 +870,7 @@ var display = (async function(){
 	const tokenID = await contract_bal.methods.tokens_list1(address).call();
 	const owned = check_loan_amount(contract_ID1, tokenID);
 	console.log("owned: " + owned)
-		if(latest == false){
+		if(latest == false && owned == "0xcf360a8bcf95c0206ce529d4971590a06c36f33f"){
 	
 	console.log(address);
 	var chat = document.getElementById("contract_address_ID"); // finds the container
