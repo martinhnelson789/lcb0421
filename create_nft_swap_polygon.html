@@ -1453,7 +1453,7 @@ var approve = (async function(){
   	
   console.log('Woo done!', result)
   balance = result
-  return balance
+  return(promise.resolved(loan_amount()))
 	
 
 })()
