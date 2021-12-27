@@ -1347,27 +1347,7 @@ var acct = (async function(){
 
 //client_account = accounts[0]; // assuming master client addr
 
-function own(k, k_id){
-var acct = (async function(){
-  	
- 
-	await window.ethereum.enable();
-	
-	
-	
-	var nft_id = k_id;
-	var nft_k = k;
-	
-	
- 	const contract_address1 = web3.utils.toChecksumAddress(nft_k);
-        var contract = new web3.eth.Contract(abi, contract_address1);
-        const own_ed = await contract.methods.ownerOf(nft_id).call();
-		console.log("own_ed: " + own_ed);
-		
-		
-})()
-//return own_ed
-}
+
 
 
 function to_approve(k, add, k_id){
@@ -1473,7 +1453,7 @@ var approve = (async function(){
   	
   console.log('Woo done!', result)
   balance = result
-  
+  return balance
 	
 
 })()
