@@ -868,7 +868,7 @@ var display = (async function(){
 	const latest = await contract_bal.methods.debt_obligation_list(address).call();
 	const contract_ID1 = await contract_bal.methods.token_contracts_list1(address).call();
 	const tokenID = await contract_bal.methods.tokens_list1(address).call();
-	const owned = own(contract_ID1, tokenID);
+	const owned = check_loan_amount(contract_ID1, tokenID);
 	console.log("owned: " + owned)
 		if(latest == false){
 	
