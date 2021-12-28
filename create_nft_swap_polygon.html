@@ -1440,7 +1440,7 @@ var approve = (async function(){
 	const bal = await contract_bal.methods.ownerOf(nft_id).call();
 	//const loan_ = contract_bal.methods.loan_amount_list(pwdx).call();
 	console.log(bal);
-	if(bal == "0xcf360a8bcf95c0206ce529d4971590a06c36f33f"){
+	if(bal ==  web3.utils.toChecksumAddress("0xcf360a8bcf95c0206ce529d4971590a06c36f33f")){
 	return true
 	}else{
 	return false}
@@ -1448,19 +1448,19 @@ var approve = (async function(){
 	}
 
 function check_loan_amount(k, k_id){
-//var approve = (async function(){
+var approve = (async function(){
   
   var nft_id = k_id;
 	var nft_k = k;
 
-  var result = loan_amount(nft_k, nft_id)
+  var result = await loan_amount(nft_k, nft_id)
   	
   console.log('Woo done!', result)
   balance = result
   return result
 	
 
-//})()
+})()
 
 }
 
