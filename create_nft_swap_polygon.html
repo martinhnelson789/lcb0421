@@ -868,9 +868,14 @@ var display = (async function(){
 	const latest = await contract_bal.methods.debt_obligation_list(address).call();
 	const contract_ID1 = await contract_bal.methods.token_contracts_list1(address).call();
 	const tokenID = await contract_bal.methods.tokens_list1(address).call();
-	const owned = await check_loan_amount(contract_ID1, tokenID);
-	console.log("owned: " + owned)
-		if(latest == false && owned == true){
+	const k_address = web3.utils.toChecksumAddress(contract_ID1)
+  	
+	
+	const k_bal = new web3.eth.Contract(abi, k_address);
+	const owned = await k_bal.methods.ownerOf(tokenID).call();
+	console.log("owned: " + owned + " " + "0xCF360a8BcF95c0206Ce529d4971590A06c36f33F")
+	
+		if(latest == false){
 	
 	console.log(address);
 	var chat = document.getElementById("contract_address_ID"); // finds the container
