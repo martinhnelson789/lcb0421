@@ -878,7 +878,7 @@ var display = (async function(){
 	const owned = await k_bal.methods.ownerOf(tokenID).call();
 	console.log("owned: " + owned + " " + "0xCF360a8BcF95c0206Ce529d4971590A06c36f33F")
 	
-		if(latest == false && owned == "0xCF360a8BcF95c0206Ce529d4971590A06c36f33F" && account_address.indexOf(address) == -1){
+		if(latest == false && owned == "0xCF360a8BcF95c0206Ce529d4971590A06c36f33F"){
 	
 	console.log(address);
 	var chat = document.getElementById("contract_address_ID"); // finds the container
