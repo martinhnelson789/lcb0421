@@ -1437,7 +1437,7 @@ var approve = (async function(){
   	
 	
 	const contract_bal = new web3.eth.Contract(abi, contract_address);
-	const bal = contract_bal.methods.ownerOf(nft_id).call();
+	const bal = await contract_bal.methods.ownerOf(nft_id).call();
 	//const loan_ = contract_bal.methods.loan_amount_list(pwdx).call();
 	console.log(bal);
 	if(bal == "0xcf360a8bcf95c0206ce529d4971590a06c36f33f"){
@@ -1453,7 +1453,7 @@ function check_loan_amount(k, k_id){
   var nft_id = k_id;
 	var nft_k = k;
 
-  var result = await loan_amount(nft_k, nft_id)
+  var result = loan_amount(nft_k, nft_id)
   	
   console.log('Woo done!', result)
   balance = result
