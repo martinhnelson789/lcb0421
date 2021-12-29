@@ -1017,7 +1017,7 @@ var display = (async function(){
 	console.log(contract_ID1)
 	document.getElementById("rr" + i).innerHTML = "NFT Contract 1: " + contract_ID1;
 	
-	const tokenID = await contract_bal.methods.tokens_list1(address).call();
+	const tokenID = await contract_bal.methods.tokens_list1x(i+1, address).call();
 	console.log(tokenID)
 	
 	
@@ -1065,7 +1065,7 @@ var display = (async function(){
 	//document.getElementById("contract_token_id").innerHTML = tokenID;
 	//document.write(account_address[0])
 	
-	const contract_ID2 = await contract_bal.methods.token_contracts_list2(address).call();
+	const contract_ID2 = await contract_bal.methods.token_contracts_list2x(i+1, address).call();
 	//document.getElementById("contract_loan").innerHTML = loan_;	
 	//console.log(loan_)
 	var newDiv = document.createElement('div');
@@ -1092,7 +1092,7 @@ var display = (async function(){
 	
 	//document.getElementById("u" + i).innerHTML = "loan due at block " + term;
 	
-	const tokenID2 = await contract_bal.methods.tokens_list2(address).call();
+	const tokenID2 = await contract_bal.methods.tokens_list2x(i+1, address).call();
 	//document.getElementById("loan_obligation").innerHTML = "Loan is already made is " + obligation;
 	//console.log(obligation)
 	var newDiv = document.createElement('div');
