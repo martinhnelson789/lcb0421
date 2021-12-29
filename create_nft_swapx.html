@@ -1000,7 +1000,7 @@ var display = (async function(){
 	chat.appendChild(newDiv);
 	
 	document.getElementById("r" + i).innerHTML = "account address: " + address;
-	const contract_ID1 = await contract_bal.methods.token_contracts_list1(i, address).call();
+	const contract_ID1 = await contract_bal.methods.token_contracts_list1x(i, address).call();
 	console.log(contract_ID1)
 	var newDiv = document.createElement('div');
 	newDiv.id = 'rr'+i;
