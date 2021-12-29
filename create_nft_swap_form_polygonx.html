@@ -1,0 +1,1747 @@
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/plain"; Charset=UTF-8">
+<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="https://cdn.rawgit.com/ethereumjs/browser-builds/master/dist/ethereumjs-tx/ethereumjs-tx-1.3.3.js"></script>
+</script> 
+  
+
+<STYLE TYPE="text/css">
+.answers li {
+list-style: upper-alpha;
+}
+
+label {
+margin-left: 0.5em;
+cursor: pointer;
+}
+
+#results {
+background: #dddada;
+color: 000000;
+padding: 3px;
+text-align: center;
+width: 200px;
+cursor: pointer;
+border: 1px solid gray;
+}
+
+#results:hover {
+background: #3d91b8;
+color: #ffffff;
+padding: 3px;
+text-align: center;
+width: 200px;
+cursor: pointer;
+border: 1px solid gray;
+}
+
+#categorylist {
+margin-top: 6px;
+display: none;
+}
+
+#category219w1, #category219w2, #category219w3, #category219w4, #category219w5, #category219w6, #category219w7, #category219w8, #category219w9, #category219w10, #category219w11, #category219w12, #category219w13, #category219w14, #category219w15, #category219w16, #category219w17, #category219w18, #category219w19, #category219w20, #category219w21, #category219w22, #category219w23, #category219w24, #category219w25, #category219w26, #category219w27, #category219w28, #category219w29, #category219w30, #category219w31, #category219w32, #category219w33, #category219w34, #category219w35, #category219w36, #category219w37, #category219w38, #category219w39, #category219w40, #category219w41, #category219w42, #category219w43, #category219w44, #category219w45, #category219w46, #category219w47, #category219w48, #category219w49, #category219w50, #category219w51, #category219w52, #category219w53, #category219w54, #category219w55, #category219w56, #category219w57, #category219w58, #category219w59, #category219w60, #category219w61, #category219w62, #category219w63, #category219w64, #category219w65, #category219w66, #category219w67, #category219w68, #category219w69, #category219w70, #category219w71, #category219w72, #category219w73, #category219w74, #category219w75, #category219w76, #category219w77, #category219w78, #category219w79, #category219w80, #category1Z81, #category121w82, #category1Z83, #category1Z84, #category1Z85, #category2Z1, #category2Z2, #category2Z3, #category2Z4, #category2Z5, #category2Z6, #category2Z7, #category2Z8, #category2Z9, #category2Z10, #category2Z11, #category2Z12, #category2Z13, #category2Z14, #category2Z15, #category2Z16, #category2Z17, #category2Z18, #category2Z19, #category2Z20, #category2Z21, #category2Z22, #category2Z23, #category2Z24, #category2Z25, #category2Z26, #category2Z27, #category2Z28, #category2Z29, #category2Z30, #category2Z31, #category2Z32, #category2Z33, #category2Z34, #category2Z35, #category2Z36, #category2Z37, #category2Z38, #category2Z39, #category2Z40, #category2Z41, #category2Z42, #category2Z43, #category2Z44, #category2Z45, #category2Z46, #category2Z47, #category2Z48, #category2Z49, #category2Z50, #category2Z51, #category2Z52,
+#category2Z53, #category2Z54, #category2Z55, #category2Z56, #category2Z57, #category2Z58, #category2Z59, #category2Z60, #category2Z61, #category2Z62, #category2Z63, #category2Z64, #category2Z65, #category2Z66, #category2Z66, #category2Z67, #category2Z68, #category2Z69, #category2Z70, #category2Z71, #category2Z72, #category2Z73, #category2Z74, #category2Z75, #category2Z76, #category2Z77, #category2Z78, #category2Z79, #category2Z80, #category3Z2, #category3Z3, #category3Z4, #category3Z5, #category3Z6, #category3Z7, #category3Z8, #category3Z9, #category3Z10, #category3Z11, #category3Z12, #category3Z13, #category3Z14, #category3Z15, #category3Z16, #category3Z17, #category3Z18, #category3Z19, #category3Z20, #category3Z21, #category3Z22, #category3Z23, #category3Z24, #category3Z25, #category3Z26, #category3Z27, #category3Z28, #category3Z29, #category3Z30, #category3Z31, #category3Z32, #category3Z33, #category3Z34, #category3Z35, #category3Z36, #category3Z37, #category3Z38, #category3Z39, #category3Z40, #category3Z41, #category3Z42, #category3Z43, #category3Z44, #category3Z45, #category3Z46, #category3Z47, #category3Z48, #category3Z49, #category3Z50, #category3Z51, #category3Z52, #category3Z53, #category3Z54, #category3Z55, #category3Z56, #category3Z57, #category3Z58, #category3Z59, #category3Z60, #category3Z61, #category3Z62, #category3Z63, #category3Z64, #category3Z65, #category3Z66, #category3Z67, #category3Z68, #category3Z69, #category3Z70, #category3Z71, #category3Z72, #category3Z73, #category3Z74, #category3Z75, #category3Z76, #category3Z77, #category3Z78, #category3Z79, #category3Z80, #category2Z82 {
+display: none;
+}
+
+#closing {
+display: none;
+#font-style: italic;
+}  
+
+#answers{
+    border:3px solid magenta;
+    width:249px;
+    float:left;
+   
+    padding:0 20px 0;
+}
+
+#answers[type="radio"]{
+    float: left;
+}
+
+p {
+
+  
+  top:150px
+  text-align:center
+  
+}
+
+input.your-nft {
+display: block;
+  
+  border-radius: 5px;
+  margin-top:5px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 400px
+  height:15px
+}
+
+input.your-nft1 {
+display: block;
+  
+  border-radius: 5px;
+  margin-top:1px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 400px
+  height:15px
+}
+
+
+
+input.their-nft {
+display: block;
+  
+  border-radius: 5px;
+  margin-top:25px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 400px
+  height:15px
+}
+
+input.their-nft1 {
+display: block;
+  
+  border-radius: 5px;
+  margin-top:1px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 400px
+  height:15px
+}
+
+
+
+input.btn {
+display: block;
+  
+  border-radius: 5px;
+  margin-top:5px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 300px
+  height:15px
+}
+
+
+</style>
+</head>
+
+
+<body id="body">
+<center style="color:grey; font-family: helvetica narrow, sans-serif; position:absolute; top:0; left:0; font-size: x-large;">barterNFT</center>
+<!--  -->
+
+
+
+<center style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; margin-top:120px;">trade</center>
+<center style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;">your NFT</center>
+
+<input type="text" class="your-nft" id="NFT_contract1" name="NFT_contract1" style="color:grey; font-family: helvetica narrow, sans-serif; font-size:x-large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:185; right:815;">NFT contract address 1</label>	
+<input type="text" class="your-nft1" id="NFT_Token_ID1" name="NFT_Token_ID1" style="color:grey; font-family: helvetica narrow, sans-serif; font-size:x-large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:220; right:815;">NFT contract token ID 1</label>		
+
+<center style="color:grey; font-family: helvetica narrow, sans-serif; font-size:100px;">&#8645;</center>
+
+<center style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;">for</center>
+<center style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;">their NFT</center>
+<input type="text" class="their-nft" id="NFT_contract2" name="NFT_contract2" style="color:grey; font-family: helvetica narrow, sans-serif; font-size:x-large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:420; right:815">NFT contract address 2</label>
+<input type="text" class="their-nft1" id="NFT_Token_ID2" name="NFT_Token_ID2" style="color:grey; font-family: helvetica narrow, sans-serif; font-size:x-large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:450; right:815">NFT contract token ID 2</label>
+
+<input type="button" class="btn" value="offer trade" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;" onClick="to_approve()"/>	
+
+</div>
+<div id=category121w82>	
+<input type="button" value="Show Answers" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;" onClick="prompt_approve()"/>	
+</div>
+<div id="content"></div>
+
+
+
+
+<script>
+
+//var pwd = document.getElementById("password").value;
+
+              
+
+
+var metamask = (async function(){
+  	
+  await ethereum.enable();
+  	
+  
+  //alert(balance)
+
+})()
+
+web3 = new Web3(web3.currentProvider);        
+
+//var web3 = new Web3(new Web3.providers.HttpProvider(
+    //"https://mainnet.infura.io/v3/69462286c61f42d2891a2ced35c91f8d"
+//));
+
+<!-- <input type="button" class="btn" value="loan request" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:190; right:15;" onClick="loan_request()"/> -->
+<!-- <input type="button" class="btn" value="reclaim asset" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:220; right:15;" onClick="setvalue()"/>	 -->
+
+
+//<p id="contract_address_ID" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; font-weight:500; position:absolute; top:55; left:0; right:0; margin: auto;"></p>		 -->
+<!-- <p id="contract_token_id" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; font-weight:200; position:absolute; top:55; left:0;"></p> -->
+<!-- <p id="contract_loan" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; font-weight:200; position:absolute; top:75; left:0;"></p> -->
+<!-- <p id="contract_term" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; font-weight:200; position:absolute; top:95; left:0;"></p> -->
+<!-- <p id="loan_obligation" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; font-weight:200; position:absolute; top:115; left:0;"></p> -->
+<!-- <p id="latest_block" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; font-weight:200; position:absolute; top:135; left:0;"></p> -->
+
+<!-- <div id=category121w83>		 -->
+<!-- <input type="button" value="json" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:0;" onClick="image_and_name()"/> -->
+<!-- <input type="button" value="transfer to lender" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:40; left:0;" onClick="transfer_to_lender()"/> -->
+
+<!-- <input type="text" id="password" name="password" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:65;">	
+
+
+web3.eth.net.getNetworkType()
+.then(console.log);
+
+web3.eth.net.isListening()
+   .then(() => console.log('web3 is connected'))
+   .catch(e => console.log('Wow. Something went wrong'));
+
+const abi = [
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "num",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "_offeror",
+				"type": "address"
+			}
+		],
+		"name": "accept_trade",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "_owner",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "_approved",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "uint256",
+				"name": "_tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "Approval",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "_owner",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "_operator",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "bool",
+				"name": "_approved",
+				"type": "bool"
+			}
+		],
+		"name": "ApprovalForAll",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_approved",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "approve",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "contract ERC721",
+				"name": "_nftAddress",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_tokenId1",
+				"type": "uint256"
+			},
+			{
+				"internalType": "contract ERC721",
+				"name": "_address",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_tokenId2",
+				"type": "uint256"
+			}
+		],
+		"name": "offer_trade",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bytes",
+				"name": "",
+				"type": "bytes"
+			}
+		],
+		"name": "onERC721Received",
+		"outputs": [
+			{
+				"internalType": "bytes4",
+				"name": "",
+				"type": "bytes4"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "previousOwner",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "OwnershipTransferred",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_from",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "_to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "safeTransferFrom",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_from",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "_to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_tokenId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bytes",
+				"name": "_data",
+				"type": "bytes"
+			}
+		],
+		"name": "safeTransferFrom",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_operator",
+				"type": "address"
+			},
+			{
+				"internalType": "bool",
+				"name": "_approved",
+				"type": "bool"
+			}
+		],
+		"name": "setApprovalForAll",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_fee",
+				"type": "uint256"
+			}
+		],
+		"name": "setfee",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "_from",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "_to",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "uint256",
+				"name": "_tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "Transfer",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_from",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "_to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "transferFrom",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_newOwner",
+				"type": "address"
+			}
+		],
+		"name": "transferOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "transferto",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "num",
+				"type": "uint256"
+			}
+		],
+		"name": "withdraw_nft",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"stateMutability": "payable",
+		"type": "receive"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "account_list",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "address_list",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "Address_listCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_owner",
+				"type": "address"
+			}
+		],
+		"name": "balanceOf",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "CANNOT_TRANSFER_TO_ZERO_ADDRESS",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "debt_obligation_list",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "debt_obligation_listx",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "fee",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "getApproved",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_owner",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "_operator",
+				"type": "address"
+			}
+		],
+		"name": "isApprovedForAll",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "last",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "name",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "_name",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "NOT_CURRENT_OWNER",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "ownerOf",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "_owner",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes4",
+				"name": "_interfaceID",
+				"type": "bytes4"
+			}
+		],
+		"name": "supportsInterface",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "symbol",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "_symbol",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "token_contracts_list1",
+		"outputs": [
+			{
+				"internalType": "contract ERC721",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "token_contracts_list1x",
+		"outputs": [
+			{
+				"internalType": "contract ERC721",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "token_contracts_list2",
+		"outputs": [
+			{
+				"internalType": "contract ERC721",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "token_contracts_list2x",
+		"outputs": [
+			{
+				"internalType": "contract ERC721",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "tokens_list1",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "tokens_list1x",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "tokens_list2",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "tokens_list2x",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "tokenURI",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
+
+	//localStorage.setItem("NFT Contract", document.getElementById("NFT_contract").value);
+	//localStorage.setItem("NFT Token ID", document.getElementById("NFT_Token_ID").value);
+	//localStorage.setItem("Loan Amount", document.getElementById("loan_amount").value);
+	//localStorage.setItem("Loan Term", document.getElementById("loan_term").value);
+
+const contract_address = web3.utils.toChecksumAddress("0x00afd34526d9e80a1dee5052c9daf2a38e7a054b")
+
+const contract_bal = new web3.eth.Contract(abi, contract_address);
+
+const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+
+const account_address = [];
+
+
+
+ $(document).ready(function(){
+//function display_loan_info(){
+var display = (async function(){
+  
+  
+  //localStorage.setItem("mySharedData", document.getElementById("password").value);
+    
+	
+	//var pwdx = localStorage.getItem("mySharedData");
+
+	
+  	
+		
+		
+		
+	
+	const contract_bal = new web3.eth.Contract(abi, contract_address);
+	
+	
+	
+	const addressCount = await contract_bal.methods.Address_listCount().call();
+	console.log(addressCount);
+	
+	var toAdd = document.createDocumentFragment();
+	for (var i = 0; i<=addressCount; i++){
+	const address = await contract_bal.methods.address_list(i).call();
+	console.log(address);
+	var chat = document.getElementById("contract_address_ID"); // finds the container
+	var newDiv = document.createElement('div');
+	newDiv.id = 'q'+i;
+	//chat.appendChild(newDiv);
+	//document.getElementById("q" + i).innerHTML = "-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
+	//var newDiv = document.createElement('div');
+	//newDiv.id = 'r'+i;
+	//chat.appendChild(newDiv);
+	
+	//newDiv.textContent = address
+	
+	
+
+	
+    
+	//const contract_ID = await contract_bal.methods.token_contracts_list(address).call();
+	//document.getElementById("r" + i).innerHTML = address;
+	
+		
+	//document.write(contract_ID)
+	//console.log(contract_ID1)
+	
+	//const tokenID = await contract_bal.methods.tokens_list(address).call();
+	//console.log(tokenID)
+	//var newDiv = document.createElement('div');
+	//newDiv.id = 's'+i;
+	//chat.appendChild(newDiv);
+	
+	//document.getElementById("s" + i).innerHTML = tokenID;
+	//document.getElementById("contract_token_id").innerHTML = tokenID;
+	//document.write(account_address[0])
+	
+	//const loan_ = await contract_bal.methods.loan_amount_list(address).call();
+	//document.getElementById("contract_loan").innerHTML = loan_;	
+	//console.log(loan_)
+	//var newDiv = document.createElement('div');
+	//newDiv.id = 't'+i;
+	//chat.appendChild(newDiv);
+	
+	//document.getElementById("t" + i).innerHTML = loan_;
+	
+	//const term = await contract_bal.methods.loan_term_list(address).call();
+	//document.getElementById("contract_term").innerHTML = term;
+	//console.log(term)
+	//var newDiv = document.createElement('div');
+	//newDiv.id = 'u'+i;
+	//chat.appendChild(newDiv);
+	
+	//document.getElementById("u" + i).innerHTML = term;
+	
+	//const obligation = await contract_bal.methods.debt_obligation_list(address).call();
+	//document.getElementById("loan_obligation").innerHTML = "Loan is already made is " + obligation;
+	//console.log(obligation)
+	//var newDiv = document.createElement('div');
+	//newDiv.id = 'v'+i;
+	//chat.appendChild(newDiv);
+	
+	//document.getElementById("v" + i).innerHTML = obligation;
+	//const lender = await contract_bal.methods.lender_list(address).call();
+	//console.log(lender)
+	const latest = await web3.eth.getBlockNumber()
+	var newDiv = document.createElement('div');
+	newDiv.id = 'w'+i;
+	//chat.appendChild(newDiv);
+	
+	
+	const sfee = await contract_bal.methods.fee.call();
+	console.log('fee: ' + sfee)
+	
+	//document.getElementById("w" + i).innerHTML = latest;
+	//document.getElementById("latest_block").innerHTML = latest;
+	console.log(latest)
+	}
+  
+	//document.getElementById("thetable").appendChild(toAdd);
+
+//alert(balance)
+
+})()
+        });
+
+function prompt_approve(){
+	web3.eth.abi.encodeFunctionSignature('approve(address,uint256)');
+}
+function getapproved(){
+
+
+        localStorage.setItem("mySharedData", document.getElementById("password").value);
+		localStorage.setItem("mySharedData1", document.getElementById("user_name").value);
+	
+	var pwdx = localStorage.getItem("mySharedData");
+	var token_nx = localStorage.getItem("mySharedData1");
+	
+	const contract_address = web3.utils.toChecksumAddress("0x00afd34526d9e80a1dee5052c9daf2a38e7a054b")
+  	
+	
+	const contract_bal = new web3.eth.Contract(abi, contract_address);
+	const bal = contract_bal.methods.getTotalSupplyFromB(token_nx).call();
+	console.log(bal)
+	return bal
+	}
+
+function check_approved(){
+var approve = (async function(){
+  
+  
+  var result = await getapproved()
+  	
+  console.log('Woo done!', result)
+  balance = result
+  
+	console.log(balance)
+
+//alert(balance)
+
+})()
+}
+	
+
+function getAccounts(){
+	const res = web3.eth.getAccounts(); 
+	return res;
+	
+}
+
+function create_obligation(){
+var acct = (async function(){
+  	
+  //var result = await getAccounts()
+	await window.ethereum.enable();
+	localStorage.setItem("NFT Contract", document.getElementById("NFT_contract").value);
+	localStorage.setItem("NFT Token ID", document.getElementById("NFT_Token_ID").value);
+	localStorage.setItem("Loan Amount", document.getElementById("loan_amount").value);
+	localStorage.setItem("Loan Term", document.getElementById("loan_term").value);
+
+	localStorage.setItem("mySharedData", document.getElementById("password").value);
+	//localStorage.setItem("mySharedData1", document.getElementById("user_name").value);
+	//localStorage.setItem("mySharedData2", document.getElementById("user_name1").value);
+	
+	var add1x = localStorage.getItem("mySharedData");
+	//var add2x = localStorage.getItem("mySharedData2");
+	//var token_nx = localStorage.getItem("mySharedData1");
+	var amt = await contract_bal.methods.loan_amount_list(add1x).call();
+	var _amt = parseInt(amt) + 1
+	console.log(amt);
+	console.log(_amt);
+	
+ 	//const contract_address1 = web3.utils.toChecksumAddress("0x00afd34526d9e80a1dee5052c9daf2a38e7a054b")
+        var _data = new web3.eth.Contract(abi, contract_address).methods.create_debt_obligation(add1x).encodeABI();
+        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        const account = accounts[0];
+	const result = await web3.eth.getTransactionCount(account)
+	_nonce = result
+        console.log(account)
+		
+	await web3.eth.sendTransaction({'gas': web3.utils.toHex(100000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address, 'value': _amt, 'nonce': web3.utils.toHex(_nonce),'data': _data})
+         //window.ethereum.on('accountsChanged', function (accounts) {
+            // Time to reload your interface with accounts[0]!
+            //console.log(accounts[0])
+           	
+  //console.log('Woo done!', result[0])
+  //balance = result
+  //alert(balance)
+
+})()
+}
+
+	
+	
+function loan_request(){
+localStorage.setItem("NFT_contract1", document.getElementById("NFT_contract1").value);
+	localStorage.setItem("NFT_Token_ID1", document.getElementById("NFT_Token_ID1").value);
+	localStorage.setItem("NFT_contract2", document.getElementById("NFT_contract2").value);
+	localStorage.setItem("NFT_Token_ID2", document.getElementById("NFT_Token_ID2").value);
+	//localStorage.setItem("mySharedData", document.getElementById("password").value);
+	
+	var nft_k = localStorage.getItem("NFT_contract1");
+	var nft_id = localStorage.getItem("NFT_Token_ID1");
+	var loan_amt = localStorage.getItem("NFT_contract2");
+	var loan_term = localStorage.getItem("NFT_Token_ID2");
+	var add1x = localStorage.getItem("mySharedData");
+account_address.push(add1x)
+console.log(account_address[0])
+var acct = (async function(){
+  	
+  //var result = await getAccounts()
+	await window.ethereum.enable();
+	
+	
+	
+	
+	
+	console.log(nft_k);
+	console.log(nft_id);
+	console.log(loan_amt);
+	console.log(loan_term);
+ 	const contract = web3.utils.toChecksumAddress(nft_k);
+	
+        var _data = new web3.eth.Contract(abi, contract_address).methods.offer_trade(contract, nft_id, loan_amt, loan_term).encodeABI();
+        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        const account = accounts[0];
+	const result = await web3.eth.getTransactionCount(account)
+	_nonce = result
+        console.log(account)
+		
+	await web3.eth.sendTransaction({'gas': web3.utils.toHex(300000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address, 'value': 25000, 'nonce': web3.utils.toHex(_nonce),'data': _data})
+         //window.ethereum.on('accountsChanged', function (accounts) {
+            // Time to reload your interface with accounts[0]!
+            //console.log(accounts[0])
+           	
+  //console.log('Woo done!', result[0])
+  //balance = result
+  //alert(balance)
+
+})()
+}
+
+function transfer_to_lender(){
+var acct = (async function(){
+  	
+  //var result = await getAccounts()
+	await window.ethereum.enable();
+	localStorage.setItem("mySharedData", document.getElementById("password").value);
+	//localStorage.setItem("mySharedData1", document.getElementById("user_name").value);
+	//localStorage.setItem("mySharedData2", document.getElementById("user_name1").value);
+	
+	var add1x = localStorage.getItem("mySharedData");
+	//var add2x = localStorage.getItem("mySharedData2");
+	//var token_nx = localStorage.getItem("mySharedData1");
+	
+	localStorage.setItem("NFT Contract", document.getElementById("NFT_contract").value);
+	localStorage.setItem("NFT Token ID", document.getElementById("NFT_Token_ID").value);
+	localStorage.setItem("Loan Amount", document.getElementById("loan_amount").value);
+	localStorage.setItem("Loan Term", document.getElementById("loan_term").value);
+	
+	var nft_k = localStorage.getItem("NFT Contract");
+	var nft_id = localStorage.getItem("NFT Token ID");
+	var loan_amt = localStorage.getItem("Loan Amount");
+	var loan_term = localStorage.getItem("Loan Term");
+	
+ 	const contract = web3.utils.toChecksumAddress(nft_k)
+        var _data = new web3.eth.Contract(abi, contract_address).methods.TransferToLender(add1x, nft_id).encodeABI();
+        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        const account = accounts[0];
+		var amt = await contract_bal.methods.loan_amount_list(add1x).call();
+	
+	const result = await web3.eth.getTransactionCount(account)
+	_nonce = result
+        console.log(account)
+		
+	await web3.eth.sendTransaction({'gas': web3.utils.toHex(200000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address, 'nonce': web3.utils.toHex(_nonce),'data': _data})
+         //window.ethereum.on('accountsChanged', function (accounts) {
+            // Time to reload your interface with accounts[0]!
+            //console.log(accounts[0])
+           	
+  //console.log('Woo done!', result[0])
+  //balance = result
+  //alert(balance)
+
+})()
+}
+
+function reclaim_asset(){
+var acct = (async function(){
+  	
+  //var result = await getAccounts()
+	await window.ethereum.enable();
+	localStorage.setItem("mySharedData", document.getElementById("password").value);
+	//localStorage.setItem("mySharedData1", document.getElementById("user_name").value);
+	//localStorage.setItem("mySharedData2", document.getElementById("user_name1").value);
+	
+	var add1x = localStorage.getItem("mySharedData");
+	//var add2x = localStorage.getItem("mySharedData2");
+	//var token_nx = localStorage.getItem("mySharedData1");
+	
+	localStorage.setItem("NFT Contract", document.getElementById("NFT_contract").value);
+	localStorage.setItem("NFT Token ID", document.getElementById("NFT_Token_ID").value);
+	localStorage.setItem("Loan Amount", document.getElementById("loan_amount").value);
+	localStorage.setItem("Loan Term", document.getElementById("loan_term").value);
+	
+	var nft_k = localStorage.getItem("NFT Contract");
+	var nft_id = localStorage.getItem("NFT Token ID");
+	var loan_amt = localStorage.getItem("Loan Amount");
+	var loan_term = localStorage.getItem("Loan Term");
+	
+ 	const contract = web3.utils.toChecksumAddress(nft_k)
+        var _data = new web3.eth.Contract(abi, contract_address).methods.ReturnToBorrower().encodeABI();
+        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        const account = accounts[0];
+		var amt = await contract_bal.methods.loan_amount_list(add1x).call();
+	var _amt = parseInt(amt) + (amt/50) + 1
+	console.log(amt);
+	console.log(_amt);
+	const result = await web3.eth.getTransactionCount(account)
+	_nonce = result
+        console.log(account)
+		
+	await web3.eth.sendTransaction({'gas': web3.utils.toHex(200000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address, 'value': _amt, 'nonce': web3.utils.toHex(_nonce),'data': _data})
+         //window.ethereum.on('accountsChanged', function (accounts) {
+            // Time to reload your interface with accounts[0]!
+            //console.log(accounts[0])
+           	
+  //console.log('Woo done!', result[0])
+  //balance = result
+  //alert(balance)
+
+})()
+}
+
+function image_and_name(){
+
+	localStorage.setItem("NFT Contract", document.getElementById("NFT_contract").value);
+	localStorage.setItem("NFT Token ID", document.getElementById("NFT_Token_ID").value);
+	
+	var nft_k = localStorage.getItem("NFT Contract");
+	var nft_id = localStorage.getItem("NFT Token ID");
+	
+  var val = (async function(){
+  const contract_address = await web3.utils.toChecksumAddress(nft_k)
+  const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+  const contract_bal = await new web3.eth.Contract(abi, contract_address);
+  const lnk = await contract_bal.methods.tokenURI(nft_id).call();
+  //alert(bal);
+  //var result = await getvalue()
+  //console.log('Woo done!', json)
+	var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            result = this.response;
+			console.log(result)
+			JSONresult = JSON.parse(result);
+			console.log(JSONresult.image);
+			result = JSONresult.image
+			
+			var img = new Image();
+            img.src = JSONresult.image
+            document.getElementById('body').appendChild(img);
+            //down.innerHTML = "Image Element Added.";
+       }
+    };
+    xhttp.open("GET", lnk, true);
+    xhttp.send();
+	
+
+})()
+//return val
+	}
+
+
+
+//client_account = accounts[0]; // assuming master client addr
+
+
+
+function to_approve(){
+var acct = (async function(){
+  	
+  //var result = await getAccounts()
+	await window.ethereum.enable();
+	//localStorage.setItem("mySharedData", document.getElementById("password").value);
+	//localStorage.setItem("mySharedData1", document.getElementById("user_name").value);
+	//localStorage.setItem("mySharedData2", document.getElementById("user_name1").value);
+	
+	
+	
+	localStorage.setItem("NFT_contract1", document.getElementById("NFT_contract1").value);
+	localStorage.setItem("NFT_Token_ID1", document.getElementById("NFT_Token_ID1").value);
+	localStorage.setItem("NFT_contract2", document.getElementById("NFT_contract2").value);
+	localStorage.setItem("NFT_Token_ID2", document.getElementById("NFT_Token_ID2").value);
+	//localStorage.setItem("mySharedData", document.getElementById("password").value);
+	
+	var nft_k = localStorage.getItem("NFT_contract1");
+	var nft_id = localStorage.getItem("NFT_Token_ID1");
+	var loan_amt = localStorage.getItem("NFT_contract2");
+	var loan_term = localStorage.getItem("NFT_Token_ID2");
+	//var add1x = localStorage.getItem("mySharedData");
+	
+ 	const contract_address1 = web3.utils.toChecksumAddress(nft_k)
+        var _data = new web3.eth.Contract(abi, contract_address).methods.approve("0x00afd34526d9e80a1dee5052c9daf2a38e7a054b", nft_id).encodeABI();
+        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        const account = accounts[0];
+	const result = await web3.eth.getTransactionCount(account)
+	_nonce = result
+        console.log(account)
+		
+	await web3.eth.sendTransaction({'gas': web3.utils.toHex(100000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address1, 'nonce': web3.utils.toHex(_nonce),'data': _data})
+         //window.ethereum.on('accountsChanged', function (accounts) {
+            // Time to reload your interface with accounts[0]!
+            //console.log(accounts[0])
+           	
+  //console.log('Woo done!', result[0])
+  //balance = result
+  //alert(balance)
+
+})()
+
+	loan_request();
+	
+}
+
+function getNFT(){
+var my_nft =(async function(){
+const contract_address = await web3.utils.toChecksumAddress("0x00afd34526d9e80a1dee5052c9daf2a38e7a054b")
+const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+const contract_bal = await new web3.eth.Contract(abi, contract_address);
+const totalSupply = await contract_bal.methods.baseURI().call();
+alert(totalSupply)
+})()
+//return val
+	}
+
+getAccounts(function(result){
+	console.log(result[0]);
+	});
+
+function contribute_to_the_project() {
+  const amount = "0.00001"; 
+  const amountToSend = web3.utils.toWei(amount, "ether"); // Convert to wei value
+  web3.eth.sendTransaction({ 
+    from: client_account,
+    to: contract_address, 
+    value: amountToSend 
+  }).then( function(tx) { ;
+  console.log("Transaction: ", tx); 
+  });
+}
+function loan_amount(){
+
+
+        localStorage.setItem("mySharedData", document.getElementById("password").value);
+    
+	
+	var pwdx = localStorage.getItem("mySharedData");
+
+	const contract_address = web3.utils.toChecksumAddress("0x00afd34526d9e80a1dee5052c9daf2a38e7a054b")
+  	
+	
+	const contract_bal = new web3.eth.Contract(abi, contract_address);
+	const bal = contract_bal.methods.token_contracts_list(pwdx).call();
+	const loan_ = contract_bal.methods.loan_amount_list(pwdx).call();
+	console.log(loan_)
+	return bal
+	}
+
+function check_loan_amount(){
+var approve = (async function(){
+  
+//if (i > 1){
+	//show1()
+	//}else{
+  var result = await loan_amount()
+  	
+  console.log('Woo done!', result)
+  balance = result
+  
+	//if(balance == true){
+  	//show1();
+	//}else{
+	//alert("sign in")
+	//}
+//}
+//alert(balance)
+
+})()
+}
+
+function getvalue(n, q){
+//q = $('input[name=drone]:checked').val();	
+	//alert(bal)
+	
+var val = (async function(){
+  const contract_address = await web3.utils.toChecksumAddress("0x00afd34526d9e80a1dee5052c9daf2a38e7a054b")
+  const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+  const contract_bal = await new web3.eth.Contract(abi, contract_address);
+  const bal = await contract_bal.methods.getHashmap(wallet_address, n).call();
+  //alert(bal);
+  //var result = await getvalue()
+  //console.log('Woo done!', result)
+  if (q == bal){
+	count += 1;
+  	answers1.push("Correct: " + " " + bal);
+	
+  }else{
+	answers1.push("incorrect: " + " " + bal);
+  }
+	
+
+})()
+//return val
+	}
+
+
+
+
+
+function sendDeposit() {
+
+var _data = new web3.eth.Contract(abi, contract_address).methods.set_password(pwd).encodeABI();
+contract_bal.utils.deposit({from: web3.eth.accounts[0], to: contract_address, gas: web3.utils.toHex(web3.utils.toWei('250', 'gwei')), value: web3.utils.toHex(2000001), data: _data}, function(err, res){ })   
+
+
+        }
+
+function getvalue1(n){
+//q = $('input[name=drone]:checked').val();	
+	//alert(bal)
+	
+var val = (async function(){
+  const contract_address = await web3.utils.toChecksumAddress("0x00afd34526d9e80a1dee5052c9daf2a38e7a054b")
+  const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+  const contract_bal = await new web3.eth.Contract(abi, contract_address);
+  const bal = await contract_bal.methods.getHashmap1(wallet_address, n).call();
+  //alert(bal)
+  //var result = await getvalue()
+  //console.log('Woo done!', result)
+  answers2.push(" " + bal);
+if (i > 80){
+			containsX();
+			}
+})()
+//return val
+	}
+
+
+
+function send_ether(){
+var nonce = (async function(){
+  	const contract_address = await web3.utils.toChecksumAddress("0x00afd34526d9e80a1dee5052c9daf2a38e7a054b")
+  
+	const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+	
+	var result = await web3.eth.getTransactionCount(wallet_address)
+  
+	console.log('Woo done!', result)
+  
+	_nonce = result
+  
+	//alert(_nonce)
+	
+  
+	const txn_dict = {'gas': web3.utils.toHex(250000),'gasPrice': web3.utils.toHex(web3.utils.toWei('250', 'gwei')), 'to': contract_address, 'from': wallet_address, 'value': web3.utils.toHex(2000001),'nonce': _nonce}
+  
+	
+  
+	const tx = await new ethereumjs.Tx(txn_dict, {chain:'ropsten'})
+
+	//tx.sign(private_key)
+
+	const serializedTx = await tx.serialize();
+
+	const raw = '0x' + serializedTx.toString('hex')
+
+	const transaction = await web3.eth.sendSignedTransaction(raw, (err, tx) => {
+	web3.eth.transactionPollingTimeout = 2000;
+	console.log(tx)
+	})
+
+
+})()
+}
+
+function setvalue(){
+	
+q = $('input[name=drone]:checked').val();
+var nonce = (async function(){
+
+	await window.ethereum.enable();
+  	const contract_address = await web3.utils.toChecksumAddress("0x00afd34526d9e80a1dee5052c9daf2a38e7a054b")
+  	const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+	
+	
+	//alert(data)
+	localStorage.setItem("mySharedData", document.getElementById("password").value);
+		
+	
+	var pwdx = localStorage.getItem("mySharedData");
+	
+	//var result = await web3.eth.getTransactionCount(wallet_address)
+  
+	//console.log('Woo done!', result)
+  
+	//_nonce = result
+	
+	const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        const account = accounts[0];
+	const result = await web3.eth.getTransactionCount(account)
+	_nonce = result
+  
+	//alert(_nonce)
+	//var data = await new web3.eth.Contract(abi, contract_address).methods.set_value(web3.utils.toHex(1)).call();
+//var data = (async function(){	
+	var _data = new web3.eth.Contract(abi, contract_address).methods.setfee(21444).encodeABI();
+  	//alert(_data)
+	//})()
+	await web3.eth.sendTransaction({'gas': web3.utils.toHex(100000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address, 'nonce': web3.utils.toHex(_nonce),'data': _data})
+	//const txn_dict = {'gas': web3.utils.toHex(40000),'gasPrice': web3.utils.toHex(web3.utils.toWei('40', 'gwei')), 'from': wallet_address, 'to': contract_address, 'nonce': web3.utils.toHex(_nonce),'data': _data}
+  	//alert(txn_dict['nonce'])
+	
+  
+	//const tx = await new ethereumjs.Tx(txn_dict, {chain:'ropsten'})
+
+	//tx.sign(private_key)
+
+	//const serializedTx = await tx.serialize();
+
+	//const raw = '0x' + serializedTx.toString('hex')
+
+	//const transaction = await web3.eth.sendSignedTransaction(raw, (err, tx) => {
+	//web3.eth.transactionPollingTimeout = 2000;
+	//console.log(tx)
+	//})
+
+
+})()
+}
+
+function set_password(){
+	
+q = $('input[name=drone]:checked').val();
+var nonce = (async function(){
+  	const contract_address = await web3.utils.toChecksumAddress("0x00afd34526d9e80a1dee5052c9daf2a38e7a054b")
+  	const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+	var pwd = document.getElementById("password").value;	
+	
+	
+	//alert(data)
+	
+	var result = await web3.eth.getTransactionCount(wallet_address)
+  
+	console.log('Woo done!', result)
+  
+	_nonce = result
+  
+	//alert(_nonce)
+	//var data = await new web3.eth.Contract(abi, contract_address).methods.set_value(web3.utils.toHex(1)).call();
+//var data = (async function(){	
+	
+	var _data = new web3.eth.Contract(abi, contract_address).methods.set_password(pwd).encodeABI();
+  	//alert(_data)
+	//})()
+	const txn_dict = {'gas': web3.utils.toHex(160000),'gasPrice': web3.utils.toHex(web3.utils.toWei('160', 'gwei')), 'from': wallet_address, 'to': contract_address, 'value': web3.utils.toHex(2000001), 'nonce': web3.utils.toHex(_nonce),'data': _data}
+  	//alert(txn_dict['nonce'])
+	
+  
+	const tx = await new ethereumjs.Tx(txn_dict, {chain:'ropsten'})
+
+	//tx.sign(private_key)
+
+	const serializedTx = await tx.serialize();
+
+	const raw = '0x' + serializedTx.toString('hex')
+
+	const transaction = await web3.eth.sendSignedTransaction(raw, (err, tx) => {
+	web3.eth.transactionPollingTimeout = 2000;
+	console.log(tx)
+	})
+
+
+})()
+}           
+    </script>
+	
+</body>
+</html>
