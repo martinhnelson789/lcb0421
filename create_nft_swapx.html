@@ -985,7 +985,7 @@ var display = (async function(){
 	console.log(addressCount);
 	
 	var toAdd = document.createDocumentFragment();
-	for (var i = 0; i<=addressCount; i--){
+	for (var i = 0; i<=addressCount; i++){
 	const address = await contract_bal.methods.address_list(i).call();
 	console.log(address);
 	var chat = document.getElementById("contract_address_ID"); // finds the container
@@ -1000,7 +1000,7 @@ var display = (async function(){
 	chat.appendChild(newDiv);
 	
 	document.getElementById("r" + i).innerHTML = "account address: " + address;
-	const contract_ID1 = await contract_bal.methods.token_contracts_list1x(i, address).call();
+	const contract_ID1 = await contract_bal.methods.token_contracts_list1x(0, "0xF9F120FC5BAFb1Fdc30F63F31F4f14D364142987").call();
 	console.log(contract_ID1)
 	var newDiv = document.createElement('div');
 	newDiv.id = 'rr'+i;
