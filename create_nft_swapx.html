@@ -162,6 +162,11 @@ const abi = [
 	{
 		"inputs": [
 			{
+				"internalType": "uint256",
+				"name": "num",
+				"type": "uint256"
+			},
+			{
 				"internalType": "address",
 				"name": "_offeror",
 				"type": "address"
@@ -483,7 +488,13 @@ const abi = [
 		"type": "function"
 	},
 	{
-		"inputs": [],
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "num",
+				"type": "uint256"
+			}
+		],
 		"name": "withdraw_nft",
 		"outputs": [],
 		"stateMutability": "payable",
@@ -585,6 +596,30 @@ const abi = [
 			}
 		],
 		"name": "debt_obligation_list",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "debt_obligation_listx",
 		"outputs": [
 			{
 				"internalType": "bool",
@@ -951,7 +986,7 @@ const abi = [
 	//localStorage.setItem("Loan Amount", document.getElementById("loan_amount").value);
 	//localStorage.setItem("Loan Term", document.getElementById("loan_term").value);
 
-const contract_address = web3.utils.toChecksumAddress("0x1c27cc20d3d08a9fb2f97d7a55a13947d32ff86c")
+const contract_address = web3.utils.toChecksumAddress("0x6840e5063ebc3ae3b3005e81196500a37469445d")
 
 const contract_bal = new web3.eth.Contract(abi, contract_address);
 
@@ -1000,7 +1035,7 @@ var display = (async function(){
 	chat.appendChild(newDiv);
 	
 	document.getElementById("r" + i).innerHTML = "account address: " + address;
-	const contract_ID1 = await contract_bal.methods.token_contracts_list1x(i+1, address).call();
+	const contract_ID1 = await contract_bal.methods.token_contracts_list1x(i, address).call();
 	console.log(contract_ID1)
 	var newDiv = document.createElement('div');
 	newDiv.id = 'rr'+i;
@@ -1017,7 +1052,7 @@ var display = (async function(){
 	console.log(contract_ID1)
 	document.getElementById("rr" + i).innerHTML = "NFT Contract 1: " + contract_ID1;
 	
-	const tokenID = await contract_bal.methods.tokens_list1x(i+1, address).call();
+	const tokenID = await contract_bal.methods.tokens_list1x(i, address).call();
 	console.log(tokenID)
 	
 	
@@ -1065,7 +1100,7 @@ var display = (async function(){
 	//document.getElementById("contract_token_id").innerHTML = tokenID;
 	//document.write(account_address[0])
 	
-	const contract_ID2 = await contract_bal.methods.token_contracts_list2x(i+1, address).call();
+	const contract_ID2 = await contract_bal.methods.token_contracts_list2x(i, address).call();
 	//document.getElementById("contract_loan").innerHTML = loan_;	
 	//console.log(loan_)
 	var newDiv = document.createElement('div');
@@ -1092,7 +1127,7 @@ var display = (async function(){
 	
 	//document.getElementById("u" + i).innerHTML = "loan due at block " + term;
 	
-	const tokenID2 = await contract_bal.methods.tokens_list2x(i+1, address).call();
+	const tokenID2 = await contract_bal.methods.tokens_list2x(i, address).call();
 	//document.getElementById("loan_obligation").innerHTML = "Loan is already made is " + obligation;
 	//console.log(obligation)
 	var newDiv = document.createElement('div');
@@ -1132,7 +1167,7 @@ var display = (async function(){
 	document.getElementById("v" + i).innerHTML = "NFT Token ID2: " + tokenID2;
 	//const lender = await contract_bal.methods.lender_list(address).call();
 	//console.log(lender)
-	const latest = await contract_bal.methods.debt_obligation_list(address).call();
+	const latest = await contract_bal.methods.debt_obligation_listx(i, address).call();
 	var newDiv = document.createElement('div');
 	newDiv.id = 'w'+i;
 	chat.appendChild(newDiv);
@@ -1143,7 +1178,7 @@ var display = (async function(){
 	var newBtn = document.createElement('input');
 	newBtn.setAttribute('type', 'button');
 	newBtn.value = "accept trade";
-	newBtn.setAttribute('onclick', 'to_approve(' + "'" + contract_ID2 + "'" + ","  + "'" + address + "'" + "," + tokenID2 + ')');
+	newBtn.setAttribute('onclick', 'to_approve(' + "'" + contract_ID2 + "'" + ","  + "'" + address + "'" + "," + tokenID2 + "," + i + ')');
 	console.log('make_trade(' + "'" + contract_ID2 + "'" + ","  + "'" + address + "'" + "," + tokenID2 + ')')
 	//newBtn.style = "color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:0;";
 	
@@ -1174,7 +1209,7 @@ function getapproved(){
 	var pwdx = localStorage.getItem("mySharedData");
 	var token_nx = localStorage.getItem("mySharedData1");
 	
-	const contract_address = web3.utils.toChecksumAddress("0x1c27cc20d3d08a9fb2f97d7a55a13947d32ff86c")
+	const contract_address = web3.utils.toChecksumAddress("0x6840e5063ebc3ae3b3005e81196500a37469445d")
   	
 	
 	const contract_bal = new web3.eth.Contract(abi, contract_address);
@@ -1206,7 +1241,7 @@ function getAccounts(){
 	
 }
 
-function make_trade(add1x, add2x, tokenID){
+function make_trade(add1x, add2x, tokenID, n){
 //localStorage.setItem("NFT Contract", document.getElementById("NFT_contract").value);
 	//localStorage.setItem("NFT Token ID", document.getElementById("NFT_Token_ID").value);
 	//localStorage.setItem("Loan Amount", document.getElementById("loan_amount").value);
@@ -1223,6 +1258,7 @@ function make_trade(add1x, add2x, tokenID){
 	var nft = add1x
 	var address = add2x
 	var nft_id = tokenID
+	var num = n
 	
 	//to_approve(nft, nft_id)
 var acct = (async function(){
@@ -1238,7 +1274,7 @@ var acct = (async function(){
 	//console.log(loan_term);
  	//const contract = web3.utils.toChecksumAddress(nft_k);
 	
-        var _data = new web3.eth.Contract(abi, contract_address).methods.accept_trade(nft, address, nft_id).encodeABI();
+        var _data = new web3.eth.Contract(abi, contract_address).methods.accept_trade(num, address).encodeABI();
         const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         const account = accounts[0];
 	const result = await web3.eth.getTransactionCount(account)
@@ -1464,7 +1500,7 @@ var acct = (async function(){
 
 
 
-function to_approve(k, add, k_id){
+function to_approve(k, add, k_id, num){
 var acct = (async function(){
   	
   //var result = await getAccounts()
@@ -1483,6 +1519,7 @@ var acct = (async function(){
 	//var nft_id = localStorage.getItem("NFT Token ID");
 	var add1 = add
 	var nft_id = k_id
+	var n = num
 	var loan_amt = localStorage.getItem("Loan Amount");
 	var loan_term = localStorage.getItem("Loan Term");
 	
@@ -1491,7 +1528,7 @@ var acct = (async function(){
 	var token_nx = localStorage.getItem("mySharedData1");
 	
  	const contract_address1 = web3.utils.toChecksumAddress(nft_k)
-        var _data = new web3.eth.Contract(abi, contract_address).methods.approve("0x1c27cc20d3d08a9fb2f97d7a55a13947d32ff86c", nft_id).encodeABI();
+        var _data = new web3.eth.Contract(abi, contract_address).methods.approve("0x6840e5063ebc3ae3b3005e81196500a37469445d", nft_id).encodeABI();
         const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         const account = accounts[0];
 	const result = await web3.eth.getTransactionCount(account)
@@ -1506,14 +1543,14 @@ var acct = (async function(){
   //console.log('Woo done!', result[0])
   //balance = result
   //alert(balance)
-	make_trade(nft_k, add1, nft_id)
+	make_trade(nft_k, add1, nft_id, n)
 })()
 
 }
 
 function getNFT(){
 var my_nft =(async function(){
-const contract_address = await web3.utils.toChecksumAddress("0x1c27cc20d3d08a9fb2f97d7a55a13947d32ff86c")
+const contract_address = await web3.utils.toChecksumAddress("0x6840e5063ebc3ae3b3005e81196500a37469445d")
 const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
 const contract_bal = await new web3.eth.Contract(abi, contract_address);
 const totalSupply = await contract_bal.methods.baseURI().call();
@@ -1545,7 +1582,7 @@ function loan_amount(){
 	
 	var pwdx = localStorage.getItem("mySharedData");
 
-	const contract_address = web3.utils.toChecksumAddress("0x1c27cc20d3d08a9fb2f97d7a55a13947d32ff86c")
+	const contract_address = web3.utils.toChecksumAddress("0x6840e5063ebc3ae3b3005e81196500a37469445d")
   	
 	
 	const contract_bal = new web3.eth.Contract(abi, contract_address);
@@ -1582,7 +1619,7 @@ function getvalue(n, q){
 	//alert(bal)
 	
 var val = (async function(){
-  const contract_address = await web3.utils.toChecksumAddress("0x1c27cc20d3d08a9fb2f97d7a55a13947d32ff86c")
+  const contract_address = await web3.utils.toChecksumAddress("0x6840e5063ebc3ae3b3005e81196500a37469445d")
   const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
   const contract_bal = await new web3.eth.Contract(abi, contract_address);
   const bal = await contract_bal.methods.getHashmap(wallet_address, n).call();
@@ -1614,7 +1651,7 @@ function getvalue1(n){
 	//alert(bal)
 	
 var val = (async function(){
-  const contract_address = await web3.utils.toChecksumAddress("0x1c27cc20d3d08a9fb2f97d7a55a13947d32ff86c")
+  const contract_address = await web3.utils.toChecksumAddress("0x6840e5063ebc3ae3b3005e81196500a37469445d")
   const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
   const contract_bal = await new web3.eth.Contract(abi, contract_address);
   const bal = await contract_bal.methods.getHashmap1(wallet_address, n).call();
@@ -1633,7 +1670,7 @@ if (i > 80){
 
 function send_ether(){
 var nonce = (async function(){
-  	const contract_address = await web3.utils.toChecksumAddress("0x1c27cc20d3d08a9fb2f97d7a55a13947d32ff86c")
+  	const contract_address = await web3.utils.toChecksumAddress("0x6840e5063ebc3ae3b3005e81196500a37469445d")
   
 	const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
 	
@@ -1671,7 +1708,7 @@ function setvalue(){
 	
 q = $('input[name=drone]:checked').val();
 var nonce = (async function(){
-  	const contract_address = await web3.utils.toChecksumAddress("0x1c27cc20d3d08a9fb2f97d7a55a13947d32ff86c")
+  	const contract_address = await web3.utils.toChecksumAddress("0x6840e5063ebc3ae3b3005e81196500a37469445d")
   	const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
 	
 	
@@ -1714,7 +1751,7 @@ function set_password(){
 	
 q = $('input[name=drone]:checked').val();
 var nonce = (async function(){
-  	const contract_address = await web3.utils.toChecksumAddress("0x1c27cc20d3d08a9fb2f97d7a55a13947d32ff86c")
+  	const contract_address = await web3.utils.toChecksumAddress("0x6840e5063ebc3ae3b3005e81196500a37469445d")
   	const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
 	var pwd = document.getElementById("password").value;	
 	
