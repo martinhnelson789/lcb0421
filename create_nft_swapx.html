@@ -88,7 +88,7 @@ height: 50px;
 
 <body>
 <h2 style="color:grey; font-family: helvetica narrow, sans-serif; position:absolute; top:0; left:0;">barterNFT</h2>
-<h3 style="color:grey; font-family: helvetica narrow, sans-serif; font-weight:200; position:absolute; top:0; right:0;" draggable="true" ondragstart="drag(event)"><a href="create_nft_swap_formx.html">Offer trade</a></h3>
+<button style="color:grey; font-family: helvetica narrow, sans-serif; font-weight:200; position:absolute; top:0; right:0;" onclick="open_window()"">Offer trade</button>
 <p id="contract_address_ID" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; font-weight:200; position:absolute; top:35; left:0;"></p>
 
 	
@@ -132,7 +132,9 @@ height: 50px;
 
 //var pwd = document.getElementById("password").value;
 
-              
+function open_window() {
+  var myWindow = window.open("create_nft_swapx.html", "offer trade", "width=800,height=400");
+}             
 
 
 var metamask = (async function(){
