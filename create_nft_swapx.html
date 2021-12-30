@@ -1024,7 +1024,7 @@ var display = (async function(){
 	console.log("fee" + fee);
 	
 	var toAdd = document.createDocumentFragment();
-	for (var i = addressCount; i>=0; i--){
+	for (var i = addressCount; i<=0; i--){
 	const address = await contract_bal.methods.address_list(i).call();
 	console.log(address);
 	var chat = document.getElementById("contract_address_ID"); // finds the container
