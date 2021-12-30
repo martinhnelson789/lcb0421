@@ -998,6 +998,8 @@ var display = (async function(){
 	
 	const addressCount = await contract_bal.methods.Address_listCount().call();
 	console.log(addressCount);
+	const fee = await contract_bal.methods.Address_fee().call();
+	console.log(fee);
 	
 	var toAdd = document.createDocumentFragment();
 	for (var i = 0; i<=addressCount; i++){
