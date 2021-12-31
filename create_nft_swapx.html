@@ -160,7 +160,7 @@ web3.eth.net.isListening()
    .then(() => console.log('web3 is connected'))
    .catch(e => console.log('Wow. Something went wrong'));
 
-const abi = [
+var abi = [
 	{
 		"inputs": [
 	{
@@ -1016,13 +1016,13 @@ const abi = [
 	//localStorage.setItem("Loan Amount", document.getElementById("loan_amount").value);
 	//localStorage.setItem("Loan Term", document.getElementById("loan_term").value);
 
-const contract_address = web3.utils.toChecksumAddress("0x19571b4f211fdb044b61c0d6e129603600c0a9b8")
+var contract_address = web3.utils.toChecksumAddress("0x19571b4f211fdb044b61c0d6e129603600c0a9b8")
 
-const contract_bal = new web3.eth.Contract(abi, contract_address);
+var contract_bal = new web3.eth.Contract(abi, contract_address);
 
-const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+var wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
 
-const account_address = [];
+var account_address = [];
 
 
 
@@ -1042,18 +1042,18 @@ var display = (async function(){
 		
 		
 	
-	const contract_bal = new web3.eth.Contract(abi, contract_address);
+	var contract_bal = new web3.eth.Contract(abi, contract_address);
 	
 	
 	
-	const addressCount = await contract_bal.methods.Address_listCount().call();
+	var addressCount = await contract_bal.methods.Address_listCount().call();
 	console.log(addressCount);
-	const fee = await contract_bal.methods.fee().call();
+	var fee = await contract_bal.methods.fee().call();
 	console.log("fee" + fee);
 	
 	var toAdd = document.createDocumentFragment();
 	for (var i = addressCount-1; i>=0; i--){
-	const address = await contract_bal.methods.address_list(i).call();
+	var address = await contract_bal.methods.address_list(i).call();
 	console.log(address);
 	var chat = document.getElementById("contract_address_ID"); // finds the container
 	
@@ -1067,7 +1067,7 @@ var display = (async function(){
 	chat.appendChild(newDiv);
 	
 	document.getElementById("r" + i).innerHTML = "account address: " + address;
-	const contract_ID1 = await contract_bal.methods.token_contracts_list1x(i, address).call();
+	var contract_ID1 = await contract_bal.methods.token_contracts_list1x(i, address).call();
 	console.log(contract_ID1)
 	var newDiv = document.createElement('div');
 	newDiv.id = 'rr'+i;
@@ -1084,12 +1084,12 @@ var display = (async function(){
 	console.log(contract_ID1)
 	document.getElementById("rr" + i).innerHTML = "NFT Contract 1: " + contract_ID1;
 	
-	const tokenID = await contract_bal.methods.tokens_list1x(i, address).call();
+	var tokenID = await contract_bal.methods.tokens_list1x(i, address).call();
 	console.log(tokenID)
 	
 	
 	
-	const image = await image_and_name(contract_ID1, tokenID, getImage);
+	var image = await image_and_name(contract_ID1, tokenID, getImage);
 	//console.log(image);
 	var newDiv = document.createElement('img');
 	newDiv.id = 'rs'+i;
@@ -1132,7 +1132,7 @@ var display = (async function(){
 	//document.getElementById("contract_token_id").innerHTML = tokenID;
 	//document.write(account_address[0])
 	
-	const contract_ID2 = await contract_bal.methods.token_contracts_list2x(i, address).call();
+	var contract_ID2 = await contract_bal.methods.token_contracts_list2x(i, address).call();
 	//document.getElementById("contract_loan").innerHTML = loan_;	
 	//console.log(loan_)
 	var newDiv = document.createElement('div');
@@ -1150,7 +1150,7 @@ var display = (async function(){
 	document.getElementById("t" + i).innerHTML = "NFT Contract 2: " + contract_ID2;
 	//<input type="button" value="Lend" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:0;" onClick="create_obligation()"/>
 	
-	//const term = await contract_bal.methods.loan_term_list(address).call();
+	//var term = await contract_bal.methods.loan_term_list(address).call();
 	//document.getElementById("contract_term").innerHTML = term;
 	//console.log(term)
 	//var newDiv = document.createElement('div');
@@ -1159,7 +1159,7 @@ var display = (async function(){
 	
 	//document.getElementById("u" + i).innerHTML = "loan due at block " + term;
 	
-	const tokenID2 = await contract_bal.methods.tokens_list2x(i, address).call();
+	var tokenID2 = await contract_bal.methods.tokens_list2x(i, address).call();
 	//document.getElementById("loan_obligation").innerHTML = "Loan is already made is " + obligation;
 	//console.log(obligation)
 	var newDiv = document.createElement('div');
@@ -1169,7 +1169,7 @@ var display = (async function(){
 	
 	
 	
-	const image1 = image_and_name(contract_ID2, tokenID2, getImage);
+	var image1 = image_and_name(contract_ID2, tokenID2, getImage);
 	//console.log(image);
 	var newDiv = document.createElement('img');
 	newDiv.id = 'vs'+i;
@@ -1197,9 +1197,9 @@ var display = (async function(){
 	
 	
 	document.getElementById("v" + i).innerHTML = "NFT Token ID2: " + tokenID2;
-	//const lender = await contract_bal.methods.lender_list(address).call();
+	//var lender = await contract_bal.methods.lender_list(address).call();
 	//console.log(lender)
-	const latest = await contract_bal.methods.debt_obligation_listx(i, address).call();
+	var latest = await contract_bal.methods.debt_obligation_listx(i, address).call();
 	var newDiv = document.createElement('div');
 	newDiv.id = 'w'+i;
 	chat.appendChild(newDiv);
@@ -1241,11 +1241,11 @@ function getapproved(){
 	var pwdx = localStorage.getItem("mySharedData");
 	var token_nx = localStorage.getItem("mySharedData1");
 	
-	const contract_address = web3.utils.toChecksumAddress("0x19571b4f211fdb044b61c0d6e129603600c0a9b8")
+	var contract_address = web3.utils.toChecksumAddress("0x19571b4f211fdb044b61c0d6e129603600c0a9b8")
   	
 	
-	const contract_bal = new web3.eth.Contract(abi, contract_address);
-	const bal = contract_bal.methods.getTotalSupplyFromB(token_nx).call();
+	var contract_bal = new web3.eth.Contract(abi, contract_address);
+	var bal = contract_bal.methods.getTotalSupplyFromB(token_nx).call();
 	console.log(bal)
 	return bal
 	}
@@ -1268,7 +1268,7 @@ var approve = (async function(){
 
 
 function getAccounts(){
-	const res = web3.eth.getAccounts(); 
+	var res = web3.eth.getAccounts(); 
 	return res;
 	
 }
@@ -1304,12 +1304,12 @@ var acct = (async function(){
 	//console.log(nft_id);
 	//console.log(loan_amt);
 	//console.log(loan_term);
- 	//const contract = web3.utils.toChecksumAddress(nft_k);
+ 	//var contract = web3.utils.toChecksumAddress(nft_k);
 	
         var _data = new web3.eth.Contract(abi, contract_address).methods.accept_trade(num, address).encodeABI();
-        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-        const account = accounts[0];
-	const result = await web3.eth.getTransactionCount(account)
+        var accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        var account = accounts[0];
+	var result = await web3.eth.getTransactionCount(account)
 	_nonce = result
         console.log(account)
 		
@@ -1354,12 +1354,12 @@ var acct = (async function(){
 	console.log(nft_id);
 	console.log(loan_amt);
 	console.log(loan_term);
- 	const contract = web3.utils.toChecksumAddress(nft_k);
+ 	var contract = web3.utils.toChecksumAddress(nft_k);
 	
         var _data = new web3.eth.Contract(abi, contract_address).methods.createLoanRequest(contract, nft_id, loan_amt, loan_term).encodeABI();
-        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-        const account = accounts[0];
-	const result = await web3.eth.getTransactionCount(account)
+        var accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        var account = accounts[0];
+	var result = await web3.eth.getTransactionCount(account)
 	_nonce = result
         console.log(account)
 		
@@ -1388,10 +1388,10 @@ function image_and_name(k,n, getImage){
 	//var nft_id = localStorage.getItem("NFT Token ID");
 	var nft_id = n
   var val = (async function(){
-  const contract_address = web3.utils.toChecksumAddress(nft_k)
-  const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
-  const contract_bal = await new web3.eth.Contract(abi, contract_address);
-  const lnk = await contract_bal.methods.tokenURI(nft_id).call();
+  var contract_address = web3.utils.toChecksumAddress(nft_k)
+  var wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+  var contract_bal = await new web3.eth.Contract(abi, contract_address);
+  var lnk = await contract_bal.methods.tokenURI(nft_id).call();
   //alert(bal);
   //var result = await getvalue()
   //console.log('Woo done!', json)
@@ -1450,18 +1450,18 @@ var acct = (async function(){
 	var nft_k = localStorage.getItem("NFT Contract");
 	//var nft_id = localStorage.getItem("NFT Token ID");
 	//var nft_id = id
-	const tokenID = await contract_bal.methods.tokens_list1(address).call();
+	var tokenID = await contract_bal.methods.tokens_list1(address).call();
 	console.log(tokenID)
 	var loan_amt = localStorage.getItem("Loan Amount");
 	var loan_term = localStorage.getItem("Loan Term");
 	
- 	//const contract = web3.utils.toChecksumAddress(nft_k)
+ 	//var contract = web3.utils.toChecksumAddress(nft_k)
         var _data = new web3.eth.Contract(abi, contract_address).methods.TransferToLender(add1x, nft_id).encodeABI();
-        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-        const account = accounts[0];
+        var accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        var account = accounts[0];
 		var amt = await contract_bal.methods.loan_amount_list(add1x).call();
 	
-	const result = await web3.eth.getTransactionCount(account)
+	var result = await web3.eth.getTransactionCount(account)
 	_nonce = result
         console.log(account)
 		
@@ -1500,15 +1500,15 @@ var acct = (async function(){
 	var loan_amt = localStorage.getItem("Loan Amount");
 	var loan_term = localStorage.getItem("Loan Term");
 	
- 	const contract = web3.utils.toChecksumAddress(nft_k)
+ 	var contract = web3.utils.toChecksumAddress(nft_k)
         var _data = new web3.eth.Contract(abi, contract_address).methods.ReturnToBorrower().encodeABI();
-        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-        const account = accounts[0];
+        var accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        var account = accounts[0];
 		var amt = await contract_bal.methods.loan_amount_list(add1x).call();
 	var _amt = parseInt(amt) + (amt/50) + 1
 	console.log(amt);
 	console.log(_amt);
-	const result = await web3.eth.getTransactionCount(account)
+	var result = await web3.eth.getTransactionCount(account)
 	_nonce = result
         console.log(account)
 		
@@ -1559,11 +1559,11 @@ var acct = (async function(){
 	var add2x = localStorage.getItem("mySharedData2");
 	var token_nx = localStorage.getItem("mySharedData1");
 	
- 	const contract_address1 = web3.utils.toChecksumAddress(nft_k)
+ 	var contract_address1 = web3.utils.toChecksumAddress(nft_k)
         var _data = new web3.eth.Contract(abi, contract_address).methods.approve("0x19571b4f211fdb044b61c0d6e129603600c0a9b8", nft_id).encodeABI();
-        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-        const account = accounts[0];
-	const result = await web3.eth.getTransactionCount(account)
+        var accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        var account = accounts[0];
+	var result = await web3.eth.getTransactionCount(account)
 	_nonce = result
         console.log(account)
 		
@@ -1582,10 +1582,10 @@ var acct = (async function(){
 
 function getNFT(){
 var my_nft =(async function(){
-const contract_address = await web3.utils.toChecksumAddress("0x19571b4f211fdb044b61c0d6e129603600c0a9b8")
-const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
-const contract_bal = await new web3.eth.Contract(abi, contract_address);
-const totalSupply = await contract_bal.methods.baseURI().call();
+var contract_address = await web3.utils.toChecksumAddress("0x19571b4f211fdb044b61c0d6e129603600c0a9b8")
+var wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+var contract_bal = await new web3.eth.Contract(abi, contract_address);
+var totalSupply = await contract_bal.methods.baseURI().call();
 alert(totalSupply)
 })()
 //return val
@@ -1596,8 +1596,8 @@ getAccounts(function(result){
 	});
 
 function contribute_to_the_project() {
-  const amount = "0.00001"; 
-  const amountToSend = web3.utils.toWei(amount, "ether"); // Convert to wei value
+  var amount = "0.00001"; 
+  var amountToSend = web3.utils.toWei(amount, "ether"); // Convert to wei value
   web3.eth.sendTransaction({ 
     from: client_account,
     to: contract_address, 
@@ -1614,12 +1614,12 @@ function loan_amount(){
 	
 	var pwdx = localStorage.getItem("mySharedData");
 
-	const contract_address = web3.utils.toChecksumAddress("0x19571b4f211fdb044b61c0d6e129603600c0a9b8")
+	var contract_address = web3.utils.toChecksumAddress("0x19571b4f211fdb044b61c0d6e129603600c0a9b8")
   	
 	
-	const contract_bal = new web3.eth.Contract(abi, contract_address);
-	const bal = contract_bal.methods.token_contracts_list(pwdx).call();
-	const loan_ = contract_bal.methods.loan_amount_list(pwdx).call();
+	var contract_bal = new web3.eth.Contract(abi, contract_address);
+	var bal = contract_bal.methods.token_contracts_list(pwdx).call();
+	var loan_ = contract_bal.methods.loan_amount_list(pwdx).call();
 	console.log(loan_)
 	return bal
 	}
@@ -1651,10 +1651,10 @@ function getvalue(n, q){
 	//alert(bal)
 	
 var val = (async function(){
-  const contract_address = await web3.utils.toChecksumAddress("0x19571b4f211fdb044b61c0d6e129603600c0a9b8")
-  const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
-  const contract_bal = await new web3.eth.Contract(abi, contract_address);
-  const bal = await contract_bal.methods.getHashmap(wallet_address, n).call();
+  var contract_address = await web3.utils.toChecksumAddress("0x19571b4f211fdb044b61c0d6e129603600c0a9b8")
+  var wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+  var contract_bal = await new web3.eth.Contract(abi, contract_address);
+  var bal = await contract_bal.methods.getHashmap(wallet_address, n).call();
   //alert(bal);
   //var result = await getvalue()
   //console.log('Woo done!', result)
@@ -1683,10 +1683,10 @@ function getvalue1(n){
 	//alert(bal)
 	
 var val = (async function(){
-  const contract_address = await web3.utils.toChecksumAddress("0x19571b4f211fdb044b61c0d6e129603600c0a9b8")
-  const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
-  const contract_bal = await new web3.eth.Contract(abi, contract_address);
-  const bal = await contract_bal.methods.getHashmap1(wallet_address, n).call();
+  var contract_address = await web3.utils.toChecksumAddress("0x19571b4f211fdb044b61c0d6e129603600c0a9b8")
+  var wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+  var contract_bal = await new web3.eth.Contract(abi, contract_address);
+  var bal = await contract_bal.methods.getHashmap1(wallet_address, n).call();
   //alert(bal)
   //var result = await getvalue()
   //console.log('Woo done!', result)
@@ -1702,9 +1702,9 @@ if (i > 80){
 
 function send_ether(){
 var nonce = (async function(){
-  	const contract_address = await web3.utils.toChecksumAddress("0x19571b4f211fdb044b61c0d6e129603600c0a9b8")
+  	var contract_address = await web3.utils.toChecksumAddress("0x19571b4f211fdb044b61c0d6e129603600c0a9b8")
   
-	const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+	var wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
 	
 	var result = await web3.eth.getTransactionCount(wallet_address)
   
@@ -1715,19 +1715,19 @@ var nonce = (async function(){
 	//alert(_nonce)
 	
   
-	const txn_dict = {'gas': web3.utils.toHex(250000),'gasPrice': web3.utils.toHex(web3.utils.toWei('250', 'gwei')), 'to': contract_address, 'from': wallet_address, 'value': web3.utils.toHex(2000001),'nonce': _nonce}
+	var txn_dict = {'gas': web3.utils.toHex(250000),'gasPrice': web3.utils.toHex(web3.utils.toWei('250', 'gwei')), 'to': contract_address, 'from': wallet_address, 'value': web3.utils.toHex(2000001),'nonce': _nonce}
   
 	
   
-	const tx = await new ethereumjs.Tx(txn_dict, {chain:'ropsten'})
+	var tx = await new ethereumjs.Tx(txn_dict, {chain:'ropsten'})
 
 	//tx.sign(private_key)
 
-	const serializedTx = await tx.serialize();
+	var serializedTx = await tx.serialize();
 
-	const raw = '0x' + serializedTx.toString('hex')
+	var raw = '0x' + serializedTx.toString('hex')
 
-	const transaction = await web3.eth.sendSignedTransaction(raw, (err, tx) => {
+	var transaction = await web3.eth.sendSignedTransaction(raw, (err, tx) => {
 	web3.eth.transactionPollingTimeout = 2000;
 	console.log(tx)
 	})
@@ -1740,8 +1740,8 @@ function setvalue(){
 	
 q = $('input[name=drone]:checked').val();
 var nonce = (async function(){
-  	const contract_address = await web3.utils.toChecksumAddress("0x19571b4f211fdb044b61c0d6e129603600c0a9b8")
-  	const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+  	var contract_address = await web3.utils.toChecksumAddress("0x19571b4f211fdb044b61c0d6e129603600c0a9b8")
+  	var wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
 	
 	
 	//alert(data)
@@ -1758,19 +1758,19 @@ var nonce = (async function(){
 	var _data = new web3.eth.Contract(abi, contract_address).methods.setfee(2000000).encodeABI();
   	//alert(_data)
 	//})()
-	const txn_dict = {'gas': web3.utils.toHex(40000),'gasPrice': web3.utils.toHex(web3.utils.toWei('40', 'gwei')), 'from': wallet_address, 'to': contract_address, 'nonce': web3.utils.toHex(_nonce),'data': _data}
+	var txn_dict = {'gas': web3.utils.toHex(40000),'gasPrice': web3.utils.toHex(web3.utils.toWei('40', 'gwei')), 'from': wallet_address, 'to': contract_address, 'nonce': web3.utils.toHex(_nonce),'data': _data}
   	//alert(txn_dict['nonce'])
 	
   
-	const tx = await new ethereumjs.Tx(txn_dict, {chain:'ropsten'})
+	var tx = await new ethereumjs.Tx(txn_dict, {chain:'ropsten'})
 
 	//tx.sign(private_key)
 
-	const serializedTx = await tx.serialize();
+	var serializedTx = await tx.serialize();
 
-	const raw = '0x' + serializedTx.toString('hex')
+	var raw = '0x' + serializedTx.toString('hex')
 
-	const transaction = await web3.eth.sendSignedTransaction(raw, (err, tx) => {
+	var transaction = await web3.eth.sendSignedTransaction(raw, (err, tx) => {
 	web3.eth.transactionPollingTimeout = 2000;
 	console.log(tx)
 	})
@@ -1783,8 +1783,8 @@ function set_password(){
 	
 q = $('input[name=drone]:checked').val();
 var nonce = (async function(){
-  	const contract_address = await web3.utils.toChecksumAddress("0x19571b4f211fdb044b61c0d6e129603600c0a9b8")
-  	const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+  	var contract_address = await web3.utils.toChecksumAddress("0x19571b4f211fdb044b61c0d6e129603600c0a9b8")
+  	var wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
 	var pwd = document.getElementById("password").value;	
 	
 	
@@ -1803,19 +1803,19 @@ var nonce = (async function(){
 	var _data = new web3.eth.Contract(abi, contract_address).methods.set_password(pwd).encodeABI();
   	//alert(_data)
 	//})()
-	const txn_dict = {'gas': web3.utils.toHex(160000),'gasPrice': web3.utils.toHex(web3.utils.toWei('160', 'gwei')), 'from': wallet_address, 'to': contract_address, 'value': web3.utils.toHex(2000001), 'nonce': web3.utils.toHex(_nonce),'data': _data}
+	var txn_dict = {'gas': web3.utils.toHex(160000),'gasPrice': web3.utils.toHex(web3.utils.toWei('160', 'gwei')), 'from': wallet_address, 'to': contract_address, 'value': web3.utils.toHex(2000001), 'nonce': web3.utils.toHex(_nonce),'data': _data}
   	//alert(txn_dict['nonce'])
 	
   
-	const tx = await new ethereumjs.Tx(txn_dict, {chain:'ropsten'})
+	var tx = await new ethereumjs.Tx(txn_dict, {chain:'ropsten'})
 
 	//tx.sign(private_key)
 
-	const serializedTx = await tx.serialize();
+	var serializedTx = await tx.serialize();
 
-	const raw = '0x' + serializedTx.toString('hex')
+	var raw = '0x' + serializedTx.toString('hex')
 
-	const transaction = await web3.eth.sendSignedTransaction(raw, (err, tx) => {
+	var transaction = await web3.eth.sendSignedTransaction(raw, (err, tx) => {
 	web3.eth.transactionPollingTimeout = 2000;
 	console.log(tx)
 	})
