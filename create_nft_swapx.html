@@ -1053,7 +1053,9 @@ var display = (async function(){
 	console.log(addressCount);
 	var fee = await contract_bal.methods.fee().call();
 	console.log("fee" + fee);
-	
+	var num = await contract_bal.methods.last().call();
+	var last = num + 1
+	console.log("last: " + last);
 	
 	
 	var toAdd = document.createDocumentFragment();
