@@ -1072,7 +1072,7 @@ var display = (async function(){
 	chat.appendChild(newDiv);
 	
 	document.getElementById("r" + i).innerHTML = "account address: " + address;
-	var contract_ID1 = await contract_bal.methods.token_contracts_list1xy(i, address, 0).call();
+	var contract_ID1 = await contract_bal.methods.token_contracts_list1xy(i, address)[0].call();
 	console.log(contract_ID1)
 	var newDiv = document.createElement('div');
 	newDiv.id = 'rr'+i;
