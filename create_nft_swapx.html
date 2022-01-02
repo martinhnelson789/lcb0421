@@ -1139,7 +1139,7 @@ var display = (async function(){
 	//document.getElementById("contract_token_id").innerHTML = tokenID;
 	//document.write(account_address[0])
 	
-	var contract_ID2 = await contract_bal.methods.token_contracts_list2x('01', address, 0).call();
+	var contract_ID2 = await contract_bal.methods.token_contracts_list2xy('01', address, 0).call();
 	//document.getElementById("contract_loan").innerHTML = loan_;	
 	//console.log(loan_)
 	var newDiv = document.createElement('div');
@@ -1166,7 +1166,7 @@ var display = (async function(){
 	
 	//document.getElementById("u" + i).innerHTML = "loan due at block " + term;
 	
-	var tokenID2 = await contract_bal.methods.tokens_list2x('01', address, 0).call();
+	var tokenID2 = await contract_bal.methods.tokens_list2xy('01', address, 0).call();
 	//document.getElementById("loan_obligation").innerHTML = "Loan is already made is " + obligation;
 	//console.log(obligation)
 	var newDiv = document.createElement('div');
