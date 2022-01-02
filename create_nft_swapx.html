@@ -1054,6 +1054,8 @@ var display = (async function(){
 	var fee = await contract_bal.methods.fee().call();
 	console.log("fee" + fee);
 	
+	
+	
 	var toAdd = document.createDocumentFragment();
 	for (var i = addressCount-1; i>=0; i--){
 	var address = await contract_bal.methods.address_list(i).call();
@@ -1070,7 +1072,7 @@ var display = (async function(){
 	chat.appendChild(newDiv);
 	
 	document.getElementById("r" + i).innerHTML = "account address: " + address;
-	var contract_ID1 = await contract_bal.methods.token_contracts_list1x(i, address).call();
+	var contract_ID1 = await contract_bal.methods.token_contracts_list1xy(i, address, 0).call();
 	console.log(contract_ID1)
 	var newDiv = document.createElement('div');
 	newDiv.id = 'rr'+i;
@@ -1087,7 +1089,7 @@ var display = (async function(){
 	console.log(contract_ID1)
 	document.getElementById("rr" + i).innerHTML = "NFT Contract 1: " + contract_ID1;
 	
-	var tokenID = await contract_bal.methods.tokens_list1x(i, address).call();
+	var tokenID = await contract_bal.methods.tokens_list1xy(i, address).call();
 	console.log(tokenID)
 	
 	
