@@ -1059,7 +1059,7 @@ var display = (async function(){
 	
 	
 	var toAdd = document.createDocumentFragment();
-	for (var i = 0; i<=addressCount; i++){
+	for (var i = 1; i<=addressCount; i++){
 	var address = await contract_bal.methods.address_list(i).call();
 	console.log("address: " + address);
 	console.log( i);
