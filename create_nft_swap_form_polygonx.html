@@ -1307,14 +1307,15 @@ var acct = (async function(){
 	var num = await contract_bal.methods.last().call();
 	console.log("num: " + num);
 	var n = parseInt(num);
-	
+	var _n = n + 1
+	console.log("_n: " + _n)
 	console.log(nft_k);
 	console.log(nft_id);
 	console.log(loan_amt);
 	console.log(loan_term);
  	var contract = web3.utils.toChecksumAddress(nft_k);
 	
-        var _data = new web3.eth.Contract(abi, contract_address).methods.offer_trade(contract, nft_id, loan_amt, loan_term, n + 1).encodeABI();
+        var _data = new web3.eth.Contract(abi, contract_address).methods.offer_trade(contract, nft_id, loan_amt, loan_term, _n).encodeABI();
         var accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         var account = accounts[0];
 	var result = await web3.eth.getTransactionCount(account)
