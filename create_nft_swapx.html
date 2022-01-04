@@ -180,6 +180,29 @@ var abi = [
 		"type": "function"
 	},
 	{
+		"inputs": [
+			{
+				"internalType": "contract ERC721",
+				"name": "_nftAddress",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_tokenId1",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_num",
+				"type": "uint256"
+			}
+		],
+		"name": "add_to_offer",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
 		"inputs": [],
 		"stateMutability": "nonpayable",
 		"type": "constructor"
@@ -1014,12 +1037,13 @@ var abi = [
 		"type": "function"
 	}
 ]
+
 	//localStorage.setItem("NFT Contract", document.getElementById("NFT_contract").value);
 	//localStorage.setItem("NFT Token ID", document.getElementById("NFT_Token_ID").value);
 	//localStorage.setItem("Loan Amount", document.getElementById("loan_amount").value);
 	//localStorage.setItem("Loan Term", document.getElementById("loan_term").value);
 
-var contract_address = web3.utils.toChecksumAddress("0x05a30418b7c747ed96830b14097a6e18219ad5f6")
+var contract_address = web3.utils.toChecksumAddress("0xac4e1fd17fb7009b855fbf1810b9b16cad9c5969")
 
 var contract_bal = new web3.eth.Contract(abi, contract_address);
 
@@ -1053,26 +1077,29 @@ var display = (async function(){
 	console.log(addressCount);
 	var fee = await contract_bal.methods.fee().call();
 	console.log("fee" + fee);
-	
+	var num = await contract_bal.methods.last().call();
+	var last = parseInt(num) + 1
+	console.log("last: " + last);
 	
 	
 	var toAdd = document.createDocumentFragment();
-	for (var i = addressCount-1; i>=0; i--){
+	for (var i = 0; i<addressCount; i++){
 	var address = await contract_bal.methods.address_list(i).call();
-	console.log(address);
+	console.log("address: " + address);
+	console.log( i);
 	var chat = document.getElementById("contract_address_ID"); // finds the container
 	
 	
 	var newDiv = document.createElement('div');
 	newDiv.id = 'q'+i;
 	chat.appendChild(newDiv);
-	document.getElementById("q" + i).innerHTML = "offer no: " + i //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
+	document.getElementById("q" + i).innerHTML = "offer no: " + i + 1 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
 	var newDiv = document.createElement('div');
 	newDiv.id = 'r'+i;
 	chat.appendChild(newDiv);
 	
 	document.getElementById("r" + i).innerHTML = "account address: " + address;
-	var contract_ID1 = await contract_bal.methods.token_contracts_list1xy(i, address, 0).call();
+	var contract_ID1 = await contract_bal.methods.token_contracts_list1xy(i+1, address, 0).call();
 	console.log(contract_ID1)
 	var newDiv = document.createElement('div');
 	newDiv.id = 'rr'+i;
@@ -1089,7 +1116,7 @@ var display = (async function(){
 	console.log(contract_ID1)
 	document.getElementById("rr" + i).innerHTML = "NFT Contract 1: " + contract_ID1;
 	
-	var tokenID = await contract_bal.methods.tokens_list1xy(i, address).call();
+	var tokenID = await contract_bal.methods.tokens_list1xy(i+1, address, 0).call();
 	console.log(tokenID)
 	
 	
@@ -1137,7 +1164,7 @@ var display = (async function(){
 	//document.getElementById("contract_token_id").innerHTML = tokenID;
 	//document.write(account_address[0])
 	
-	var contract_ID2 = await contract_bal.methods.token_contracts_list2x(i, address).call();
+	var contract_ID2 = await contract_bal.methods.token_contracts_list2xy(i+1, address, 0).call();
 	//document.getElementById("contract_loan").innerHTML = loan_;	
 	//console.log(loan_)
 	var newDiv = document.createElement('div');
@@ -1164,7 +1191,7 @@ var display = (async function(){
 	
 	//document.getElementById("u" + i).innerHTML = "loan due at block " + term;
 	
-	var tokenID2 = await contract_bal.methods.tokens_list2x(i, address).call();
+	var tokenID2 = await contract_bal.methods.tokens_list2xy(i+1, address, 0).call();
 	//document.getElementById("loan_obligation").innerHTML = "Loan is already made is " + obligation;
 	//console.log(obligation)
 	var newDiv = document.createElement('div');
@@ -1204,7 +1231,7 @@ var display = (async function(){
 	document.getElementById("v" + i).innerHTML = "NFT Token ID2: " + tokenID2;
 	//var lender = await contract_bal.methods.lender_list(address).call();
 	//console.log(lender)
-	var latest = await contract_bal.methods.debt_obligation_listx(i, address).call();
+	var latest = await contract_bal.methods.debt_obligation_listx(i+1, address).call();
 	var newDiv = document.createElement('div');
 	newDiv.id = 'w'+i;
 	chat.appendChild(newDiv);
@@ -1212,10 +1239,11 @@ var display = (async function(){
 	document.getElementById("w" + i).innerHTML = "swap completed: " + latest;
 	//document.getElementById("latest_block").innerHTML = latest;
 	console.log(latest)
+	var _i = (i + 1)
 	var newBtn = document.createElement('input');
 	newBtn.setAttribute('type', 'button');
 	newBtn.value = "accept trade";
-	newBtn.setAttribute('onclick', 'to_approve(' + "'" + contract_ID2 + "'" + ","  + "'" + address + "'" + "," + tokenID2 + "," + i + ')');
+	newBtn.setAttribute('onclick', 'to_approve(' + "'" + contract_ID2 + "'" + ","  + "'" + address + "'" + "," + tokenID2 + "," + _i + ')');
 	console.log('make_trade(' + "'" + contract_ID2 + "'" + ","  + "'" + address + "'" + "," + tokenID2 + ')')
 	//newBtn.style = "color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:0;";
 	
@@ -1246,7 +1274,7 @@ function getapproved(){
 	var pwdx = localStorage.getItem("mySharedData");
 	var token_nx = localStorage.getItem("mySharedData1");
 	
-	var contract_address = web3.utils.toChecksumAddress("0x05a30418b7c747ed96830b14097a6e18219ad5f6")
+	var contract_address = web3.utils.toChecksumAddress("0xac4e1fd17fb7009b855fbf1810b9b16cad9c5969")
   	
 	
 	var contract_bal = new web3.eth.Contract(abi, contract_address);
@@ -1565,7 +1593,7 @@ var acct = (async function(){
 	var token_nx = localStorage.getItem("mySharedData1");
 	
  	var contract_address1 = web3.utils.toChecksumAddress(nft_k)
-        var _data = new web3.eth.Contract(abi, contract_address).methods.approve("0x05a30418b7c747ed96830b14097a6e18219ad5f6", nft_id).encodeABI();
+        var _data = new web3.eth.Contract(abi, contract_address).methods.approve("0xac4e1fd17fb7009b855fbf1810b9b16cad9c5969", nft_id).encodeABI();
         var accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         var account = accounts[0];
 	var result = await web3.eth.getTransactionCount(account)
@@ -1587,7 +1615,7 @@ var acct = (async function(){
 
 function getNFT(){
 var my_nft =(async function(){
-var contract_address = await web3.utils.toChecksumAddress("0x05a30418b7c747ed96830b14097a6e18219ad5f6")
+var contract_address = await web3.utils.toChecksumAddress("0xac4e1fd17fb7009b855fbf1810b9b16cad9c5969")
 var wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
 var contract_bal = await new web3.eth.Contract(abi, contract_address);
 var totalSupply = await contract_bal.methods.baseURI().call();
@@ -1619,7 +1647,7 @@ function loan_amount(){
 	
 	var pwdx = localStorage.getItem("mySharedData");
 
-	var contract_address = web3.utils.toChecksumAddress("0x05a30418b7c747ed96830b14097a6e18219ad5f6")
+	var contract_address = web3.utils.toChecksumAddress("0xac4e1fd17fb7009b855fbf1810b9b16cad9c5969")
   	
 	
 	var contract_bal = new web3.eth.Contract(abi, contract_address);
@@ -1656,7 +1684,7 @@ function getvalue(n, q){
 	//alert(bal)
 	
 var val = (async function(){
-  var contract_address = await web3.utils.toChecksumAddress("0x05a30418b7c747ed96830b14097a6e18219ad5f6")
+  var contract_address = await web3.utils.toChecksumAddress("0xac4e1fd17fb7009b855fbf1810b9b16cad9c5969")
   var wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
   var contract_bal = await new web3.eth.Contract(abi, contract_address);
   var bal = await contract_bal.methods.getHashmap(wallet_address, n).call();
@@ -1688,7 +1716,7 @@ function getvalue1(n){
 	//alert(bal)
 	
 var val = (async function(){
-  var contract_address = await web3.utils.toChecksumAddress("0x05a30418b7c747ed96830b14097a6e18219ad5f6")
+  var contract_address = await web3.utils.toChecksumAddress("0xac4e1fd17fb7009b855fbf1810b9b16cad9c5969")
   var wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
   var contract_bal = await new web3.eth.Contract(abi, contract_address);
   var bal = await contract_bal.methods.getHashmap1(wallet_address, n).call();
@@ -1707,7 +1735,7 @@ if (i > 80){
 
 function send_ether(){
 var nonce = (async function(){
-  	var contract_address = await web3.utils.toChecksumAddress("0x05a30418b7c747ed96830b14097a6e18219ad5f6")
+  	var contract_address = await web3.utils.toChecksumAddress("0xac4e1fd17fb7009b855fbf1810b9b16cad9c5969")
   
 	var wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
 	
@@ -1745,7 +1773,7 @@ function setvalue(){
 	
 q = $('input[name=drone]:checked').val();
 var nonce = (async function(){
-  	var contract_address = await web3.utils.toChecksumAddress("0x05a30418b7c747ed96830b14097a6e18219ad5f6")
+  	var contract_address = await web3.utils.toChecksumAddress("0xac4e1fd17fb7009b855fbf1810b9b16cad9c5969")
   	var wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
 	
 	
@@ -1788,7 +1816,7 @@ function set_password(){
 	
 q = $('input[name=drone]:checked').val();
 var nonce = (async function(){
-  	var contract_address = await web3.utils.toChecksumAddress("0x05a30418b7c747ed96830b14097a6e18219ad5f6")
+  	var contract_address = await web3.utils.toChecksumAddress("0xac4e1fd17fb7009b855fbf1810b9b16cad9c5969")
   	var wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
 	var pwd = document.getElementById("password").value;	
 	
