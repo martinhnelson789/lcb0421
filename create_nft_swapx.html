@@ -1171,7 +1171,7 @@ var display = (async function(){
 	
 	document.getElementById("r" + i).innerHTML = "account address: " + address;
 	var contract_length = await contract_bal.methods.token_contracts_list1xyCount(i+1, address).call();
-	for (j=0;j<=contract_length;j++){
+	for (j=0;j<contract_length;j++){
 	var contract_ID1 = await contract_bal.methods.token_contracts_list1xy(i+1, address, j).call();
 	console.log(contract_ID1)
 	var newDiv = document.createElement('div');
@@ -1239,7 +1239,7 @@ var display = (async function(){
 	 }
 	 
 	var contract_length1 = await contract_bal.methods.token_contracts_list2xyCount(i+1, address).call();
-	for (j=0;j<=contract_length;j++){ 
+	for (j=0;j<contract_length;j++){ 
 	var contract_ID2 = await contract_bal.methods.token_contracts_list2xy(i+1, address, j).call();
 	//document.getElementById("contract_loan").innerHTML = loan_;	
 	//console.log(loan_)
