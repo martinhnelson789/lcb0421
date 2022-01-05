@@ -1170,10 +1170,12 @@ var display = (async function(){
 	chat.appendChild(newDiv);
 	
 	document.getElementById("r" + i).innerHTML = "account address: " + address;
-	var contract_ID1 = await contract_bal.methods.token_contracts_list1xy(i+1, address, 1).call();
+	var contract_length = await contract_bal.methods.token_contracts_list1xyCount(i+1, address).call();
+	for (j=0;j<=contract_length;j++){
+	var contract_ID1 = await contract_bal.methods.token_contracts_list1xy(i+1, address, j).call();
 	console.log(contract_ID1)
 	var newDiv = document.createElement('div');
-	newDiv.id = 'rr'+i;
+	newDiv.id = 'rr'+i + j;
 	chat.appendChild(newDiv);
 	
 	
@@ -1185,9 +1187,9 @@ var display = (async function(){
 	
 	//document.write(contract_ID)
 	console.log(contract_ID1)
-	document.getElementById("rr" + i).innerHTML = "NFT Contract 1: " + contract_ID1;
+	document.getElementById("rr" + i + j).innerHTML = "NFT Contract 1: " + contract_ID1;
 	
-	var tokenID = await contract_bal.methods.tokens_list1xy(i+1, address, 1).call();
+	var tokenID = await contract_bal.methods.tokens_list1xy(i+1, address, j).call();
 	console.log(tokenID)
 	
 	
@@ -1195,7 +1197,7 @@ var display = (async function(){
 	var image = await image_and_name(contract_ID1, tokenID, getImage);
 	//console.log(image);
 	var newDiv = document.createElement('img');
-	newDiv.id = 'rs'+i;
+	newDiv.id = 'rs'+i + j;
 	//newDiv.setAttribute('width', '15%');
 	//newDiv.setAttribute('height', '15%');
 	//newDiv.loading = "lazy";
@@ -1211,7 +1213,7 @@ var display = (async function(){
 	
 			var img = new Image();
             img.src = JSONresult.image
-			img.id = "rs" & i
+			img.id = "rs" & i & j
 			//img.style.width = '15%'
 			//img.style.height = '15%'
 			//img.setAttribute('width', '15%');
@@ -1231,11 +1233,11 @@ var display = (async function(){
 	newDiv.id = 's'+i;
 	chat.appendChild(newDiv);
 	
-	document.getElementById("s" + i).innerHTML = "NFT Token ID1: " + tokenID;
+	document.getElementById("s" + i + j).innerHTML = "NFT Token ID1: " + tokenID;
 	//document.getElementById("contract_token_id").innerHTML = tokenID;
 	//document.write(account_address[0])
-	
-	var contract_ID2 = await contract_bal.methods.token_contracts_list2xy(i+1, address, 1).call();
+	 }
+	var contract_ID2 = await contract_bal.methods.token_contracts_list2xy(i+1, address, 0).call();
 	//document.getElementById("contract_loan").innerHTML = loan_;	
 	//console.log(loan_)
 	var newDiv = document.createElement('div');
@@ -1262,7 +1264,7 @@ var display = (async function(){
 	
 	//document.getElementById("u" + i).innerHTML = "loan due at block " + term;
 	
-	var tokenID2 = await contract_bal.methods.tokens_list2xy(i+1, address, 1).call();
+	var tokenID2 = await contract_bal.methods.tokens_list2xy(i+1, address, 0).call();
 	//document.getElementById("loan_obligation").innerHTML = "Loan is already made is " + obligation;
 	//console.log(obligation)
 	var newDiv = document.createElement('div');
