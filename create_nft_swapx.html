@@ -1223,14 +1223,14 @@ var display = (async function(){
 			
 	//document.getElementById("rs" + i).loading = "lazy";
 	//document.getElementById("rs" + i).src = JSONresult.image;
-	document.getElementById("rs" + i).setAttribute('width', '15%');
-	document.getElementById("rs" + i).setAttribute('height', '15%');
+	//document.getElementById("rs" + i).setAttribute('width', '15%');
+	//document.getElementById("rs" + i).setAttribute('height', '15%');
 	}
 	
 	
 	
 	var newDiv = document.createElement('div');
-	newDiv.id = 's'+i;
+	newDiv.id = 's'+i + j;
 	chat.appendChild(newDiv);
 	
 	document.getElementById("s" + i + j).innerHTML = "NFT Token ID1: " + tokenID;
