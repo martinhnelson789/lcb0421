@@ -1239,7 +1239,7 @@ var display = (async function(){
 	 }
 	 
 	var contract_length1 = await contract_bal.methods.token_contracts_list2xyCount(i+1, address).call();
-	for (j=0;j<contract_length;j++){ 
+	for (j=0;j<contract_length1;j++){ 
 	var contract_ID2 = await contract_bal.methods.token_contracts_list2xy(i+1, address, j).call();
 	//document.getElementById("contract_loan").innerHTML = loan_;	
 	//console.log(loan_)
