@@ -1154,7 +1154,8 @@ var display = (async function(){
 	
 	
 	var toAdd = document.createDocumentFragment();
-	for (var i = 0; i<addressCount; i++){
+	//for (var i = 0; i<addressCount; i++){
+	for (var i = addressCount; i>0; i--){
 	var address = await contract_bal.methods.address_list(i).call();
 	console.log("address: " + address);
 	console.log( i);
@@ -1164,15 +1165,15 @@ var display = (async function(){
 	var newDiv = document.createElement('div');
 	newDiv.id = 'q'+i;
 	chat.appendChild(newDiv);
-	document.getElementById("q" + i).innerHTML = "offer no: " + i + 1 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
+	document.getElementById("q" + i).innerHTML = "offer no: " + i //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
 	var newDiv = document.createElement('div');
 	newDiv.id = 'r'+i;
 	chat.appendChild(newDiv);
 	
 	document.getElementById("r" + i).innerHTML = "account address: " + address;
-	var contract_length = await contract_bal.methods.token_contracts_list1xyCount(i+1, address).call();
+	var contract_length = await contract_bal.methods.token_contracts_list1xyCount(i, address).call();
 	for (j=0;j<contract_length;j++){
-	var contract_ID1 = await contract_bal.methods.token_contracts_list1xy(i+1, address, j).call();
+	var contract_ID1 = await contract_bal.methods.token_contracts_list1xy(i, address, j).call();
 	console.log(contract_ID1)
 	var newDiv = document.createElement('div');
 	newDiv.id = 'rr'+i + j;
@@ -1189,7 +1190,7 @@ var display = (async function(){
 	console.log(contract_ID1)
 	document.getElementById("rr" + i + j).innerHTML = "NFT Contract 1: " + contract_ID1;
 	
-	var tokenID = await contract_bal.methods.tokens_list1xy(i+1, address, j).call();
+	var tokenID = await contract_bal.methods.tokens_list1xy(i, address, j).call();
 	console.log(tokenID)
 	
 	
@@ -1238,9 +1239,9 @@ var display = (async function(){
 	//document.write(account_address[0])
 	 }
 	 
-	var contract_length1 = await contract_bal.methods.token_contracts_list2xyCount(i+1, address).call();
+	var contract_length1 = await contract_bal.methods.token_contracts_list2xyCount(i, address).call();
 	for (j=0;j<contract_length1;j++){ 
-	var contract_ID2 = await contract_bal.methods.token_contracts_list2xy(i+1, address, j).call();
+	var contract_ID2 = await contract_bal.methods.token_contracts_list2xy(i, address, j).call();
 	//document.getElementById("contract_loan").innerHTML = loan_;	
 	//console.log(loan_)
 	var newDiv = document.createElement('div');
@@ -1267,7 +1268,7 @@ var display = (async function(){
 	
 	//document.getElementById("u" + i).innerHTML = "loan due at block " + term;
 	
-	var tokenID2 = await contract_bal.methods.tokens_list2xy(i+1, address, j).call();
+	var tokenID2 = await contract_bal.methods.tokens_list2xy(i, address, j).call();
 	//document.getElementById("loan_obligation").innerHTML = "Loan is already made is " + obligation;
 	//console.log(obligation)
 	var newDiv = document.createElement('div');
@@ -1308,7 +1309,7 @@ var display = (async function(){
 	//var lender = await contract_bal.methods.lender_list(address).call();
 	//console.log(lender)
 	}
-	var latest = await contract_bal.methods.debt_obligation_listx(i+1, address).call();
+	var latest = await contract_bal.methods.debt_obligation_listx(i, address).call();
 	var newDiv = document.createElement('div');
 	newDiv.id = 'w'+i;
 	chat.appendChild(newDiv);
@@ -1316,7 +1317,7 @@ var display = (async function(){
 	document.getElementById("w" + i).innerHTML = "swap completed: " + latest;
 	//document.getElementById("latest_block").innerHTML = latest;
 	console.log(latest)
-	var _i = (i + 1)
+	var _i = (i)
 	var newBtn = document.createElement('input');
 	newBtn.setAttribute('type', 'button');
 	newBtn.value = "accept trade";
