@@ -551,6 +551,11 @@ var abi = [
 				"internalType": "uint256",
 				"name": "num",
 				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "id",
+				"type": "uint256"
 			}
 		],
 		"name": "withdraw_nft",
@@ -839,30 +844,6 @@ var abi = [
 				"internalType": "address",
 				"name": "",
 				"type": "address"
-			}
-		],
-		"name": "token_contracts_list1x",
-		"outputs": [
-			{
-				"internalType": "contract ERC721",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
 			},
 			{
 				"internalType": "uint256",
@@ -900,30 +881,6 @@ var abi = [
 				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"name": "token_contracts_list2x",
-		"outputs": [
-			{
-				"internalType": "contract ERC721",
-				"name": "",
-				"type": "address"
 			}
 		],
 		"stateMutability": "view",
@@ -993,30 +950,6 @@ var abi = [
 				"internalType": "address",
 				"name": "",
 				"type": "address"
-			}
-		],
-		"name": "tokens_list1x",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
 			},
 			{
 				"internalType": "uint256",
@@ -1025,30 +958,6 @@ var abi = [
 			}
 		],
 		"name": "tokens_list1xy",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"name": "tokens_list2x",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -1114,7 +1023,7 @@ var abi = [
 	//localStorage.setItem("Loan Amount", document.getElementById("loan_amount").value);
 	//localStorage.setItem("Loan Term", document.getElementById("loan_term").value);
 
-var contract_address = web3.utils.toChecksumAddress("0x7e4e8288571f82952e0917afbf3a8718fc428344")
+var contract_address = web3.utils.toChecksumAddress("0x12df499321aa0a017516ba0d440ab64a9f634d98")
 
 var contract_bal = new web3.eth.Contract(abi, contract_address);
 
@@ -1352,7 +1261,7 @@ function getapproved(){
 	var pwdx = localStorage.getItem("mySharedData");
 	var token_nx = localStorage.getItem("mySharedData1");
 	
-	var contract_address = web3.utils.toChecksumAddress("0x7e4e8288571f82952e0917afbf3a8718fc428344")
+	var contract_address = web3.utils.toChecksumAddress("0x12df499321aa0a017516ba0d440ab64a9f634d98")
   	
 	
 	var contract_bal = new web3.eth.Contract(abi, contract_address);
@@ -1671,7 +1580,7 @@ var acct = (async function(){
 	var token_nx = localStorage.getItem("mySharedData1");
 	
  	var contract_address1 = web3.utils.toChecksumAddress(nft_k)
-        var _data = new web3.eth.Contract(abi, contract_address).methods.approve("0x7e4e8288571f82952e0917afbf3a8718fc428344", nft_id).encodeABI();
+        var _data = new web3.eth.Contract(abi, contract_address).methods.approve("0x12df499321aa0a017516ba0d440ab64a9f634d98", nft_id).encodeABI();
         var accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         var account = accounts[0];
 	var result = await web3.eth.getTransactionCount(account)
@@ -1693,7 +1602,7 @@ var acct = (async function(){
 
 function getNFT(){
 var my_nft =(async function(){
-var contract_address = await web3.utils.toChecksumAddress("0x7e4e8288571f82952e0917afbf3a8718fc428344")
+var contract_address = await web3.utils.toChecksumAddress("0x12df499321aa0a017516ba0d440ab64a9f634d98")
 var wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
 var contract_bal = await new web3.eth.Contract(abi, contract_address);
 var totalSupply = await contract_bal.methods.baseURI().call();
@@ -1725,7 +1634,7 @@ function loan_amount(){
 	
 	var pwdx = localStorage.getItem("mySharedData");
 
-	var contract_address = web3.utils.toChecksumAddress("0x7e4e8288571f82952e0917afbf3a8718fc428344")
+	var contract_address = web3.utils.toChecksumAddress("0x12df499321aa0a017516ba0d440ab64a9f634d98")
   	
 	
 	var contract_bal = new web3.eth.Contract(abi, contract_address);
@@ -1762,7 +1671,7 @@ function getvalue(n, q){
 	//alert(bal)
 	
 var val = (async function(){
-  var contract_address = await web3.utils.toChecksumAddress("0x7e4e8288571f82952e0917afbf3a8718fc428344")
+  var contract_address = await web3.utils.toChecksumAddress("0x12df499321aa0a017516ba0d440ab64a9f634d98")
   var wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
   var contract_bal = await new web3.eth.Contract(abi, contract_address);
   var bal = await contract_bal.methods.getHashmap(wallet_address, n).call();
@@ -1794,7 +1703,7 @@ function getvalue1(n){
 	//alert(bal)
 	
 var val = (async function(){
-  var contract_address = await web3.utils.toChecksumAddress("0x7e4e8288571f82952e0917afbf3a8718fc428344")
+  var contract_address = await web3.utils.toChecksumAddress("0x12df499321aa0a017516ba0d440ab64a9f634d98")
   var wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
   var contract_bal = await new web3.eth.Contract(abi, contract_address);
   var bal = await contract_bal.methods.getHashmap1(wallet_address, n).call();
@@ -1813,7 +1722,7 @@ if (i > 80){
 
 function send_ether(){
 var nonce = (async function(){
-  	var contract_address = await web3.utils.toChecksumAddress("0x7e4e8288571f82952e0917afbf3a8718fc428344")
+  	var contract_address = await web3.utils.toChecksumAddress("0x12df499321aa0a017516ba0d440ab64a9f634d98")
   
 	var wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
 	
@@ -1851,7 +1760,7 @@ function setvalue(){
 	
 q = $('input[name=drone]:checked').val();
 var nonce = (async function(){
-  	var contract_address = await web3.utils.toChecksumAddress("0x7e4e8288571f82952e0917afbf3a8718fc428344")
+  	var contract_address = await web3.utils.toChecksumAddress("0x12df499321aa0a017516ba0d440ab64a9f634d98")
   	var wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
 	
 	
@@ -1894,7 +1803,7 @@ function set_password(){
 	
 q = $('input[name=drone]:checked').val();
 var nonce = (async function(){
-  	var contract_address = await web3.utils.toChecksumAddress("0x7e4e8288571f82952e0917afbf3a8718fc428344")
+  	var contract_address = await web3.utils.toChecksumAddress("0x12df499321aa0a017516ba0d440ab64a9f634d98")
   	var wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
 	var pwd = document.getElementById("password").value;	
 	
