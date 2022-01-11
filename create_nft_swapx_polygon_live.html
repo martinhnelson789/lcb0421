@@ -1122,6 +1122,7 @@ var display = (async function(){
 			console.log(JSONresult.image);
 			//var result1 = JSONresult.image
 			//return result1
+			alert(JSONresult.image.slice(7))
 			var img = new Image();
             img.src = "https://ipfs.io/ipfs/" & JSONresult.image.slice(7)
             chat.appendChild(img);
