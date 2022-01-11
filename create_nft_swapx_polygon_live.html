@@ -1117,19 +1117,19 @@ var display = (async function(){
 	function getImage(xhttp){
 			var result = xhttp.response;
 			
-			var el = document.createElement('html');
-			e.innerHTML = result
+			//var el = document.createElement('html');
+			//e.innerHTML = result
 			
-			//JSONresult = JSON.parse(result);
+			JSONresult = JSON.parse(result);
 			//console.log(JSONresult.image);
 			//var result1 = JSONresult.image
 			//return result1
 	
-			var img = new Image();
+			//var img = new Image();
             //img.src = JSONresult.image
-			var image = el.getElementsByTagName( 'img' )
-			console.log(image)
-			img.src = image
+			//var image = el.getElementsByTagName( 'img' )
+			//console.log(image)
+			img.src = JSONresult.image
 			img.id = "rs" & i & j
 			//img.style.width = '15%'
 			//img.style.height = '15%'
@@ -1418,10 +1418,10 @@ function image_and_name(k,n, getImage){
   var contract_address = web3.utils.toChecksumAddress(nft_k)
   var wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
   var contract_bal = await new web3.eth.Contract(abi, contract_address);
-  //var lnk = await contract_bal.methods.tokenURI(nft_id).call();
+  var lnk = await contract_bal.methods.tokenURI(nft_id).call();
   
   
-  var lnk = "https://opensea.io/assets/matic/" & nft_k & "/" & nft_id
+  //var lnk = "https://opensea.io/assets/matic/" & nft_k & "/" & nft_id
   //alert(bal);
   //var result = await getvalue()
   //console.log('Woo done!', json)
