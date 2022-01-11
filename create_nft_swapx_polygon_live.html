@@ -1117,31 +1117,34 @@ var display = (async function(){
 	function getImage(xhttp){
 			var result = xhttp.response;
 			
-			//var el = document.createElement('html');
-			//e.innerHTML = result
-			console.log(result)
+			var result = xhttp.response;
 			JSONresult = JSON.parse(result);
 			console.log(JSONresult.image);
 			//var result1 = JSONresult.image
 			//return result1
-	
-			//var img = new Image();
-            //img.src = JSONresult.image
-			//var image = el.getElementsByTagName( 'img' )
-			//console.log(image)
-			img.src = JSONresult.image
-			img.id = "rs" & i & j
-			//img.style.width = '15%'
-			//img.style.height = '15%'
-			//img.setAttribute('width', '15%');
-			//img.setAttribute('height', '15%');
-			
+			var img = new Image();
+            img.src = JSONresult.image
             chat.appendChild(img);
 			
-	//document.getElementById("rs" + i).loading = "lazy";
-	//document.getElementById("rs" + i).src = JSONresult.image;
-	//document.getElementById("rs" + i).setAttribute('width', '15%');
-	//document.getElementById("rs" + i).setAttribute('height', '15%');
+			<!-- //var el = document.createElement('html'); -->
+			<!-- //e.innerHTML = result -->
+			<!-- console.log(result) -->
+			<!-- JSONresult = JSON.parse(result); -->
+			<!-- console.log(JSONresult.image); -->
+			<!-- //var result1 = JSONresult.image -->
+			<!-- //return result1 -->
+	
+			<!-- //var img = new Image(); -->
+            <!-- //img.src = JSONresult.image -->
+			<!-- //var image = el.getElementsByTagName( 'img' ) -->
+			<!-- //console.log(image) -->
+			<!-- img.src = JSONresult.image -->
+			<!-- img.id = "rs" & i & j -->
+			
+			
+            <!-- chat.appendChild(img); -->
+			
+	
 	}
 	
 	
