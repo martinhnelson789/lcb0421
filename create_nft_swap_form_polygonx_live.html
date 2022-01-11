@@ -1456,7 +1456,7 @@ function image_and_name(){
         if (this.readyState == 4 && this.status == 200) {
             result = this.response;
 			el.innerHTML = result
-			image = el.getElementsByTagName( 'img' );
+			image = el.getElementsByTagName( 'img' ).src;
 			console.log(result)
 			//JSONresult = JSON.parse(result);
 			//console.log(JSONresult.image);
