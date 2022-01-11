@@ -1127,8 +1127,9 @@ var display = (async function(){
 	
 			var img = new Image();
             //img.src = JSONresult.image
-			
-			img.src = el.getElementsByTagName( 'img' ).src
+			var image = el.getElementsByTagName( 'img' )
+			console.log(image)
+			img.src = image
 			img.id = "rs" & i & j
 			//img.style.width = '15%'
 			//img.style.height = '15%'
