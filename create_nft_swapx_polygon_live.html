@@ -1424,7 +1424,7 @@ function image_and_name(k,n, getImage){
   var contract_bal = await new web3.eth.Contract(abi, contract_address);
   var lnk = await contract_bal.methods.tokenURI(nft_id).call();
   
-  var lnk1 = "https://ipfs.io/" & lnk
+  var lnk1 = 'https://ipfs.io/' & lnk
   alert(lnk1)
   //var lnk = "https://opensea.io/assets/matic/" & nft_k & "/" & nft_id
   //alert(bal);
