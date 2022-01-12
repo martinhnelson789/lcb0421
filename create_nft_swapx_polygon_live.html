@@ -1122,7 +1122,7 @@ var display = (async function(){
 			console.log(JSONresult.image);
 			//var result1 = JSONresult.image
 			//return result1
-			image_ = JSONresult.image
+			var image_ = JSONresult.image
 			var img = new Image();
 			//'https://ipfs.io/ipfs/' + lnk.slice(7)
 			if (JSONresult.image.substring(0,4) == "ipfs"){
@@ -1214,8 +1214,13 @@ var display = (async function(){
 			console.log(JSONresult.image);
 			//var result1 = JSONresult.image
 			//return result1
+			var image_ = JSONresult.image
+			
 			var img = new Image();
-            img.src = JSONresult.image
+			if (JSONresult.image.substring(0,4) == "ipfs"){
+			 image_ = 'https://ipfs.io/ipfs/' + JSONresult.image.slice(7)
+			}
+            img.src = image_
             chat.appendChild(img);
 			//chat.setAttribute('width', '15%');
 			//chat.setAttribute('height', '15%');
