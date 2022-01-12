@@ -1172,6 +1172,11 @@ var display = (async function(){
 	var contract_ID2 = await contract_bal.methods.token_contracts_list2xy(i, address, j).call();
 	//document.getElementById("contract_loan").innerHTML = loan_;	
 	//console.log(loan_)
+	
+	var newDiv = document.createElement('div');
+	newDiv.id = 'ss'+i;
+	chat.appendChild(newDiv);
+	document.getElementById("ss" + i).outerHTML = '<center style="color:grey; font-family: helvetica narrow, sans-serif; font-size:25px;">&#8645;</center>'
 	var newDiv = document.createElement('div');
 	//var newBtn = document.createElement('input');
 	//newBtn.setAttribute('type', 'button');
@@ -1187,10 +1192,7 @@ var display = (async function(){
 	
 	document.getElementById("t" + i + j).innerHTML = "NFT Contract 2: " + contract_ID2;
 	
-	var newDiv = document.createElement('div');
-	newDiv.id = 'ss'+i;
-	chat.appendChild(newDiv);
-	document.getElementById("ss" + i).outerHTML = '<center style="color:grey; font-family: helvetica narrow, sans-serif; font-size:25px;">&#8645;</center>'
+	
 	//<input type="button" value="Lend" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:0;" onClick="create_obligation()"/>
 	
 	//var term = await contract_bal.methods.loan_term_list(address).call();
