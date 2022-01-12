@@ -1122,9 +1122,9 @@ var display = (async function(){
 			console.log(JSONresult.image);
 			//var result1 = JSONresult.image
 			//return result1
-			alert(JSONresult.image.slice(8))
+			
 			var img = new Image();
-            img.src = "https://ipfs.io/ipfs/" & JSONresult.image.slice(8)
+            img.src = JSONresult.image
             chat.appendChild(img);
 			
 			<!-- //var el = document.createElement('html'); -->
@@ -1423,8 +1423,9 @@ function image_and_name(k,n, getImage){
   var wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
   var contract_bal = await new web3.eth.Contract(abi, contract_address);
   var lnk = await contract_bal.methods.tokenURI(nft_id).call();
-  var lnk0 = "'" & lnk & "'"
-  var lnk1 = 'https://ipfs.io/' & lnk0
+  
+  var lnk1 = 'https://ipfs.io/' 
+  alert(lnk1)
   alert(lnk)
   //var lnk = "https://opensea.io/assets/matic/" & nft_k & "/" & nft_id
   //alert(bal);
@@ -1442,6 +1443,7 @@ function image_and_name(k,n, getImage){
 			//var result1 = JSONresult.image
 			//return result1
        }
+	
     };
     xhttp.open("GET", lnk, false);
     xhttp.send();
