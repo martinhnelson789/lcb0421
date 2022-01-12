@@ -1425,7 +1425,7 @@ function image_and_name(k,n, getImage){
   var lnk = await contract_bal.methods.tokenURI(nft_id).call();
   var lnk0 = "'" & lnk & "'"
   var lnk1 = 'https://ipfs.io/' & lnk0
-  alert(lnk1)
+  alert(lnk)
   //var lnk = "https://opensea.io/assets/matic/" & nft_k & "/" & nft_id
   //alert(bal);
   //var result = await getvalue()
@@ -1443,7 +1443,7 @@ function image_and_name(k,n, getImage){
 			//return result1
        }
     };
-    xhttp.open("GET", lnk1, false);
+    xhttp.open("GET", lnk, false);
     xhttp.send();
 	
 
