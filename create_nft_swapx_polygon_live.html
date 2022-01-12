@@ -1167,7 +1167,7 @@ var display = (async function(){
 	var newDiv = document.createElement('div');
 	newDiv.id = 'ss'+i;
 	chat.appendChild(newDiv);
-	document.getElementById("ss" + i).outerHTML = "<center style="color:grey; font-family: helvetica narrow, sans-serif; font-size:25px;">&#8645;</center>"
+	document.getElementById("ss" + i).outerHTML = '<center style="color:grey; font-family: helvetica narrow, sans-serif; font-size:25px;">&#8645;</center>'
 	
 	
 	var contract_length1 = await contract_bal.methods.token_contracts_list2xyCount(i, address).call();
