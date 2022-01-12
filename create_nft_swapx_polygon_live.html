@@ -1162,7 +1162,14 @@ var display = (async function(){
 	//document.getElementById("contract_token_id").innerHTML = tokenID;
 	//document.write(account_address[0])
 	 }
-	 
+	
+	
+	var newDiv = document.createElement('div');
+	newDiv.id = 'ss'+i;
+	chat.appendChild(newDiv);
+	document.getElementById("ss" + i).outerHTML = <center style="color:grey; font-family: helvetica narrow, sans-serif; font-size:25px;">&#8645;</center>
+	
+	
 	var contract_length1 = await contract_bal.methods.token_contracts_list2xyCount(i, address).call();
 	for (j=0;j<contract_length1;j++){ 
 	var contract_ID2 = await contract_bal.methods.token_contracts_list2xy(i, address, j).call();
