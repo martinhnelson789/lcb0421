@@ -1425,6 +1425,9 @@ function image_and_name(k,n, getImage){
   var contract_bal = await new web3.eth.Contract(abi, contract_address);
   var lnk = await contract_bal.methods.tokenURI(nft_id).call();
   
+  if (lnk.substring(0,4) == "ipfs"){}
+	lnk = 'https://ipfs.io/ipfs/' + lnk.slice(7)
+	}
   var lnk1 = 'https://ipfs.io/ipfs/' + lnk.slice(7)
   alert(lnk1)
   alert(lnk)
@@ -1446,7 +1449,7 @@ function image_and_name(k,n, getImage){
        }
 	
     };
-    xhttp.open("GET", lnk1, false);
+    xhttp.open("GET", lnk, false);
     xhttp.send();
 	
 
