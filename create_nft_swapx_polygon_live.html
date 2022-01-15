@@ -1180,8 +1180,14 @@ var display = (async function(){
 	
 	
 	var contract_length1 = await contract_bal.methods.token_contracts_list2xyCount(i, address).call();
+	
+	var array_contract_ID2 = [];
+	var array_tokenID2 = [];
+	
 	for (j=0;j<contract_length1;j++){ 
+	
 	var contract_ID2 = await contract_bal.methods.token_contracts_list2xy(i, address, j).call();
+	array_contract_ID2.push(contract_ID2);
 	//document.getElementById("contract_loan").innerHTML = loan_;	
 	//console.log(loan_)
 	
@@ -1217,6 +1223,7 @@ var display = (async function(){
 	//document.getElementById("u" + i).innerHTML = "loan due at block " + term;
 	
 	var tokenID2 = await contract_bal.methods.tokens_list2xy(i, address, j).call();
+	array_tokenID2.push(tokenID2);
 	//document.getElementById("loan_obligation").innerHTML = "Loan is already made is " + obligation;
 	//console.log(obligation)
 	var newDiv = document.createElement('div');
@@ -1274,7 +1281,8 @@ var display = (async function(){
 	var newBtn = document.createElement('input');
 	newBtn.setAttribute('type', 'button');
 	newBtn.value = "accept trade";
-	newBtn.setAttribute('onclick', 'to_approve(' + "'" + contract_ID2 + "'" + ","  + "'" + address + "'" + "," + tokenID2 + "," + _i + ')');
+	//newBtn.setAttribute('onclick', 'to_approve(' + "'" + contract_ID2 + "'" + ","  + "'" + address + "'" + "," + tokenID2 + "," + _i + ')');
+	newBtn.setAttribute('onclick', 'to_approve(' + "'" + array_contract_ID2 + "'" + ","  + "'" + address + "'" + "," + array_tokenID2 + "," + _i + ')');
 	console.log('make_trade(' + "'" + contract_ID2 + "'" + ","  + "'" + address + "'" + "," + tokenID2 + ')')
 	//newBtn.style = "color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:0;";
 	
@@ -1622,10 +1630,11 @@ var acct = (async function(){
 	//localStorage.setItem("Loan Term", document.getElementById("loan_term").value);
 	
 	//var nft_k = localStorage.getItem("NFT Contract");
-	var nft_k = k
+	for (var i = 0; i<=k.length; i++){
+	var nft_k = k[i]
 	//var nft_id = localStorage.getItem("NFT Token ID");
 	var add1 = add
-	var nft_id = k_id
+	var nft_id = k_id[i]
 	var n = num
 	var loan_amt = localStorage.getItem("Loan Amount");
 	var loan_term = localStorage.getItem("Loan Term");
@@ -1650,6 +1659,7 @@ var acct = (async function(){
   //console.log('Woo done!', result[0])
   //balance = result
   //alert(balance)
+  }
 	make_trade(nft_k, add1, nft_id, n)
 })()
 
@@ -1775,41 +1785,7 @@ if (i > 80){
 
 
 
-function send_ether(){
-var nonce = (async function(){
-  	var contract_address = await web3.utils.toChecksumAddress("0xd284f2833f82732fe68be0be55ce279e5421bb19")
-  
-	var wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
-	
-	var result = await web3.eth.getTransactionCount(wallet_address)
-  
-	console.log('Woo done!', result)
-  
-	_nonce = result
-  
-	//alert(_nonce)
-	
-  
-	var txn_dict = {'gas': web3.utils.toHex(250000),'gasPrice': web3.utils.toHex(web3.utils.toWei('250', 'gwei')), 'to': contract_address, 'from': wallet_address, 'value': web3.utils.toHex(2000001),'nonce': _nonce}
-  
-	
-  
-	var tx = await new ethereumjs.Tx(txn_dict, {chain:'ropsten'})
 
-	//tx.sign(private_key)
-
-	var serializedTx = await tx.serialize();
-
-	var raw = '0x' + serializedTx.toString('hex')
-
-	var transaction = await web3.eth.sendSignedTransaction(raw, (err, tx) => {
-	web3.eth.transactionPollingTimeout = 2000;
-	console.log(tx)
-	})
-
-
-})()
-}
 
 function setvalue(){
 	
