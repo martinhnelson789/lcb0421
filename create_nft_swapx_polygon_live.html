@@ -1181,8 +1181,8 @@ var display = (async function(){
 	
 	var contract_length1 = await contract_bal.methods.token_contracts_list2xyCount(i, address).call();
 	
-	var array_contract_ID2 = [];
-	var array_tokenID2 = [];
+	var array_contract_ID2 = new Array();
+	var array_tokenID2 = new Array();
 	
 	for (j=0;j<contract_length1;j++){ 
 	
