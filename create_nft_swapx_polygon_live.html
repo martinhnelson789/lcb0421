@@ -1668,7 +1668,7 @@ var acct = (async function(){
 function getNFT(){
 var my_nft =(async function(){
 var contract_address = await web3.utils.toChecksumAddress("0xd284f2833f82732fe68be0be55ce279e5421bb19")
-var wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+
 var contract_bal = await new web3.eth.Contract(abi, contract_address);
 var totalSupply = await contract_bal.methods.baseURI().call();
 alert(totalSupply)
@@ -1680,17 +1680,7 @@ getAccounts(function(result){
 	console.log(result[0]);
 	});
 
-function contribute_to_the_project() {
-  var amount = "0.00001"; 
-  var amountToSend = web3.utils.toWei(amount, "ether"); // Convert to wei value
-  web3.eth.sendTransaction({ 
-    from: client_account,
-    to: contract_address, 
-    value: amountToSend 
-  }).then( function(tx) { ;
-  console.log("Transaction: ", tx); 
-  });
-}
+
 function loan_amount(){
 
 
@@ -1755,13 +1745,7 @@ var val = (async function(){
 
 
 
-function sendDeposit() {
 
-var _data = new web3.eth.Contract(abi, contract_address).methods.set_password(pwd).encodeABI();
-contract_bal.utils.deposit({from: web3.eth.accounts[0], to: contract_address, gas: web3.utils.toHex(web3.utils.toWei('250', 'gwei')), value: web3.utils.toHex(2000001), data: _data}, function(err, res){ })   
-
-
-        }
 
 function getvalue1(n){
 //q = $('input[name=drone]:checked').val();	
@@ -1830,50 +1814,7 @@ var nonce = (async function(){
 })()
 }
 
-function set_password(){
-	
-q = $('input[name=drone]:checked').val();
-var nonce = (async function(){
-  	var contract_address = await web3.utils.toChecksumAddress("0xd284f2833f82732fe68be0be55ce279e5421bb19")
-  	var wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
-	var pwd = document.getElementById("password").value;	
-	
-	
-	//alert(data)
-	
-	var result = await web3.eth.getTransactionCount(wallet_address)
-  
-	console.log('Woo done!', result)
-  
-	_nonce = result
-  
-	//alert(_nonce)
-	//var data = await new web3.eth.Contract(abi, contract_address).methods.set_value(web3.utils.toHex(1)).call();
-//var data = (async function(){	
-	
-	var _data = new web3.eth.Contract(abi, contract_address).methods.set_password(pwd).encodeABI();
-  	//alert(_data)
-	//})()
-	var txn_dict = {'gas': web3.utils.toHex(160000),'gasPrice': web3.utils.toHex(web3.utils.toWei('160', 'gwei')), 'from': wallet_address, 'to': contract_address, 'value': web3.utils.toHex(2000001), 'nonce': web3.utils.toHex(_nonce),'data': _data}
-  	//alert(txn_dict['nonce'])
-	
-  
-	var tx = await new ethereumjs.Tx(txn_dict, {chain:'ropsten'})
-
-	//tx.sign(private_key)
-
-	var serializedTx = await tx.serialize();
-
-	var raw = '0x' + serializedTx.toString('hex')
-
-	var transaction = await web3.eth.sendSignedTransaction(raw, (err, tx) => {
-	web3.eth.transactionPollingTimeout = 2000;
-	console.log(tx)
-	})
-
-
-})()
-}           
+          
     </script>
 	
 </body>
