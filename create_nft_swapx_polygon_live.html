@@ -1187,7 +1187,7 @@ var display = (async function(){
 	for (j=0;j<contract_length1;j++){ 
 	
 	var contract_ID2 = await contract_bal.methods.token_contracts_list2xy(i, address, j).call();
-	array_contract_ID2.push(contract_ID2);
+	array_contract_ID2.push("'" + contract_ID2 + "'");
 	//document.getElementById("contract_loan").innerHTML = loan_;	
 	//console.log(loan_)
 	
