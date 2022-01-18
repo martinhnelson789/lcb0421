@@ -1731,7 +1731,7 @@ function getName(k){
 var val = (async function(){
   var contract_address = await web3.utils.toChecksumAddress(k)
   var contract_bal = await new web3.eth.Contract(abi, contract_address);
-  var bal = await contract_bal.methods.name().call();
+  var bal = await contract_bal.methods.name.call();
   //alert(bal);
   //var result = await getvalue()
   //console.log('Woo done!', result)
