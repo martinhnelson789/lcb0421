@@ -101,7 +101,7 @@ border: 2px solid #aaaaaa;
 <body>
 <h2 style="color:#FF00FF; font-family: helvetica narrow, sans-serif; position:absolute; top:0; left:0;">barterNFT</h2>
 <button style="color:#FF00FF; font-family: helvetica narrow, sans-serif; width: 100px; height: 25px;  position:absolute; top:0; right:0;" onclick="open_window()"">offer trade</button>
-<p id="contract_address_ID" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: small; font-weight:200; position:absolute; top:35; left:0;"></p>
+<p id="contract_address_ID" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: medium; font-weight:200; position:absolute; top:35; left:0;"></p>
 
 	
 </div>
@@ -1109,7 +1109,7 @@ var display = (async function(){
 	
 	//document.write(contract_ID)
 	console.log(contract_ID1)
-	document.getElementById("rr" + i + j).innerHTML = "NFT Contract 1: " + contract_ID1;
+	document.getElementById("rr" + i + j).innerHTML = "their NFT Contract" + j + ": " + contract_ID1;
 	
 	var tokenID = await contract_bal.methods.tokens_list1xy(i, address, j).call();
 	console.log(tokenID)
@@ -1184,6 +1184,10 @@ var display = (async function(){
 	var array_contract_ID2 = new Array();
 	var array_tokenID2 = new Array();
 	
+	var newDiv = document.createElement('div');
+	newDiv.id = 'ss'+i;
+	chat.appendChild(newDiv);
+	document.getElementById("ss" + i).outerHTML = '<center style="color:grey; font-family: helvetica narrow, sans-serif; font-size:50px;">&#8645;</center>'
 	for (j=0;j<contract_length1;j++){ 
 	
 	var contract_ID2 = await contract_bal.methods.token_contracts_list2xy(i, address, j).call();
@@ -1191,10 +1195,7 @@ var display = (async function(){
 	//document.getElementById("contract_loan").innerHTML = loan_;	
 	//console.log(loan_)
 	
-	var newDiv = document.createElement('div');
-	newDiv.id = 'ss'+i;
-	chat.appendChild(newDiv);
-	document.getElementById("ss" + i).outerHTML = '<center style="color:grey; font-family: helvetica narrow, sans-serif; font-size:25px;">&#8645;</center>'
+	
 	var newDiv = document.createElement('div');
 	//var newBtn = document.createElement('input');
 	//newBtn.setAttribute('type', 'button');
