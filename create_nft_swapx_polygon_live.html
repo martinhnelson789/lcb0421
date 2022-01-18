@@ -70,14 +70,26 @@ display: none;
   width: 350px;
   height: 70px;
   padding: 10px;
-  border: 1px solid #aaaaaa;
+  border: 2px solid #aaaaaa;
 }
 
 img {
 
 width: 50px;
 height: 50px;
+border: 2px solid #aaaaaa;
 
+}
+
+
+
+input {
+
+width: 100px;
+height: 25px;
+right:0;
+color:#FF00FF;
+border: 2px solid #aaaaaa;
 
 }
 
@@ -87,8 +99,8 @@ height: 50px;
 
 
 <body>
-<h2 style="color:grey; font-family: helvetica narrow, sans-serif; position:absolute; top:0; left:0;">barterNFT</h2>
-<button style="color:grey; font-family: helvetica narrow, sans-serif; font-weight:200; position:absolute; top:0; right:0;" onclick="open_window()"">Offer trade</button>
+<h2 style="color:#FF00FF; font-family: helvetica narrow, sans-serif; position:absolute; top:0; left:0;">barterNFT</h2>
+<button style="color:#FF00FF; font-family: helvetica narrow, sans-serif; width: 100px; height: 25px;  position:absolute; top:0; right:0;" onclick="open_window()"">offer trade</button>
 <p id="contract_address_ID" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; font-weight:200; position:absolute; top:35; left:0;"></p>
 
 	
@@ -133,7 +145,7 @@ height: 50px;
 //var pwd = document.getElementById("password").value;
 
 function open_window() {
-  var myWindow = window.open("create_nft_swap_form_polygonx.html", "offer trade", "width=600,height=800");
+  var myWindow = window.open("create_nft_swap_form_polygonx_live.html", "offer trade", "width=600,height=800");
 }             
 
 
@@ -1116,25 +1128,40 @@ var display = (async function(){
 	//chat.appendChild(newDiv);
 	function getImage(xhttp){
 			var result = xhttp.response;
+			
+			var result = xhttp.response;
 			JSONresult = JSON.parse(result);
 			console.log(JSONresult.image);
 			//var result1 = JSONresult.image
 			//return result1
-	
+			var image_ = JSONresult.image
 			var img = new Image();
-            img.src = JSONresult.image
-			img.id = "rs" & i & j
-			//img.style.width = '15%'
-			//img.style.height = '15%'
-			//img.setAttribute('width', '15%');
-			//img.setAttribute('height', '15%');
-			
+			//'https://ipfs.io/ipfs/' + lnk.slice(7)
+			if (JSONresult.image.substring(0,4) == "ipfs"){
+			 image_ = 'https://ipfs.io/ipfs/' + JSONresult.image.slice(7)
+			}
+            img.src = image_
             chat.appendChild(img);
 			
-	//document.getElementById("rs" + i).loading = "lazy";
-	//document.getElementById("rs" + i).src = JSONresult.image;
-	//document.getElementById("rs" + i).setAttribute('width', '15%');
-	//document.getElementById("rs" + i).setAttribute('height', '15%');
+			<!-- //var el = document.createElement('html'); -->
+			<!-- //e.innerHTML = result -->
+			<!-- console.log(result) -->
+			<!-- JSONresult = JSON.parse(result); -->
+			<!-- console.log(JSONresult.image); -->
+			<!-- //var result1 = JSONresult.image -->
+			<!-- //return result1 -->
+	
+			<!-- //var img = new Image(); -->
+            <!-- //img.src = JSONresult.image -->
+			<!-- //var image = el.getElementsByTagName( 'img' ) -->
+			<!-- //console.log(image) -->
+			<!-- img.src = JSONresult.image -->
+			<!-- img.id = "rs" & i & j -->
+			
+			
+            <!-- chat.appendChild(img); -->
+			
+	
 	}
 	
 	
@@ -1147,12 +1174,27 @@ var display = (async function(){
 	//document.getElementById("contract_token_id").innerHTML = tokenID;
 	//document.write(account_address[0])
 	 }
-	 
+	
+	
+	
+	
+	
 	var contract_length1 = await contract_bal.methods.token_contracts_list2xyCount(i, address).call();
+	
+	var array_contract_ID2 = new Array();
+	var array_tokenID2 = new Array();
+	
 	for (j=0;j<contract_length1;j++){ 
+	
 	var contract_ID2 = await contract_bal.methods.token_contracts_list2xy(i, address, j).call();
+	array_contract_ID2.push("'" + contract_ID2 + "'");
 	//document.getElementById("contract_loan").innerHTML = loan_;	
 	//console.log(loan_)
+	
+	var newDiv = document.createElement('div');
+	newDiv.id = 'ss'+i;
+	chat.appendChild(newDiv);
+	document.getElementById("ss" + i).outerHTML = '<center style="color:grey; font-family: helvetica narrow, sans-serif; font-size:25px;">&#8645;</center>'
 	var newDiv = document.createElement('div');
 	//var newBtn = document.createElement('input');
 	//newBtn.setAttribute('type', 'button');
@@ -1165,7 +1207,10 @@ var display = (async function(){
 	chat.appendChild(newDiv);
 	//chat.appendChild(newBtn);
 	
+	
 	document.getElementById("t" + i + j).innerHTML = "NFT Contract 2: " + contract_ID2;
+	
+	
 	//<input type="button" value="Lend" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:0;" onClick="create_obligation()"/>
 	
 	//var term = await contract_bal.methods.loan_term_list(address).call();
@@ -1178,6 +1223,7 @@ var display = (async function(){
 	//document.getElementById("u" + i).innerHTML = "loan due at block " + term;
 	
 	var tokenID2 = await contract_bal.methods.tokens_list2xy(i, address, j).call();
+	array_tokenID2.push(tokenID2);
 	//document.getElementById("loan_obligation").innerHTML = "Loan is already made is " + obligation;
 	//console.log(obligation)
 	var newDiv = document.createElement('div');
@@ -1199,8 +1245,13 @@ var display = (async function(){
 			console.log(JSONresult.image);
 			//var result1 = JSONresult.image
 			//return result1
+			var image_ = JSONresult.image
+			
 			var img = new Image();
-            img.src = JSONresult.image
+			if (JSONresult.image.substring(0,4) == "ipfs"){
+			 image_ = 'https://ipfs.io/ipfs/' + JSONresult.image.slice(7)
+			}
+            img.src = image_
             chat.appendChild(img);
 			//chat.setAttribute('width', '15%');
 			//chat.setAttribute('height', '15%');
@@ -1230,7 +1281,8 @@ var display = (async function(){
 	var newBtn = document.createElement('input');
 	newBtn.setAttribute('type', 'button');
 	newBtn.value = "accept trade";
-	newBtn.setAttribute('onclick', 'to_approve(' + "'" + contract_ID2 + "'" + ","  + "'" + address + "'" + "," + tokenID2 + "," + _i + ')');
+	//newBtn.setAttribute('onclick', 'to_approve(' + "'" + contract_ID2 + "'" + ","  + "'" + address + "'" + "," + tokenID2 + "," + _i + ')');
+	newBtn.setAttribute('onclick', 'to_approve(' + "[" + array_contract_ID2 + "]" + ","  + "'" + address + "'" + ", [" + array_tokenID2 + "]," + _i + ')');
 	console.log('make_trade(' + "'" + contract_ID2 + "'" + ","  + "'" + address + "'" + "," + tokenID2 + ')')
 	//newBtn.style = "color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:0;";
 	
@@ -1359,8 +1411,8 @@ localStorage.setItem("NFT Contract", document.getElementById("NFT_contract").val
 	var loan_amt = localStorage.getItem("Loan Amount");
 	var loan_term = localStorage.getItem("Loan Term");
 	var add1x = localStorage.getItem("mySharedData");
-account_address.push(add1x)
-console.log(account_address[0])
+//account_address.push(add1x)
+//console.log(account_address[0])
 var acct = (async function(){
   	
   //var result = await getAccounts()
@@ -1412,9 +1464,19 @@ function image_and_name(k,n, getImage){
   var wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
   var contract_bal = await new web3.eth.Contract(abi, contract_address);
   var lnk = await contract_bal.methods.tokenURI(nft_id).call();
+  
+  if (lnk.substring(0,4) == "ipfs"){
+	lnk = 'https://ipfs.io/ipfs/' + lnk.slice(7)
+	}
+  var lnk1 = 'https://ipfs.io/ipfs/' + lnk.slice(7)
+  //alert(lnk1)
+  //alert(lnk)
+  //var lnk = "https://opensea.io/assets/matic/" & nft_k & "/" & nft_id
   //alert(bal);
   //var result = await getvalue()
   //console.log('Woo done!', json)
+  
+	
 	var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
@@ -1425,6 +1487,7 @@ function image_and_name(k,n, getImage){
 			//var result1 = JSONresult.image
 			//return result1
        }
+	
     };
     xhttp.open("GET", lnk, false);
     xhttp.send();
@@ -1567,10 +1630,11 @@ var acct = (async function(){
 	//localStorage.setItem("Loan Term", document.getElementById("loan_term").value);
 	
 	//var nft_k = localStorage.getItem("NFT Contract");
-	var nft_k = k
+	for (var i = 0; i<k.length; i++){
+	var nft_k = k[i]
 	//var nft_id = localStorage.getItem("NFT Token ID");
 	var add1 = add
-	var nft_id = k_id
+	var nft_id = k_id[i]
 	var n = num
 	var loan_amt = localStorage.getItem("Loan Amount");
 	var loan_term = localStorage.getItem("Loan Term");
@@ -1595,6 +1659,7 @@ var acct = (async function(){
   //console.log('Woo done!', result[0])
   //balance = result
   //alert(balance)
+  }
 	make_trade(nft_k, add1, nft_id, n)
 })()
 
@@ -1603,7 +1668,7 @@ var acct = (async function(){
 function getNFT(){
 var my_nft =(async function(){
 var contract_address = await web3.utils.toChecksumAddress("0xd284f2833f82732fe68be0be55ce279e5421bb19")
-var wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+
 var contract_bal = await new web3.eth.Contract(abi, contract_address);
 var totalSupply = await contract_bal.methods.baseURI().call();
 alert(totalSupply)
@@ -1615,17 +1680,7 @@ getAccounts(function(result){
 	console.log(result[0]);
 	});
 
-function contribute_to_the_project() {
-  var amount = "0.00001"; 
-  var amountToSend = web3.utils.toWei(amount, "ether"); // Convert to wei value
-  web3.eth.sendTransaction({ 
-    from: client_account,
-    to: contract_address, 
-    value: amountToSend 
-  }).then( function(tx) { ;
-  console.log("Transaction: ", tx); 
-  });
-}
+
 function loan_amount(){
 
 
@@ -1690,13 +1745,7 @@ var val = (async function(){
 
 
 
-function sendDeposit() {
 
-var _data = new web3.eth.Contract(abi, contract_address).methods.set_password(pwd).encodeABI();
-contract_bal.utils.deposit({from: web3.eth.accounts[0], to: contract_address, gas: web3.utils.toHex(web3.utils.toWei('250', 'gwei')), value: web3.utils.toHex(2000001), data: _data}, function(err, res){ })   
-
-
-        }
 
 function getvalue1(n){
 //q = $('input[name=drone]:checked').val();	
@@ -1720,129 +1769,11 @@ if (i > 80){
 
 
 
-function send_ether(){
-var nonce = (async function(){
-  	var contract_address = await web3.utils.toChecksumAddress("0xd284f2833f82732fe68be0be55ce279e5421bb19")
-  
-	var wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
-	
-	var result = await web3.eth.getTransactionCount(wallet_address)
-  
-	console.log('Woo done!', result)
-  
-	_nonce = result
-  
-	//alert(_nonce)
-	
-  
-	var txn_dict = {'gas': web3.utils.toHex(250000),'gasPrice': web3.utils.toHex(web3.utils.toWei('250', 'gwei')), 'to': contract_address, 'from': wallet_address, 'value': web3.utils.toHex(2000001),'nonce': _nonce}
-  
-	
-  
-	var tx = await new ethereumjs.Tx(txn_dict, {chain:'ropsten'})
-
-	//tx.sign(private_key)
-
-	var serializedTx = await tx.serialize();
-
-	var raw = '0x' + serializedTx.toString('hex')
-
-	var transaction = await web3.eth.sendSignedTransaction(raw, (err, tx) => {
-	web3.eth.transactionPollingTimeout = 2000;
-	console.log(tx)
-	})
 
 
-})()
-}
-
-function setvalue(){
-	
-q = $('input[name=drone]:checked').val();
-var nonce = (async function(){
-  	var contract_address = await web3.utils.toChecksumAddress("0xd284f2833f82732fe68be0be55ce279e5421bb19")
-  	var wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
-	
-	
-	//alert(data)
-	
-	var result = await web3.eth.getTransactionCount(wallet_address)
-  
-	console.log('Woo done!', result)
-  
-	_nonce = result
-  
-	//alert(_nonce)
-	//var data = await new web3.eth.Contract(abi, contract_address).methods.set_value(web3.utils.toHex(1)).call();
-//var data = (async function(){	
-	var _data = new web3.eth.Contract(abi, contract_address).methods.setfee(2000000).encodeABI();
-  	//alert(_data)
-	//})()
-	var txn_dict = {'gas': web3.utils.toHex(40000),'gasPrice': web3.utils.toHex(web3.utils.toWei('40', 'gwei')), 'from': wallet_address, 'to': contract_address, 'nonce': web3.utils.toHex(_nonce),'data': _data}
-  	//alert(txn_dict['nonce'])
-	
-  
-	var tx = await new ethereumjs.Tx(txn_dict, {chain:'ropsten'})
-
-	//tx.sign(private_key)
-
-	var serializedTx = await tx.serialize();
-
-	var raw = '0x' + serializedTx.toString('hex')
-
-	var transaction = await web3.eth.sendSignedTransaction(raw, (err, tx) => {
-	web3.eth.transactionPollingTimeout = 2000;
-	console.log(tx)
-	})
 
 
-})()
-}
-
-function set_password(){
-	
-q = $('input[name=drone]:checked').val();
-var nonce = (async function(){
-  	var contract_address = await web3.utils.toChecksumAddress("0xd284f2833f82732fe68be0be55ce279e5421bb19")
-  	var wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
-	var pwd = document.getElementById("password").value;	
-	
-	
-	//alert(data)
-	
-	var result = await web3.eth.getTransactionCount(wallet_address)
-  
-	console.log('Woo done!', result)
-  
-	_nonce = result
-  
-	//alert(_nonce)
-	//var data = await new web3.eth.Contract(abi, contract_address).methods.set_value(web3.utils.toHex(1)).call();
-//var data = (async function(){	
-	
-	var _data = new web3.eth.Contract(abi, contract_address).methods.set_password(pwd).encodeABI();
-  	//alert(_data)
-	//})()
-	var txn_dict = {'gas': web3.utils.toHex(160000),'gasPrice': web3.utils.toHex(web3.utils.toWei('160', 'gwei')), 'from': wallet_address, 'to': contract_address, 'value': web3.utils.toHex(2000001), 'nonce': web3.utils.toHex(_nonce),'data': _data}
-  	//alert(txn_dict['nonce'])
-	
-  
-	var tx = await new ethereumjs.Tx(txn_dict, {chain:'ropsten'})
-
-	//tx.sign(private_key)
-
-	var serializedTx = await tx.serialize();
-
-	var raw = '0x' + serializedTx.toString('hex')
-
-	var transaction = await web3.eth.sendSignedTransaction(raw, (err, tx) => {
-	web3.eth.transactionPollingTimeout = 2000;
-	console.log(tx)
-	})
-
-
-})()
-}           
+          
     </script>
 	
 </body>
