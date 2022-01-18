@@ -1074,7 +1074,7 @@ var display = (async function(){
 	console.log("last: " + last);
 	
 	
-	var toAdd = document.createDocumentFragment();
+	
 	//for (var i = 0; i<addressCount; i++){
 	for (var i = addressCount; i>0; i--){
 	var address = await contract_bal.methods.address_list(i-1).call();
@@ -1096,6 +1096,8 @@ var display = (async function(){
 	for (j=0;j<contract_length;j++){
 	var contract_ID1 = await contract_bal.methods.token_contracts_list1xy(i, address, j).call();
 	console.log(contract_ID1)
+	var name = getName(contract_ID1)
+	console.log(name)
 	var newDiv = document.createElement('div');
 	newDiv.id = 'rr'+i + j;
 	chat.appendChild(newDiv);
@@ -1722,15 +1724,14 @@ var approve = (async function(){
 })()
 }
 
-function getvalue(n, q){
+function getName(k){
 //q = $('input[name=drone]:checked').val();	
 	//alert(bal)
 	
 var val = (async function(){
-  var contract_address = await web3.utils.toChecksumAddress("0xd284f2833f82732fe68be0be55ce279e5421bb19")
-  var wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+  var contract_address = await web3.utils.toChecksumAddress(k)
   var contract_bal = await new web3.eth.Contract(abi, contract_address);
-  var bal = await contract_bal.methods.getHashmap(wallet_address, n).call();
+  var bal = await contract_bal.methods.name().call();
   //alert(bal);
   //var result = await getvalue()
   //console.log('Woo done!', result)
