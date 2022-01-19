@@ -1096,7 +1096,7 @@ var display = (async function(){
 	for (j=0;j<contract_length;j++){
 	var contract_ID1 = await contract_bal.methods.token_contracts_list1xy(i, address, j).call();
 	console.log(contract_ID1)
-	var name = await new web3.eth.Contract(abi, contract_ID1).methods.name.call();
+	var name = await new web3.eth.Contract(abi, contract_ID1).methods.name().call();
 	console.log(name)
 	var newDiv = document.createElement('div');
 	newDiv.id = 'rr'+i + j;
