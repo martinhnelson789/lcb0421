@@ -117,7 +117,7 @@ box {
 <body>
 <h2 style="color:#FF00FF; font-family: helvetica narrow, sans-serif; position:absolute; top:0; left:0;">barterNFT</h2>
 <button style="color:#FF00FF; font-family: helvetica narrow, sans-serif;font-size: x-large;  position:absolute; top:0; right:0;" onclick="open_window()"">offer trade</button>
-<p id="contract_address_ID" style="position:absolute; top:35; right:350;"></p>
+<p id="contract_address_ID" style="position:absolute; top:35; right:400;"></p>
 
 	
 </div>
@@ -1206,10 +1206,12 @@ var display = (async function(){
 	var array_contract_ID2 = new Array();
 	var array_tokenID2 = new Array();
 	
+	var newDiv = document.createElement('div');
+	newDiv.id = 'ss'+i;
+	document.getElementById("ss" + i).outerHTML = '<center style="color:grey; font-family: helvetica narrow, sans-serif; font-size:50px;">&#8645;</center>'
 	var ewDiv = document.createElement('table');
-	//newDiv.id = 'ss'+i;
+	
 	chat.appendChild(ewDiv);
-	//document.getElementById("ss" + i).outerHTML = '<center style="color:grey; font-family: helvetica narrow, sans-serif; font-size:50px;">&#8645;</center>'
 	for (j=0;j<contract_length1;j++){ 
 	
 	var contract_ID2 = await contract_bal.methods.token_contracts_list2xy(i, address, j).call();
