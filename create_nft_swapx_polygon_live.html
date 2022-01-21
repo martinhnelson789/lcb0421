@@ -1124,7 +1124,7 @@ var display = (async function(){
 	console.log(contract_ID1)
 	
 	ewDiv.appendChild(newDiv);
-	ewDiv.getElementById("rr" + i + j).innerHTML = "their NFT Contract" + j + ": " + contract_ID1;
+	document.getElementById("rr" + i + j).innerHTML = "their NFT Contract" + j + ": " + contract_ID1;
 	var tokenID = await contract_bal.methods.tokens_list1xy(i, address, j).call();
 	console.log(tokenID)
 	
