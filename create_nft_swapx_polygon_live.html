@@ -1087,8 +1087,8 @@ var display = (async function(){
 	var address = await contract_bal.methods.address_list(i-1).call();
 	console.log("address: " + address);
 	console.log( i);
-	//var chat = document.getElementById("contract_address_ID"); // finds the container
-	var chat = document.createElement("box");
+	var chat = document.getElementById("contract_address_ID"); // finds the container
+	//var chat = document.createElement("box");
 	
 	//var newDiv = document.createElement('div');
 	//newDiv.id = 'q'+i;
@@ -1098,9 +1098,9 @@ var display = (async function(){
 	var newDiv = document.createElement('div');
 	newDiv.id = 'r'+i;
 	
-	
-	document.getElementById("r" + i).innerHTML = "" //"account address: " + address;
 	chat.appendChild(newDiv);
+	document.getElementById("r" + i).innerHTML = "" //"account address: " + address;
+	
 	var contract_length = await contract_bal.methods.token_contracts_list1xyCount(i, address).call();
 	for (j=0;j<contract_length;j++){
 	var contract_ID1 = await contract_bal.methods.token_contracts_list1xy(i, address, j).call();
