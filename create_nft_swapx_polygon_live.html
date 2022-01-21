@@ -1087,10 +1087,10 @@ var display = (async function(){
 	var address = await contract_bal.methods.address_list(i-1).call();
 	console.log("address: " + address);
 	console.log( i);
-	var chat = document.getElementById("contract_address_ID"); // finds the container
+	//var chat = document.getElementById("contract_address_ID"); // finds the container
+	var chat = document.getElementById("box");
 	
-	
-	var newDiv = document.createElement('box');
+	var newDiv = document.createElement('div');
 	newDiv.id = 'q'+i;
 	chat.appendChild(newDiv);
 	document.getElementById("q" + i).innerHTML = '<center style="color:grey; font-family: helvetica narrow, sans-serif; font-size:20px;">&#8645;</center>' + " offer no: " + i //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
