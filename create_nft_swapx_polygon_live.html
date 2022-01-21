@@ -109,7 +109,7 @@ box {
 <body>
 <h2 style="color:#FF00FF; font-family: helvetica narrow, sans-serif; position:absolute; top:0; left:0;">barterNFT</h2>
 <button style="color:#FF00FF; font-family: helvetica narrow, sans-serif; width: 100px; height: 25px;  position:absolute; top:0; right:0;" onclick="open_window()"">offer trade</button>
-<p id="contract_address_ID" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: medium; font-weight:200; position:absolute; top:35; right:200;"></p>
+<p id="contract_address_ID" style="position:absolute; top:35; right:200;"></p>
 
 	
 </div>
@@ -1097,10 +1097,10 @@ var display = (async function(){
 	//document.getElementById("q" + i).innerHTML = '<center style="color:grey; font-family: helvetica narrow, sans-serif; font-size:20px;">&#8645;</center>' + " offer no: " + i //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
 	
 	var ewDiv = document.createElement('box');
-	ewDiv.id = 'r'+i;
+	//ewDiv.id = 'r'+i;
 	
 	chat.appendChild(ewDiv);
-	document.getElementById("r" + i).innerHTML = "" //"account address: " + address;
+	//document.getElementById("r" + i).innerHTML = "" //"account address: " + address;
 	
 	
 	var contract_length = await contract_bal.methods.token_contracts_list1xyCount(i, address).call();
