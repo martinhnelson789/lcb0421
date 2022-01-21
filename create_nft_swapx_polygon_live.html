@@ -1117,8 +1117,8 @@ var display = (async function(){
 	console.log(contract_ID1)
 	var name = await new web3.eth.Contract(abi, contract_ID1).methods.name().call();
 	console.log(name)
-	var newDiv = document.createElement('div');
-	newDiv.id = 'rr'+i + j;
+	var ewDiv = document.createElement('table');
+	//newDiv.id = 'rr'+i + j;
 	
 	
 	
@@ -1206,9 +1206,9 @@ var display = (async function(){
 	var array_contract_ID2 = new Array();
 	var array_tokenID2 = new Array();
 	
-	var newDiv = document.createElement('div');
-	newDiv.id = 'ss'+i;
-	chat.appendChild(newDiv);
+	var ewDiv = document.createElement('table');
+	//newDiv.id = 'ss'+i;
+	chat.appendChild(ewDiv);
 	document.getElementById("ss" + i).outerHTML = '<center style="color:grey; font-family: helvetica narrow, sans-serif; font-size:50px;">&#8645;</center>'
 	for (j=0;j<contract_length1;j++){ 
 	
@@ -1227,7 +1227,7 @@ var display = (async function(){
 	
 	//newBtn.id = 'b' + i;
 	newDiv.id = 't'+i + j;
-	chat.appendChild(newDiv);
+	ewDiv.appendChild(newDiv);
 	//chat.appendChild(newBtn);
 	
 	
@@ -1251,7 +1251,7 @@ var display = (async function(){
 	//console.log(obligation)
 	var newDiv = document.createElement('div');
 	newDiv.id = 'v'+i + j;
-	chat.appendChild(newDiv);
+	ewDiv.appendChild(newDiv);
 	
 	
 	
@@ -1275,7 +1275,7 @@ var display = (async function(){
 			 image_ = 'https://ipfs.io/ipfs/' + JSONresult.image.slice(7)
 			}
             img.src = image_
-            chat.appendChild(img);
+            ewDiv.appendChild(img);
 			//chat.setAttribute('width', '15%');
 			//chat.setAttribute('height', '15%');
 	//document.getElementById("vs" + i).src = JSONresult.image;
