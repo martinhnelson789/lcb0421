@@ -1209,7 +1209,7 @@ var display = (async function(){
 	var ewDiv = document.createElement('table');
 	//newDiv.id = 'ss'+i;
 	chat.appendChild(ewDiv);
-	document.getElementById("ss" + i).outerHTML = '<center style="color:grey; font-family: helvetica narrow, sans-serif; font-size:50px;">&#8645;</center>'
+	//document.getElementById("ss" + i).outerHTML = '<center style="color:grey; font-family: helvetica narrow, sans-serif; font-size:50px;">&#8645;</center>'
 	for (j=0;j<contract_length1;j++){ 
 	
 	var contract_ID2 = await contract_bal.methods.token_contracts_list2xy(i, address, j).call();
