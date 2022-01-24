@@ -87,7 +87,7 @@ font-size: large;
 <body>
 <h3 style="color:#FF00FF; font-family: helvetica narrow, sans-serif; position:absolute; top:0; left:0;">barterNFT</h3>
 <button style="color:#FF00FF; font-family: helvetica narrow, sans-serif;font-size: x-large;  position:absolute; top:0; right:0;" onclick="open_window()"">offer trade</button>
-<table id="contract_address_ID" style="color:grey; font-family: helvetica narrow, sans-serif; font-size: large; position:absolute; top:35; right:400;"></table>
+<p id="contract_address_ID" style="color:grey; font-family: helvetica narrow, sans-serif; font-size: large; position:absolute; top:35; right:400;"></p>
 
 	
 </div>
@@ -1046,11 +1046,13 @@ var display = (async function(){
 	//ewDiv.id = 'r'+i;
 	
 	chat.appendChild(ewDiv);
+	var ew1Div = document.createElement('table');
+	ewDiv.appendChild(ew1Div);
 	//document.getElementById("r" + i).innerHTML = "" //"account address: " + address;
 	var newDiv = document.createElement('div');
 	newDiv.id = 'q'+i;
-	ewDiv.appendChild(newDiv);
-	document.getElementById("q" + i).innerHTML = '&#10;' + " offer no: " + i
+	ew1Div.appendChild(newDiv);
+	document.getElementById("q" + i).innerHTML = " offer no: " + i
 	
 	var contract_length = await contract_bal.methods.token_contracts_list1xyCount(i, address).call();
 	for (j=0;j<contract_length;j++){
@@ -1104,7 +1106,7 @@ var display = (async function(){
 			 image_ = 'https://ipfs.io/ipfs/' + JSONresult.image.slice(7)
 			}
             img.src = image_
-            ewDiv.appendChild(img);
+            ew1Div.appendChild(img);
 			
 			<!-- //var el = document.createElement('html'); -->
 			<!-- //e.innerHTML = result -->
@@ -1131,7 +1133,7 @@ var display = (async function(){
 	
 	var newDiv = document.createElement('div');
 	newDiv.id = 's'+i + j;
-	ewDiv.appendChild(newDiv);
+	ew1Div.appendChild(newDiv);
 	
 	document.getElementById("s" + i + j).innerHTML = name //"NFT Token ID1: " + tokenID;
 	//document.getElementById("contract_token_id").innerHTML = tokenID;
@@ -1151,7 +1153,7 @@ var display = (async function(){
 	newDiv.id = 'ss'+i;
 	chat.appendChild(newDiv);
 	document.getElementById("ss" + i).outerHTML = '<center> trade &#8645; trade</center>'
-	var ewDiv = document.createElement('table');
+	var ew1Div = document.createElement('table');
 	
 	chat.appendChild(ewDiv);
 	for (j=0;j<contract_length1;j++){ 
@@ -1168,7 +1170,7 @@ var display = (async function(){
 	
 	
 	newDiv.id = 't'+i + j;
-	ewDiv.appendChild(newDiv);
+	ew1Div.appendChild(newDiv);
 	//chat.appendChild(newBtn);
 	
 	
@@ -1183,7 +1185,7 @@ var display = (async function(){
 	//console.log(obligation)
 	var newDiv = document.createElement('div');
 	newDiv.id = 'v'+i + j;
-	ewDiv.appendChild(newDiv);
+	ew1Div.appendChild(newDiv);
 	
 	
 	
@@ -1207,7 +1209,7 @@ var display = (async function(){
 			 image_ = 'https://ipfs.io/ipfs/' + JSONresult.image.slice(7)
 			}
             img.src = image_
-            ewDiv.appendChild(img);
+            ew1Div.appendChild(img);
 			
 	}
 	
@@ -1233,12 +1235,12 @@ var display = (async function(){
 	newBtn.id = 'a' + i;
 	
 	
-	ewDiv.appendChild(newBtn);
+	ew1Div.appendChild(newBtn);
 	
 	var latest = await contract_bal.methods.debt_obligation_listx(i, address).call();
 	var newDiv = document.createElement('div');
 	newDiv.id = 'w'+i;
-	ewDiv.appendChild(newDiv);
+	ew1Div.appendChild(newDiv);
 	
 	document.getElementById("w" + i).innerHTML = "swap completed: " + latest;
 	//document.getElementById("latest_block").innerHTML = latest;
