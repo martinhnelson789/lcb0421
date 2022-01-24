@@ -100,7 +100,7 @@ border: 2px solid #5F6C6D;
 
 }
 
-p {
+div {
 
 color:#5F6C6D; 
 font-family: helvetica narrow;
@@ -1106,10 +1106,10 @@ var display = (async function(){
 	var chat = document.getElementById("contract_address_ID"); // finds the container
 	//var chat = document.createElement("box");
 	
-	//var newDiv = document.createElement('div');
-	//newDiv.id = 'q'+i;
-	//chat.appendChild(newDiv);
-	//document.getElementById("q" + i).innerHTML = '<center style="color:grey; font-family: helvetica narrow, sans-serif; font-size:20px;">&#8645;</center>' + " offer no: " + i //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
+	var newDiv = document.createElement('div');
+	newDiv.id = 'q'+i;
+	chat.appendChild(newDiv);
+	document.getElementById("q" + i).innerHTML = " offer no: " + i //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
 	
 	var ewDiv = document.createElement('table');
 	//ewDiv.id = 'r'+i;
