@@ -1227,6 +1227,8 @@ var display = (async function(){
 	//document.getElementById("contract_loan").innerHTML = loan_;	
 	//console.log(loan_)
 	
+	var name2 = await new web3.eth.Contract(abi, contract_ID2).methods.name().call();
+	console.log(name2)
 	
 	var newDiv = document.createElement('div');
 	//var newBtn = document.createElement('input');
@@ -1241,7 +1243,7 @@ var display = (async function(){
 	//chat.appendChild(newBtn);
 	
 	
-	document.getElementById("t" + i + j).innerHTML = "NFT Contract 2: " + contract_ID2;
+	document.getElementById("t" + i + j).innerHTML = name2 // "NFT Contract 2: " + contract_ID2;
 	
 	
 	//<input type="button" value="Lend" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:0;" onClick="create_obligation()"/>
@@ -1298,7 +1300,7 @@ var display = (async function(){
 	
 	
 	
-	document.getElementById("v" + i + j).innerHTML = "NFT Token ID2: " + tokenID2;
+	document.getElementById("v" + i + j).innerHTML = "" //"NFT Token ID2: " + tokenID2;
 	//var lender = await contract_bal.methods.lender_list(address).call();
 	//console.log(lender)
 	}
