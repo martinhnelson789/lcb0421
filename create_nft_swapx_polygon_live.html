@@ -61,7 +61,7 @@ border: 2px solid #5F6C6D;
 
 }
 
-div {
+newDiv {
 
 color:#5F6C6D; 
 font-family: helvetica narrow;
@@ -97,36 +97,7 @@ font-size: large;
 
 
 <script>
-//If problems with form insert back up in body
-<!-- <p id="contract_address_ID" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; font-weight:200; position:absolute; top:35; left:0;"></p>		 -->
-<!-- <p id="contract_token_id" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; font-weight:200; position:absolute; top:55; left:0;"></p> -->
-<!-- <p id="contract_loan" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; font-weight:200; position:absolute; top:75; left:0;"></p> -->
-<!-- <p id="contract_term" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; font-weight:200; position:absolute; top:95; left:0;"></p> -->
-<!-- <p id="loan_obligation" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; font-weight:200; position:absolute; top:115; left:0;"></p> -->
-<!-- <p id="latest_block" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; font-weight:200; position:absolute; top:135; left:0;"></p> -->
 
-<!-- <div id=category121w83>		 -->
-<!-- <input type="button" value="Lend" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:90; left:0;" onClick="create_obligation()"/> -->
-<!-- <input type="button" value="transfer to lender" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:135; left:0;" onClick="transfer_to_lender()"/> -->
-
-<!-- <input type="text" id="password" name="password" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:90; left:65;">	 -->
-
-<!-- <input type="text" id="NFT_contract" name="NFT_contract" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:50; right:35;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:50; right:30;">contract token ID</label>	 -->
-<!-- <input type="text" id="NFT_Token_ID" name="NFT_Token_ID" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:75; right:35;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:75; right:30;">contract token ID</label>		 -->
-<!-- <input type="text" id="loan_amount" name="loan_amount" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:100; right:35;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:100; right:30;">Loan Amount</label> -->
-<!-- <input type="text" id="loan_term" name="loan_term" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:125; right:35;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:125; right:30;">Loan Term</label> -->
-
-<!-- <input type="button" value="approve" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:160; right:15;" onClick="to_approve()"/>	 -->
-<!-- <input type="button" value="loan request" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:190; right:15;" onClick="loan_request()"/> -->
-<!-- <input type="button" value="reclaim asset" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:220; right:15;" onClick="reclaim_asset()"/>	 -->
-
-<!-- </div> -->
-<!-- <div id=category121w82>	 -->
-<!-- <input type="button" value="Show Answers" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;" onClick="prompt_approve()"/>	 -->
-<!-- </div> -->
-<!-- <div id="content"></div> -->
-
-//var pwd = document.getElementById("password").value;
 
 function open_window() {
   var myWindow = window.open("create_nft_swap_form_polygonx_live.html", "offer trade", "width=700,height=800");
@@ -1177,7 +1148,7 @@ var display = (async function(){
 	var newDiv = document.createElement('div');
 	newDiv.id = 'ss'+i;
 	chat.appendChild(newDiv);
-	document.getElementById("ss" + i).outerHTML = '<center>&#8645;</center>'
+	document.getElementById("ss" + i).outerHTML = '<center> trade &#8645; trade</center>'
 	var ewDiv = document.createElement('table');
 	
 	chat.appendChild(ewDiv);
@@ -1185,20 +1156,15 @@ var display = (async function(){
 	
 	var contract_ID2 = await contract_bal.methods.token_contracts_list2xy(i, address, j).call();
 	array_contract_ID2.push("'" + contract_ID2 + "'");
-	//document.getElementById("contract_loan").innerHTML = loan_;	
-	//console.log(loan_)
+	
 	
 	var name2 = await new web3.eth.Contract(abi, contract_ID2).methods.name().call();
 	console.log(name2)
 	
 	var newDiv = document.createElement('div');
-	//var newBtn = document.createElement('input');
-	//newBtn.setAttribute('type', 'button');
-	//newBtn.value = "lend";
-	//newBtn.setAttribute('onclick', 'create_obligation(' + "'" + address + "'" +')');
-	//newBtn.style = "color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:0;";
 	
-	//newBtn.id = 'b' + i;
+	
+	
 	newDiv.id = 't'+i + j;
 	ewDiv.appendChild(newDiv);
 	//chat.appendChild(newBtn);
@@ -1207,16 +1173,7 @@ var display = (async function(){
 	document.getElementById("t" + i + j).innerHTML = name2 // "NFT Contract 2: " + contract_ID2;
 	
 	
-	//<input type="button" value="Lend" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:0;" onClick="create_obligation()"/>
 	
-	//var term = await contract_bal.methods.loan_term_list(address).call();
-	//document.getElementById("contract_term").innerHTML = term;
-	//console.log(term)
-	//var newDiv = document.createElement('div');
-	//newDiv.id = 'u'+i;
-	//chat.appendChild(newDiv);
-	
-	//document.getElementById("u" + i).innerHTML = "loan due at block " + term;
 	
 	var tokenID2 = await contract_bal.methods.tokens_list2xy(i, address, j).call();
 	array_tokenID2.push(tokenID2);
@@ -1249,11 +1206,7 @@ var display = (async function(){
 			}
             img.src = image_
             ewDiv.appendChild(img);
-			//chat.setAttribute('width', '15%');
-			//chat.setAttribute('height', '15%');
-	//document.getElementById("vs" + i).src = JSONresult.image;
-	//document.getElementById("vs" + i).setAttribute('width', '15%');
-	//document.getElementById("vs" + i).setAttribute('height', '15%');
+			
 	}
 	
 	
@@ -1280,7 +1233,7 @@ var display = (async function(){
 	//newBtn.setAttribute('onclick', 'to_approve(' + "'" + contract_ID2 + "'" + ","  + "'" + address + "'" + "," + tokenID2 + "," + _i + ')');
 	newBtn.setAttribute('onclick', 'to_approve(' + "[" + array_contract_ID2 + "]" + ","  + "'" + address + "'" + ", [" + array_tokenID2 + "]," + _i + ')');
 	console.log('make_trade(' + "'" + contract_ID2 + "'" + ","  + "'" + address + "'" + "," + tokenID2 + ')')
-	//newBtn.style = "color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; left:0;";
+	newBtn.style = "color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; left:50%;";
 	
 	newBtn.id = 'a' + i;
 	
