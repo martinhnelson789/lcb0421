@@ -1040,17 +1040,17 @@ var display = (async function(){
 	var chat = document.getElementById("contract_address_ID"); // finds the container
 	//var chat = document.createElement("box");
 	
-	var newDiv = document.createElement('div');
-	newDiv.id = 'q'+i;
-	chat.appendChild(newDiv);
-	document.getElementById("q" + i).innerHTML = &#10; + " offer no: " + i //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
+	 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
 	
 	var ewDiv = document.createElement('table');
 	//ewDiv.id = 'r'+i;
 	
 	chat.appendChild(ewDiv);
 	//document.getElementById("r" + i).innerHTML = "" //"account address: " + address;
-	
+	var newDiv = document.createElement('div');
+	newDiv.id = 'q'+i;
+	ewDiv.appendChild(newDiv);
+	document.getElementById("q" + i).innerHTML = '&#10;' + " offer no: " + i
 	
 	var contract_length = await contract_bal.methods.token_contracts_list1xyCount(i, address).call();
 	for (j=0;j<contract_length;j++){
@@ -1223,7 +1223,7 @@ var display = (async function(){
 	var latest = await contract_bal.methods.debt_obligation_listx(i, address).call();
 	var newDiv = document.createElement('div');
 	newDiv.id = 'w'+i;
-	chat.appendChild(newDiv);
+	ewDiv.appendChild(newDiv);
 	
 	document.getElementById("w" + i).innerHTML = "swap completed: " + latest;
 	//document.getElementById("latest_block").innerHTML = latest;
@@ -1240,7 +1240,7 @@ var display = (async function(){
 	newBtn.id = 'a' + i;
 	
 	
-	chat.appendChild(newBtn);
+	ewDiv.appendChild(newBtn);
 	}
 	
 	
