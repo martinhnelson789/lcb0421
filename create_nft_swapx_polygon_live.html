@@ -1223,14 +1223,7 @@ var display = (async function(){
 	//console.log(lender)
 	}
 	
-	var latest = await contract_bal.methods.debt_obligation_listx(i, address).call();
-	var newDiv = document.createElement('div');
-	newDiv.id = 'w'+i;
-	ew1Div.appendChild(newDiv);
 	
-	document.getElementById("w" + i).innerHTML = "swap completed: " + latest;
-	//document.getElementById("latest_block").innerHTML = latest;
-	console.log(latest)
 	
 	var _i = (i)
 	var newBtn = document.createElement('input');
@@ -1246,6 +1239,14 @@ var display = (async function(){
 	
 	ew1Div.appendChild(newBtn);
 	
+	var latest = await contract_bal.methods.debt_obligation_listx(i, address).call();
+	var newDiv = document.createElement('div');
+	newDiv.id = 'w'+i;
+	ew1Div.appendChild(newDiv);
+	
+	document.getElementById("w" + i).innerHTML = "swap completed: " + latest;
+	//document.getElementById("latest_block").innerHTML = latest;
+	console.log(latest)
 	
 	}
 	
