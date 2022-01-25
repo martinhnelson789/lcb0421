@@ -1053,7 +1053,7 @@ var display = (async function(){
 	newDiv.id = 'q'+i;
 	ew1Div.appendChild(newDiv);
 	document.getElementById("q" + i).innerHTML = "  OFFER NO: " + i
-	document.getElementById("q" + i).style =
+	document.getElementById("q" + i).style = "font-weight: bold;"
 	var contract_length = await contract_bal.methods.token_contracts_list1xyCount(i, address).call();
 	for (j=0;j<contract_length;j++){
 	var contract_ID1 = await contract_bal.methods.token_contracts_list1xy(i, address, j).call();
