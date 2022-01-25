@@ -428,11 +428,6 @@ var abi = [
 				"internalType": "uint256",
 				"name": "_fee",
 				"type": "uint256"
-			},
-			{
-				"internalType": "address",
-				"name": "_to",
-				"type": "address"
 			}
 		],
 		"name": "setfee",
@@ -992,7 +987,7 @@ var abi = [
 	//localStorage.setItem("Loan Amount", document.getElementById("loan_amount").value);
 	//localStorage.setItem("Loan Term", document.getElementById("loan_term").value);
 
-var contract_address = web3.utils.toChecksumAddress("0xd284f2833f82732fe68be0be55ce279e5421bb19")
+var contract_address = web3.utils.toChecksumAddress("0x362796183ce6fb4e2215aa6ea57aadbc56b6a870")
 
 var contract_bal = new web3.eth.Contract(abi, contract_address);
 
@@ -1271,7 +1266,7 @@ function getapproved(){
 	var pwdx = localStorage.getItem("mySharedData");
 	var token_nx = localStorage.getItem("mySharedData1");
 	
-	var contract_address = web3.utils.toChecksumAddress("0xd284f2833f82732fe68be0be55ce279e5421bb19")
+	var contract_address = web3.utils.toChecksumAddress("0x362796183ce6fb4e2215aa6ea57aadbc56b6a870")
   	
 	
 	var contract_bal = new web3.eth.Contract(abi, contract_address);
@@ -1602,7 +1597,7 @@ var acct = (async function(){
 	var token_nx = localStorage.getItem("mySharedData1");
 	
  	var contract_address1 = web3.utils.toChecksumAddress(nft_k)
-        var _data = new web3.eth.Contract(abi, contract_address).methods.approve("0xd284f2833f82732fe68be0be55ce279e5421bb19", nft_id).encodeABI();
+        var _data = new web3.eth.Contract(abi, contract_address).methods.approve("0x362796183ce6fb4e2215aa6ea57aadbc56b6a870", nft_id).encodeABI();
         var accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         var account = accounts[0];
 	var result = await web3.eth.getTransactionCount(account)
@@ -1625,7 +1620,7 @@ var acct = (async function(){
 
 function getNFT(){
 var my_nft =(async function(){
-var contract_address = await web3.utils.toChecksumAddress("0xd284f2833f82732fe68be0be55ce279e5421bb19")
+var contract_address = await web3.utils.toChecksumAddress("0x362796183ce6fb4e2215aa6ea57aadbc56b6a870")
 
 var contract_bal = await new web3.eth.Contract(abi, contract_address);
 var totalSupply = await contract_bal.methods.baseURI().call();
@@ -1647,7 +1642,7 @@ function loan_amount(){
 	
 	var pwdx = localStorage.getItem("mySharedData");
 
-	var contract_address = web3.utils.toChecksumAddress("0xd284f2833f82732fe68be0be55ce279e5421bb19")
+	var contract_address = web3.utils.toChecksumAddress("0x362796183ce6fb4e2215aa6ea57aadbc56b6a870")
   	
 	
 	var contract_bal = new web3.eth.Contract(abi, contract_address);
@@ -1709,7 +1704,7 @@ function getvalue1(n){
 	//alert(bal)
 	
 var val = (async function(){
-  var contract_address = await web3.utils.toChecksumAddress("0xd284f2833f82732fe68be0be55ce279e5421bb19")
+  var contract_address = await web3.utils.toChecksumAddress("0x362796183ce6fb4e2215aa6ea57aadbc56b6a870")
   var wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
   var contract_bal = await new web3.eth.Contract(abi, contract_address);
   var bal = await contract_bal.methods.getHashmap1(wallet_address, n).call();

@@ -516,11 +516,6 @@ var abi = [
 				"internalType": "uint256",
 				"name": "_fee",
 				"type": "uint256"
-			},
-			{
-				"internalType": "address",
-				"name": "_to",
-				"type": "address"
 			}
 		],
 		"name": "setfee",
@@ -1080,7 +1075,7 @@ var abi = [
 	//localStorage.setItem("Loan Amount", document.getElementById("loan_amount").value);
 	//localStorage.setItem("Loan Term", document.getElementById("loan_term").value);
 
-var contract_address = web3.utils.toChecksumAddress("0xd284f2833f82732fe68be0be55ce279e5421bb19")
+var contract_address = web3.utils.toChecksumAddress("0x362796183ce6fb4e2215aa6ea57aadbc56b6a870")
 
 var contract_bal = new web3.eth.Contract(abi, contract_address);
 
@@ -1396,7 +1391,7 @@ var acct = (async function(){
 	//var add1x = localStorage.getItem("mySharedData");
 	
  	var contract_address1 = web3.utils.toChecksumAddress(nft_k)
-        var _data = new web3.eth.Contract(abi, contract_address).methods.approve("0xd284f2833f82732fe68be0be55ce279e5421bb19", nft_id).encodeABI();
+        var _data = new web3.eth.Contract(abi, contract_address).methods.approve("0x362796183ce6fb4e2215aa6ea57aadbc56b6a870", nft_id).encodeABI();
         var accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         var account = accounts[0];
 	var result = await web3.eth.getTransactionCount(account)
