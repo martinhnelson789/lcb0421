@@ -1147,7 +1147,7 @@ var display = (async function(){
 	var newDiv = document.createElement('div');
 	newDiv.id = 'ss'+i;
 	ewDiv.appendChild(newDiv);
-	document.getElementById("ss" + i).outerHTML = '<center> trade &#8645; trade</center>'
+	document.getElementById("ss" + i).outerHTML = '<center style="color:#ba55d3; font-family: helvetica narrow, sans-serif;"> &#8657; trade &#8659;</center>'
 	var ew1Div = document.createElement('table');
 	
 	ewDiv.appendChild(ew1Div);
@@ -1434,11 +1434,7 @@ function image_and_name(k,n, getImage){
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             getImage(this)
-			//var result = this.response;
-			//JSONresult = JSON.parse(result);
-			//console.log(JSONresult.image);
-			//var result1 = JSONresult.image
-			//return result1
+			
        }
 	
     };
@@ -1469,19 +1465,11 @@ var acct = (async function(){
   	
   //var result = await getAccounts()
 	await window.ethereum.enable();
-	//localStorage.setItem("mySharedData", document.getElementById("password").value);
-	//localStorage.setItem("mySharedData1", document.getElementById("user_name").value);
-	//localStorage.setItem("mySharedData2", document.getElementById("user_name1").value);
+	
 	
 	//var add1x = localStorage.getItem("mySharedData");
 	var add1x = addx
-	//var add2x = localStorage.getItem("mySharedData2");
-	//var token_nx = localStorage.getItem("mySharedData1");
 	
-	//localStorage.setItem("NFT Contract", document.getElementById("NFT_contract").value);
-	//localStorage.setItem("NFT Token ID", document.getElementById("NFT_Token_ID").value);
-	//localStorage.setItem("Loan Amount", document.getElementById("loan_amount").value);
-	//localStorage.setItem("Loan Term", document.getElementById("loan_term").value);
 	
 	var nft_k = localStorage.getItem("NFT Contract");
 	//var nft_id = localStorage.getItem("NFT Token ID");
@@ -1634,45 +1622,6 @@ getAccounts(function(result){
 	});
 
 
-function loan_amount(){
-
-
-        localStorage.setItem("mySharedData", document.getElementById("password").value);
-    
-	
-	var pwdx = localStorage.getItem("mySharedData");
-
-	var contract_address = web3.utils.toChecksumAddress("0x362796183ce6fb4e2215aa6ea57aadbc56b6a870")
-  	
-	
-	var contract_bal = new web3.eth.Contract(abi, contract_address);
-	var bal = contract_bal.methods.token_contracts_list(pwdx).call();
-	var loan_ = contract_bal.methods.loan_amount_list(pwdx).call();
-	console.log(loan_)
-	return bal
-	}
-
-function check_loan_amount(){
-var approve = (async function(){
-  
-//if (i > 1){
-	//show1()
-	//}else{
-  var result = await loan_amount()
-  	
-  console.log('Woo done!', result)
-  balance = result
-  
-	//if(balance == true){
-  	//show1();
-	//}else{
-	//alert("sign in")
-	//}
-//}
-//alert(balance)
-
-})()
-}
 
 function getName(k){
 //q = $('input[name=drone]:checked').val();	
@@ -1699,25 +1648,7 @@ var val = (async function(){
 
 
 
-function getvalue1(n){
-//q = $('input[name=drone]:checked').val();	
-	//alert(bal)
-	
-var val = (async function(){
-  var contract_address = await web3.utils.toChecksumAddress("0x362796183ce6fb4e2215aa6ea57aadbc56b6a870")
-  var wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
-  var contract_bal = await new web3.eth.Contract(abi, contract_address);
-  var bal = await contract_bal.methods.getHashmap1(wallet_address, n).call();
-  //alert(bal)
-  //var result = await getvalue()
-  //console.log('Woo done!', result)
-  answers2.push(" " + bal);
-if (i > 80){
-			containsX();
-			}
-})()
-//return val
-	}
+
 
 
 
