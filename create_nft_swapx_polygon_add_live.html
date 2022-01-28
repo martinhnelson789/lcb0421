@@ -146,7 +146,7 @@ display: block;
 <center style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; margin-top:120px;">trade</center>
 <center style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;">your NFT</center>
 
-<input type="text" class="their-nft" id="NFT_contract2" name="offer_no" style="color:grey; font-family: helvetica narrow, sans-serif; font-size:x-large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:145; right:790">offer no:</label>
+<input type="text" class="offer_no" id="offer_no" name="offer_no" style="color:grey; font-family: helvetica narrow, sans-serif; font-size:x-large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:145; right:790">offer no:</label>
 <input type="text" class="your-nft" id="NFT_contract1" name="NFT_contract1" style="color:grey; font-family: helvetica narrow, sans-serif; font-size:x-large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:185; right:790;">NFT contract address 1</label>	
 <input type="text" class="your-nft1" id="NFT_Token_ID1" name="NFT_Token_ID1" style="color:grey; font-family: helvetica narrow, sans-serif; font-size:x-large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:220; right:790;">NFT contract token ID 1</label>		
 
@@ -1214,12 +1214,14 @@ function getAccounts(){
 function add_to_offer(){
 
 //await window.ethereum.enable();
+localStorage.setItem("offer_no", document.getElementById("offer_no").value);
 localStorage.setItem("NFT_contract1", document.getElementById("NFT_contract1").value);
 	localStorage.setItem("NFT_Token_ID1", document.getElementById("NFT_Token_ID1").value);
 	localStorage.setItem("NFT_contract2", document.getElementById("NFT_contract2").value);
 	localStorage.setItem("NFT_Token_ID2", document.getElementById("NFT_Token_ID2").value);
 	//localStorage.setItem("mySharedData", document.getElementById("password").value);
 	
+	var _n = localStorage.getItem("offer_no");
 	var nft_k = localStorage.getItem("NFT_contract1");
 	var nft_id = localStorage.getItem("NFT_Token_ID1");
 	var loan_amt = localStorage.getItem("NFT_contract2");
@@ -1237,7 +1239,7 @@ var acct = (async function(){
 	var num = await contract_bal.methods.last().call();
 	console.log("num: " + num);
 	var n = parseInt(num);
-	var _n = n + 1
+	//var _n = n + 1
 	console.log("_n: " + _n)
 	console.log(nft_k);
 	console.log(nft_id);
@@ -1245,7 +1247,7 @@ var acct = (async function(){
 	console.log(loan_term);
  	var contract = web3.utils.toChecksumAddress(nft_k);
 	
-        var _data = new web3.eth.Contract(abi, contract_address).methods.offer_trade(contract, nft_id, loan_amt, loan_term, _n).encodeABI();
+        var _data = new web3.eth.Contract(abi, contract_address).methods.add_to_offer(nft_k, nft_id, _n).encodeABI();
         var accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         var account = accounts[0];
 	var result = await web3.eth.getTransactionCount(account)
