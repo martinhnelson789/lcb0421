@@ -1148,9 +1148,9 @@ var display = (async function(){
 	newDiv.id = 'ss'+i;
 	ewDiv.appendChild(newDiv);
 	document.getElementById("ss" + i).outerHTML = '<center style="color:#ba55d3; font-family: helvetica narrow, sans-serif;"> &#8657; trade &#8659;</center>'
-	var ew1Div = document.createElement('table');
+	var ew2Div = document.createElement('table');
 	
-	ewDiv.appendChild(ew1Div);
+	ewDiv.appendChild(ew2Div);
 	for (j=0;j<contract_length1;j++){ 
 	
 	var contract_ID2 = await contract_bal.methods.token_contracts_list2xy(i, address, j).call();
@@ -1165,7 +1165,7 @@ var display = (async function(){
 	
 	
 	newDiv.id = 't'+i + j;
-	ew1Div.appendChild(newDiv);
+	ew2Div.appendChild(newDiv);
 	//chat.appendChild(newBtn);
 	
 	
@@ -1180,7 +1180,7 @@ var display = (async function(){
 	//console.log(obligation)
 	var newDiv = document.createElement('div');
 	newDiv.id = 'v'+i + j;
-	ew1Div.appendChild(newDiv);
+	ew2Div.appendChild(newDiv);
 	
 	
 	
@@ -1204,7 +1204,7 @@ var display = (async function(){
 			 image_ = 'https://ipfs.io/ipfs/' + JSONresult.image.slice(7)
 			}
             img.src = image_
-            ew1Div.appendChild(img);
+            ew2Div.appendChild(img);
 			
 	}
 	
@@ -1232,12 +1232,12 @@ var display = (async function(){
 	newBtn.id = 'a' + i;
 	
 	
-	ew1Div.appendChild(newBtn);
+	ew2Div.appendChild(newBtn);
 	
 	var latest = await contract_bal.methods.debt_obligation_listx(i, address).call();
 	var newDiv = document.createElement('div');
 	newDiv.id = 'w'+i;
-	ew1Div.appendChild(newDiv);
+	ew2Div.appendChild(newDiv);
 	
 	document.getElementById("w" + i).innerHTML = "swap completed: " + latest;
 	//document.getElementById("latest_block").innerHTML = latest;
