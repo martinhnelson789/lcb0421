@@ -1217,14 +1217,14 @@ function getAccounts(){
 function add_to_offer(){
 
 //await window.ethereum.enable();
-localStorage.setItem("offer_no2", document.getElementById("offer_no2").value);
+localStorage.setItem("offer_no", document.getElementById("offer_no").value);
 localStorage.setItem("NFT_contract1", document.getElementById("NFT_contract1").value);
 	localStorage.setItem("NFT_Token_ID1", document.getElementById("NFT_Token_ID1").value);
 	localStorage.setItem("NFT_contract2", document.getElementById("NFT_contract2").value);
 	localStorage.setItem("NFT_Token_ID2", document.getElementById("NFT_Token_ID2").value);
 	//localStorage.setItem("mySharedData", document.getElementById("password").value);
 	
-	var _n = localStorage.getItem("offer_no2");
+	var _n = localStorage.getItem("offer_no");
 	var nft_k = localStorage.getItem("NFT_contract1");
 	var nft_id = localStorage.getItem("NFT_Token_ID1");
 	var loan_amt = localStorage.getItem("NFT_contract2");
@@ -1273,14 +1273,14 @@ var acct = (async function(){
 function add_to_accept(){
 
 //await window.ethereum.enable();
-localStorage.setItem("offer_no", document.getElementById("offer_no").value);
+localStorage.setItem("offer_no2", document.getElementById("offer_no2").value);
 localStorage.setItem("NFT_contract1", document.getElementById("NFT_contract1").value);
 	localStorage.setItem("NFT_Token_ID1", document.getElementById("NFT_Token_ID1").value);
 	localStorage.setItem("NFT_contract2", document.getElementById("NFT_contract2").value);
 	localStorage.setItem("NFT_Token_ID2", document.getElementById("NFT_Token_ID2").value);
 	//localStorage.setItem("mySharedData", document.getElementById("password").value);
 	
-	var _n = localStorage.getItem("offer_no");
+	var _n = localStorage.getItem("offer_no2");
 	var nft_k = localStorage.getItem("NFT_contract2");
 	var nft_id = localStorage.getItem("NFT_Token_ID2");
 	//var loan_amt = localStorage.getItem("NFT_contract2");
