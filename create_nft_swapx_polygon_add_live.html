@@ -157,17 +157,14 @@ display: block;
 
 
 <center style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;">their NFT</center>
-<input type="text" class="offer_no2" id="offer_no2" name="offer_no2" style="color:grey; font-family: helvetica narrow, sans-serif; font-size:x-large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:325; right:790">offer no:</label>
-<input type="text" class="their-nft" id="NFT_contract2" name="NFT_contract2" style="color:grey; font-family: helvetica narrow, sans-serif; font-size:x-large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:355; right:790">NFT contract address 2</label>
-<input type="text" class="their-nft1" id="NFT_Token_ID2" name="NFT_Token_ID2" style="color:grey; font-family: helvetica narrow, sans-serif; font-size:x-large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:385; right:790">NFT contract token ID 2</label>
-
+<input type="text" class="offer_no2" id="offer_no2" name="offer_no2" style="color:grey; font-family: helvetica narrow, sans-serif; font-size:x-large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:345; right:790">offer no:</label>
+<input type="text" class="their-nft" id="NFT_contract2" name="NFT_contract2" style="color:grey; font-family: helvetica narrow, sans-serif; font-size:x-large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:375; right:790">NFT contract address 2</label>
+<input type="text" class="their-nft1" id="NFT_Token_ID2" name="NFT_Token_ID2" style="color:grey; font-family: helvetica narrow, sans-serif; font-size:x-large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:405; right:790">NFT contract token ID 2</label>
+<input type="button" class="btn" value=" add to accept" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;" onClick="add_to_accept()"/>
 	
 
 </div>
-<div id=category121w82>	
-<input type="button" value="Show Answers" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;" onClick="prompt_approve()"/>	
-</div>
-<div id="content"></div>
+
 
 
 
@@ -176,7 +173,10 @@ display: block;
 
 //var pwd = document.getElementById("password").value;
 
-              
+<!-- <div id=category121w82>	 -->
+<!-- <input type="button" value="Show Answers" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;" onClick="prompt_approve()"/>	 -->
+<!-- </div> -->
+<!-- <div id="content"></div>              -->
 
 
 var metamask = (async function(){
@@ -1217,6 +1217,62 @@ function getAccounts(){
 function add_to_offer(){
 
 //await window.ethereum.enable();
+localStorage.setItem("offer_no2", document.getElementById("offer_no2").value);
+localStorage.setItem("NFT_contract1", document.getElementById("NFT_contract1").value);
+	localStorage.setItem("NFT_Token_ID1", document.getElementById("NFT_Token_ID1").value);
+	localStorage.setItem("NFT_contract2", document.getElementById("NFT_contract2").value);
+	localStorage.setItem("NFT_Token_ID2", document.getElementById("NFT_Token_ID2").value);
+	//localStorage.setItem("mySharedData", document.getElementById("password").value);
+	
+	var _n = localStorage.getItem("offer_no2");
+	var nft_k = localStorage.getItem("NFT_contract1");
+	var nft_id = localStorage.getItem("NFT_Token_ID1");
+	var loan_amt = localStorage.getItem("NFT_contract2");
+	var loan_term = localStorage.getItem("NFT_Token_ID2");
+	//var add1x = localStorage.getItem("mySharedData");
+//account_address.push(add1x)
+//console.log(account_address[0])
+var acct = (async function(){
+  	await window.ethereum.enable();
+  //var result = await getAccounts()
+	//await window.ethereum.enable();
+	
+	
+	
+	var num = await contract_bal.methods.last().call();
+	console.log("num: " + num);
+	var n = parseInt(num);
+	//var _n = n + 1
+	console.log("_n: " + _n)
+	console.log(nft_k);
+	console.log(nft_id);
+	console.log(loan_amt);
+	console.log(loan_term);
+ 	var contract = web3.utils.toChecksumAddress(nft_k);
+	
+        var _data = new web3.eth.Contract(abi, contract_address).methods.add_to_offer(nft_k, nft_id, _n).encodeABI();
+        var accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        var account = accounts[0];
+	var result = await web3.eth.getTransactionCount(account)
+	_nonce = result
+        console.log(account)
+		
+	await web3.eth.sendTransaction({'gas': web3.utils.toHex(500000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address, 'value': 100000001, 'nonce': web3.utils.toHex(_nonce),'data': _data})
+         //window.ethereum.on('accountsChanged', function (accounts) {
+            // Time to reload your interface with accounts[0]!
+            //console.log(accounts[0])
+           	
+  //console.log('Woo done!', result[0])
+  //balance = result
+  //alert(balance)
+
+})()
+}
+
+
+function add_to_accept(){
+
+//await window.ethereum.enable();
 localStorage.setItem("offer_no", document.getElementById("offer_no").value);
 localStorage.setItem("NFT_contract1", document.getElementById("NFT_contract1").value);
 	localStorage.setItem("NFT_Token_ID1", document.getElementById("NFT_Token_ID1").value);
@@ -1225,10 +1281,10 @@ localStorage.setItem("NFT_contract1", document.getElementById("NFT_contract1").v
 	//localStorage.setItem("mySharedData", document.getElementById("password").value);
 	
 	var _n = localStorage.getItem("offer_no");
-	var nft_k = localStorage.getItem("NFT_contract1");
-	var nft_id = localStorage.getItem("NFT_Token_ID1");
-	var loan_amt = localStorage.getItem("NFT_contract2");
-	var loan_term = localStorage.getItem("NFT_Token_ID2");
+	var nft_k = localStorage.getItem("NFT_contract2");
+	var nft_id = localStorage.getItem("NFT_Token_ID2");
+	//var loan_amt = localStorage.getItem("NFT_contract2");
+	//var loan_term = localStorage.getItem("NFT_Token_ID2");
 	//var add1x = localStorage.getItem("mySharedData");
 //account_address.push(add1x)
 //console.log(account_address[0])
