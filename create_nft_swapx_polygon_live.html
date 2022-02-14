@@ -1103,23 +1103,7 @@ var display = (async function(){
             img.src = image_
             ew1Div.appendChild(img);
 			
-			<!-- //var el = document.createElement('html'); -->
-			<!-- //e.innerHTML = result -->
-			<!-- console.log(result) -->
-			<!-- JSONresult = JSON.parse(result); -->
-			<!-- console.log(JSONresult.image); -->
-			<!-- //var result1 = JSONresult.image -->
-			<!-- //return result1 -->
-	
-			<!-- //var img = new Image(); -->
-            <!-- //img.src = JSONresult.image -->
-			<!-- //var image = el.getElementsByTagName( 'img' ) -->
-			<!-- //console.log(image) -->
-			<!-- img.src = JSONresult.image -->
-			<!-- img.id = "rs" & i & j -->
 			
-			
-            <!-- chat.appendChild(img); -->
 			
 	
 	}
@@ -1131,8 +1115,7 @@ var display = (async function(){
 	ew1Div.appendChild(newDiv);
 	
 	document.getElementById("s" + i + j).innerHTML = name //"NFT Token ID1: " + tokenID;
-	//document.getElementById("contract_token_id").innerHTML = tokenID;
-	//document.write(account_address[0])
+	
 	 }
 	
 	
@@ -1167,7 +1150,7 @@ var display = (async function(){
 	
 	newDiv.id = 't'+i + j;
 	ew2Div.appendChild(newDiv);
-	//chat.appendChild(newBtn);
+	
 	
 	
 	document.getElementById("t" + i + j).innerHTML = name2 // "NFT Contract 2: " + contract_ID2;
@@ -1215,9 +1198,7 @@ var display = (async function(){
 	
 	
 	
-	//document.getElementById("v" + i + j).innerHTML = "" //"NFT Token ID2: " + tokenID2;
-	//var lender = await contract_bal.methods.lender_list(address).call();
-	//console.log(lender)
+	
 	}
 	
 	
@@ -1251,69 +1232,21 @@ var display = (async function(){
   
 	//document.getElementById("thetable").appendChild(toAdd);
 
-//alert(balance)
+
 
 })()
         });
 
-function prompt_approve(){
-	web3.eth.abi.encodeFunctionSignature('approve(address,uint256)');
-}
-function getapproved(){
 
 
-        localStorage.setItem("mySharedData", document.getElementById("password").value);
-		localStorage.setItem("mySharedData1", document.getElementById("user_name").value);
-	
-	var pwdx = localStorage.getItem("mySharedData");
-	var token_nx = localStorage.getItem("mySharedData1");
-	
-	var contract_address = web3.utils.toChecksumAddress("0x362796183ce6fb4e2215aa6ea57aadbc56b6a870")
-  	
-	
-	var contract_bal = new web3.eth.Contract(abi, contract_address);
-	var bal = contract_bal.methods.getTotalSupplyFromB(token_nx).call();
-	console.log(bal)
-	return bal
-	}
-
-function check_approved(){
-var approve = (async function(){
-  
-  
-  var result = await getapproved()
-  	
-  console.log('Woo done!', result)
-  balance = result
-  
-	console.log(balance)
-
-//alert(balance)
-
-})()
-}
 
 
-function getAccounts(){
-	var res = web3.eth.getAccounts(); 
-	return res;
-	
-}
+
+
+
 
 function make_trade(add1x, add2x, tokenID, n){
-//localStorage.setItem("NFT Contract", document.getElementById("NFT_contract").value);
-	//localStorage.setItem("NFT Token ID", document.getElementById("NFT_Token_ID").value);
-	//localStorage.setItem("Loan Amount", document.getElementById("loan_amount").value);
-	//localStorage.setItem("Loan Term", document.getElementById("loan_term").value);
-	//localStorage.setItem("mySharedData", document.getElementById("password").value);
-	
-	//var nft_k = localStorage.getItem("NFT Contract");
-	//var nft_id = localStorage.getItem("NFT Token ID");
-	//var loan_amt = localStorage.getItem("Loan Amount");
-	//var loan_term = localStorage.getItem("Loan Term");
-	//var add1x = localStorage.getItem("mySharedData");
-//account_address.push(add1x)
-//console.log(account_address[0])
+
 	var nft = add1x
 	var address = add2x
 	var nft_id = tokenID
@@ -1327,11 +1260,7 @@ var acct = (async function(){
 	
 	
 	
-	//console.log(nft_k);
-	//console.log(nft_id);
-	//console.log(loan_amt);
-	//console.log(loan_term);
- 	//var contract = web3.utils.toChecksumAddress(nft_k);
+	
 	
         var _data = new web3.eth.Contract(abi, contract_address).methods.accept_trade(num, address).encodeABI();
         var accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
@@ -1341,66 +1270,14 @@ var acct = (async function(){
         console.log(account)
 		
 	await web3.eth.sendTransaction({'gas': web3.utils.toHex(500000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address, 'nonce': web3.utils.toHex(_nonce),'data': _data})
-         //window.ethereum.on('accountsChanged', function (accounts) {
-            // Time to reload your interface with accounts[0]!
-            //console.log(accounts[0])
-           	
-  //console.log('Woo done!', result[0])
-  //balance = result
-  //alert(balance)
+         
 
 })()
 }
 
 	
 	
-function loan_request(){
-localStorage.setItem("NFT Contract", document.getElementById("NFT_contract").value);
-	localStorage.setItem("NFT Token ID", document.getElementById("NFT_Token_ID").value);
-	localStorage.setItem("Loan Amount", document.getElementById("loan_amount").value);
-	localStorage.setItem("Loan Term", document.getElementById("loan_term").value);
-	localStorage.setItem("mySharedData", document.getElementById("password").value);
-	
-	var nft_k = localStorage.getItem("NFT Contract");
-	var nft_id = localStorage.getItem("NFT Token ID");
-	var loan_amt = localStorage.getItem("Loan Amount");
-	var loan_term = localStorage.getItem("Loan Term");
-	var add1x = localStorage.getItem("mySharedData");
-//account_address.push(add1x)
-//console.log(account_address[0])
-var acct = (async function(){
-  	
-  //var result = await getAccounts()
-	await window.ethereum.enable();
-	
-	
-	
-	
-	
-	console.log(nft_k);
-	console.log(nft_id);
-	console.log(loan_amt);
-	console.log(loan_term);
- 	var contract = web3.utils.toChecksumAddress(nft_k);
-	
-        var _data = new web3.eth.Contract(abi, contract_address).methods.createLoanRequest(contract, nft_id, loan_amt, loan_term).encodeABI();
-        var accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-        var account = accounts[0];
-	var result = await web3.eth.getTransactionCount(account)
-	_nonce = result
-        console.log(account)
-		
-	await web3.eth.sendTransaction({'gas': web3.utils.toHex(500000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address, 'nonce': web3.utils.toHex(_nonce),'data': _data})
-         //window.ethereum.on('accountsChanged', function (accounts) {
-            // Time to reload your interface with accounts[0]!
-            //console.log(accounts[0])
-           	
-  //console.log('Woo done!', result[0])
-  //balance = result
-  //alert(balance)
 
-})()
-}
 
 
 
@@ -1563,16 +1440,7 @@ var acct = (async function(){
   	
   //var result = await getAccounts()
 	await window.ethereum.enable();
-	//localStorage.setItem("mySharedData", document.getElementById("password").value);
-	//localStorage.setItem("mySharedData1", document.getElementById("user_name").value);
-	//localStorage.setItem("mySharedData2", document.getElementById("user_name1").value);
 	
-	//localStorage.setItem("NFT Contract", document.getElementById("NFT_contract").value);
-	//localStorage.setItem("NFT Token ID", document.getElementById("NFT_Token_ID").value);
-	//localStorage.setItem("Loan Amount", document.getElementById("loan_amount").value);
-	//localStorage.setItem("Loan Term", document.getElementById("loan_term").value);
-	
-	//var nft_k = localStorage.getItem("NFT Contract");
 	for (var i = 0; i<k.length; i++){
 	var nft_k = k[i]
 	//var nft_id = localStorage.getItem("NFT Token ID");
