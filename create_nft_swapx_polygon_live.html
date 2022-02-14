@@ -1018,20 +1018,20 @@ var display = (async function(){
 	
 	
 	var addressCount = await contract_bal.methods.Address_listCount().call();
-	console.log(addressCount);
+	//console.log(addressCount);
 	var fee = await contract_bal.methods.fee().call();
-	console.log("fee" + fee);
+	//console.log("fee" + fee);
 	var num = await contract_bal.methods.last().call();
-	var last = parseInt(num) + 1
-	console.log("last: " + last);
+	//var last = parseInt(num) + 1
+	//console.log("last: " + last);
 	
 	
 	
 	//for (var i = 0; i<addressCount; i++){
 	for (var i = addressCount; i>0; i--){
 	var address = await contract_bal.methods.address_list(i-1).call();
-	console.log("address: " + address);
-	console.log( i);
+	//console.log("address: " + address);
+	//console.log( i);
 	var chat = document.getElementById("contract_address_ID"); // finds the container
 	//var chat = document.createElement("box");
 	
@@ -1052,9 +1052,9 @@ var display = (async function(){
 	var contract_length = await contract_bal.methods.token_contracts_list1xyCount(i, address).call();
 	for (j=0;j<contract_length;j++){
 	var contract_ID1 = await contract_bal.methods.token_contracts_list1xy(i, address, j).call();
-	console.log(contract_ID1)
+	//console.log(contract_ID1)
 	var name = await new web3.eth.Contract(abi, contract_ID1).methods.name().call();
-	console.log(name)
+	//console.log(name)
 	var newDiv = document.createElement('div');
 	//newDiv.id = 'rr'+i + j;
 	
@@ -1067,12 +1067,12 @@ var display = (async function(){
 	
 	
 	//document.write(contract_ID)
-	console.log(contract_ID1)
+	//console.log(contract_ID1)
 	
 	ewDiv.appendChild(newDiv);
 	//document.getElementById("rr" + i + j).innerHTML = "" // "their NFT Contract" + j + ": " + contract_ID1;
 	var tokenID = await contract_bal.methods.tokens_list1xy(i, address, j).call();
-	console.log(tokenID)
+	//console.log(tokenID)
 	
 	
 	
@@ -1154,12 +1154,12 @@ var display = (async function(){
 	for (j=0;j<contract_length1;j++){ 
 	
 	var contract_ID2 = await contract_bal.methods.token_contracts_list2xy(i, address, j).call();
-	console.log("array_contract: " + contract_ID2 + "no# " + i + ' ' + j)
+	//console.log("array_contract: " + contract_ID2 + "no# " + i + ' ' + j)
 	array_contract_ID2.push("'" + contract_ID2 + "'");
 	
 	
 	var name2 = await new web3.eth.Contract(abi, contract_ID2).methods.name().call();
-	console.log(name2)
+	//console.log(name2)
 	
 	var newDiv = document.createElement('div');
 	
@@ -1176,7 +1176,7 @@ var display = (async function(){
 	
 	
 	var tokenID2 = await contract_bal.methods.tokens_list2xy(i, address, j).call();
-	console.log("array_token: " + tokenID2)
+	//console.log("array_token: " + tokenID2)
 	array_tokenID2.push(tokenID2);
 	//document.getElementById("loan_obligation").innerHTML = "Loan is already made is " + obligation;
 	//console.log(obligation)
@@ -1196,7 +1196,7 @@ var display = (async function(){
 	function getImage(xhttp){
 			var result = xhttp.response;
 			JSONresult = JSON.parse(result);
-			console.log(JSONresult.image);
+			//console.log(JSONresult.image);
 			//var result1 = JSONresult.image
 			//return result1
 			var image_ = JSONresult.image
