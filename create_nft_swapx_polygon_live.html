@@ -1019,9 +1019,9 @@ var display = (async function(){
 	
 	var addressCount = await contract_bal.methods.Address_listCount().call();
 	//console.log(addressCount);
-	var fee = await contract_bal.methods.fee().call();
+	//var fee = await contract_bal.methods.fee().call();
 	//console.log("fee" + fee);
-	var num = await contract_bal.methods.last().call();
+	//var num = await contract_bal.methods.last().call();
 	//var last = parseInt(num) + 1
 	//console.log("last: " + last);
 	
@@ -1087,11 +1087,11 @@ var display = (async function(){
 	//newDiv.addEventListener("load", "(image_and_name(" + contract_ID1 + ", " + tokenID + ", getImage))");
 	//chat.appendChild(newDiv);
 	function getImage(xhttp){
-			var result = xhttp.response;
+			//var result = xhttp.response;
 			
 			var result = xhttp.response;
 			JSONresult = JSON.parse(result);
-			console.log(JSONresult.image);
+			//console.log(JSONresult.image);
 			//var result1 = JSONresult.image
 			//return result1
 			var image_ = JSONresult.image
@@ -1215,7 +1215,7 @@ var display = (async function(){
 	
 	
 	
-	document.getElementById("v" + i + j).innerHTML = "" //"NFT Token ID2: " + tokenID2;
+	//document.getElementById("v" + i + j).innerHTML = "" //"NFT Token ID2: " + tokenID2;
 	//var lender = await contract_bal.methods.lender_list(address).call();
 	//console.log(lender)
 	}
@@ -1228,7 +1228,7 @@ var display = (async function(){
 	newBtn.value = "accept trade";
 	//newBtn.setAttribute('onclick', 'to_approve(' + "'" + contract_ID2 + "'" + ","  + "'" + address + "'" + "," + tokenID2 + "," + _i + ')');
 	newBtn.setAttribute('onclick', 'to_approve(' + "[" + array_contract_ID2 + "]" + ","  + "'" + address + "'" + ", [" + array_tokenID2 + "]," + _i + ')');
-	console.log('make_trade(' + "'" + array_contract_ID2 + "'" + ","  + "'" + address + "'" + "," + array_tokenID2 + ')')
+	//console.log('make_trade(' + "'" + array_contract_ID2 + "'" + ","  + "'" + address + "'" + "," + array_tokenID2 + ')')
 	//newBtn.style = "color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute;left:50%;";
 	
 	newBtn.id = 'a' + i;
@@ -1243,7 +1243,7 @@ var display = (async function(){
 	
 	document.getElementById("w" + i).innerHTML = "swap completed: " + latest;
 	//document.getElementById("latest_block").innerHTML = latest;
-	console.log(latest)
+	//console.log(latest)
 	
 	}
 	
