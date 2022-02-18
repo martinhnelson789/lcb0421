@@ -1068,7 +1068,7 @@ var display = (async function(){
 	//newDiv.onload = await "(image_and_name(" + contract_ID1 + ", " + tokenID + ", getImage))"
 	//newDiv.addEventListener("load", "(image_and_name(" + contract_ID1 + ", " + tokenID + ", getImage))");
 	//chat.appendChild(newDiv);
-	ew1Div.addListenerEvent("load", getImage);
+	ew1Div.addEventListener("load", getImage);
 	
 	function getImage(xhttp){
 			//var result = xhttp.response;
@@ -1160,7 +1160,7 @@ var display = (async function(){
 	newDiv.id = 'vs'+i + j;
 	newDiv.loading = "lazy";
 	//chat.appendChild(newDiv);
-	ew2Div.addListenerEvent("load", getImage);
+	ew2Div.addEventListener("load", getImage);
 	
 	function getImage(xhttp){
 			var result = xhttp.response;
@@ -1473,9 +1473,7 @@ alert(totalSupply)
 //return val
 	}
 
-getAccounts(function(result){
-	console.log(result[0]);
-	});
+
 
 
 
