@@ -1018,20 +1018,13 @@ var display = (async function(){
 	
 	
 	var addressCount = await contract_bal.methods.Address_listCount().call();
-	//console.log(addressCount);
-	//var fee = await contract_bal.methods.fee().call();
-	//console.log("fee" + fee);
-	//var num = await contract_bal.methods.last().call();
-	//var last = parseInt(num) + 1
-	//console.log("last: " + last);
 	
 	
 	
-	//for (var i = 0; i<addressCount; i++){
+	
 	for (var i = addressCount; i>0; i--){
 	var address = await contract_bal.methods.address_list(i-1).call();
-	//console.log("address: " + address);
-	//console.log( i);
+	
 	var chat = document.getElementById("contract_address_ID"); // finds the container
 	//var chat = document.createElement("box");
 	
@@ -1056,18 +1049,7 @@ var display = (async function(){
 	var name = await new web3.eth.Contract(abi, contract_ID1).methods.name().call();
 	//console.log(name)
 	var newDiv = document.createElement('div');
-	//newDiv.id = 'rr'+i + j;
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	//document.write(contract_ID)
-	//console.log(contract_ID1)
 	
 	ewDiv.appendChild(newDiv);
 	//document.getElementById("rr" + i + j).innerHTML = "" // "their NFT Contract" + j + ": " + contract_ID1;
@@ -1086,6 +1068,8 @@ var display = (async function(){
 	//newDiv.onload = await "(image_and_name(" + contract_ID1 + ", " + tokenID + ", getImage))"
 	//newDiv.addEventListener("load", "(image_and_name(" + contract_ID1 + ", " + tokenID + ", getImage))");
 	//chat.appendChild(newDiv);
+	ew1Div.addListenerEvent("load", getImage);
+	
 	function getImage(xhttp){
 			//var result = xhttp.response;
 			
@@ -1176,6 +1160,8 @@ var display = (async function(){
 	newDiv.id = 'vs'+i + j;
 	newDiv.loading = "lazy";
 	//chat.appendChild(newDiv);
+	ew2Div.addListenerEvent("load", getImage);
+	
 	function getImage(xhttp){
 			var result = xhttp.response;
 			JSONresult = JSON.parse(result);
