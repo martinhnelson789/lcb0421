@@ -996,7 +996,10 @@ const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
 
 const account_address = [];
 
-const addressCount = await contract_bal.methods.Address_listCount().call();
+ $(document).ready(function(){
+addressCount = await contract_bal.methods.Address_listCount().call();
+}
+var = table_array = [];
 
  $(document).ready(function(){
 //function display_loan_info(){
@@ -1019,11 +1022,11 @@ var display = (async function(){
 	
 	
 	
-	address_count = addressCount
+	//address_count = addressCount
 	
 	
 	
-	for (var i = address_count; i>0; i--){
+	for (var i = addressCount; i>0; i--){
 	var address = await contract_bal.methods.address_list(i-1).call();
 	
 	var chat = document.getElementById("contract_address_ID"); // finds the container
@@ -1212,7 +1215,7 @@ var display = (async function(){
 	document.getElementById("w" + i).innerHTML = "swap completed: " + latest;
 	//document.getElementById("latest_block").innerHTML = latest;
 	//console.log(latest)
-	
+	table_array.push(ewDiv)
 	}
 	
 	
@@ -1226,7 +1229,7 @@ var display = (async function(){
 
 
 
-
+	document.write(table_array);
 
 
 
