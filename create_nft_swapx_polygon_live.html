@@ -37,18 +37,19 @@ cursor: pointer;
 table {
 border-radius: 25px;
 width: 500px;
-height: 100px;
+height: 150px;
 border: 2px solid #5F6C6D;
 
 }
 
 img {
 
-width: 50px;
-height: 50px;
+width: 75px;
+height: 75px;
 border: 2px solid #5F6C6D;
 
 }
+
 
 
 
@@ -85,7 +86,7 @@ font-size: large;
 
 
 <body>
-<h1 style="color:#ba55d3; font-family: helvetica narrow, sans-serif; position:absolute; top:0; left:0;">barterNFT</h1>
+<img id="logo" src=logoCapture.PNG></img>
 <button style="color:#5F6C6D; font-family: helvetica narrow, sans-serif;font-size: x-large;  position:absolute; top:0; right:0;" onclick="open_window()"">offer trade</button>
 <p id="contract_address_ID" style="color:grey; font-family: helvetica narrow, sans-serif; font-size: large; position:absolute; top:35; right:400;"></p>
 
@@ -102,7 +103,7 @@ font-size: large;
 
 
 function open_window() {
-  var myWindow = window.open("create_nft_swap_form_polygonx_live.html", "offer trade", "width=700,height=800");
+  var myWindow = window.open("create_nft_swap_form_polygonx_live.html", "offer trade");
 }             
 
 
@@ -428,11 +429,6 @@ var abi = [
 				"internalType": "uint256",
 				"name": "_fee",
 				"type": "uint256"
-			},
-			{
-				"internalType": "address",
-				"name": "_to",
-				"type": "address"
 			}
 		],
 		"name": "setfee",
@@ -992,15 +988,21 @@ var abi = [
 	//localStorage.setItem("Loan Amount", document.getElementById("loan_amount").value);
 	//localStorage.setItem("Loan Term", document.getElementById("loan_term").value);
 
-var contract_address = web3.utils.toChecksumAddress("0xd284f2833f82732fe68be0be55ce279e5421bb19")
+const contract_address = web3.utils.toChecksumAddress("0x362796183ce6fb4e2215aa6ea57aadbc56b6a870")
 
-var contract_bal = new web3.eth.Contract(abi, contract_address);
+const contract_bal = new web3.eth.Contract(abi, contract_address);
 
-var wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
 
-var account_address = [];
+const account_address = [];
 
 
+ var display_ = (async function(){
+addressCount = await contract_bal.methods.Address_listCount().call();
+})()
+
+
+const = table_array = [];
 
  $(document).ready(function(){
 //function display_loan_info(){
@@ -1018,25 +1020,18 @@ var display = (async function(){
 		
 		
 	
-	var contract_bal = new web3.eth.Contract(abi, contract_address);
+	//const contract_bal = new web3.eth.Contract(abi, contract_address);
 	
 	
 	
-	var addressCount = await contract_bal.methods.Address_listCount().call();
-	console.log(addressCount);
-	var fee = await contract_bal.methods.fee().call();
-	console.log("fee" + fee);
-	var num = await contract_bal.methods.last().call();
-	var last = parseInt(num) + 1
-	console.log("last: " + last);
+	
+	//address_count = addressCount
 	
 	
 	
-	//for (var i = 0; i<addressCount; i++){
 	for (var i = addressCount; i>0; i--){
 	var address = await contract_bal.methods.address_list(i-1).call();
-	console.log("address: " + address);
-	console.log( i);
+	
 	var chat = document.getElementById("contract_address_ID"); // finds the container
 	//var chat = document.createElement("box");
 	
@@ -1057,27 +1052,16 @@ var display = (async function(){
 	var contract_length = await contract_bal.methods.token_contracts_list1xyCount(i, address).call();
 	for (j=0;j<contract_length;j++){
 	var contract_ID1 = await contract_bal.methods.token_contracts_list1xy(i, address, j).call();
-	console.log(contract_ID1)
+	//console.log(contract_ID1)
 	var name = await new web3.eth.Contract(abi, contract_ID1).methods.name().call();
-	console.log(name)
+	//console.log(name)
 	var newDiv = document.createElement('div');
-	//newDiv.id = 'rr'+i + j;
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	//document.write(contract_ID)
-	console.log(contract_ID1)
 	
 	ewDiv.appendChild(newDiv);
 	//document.getElementById("rr" + i + j).innerHTML = "" // "their NFT Contract" + j + ": " + contract_ID1;
 	var tokenID = await contract_bal.methods.tokens_list1xy(i, address, j).call();
-	console.log(tokenID)
+	//console.log(tokenID)
 	
 	
 	
@@ -1087,16 +1071,18 @@ var display = (async function(){
 	newDiv.id = 'rs'+i + j;
 	//newDiv.setAttribute('width', '15%');
 	//newDiv.setAttribute('height', '15%');
-	//newDiv.loading = "lazy";
+	newDiv.loading = "lazy";
 	//newDiv.onload = await "(image_and_name(" + contract_ID1 + ", " + tokenID + ", getImage))"
 	//newDiv.addEventListener("load", "(image_and_name(" + contract_ID1 + ", " + tokenID + ", getImage))");
 	//chat.appendChild(newDiv);
+	ew1Div.addEventListener("load", getImage);
+	
 	function getImage(xhttp){
-			var result = xhttp.response;
+			//var result = xhttp.response;
 			
 			var result = xhttp.response;
 			JSONresult = JSON.parse(result);
-			console.log(JSONresult.image);
+			//console.log(JSONresult.image);
 			//var result1 = JSONresult.image
 			//return result1
 			var image_ = JSONresult.image
@@ -1108,23 +1094,7 @@ var display = (async function(){
             img.src = image_
             ew1Div.appendChild(img);
 			
-			<!-- //var el = document.createElement('html'); -->
-			<!-- //e.innerHTML = result -->
-			<!-- console.log(result) -->
-			<!-- JSONresult = JSON.parse(result); -->
-			<!-- console.log(JSONresult.image); -->
-			<!-- //var result1 = JSONresult.image -->
-			<!-- //return result1 -->
-	
-			<!-- //var img = new Image(); -->
-            <!-- //img.src = JSONresult.image -->
-			<!-- //var image = el.getElementsByTagName( 'img' ) -->
-			<!-- //console.log(image) -->
-			<!-- img.src = JSONresult.image -->
-			<!-- img.id = "rs" & i & j -->
 			
-			
-            <!-- chat.appendChild(img); -->
 			
 	
 	}
@@ -1136,8 +1106,7 @@ var display = (async function(){
 	ew1Div.appendChild(newDiv);
 	
 	document.getElementById("s" + i + j).innerHTML = name //"NFT Token ID1: " + tokenID;
-	//document.getElementById("contract_token_id").innerHTML = tokenID;
-	//document.write(account_address[0])
+	
 	 }
 	
 	
@@ -1152,26 +1121,27 @@ var display = (async function(){
 	var newDiv = document.createElement('div');
 	newDiv.id = 'ss'+i;
 	ewDiv.appendChild(newDiv);
-	document.getElementById("ss" + i).outerHTML = '<center> trade &#8645; trade</center>'
-	var ew1Div = document.createElement('table');
+	document.getElementById("ss" + i).outerHTML = '<center style="color:#ba55d3; font-family: helvetica narrow, sans-serif;"> &#8657; trade &#8659;</center>'
+	var ew2Div = document.createElement('table');
 	
-	ewDiv.appendChild(ew1Div);
+	ewDiv.appendChild(ew2Div);
 	for (j=0;j<contract_length1;j++){ 
 	
 	var contract_ID2 = await contract_bal.methods.token_contracts_list2xy(i, address, j).call();
+	//console.log("array_contract: " + contract_ID2 + "no# " + i + ' ' + j)
 	array_contract_ID2.push("'" + contract_ID2 + "'");
 	
 	
 	var name2 = await new web3.eth.Contract(abi, contract_ID2).methods.name().call();
-	console.log(name2)
+	//console.log(name2)
 	
 	var newDiv = document.createElement('div');
 	
 	
 	
 	newDiv.id = 't'+i + j;
-	ew1Div.appendChild(newDiv);
-	//chat.appendChild(newBtn);
+	ew2Div.appendChild(newDiv);
+	
 	
 	
 	document.getElementById("t" + i + j).innerHTML = name2 // "NFT Contract 2: " + contract_ID2;
@@ -1180,12 +1150,13 @@ var display = (async function(){
 	
 	
 	var tokenID2 = await contract_bal.methods.tokens_list2xy(i, address, j).call();
+	//console.log("array_token: " + tokenID2)
 	array_tokenID2.push(tokenID2);
 	//document.getElementById("loan_obligation").innerHTML = "Loan is already made is " + obligation;
 	//console.log(obligation)
 	var newDiv = document.createElement('div');
 	newDiv.id = 'v'+i + j;
-	ew1Div.appendChild(newDiv);
+	ew2Div.appendChild(newDiv);
 	
 	
 	
@@ -1194,12 +1165,14 @@ var display = (async function(){
 	//console.log(image);
 	var newDiv = document.createElement('img');
 	newDiv.id = 'vs'+i + j;
-	
+	newDiv.loading = "lazy";
 	//chat.appendChild(newDiv);
+	ew2Div.addEventListener("load", getImage);
+	
 	function getImage(xhttp){
 			var result = xhttp.response;
 			JSONresult = JSON.parse(result);
-			console.log(JSONresult.image);
+			//console.log(JSONresult.image);
 			//var result1 = JSONresult.image
 			//return result1
 			var image_ = JSONresult.image
@@ -1209,7 +1182,7 @@ var display = (async function(){
 			 image_ = 'https://ipfs.io/ipfs/' + JSONresult.image.slice(7)
 			}
             img.src = image_
-            ew1Div.appendChild(img);
+            ew2Div.appendChild(img);
 			
 	}
 	
@@ -1218,9 +1191,7 @@ var display = (async function(){
 	
 	
 	
-	document.getElementById("v" + i + j).innerHTML = "" //"NFT Token ID2: " + tokenID2;
-	//var lender = await contract_bal.methods.lender_list(address).call();
-	//console.log(lender)
+	
 	}
 	
 	
@@ -1231,92 +1202,44 @@ var display = (async function(){
 	newBtn.value = "accept trade";
 	//newBtn.setAttribute('onclick', 'to_approve(' + "'" + contract_ID2 + "'" + ","  + "'" + address + "'" + "," + tokenID2 + "," + _i + ')');
 	newBtn.setAttribute('onclick', 'to_approve(' + "[" + array_contract_ID2 + "]" + ","  + "'" + address + "'" + ", [" + array_tokenID2 + "]," + _i + ')');
-	console.log('make_trade(' + "'" + contract_ID2 + "'" + ","  + "'" + address + "'" + "," + tokenID2 + ')')
+	//console.log('make_trade(' + "'" + array_contract_ID2 + "'" + ","  + "'" + address + "'" + "," + array_tokenID2 + ')')
 	//newBtn.style = "color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute;left:50%;";
 	
 	newBtn.id = 'a' + i;
 	
 	
-	ew1Div.appendChild(newBtn);
+	ew2Div.appendChild(newBtn);
 	
 	var latest = await contract_bal.methods.debt_obligation_listx(i, address).call();
 	var newDiv = document.createElement('div');
 	newDiv.id = 'w'+i;
-	ew1Div.appendChild(newDiv);
+	ew2Div.appendChild(newDiv);
 	
 	document.getElementById("w" + i).innerHTML = "swap completed: " + latest;
 	//document.getElementById("latest_block").innerHTML = latest;
-	console.log(latest)
-	
+	//console.log(latest)
+	table_array.push(ewDiv)
 	}
 	
 	
   
 	//document.getElementById("thetable").appendChild(toAdd);
 
-//alert(balance)
+
 
 })()
         });
 
-function prompt_approve(){
-	web3.eth.abi.encodeFunctionSignature('approve(address,uint256)');
-}
-function getapproved(){
 
 
-        localStorage.setItem("mySharedData", document.getElementById("password").value);
-		localStorage.setItem("mySharedData1", document.getElementById("user_name").value);
-	
-	var pwdx = localStorage.getItem("mySharedData");
-	var token_nx = localStorage.getItem("mySharedData1");
-	
-	var contract_address = web3.utils.toChecksumAddress("0xd284f2833f82732fe68be0be55ce279e5421bb19")
-  	
-	
-	var contract_bal = new web3.eth.Contract(abi, contract_address);
-	var bal = contract_bal.methods.getTotalSupplyFromB(token_nx).call();
-	console.log(bal)
-	return bal
-	}
-
-function check_approved(){
-var approve = (async function(){
-  
-  
-  var result = await getapproved()
-  	
-  console.log('Woo done!', result)
-  balance = result
-  
-	console.log(balance)
-
-//alert(balance)
-
-})()
-}
+	document.write(table_array);
 
 
-function getAccounts(){
-	var res = web3.eth.getAccounts(); 
-	return res;
-	
-}
+
+
 
 function make_trade(add1x, add2x, tokenID, n){
-//localStorage.setItem("NFT Contract", document.getElementById("NFT_contract").value);
-	//localStorage.setItem("NFT Token ID", document.getElementById("NFT_Token_ID").value);
-	//localStorage.setItem("Loan Amount", document.getElementById("loan_amount").value);
-	//localStorage.setItem("Loan Term", document.getElementById("loan_term").value);
-	//localStorage.setItem("mySharedData", document.getElementById("password").value);
-	
-	//var nft_k = localStorage.getItem("NFT Contract");
-	//var nft_id = localStorage.getItem("NFT Token ID");
-	//var loan_amt = localStorage.getItem("Loan Amount");
-	//var loan_term = localStorage.getItem("Loan Term");
-	//var add1x = localStorage.getItem("mySharedData");
-//account_address.push(add1x)
-//console.log(account_address[0])
+
 	var nft = add1x
 	var address = add2x
 	var nft_id = tokenID
@@ -1330,11 +1253,7 @@ var acct = (async function(){
 	
 	
 	
-	//console.log(nft_k);
-	//console.log(nft_id);
-	//console.log(loan_amt);
-	//console.log(loan_term);
- 	//var contract = web3.utils.toChecksumAddress(nft_k);
+	
 	
         var _data = new web3.eth.Contract(abi, contract_address).methods.accept_trade(num, address).encodeABI();
         var accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
@@ -1344,66 +1263,14 @@ var acct = (async function(){
         console.log(account)
 		
 	await web3.eth.sendTransaction({'gas': web3.utils.toHex(500000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address, 'nonce': web3.utils.toHex(_nonce),'data': _data})
-         //window.ethereum.on('accountsChanged', function (accounts) {
-            // Time to reload your interface with accounts[0]!
-            //console.log(accounts[0])
-           	
-  //console.log('Woo done!', result[0])
-  //balance = result
-  //alert(balance)
+         
 
 })()
 }
 
 	
 	
-function loan_request(){
-localStorage.setItem("NFT Contract", document.getElementById("NFT_contract").value);
-	localStorage.setItem("NFT Token ID", document.getElementById("NFT_Token_ID").value);
-	localStorage.setItem("Loan Amount", document.getElementById("loan_amount").value);
-	localStorage.setItem("Loan Term", document.getElementById("loan_term").value);
-	localStorage.setItem("mySharedData", document.getElementById("password").value);
-	
-	var nft_k = localStorage.getItem("NFT Contract");
-	var nft_id = localStorage.getItem("NFT Token ID");
-	var loan_amt = localStorage.getItem("Loan Amount");
-	var loan_term = localStorage.getItem("Loan Term");
-	var add1x = localStorage.getItem("mySharedData");
-//account_address.push(add1x)
-//console.log(account_address[0])
-var acct = (async function(){
-  	
-  //var result = await getAccounts()
-	await window.ethereum.enable();
-	
-	
-	
-	
-	
-	console.log(nft_k);
-	console.log(nft_id);
-	console.log(loan_amt);
-	console.log(loan_term);
- 	var contract = web3.utils.toChecksumAddress(nft_k);
-	
-        var _data = new web3.eth.Contract(abi, contract_address).methods.createLoanRequest(contract, nft_id, loan_amt, loan_term).encodeABI();
-        var accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-        var account = accounts[0];
-	var result = await web3.eth.getTransactionCount(account)
-	_nonce = result
-        console.log(account)
-		
-	await web3.eth.sendTransaction({'gas': web3.utils.toHex(500000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address, 'nonce': web3.utils.toHex(_nonce),'data': _data})
-         //window.ethereum.on('accountsChanged', function (accounts) {
-            // Time to reload your interface with accounts[0]!
-            //console.log(accounts[0])
-           	
-  //console.log('Woo done!', result[0])
-  //balance = result
-  //alert(balance)
 
-})()
-}
 
 
 
@@ -1439,11 +1306,7 @@ function image_and_name(k,n, getImage){
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             getImage(this)
-			//var result = this.response;
-			//JSONresult = JSON.parse(result);
-			//console.log(JSONresult.image);
-			//var result1 = JSONresult.image
-			//return result1
+			
        }
 	
     };
@@ -1474,19 +1337,11 @@ var acct = (async function(){
   	
   //var result = await getAccounts()
 	await window.ethereum.enable();
-	//localStorage.setItem("mySharedData", document.getElementById("password").value);
-	//localStorage.setItem("mySharedData1", document.getElementById("user_name").value);
-	//localStorage.setItem("mySharedData2", document.getElementById("user_name1").value);
+	
 	
 	//var add1x = localStorage.getItem("mySharedData");
 	var add1x = addx
-	//var add2x = localStorage.getItem("mySharedData2");
-	//var token_nx = localStorage.getItem("mySharedData1");
 	
-	//localStorage.setItem("NFT Contract", document.getElementById("NFT_contract").value);
-	//localStorage.setItem("NFT Token ID", document.getElementById("NFT_Token_ID").value);
-	//localStorage.setItem("Loan Amount", document.getElementById("loan_amount").value);
-	//localStorage.setItem("Loan Term", document.getElementById("loan_term").value);
 	
 	var nft_k = localStorage.getItem("NFT Contract");
 	//var nft_id = localStorage.getItem("NFT Token ID");
@@ -1578,16 +1433,7 @@ var acct = (async function(){
   	
   //var result = await getAccounts()
 	await window.ethereum.enable();
-	//localStorage.setItem("mySharedData", document.getElementById("password").value);
-	//localStorage.setItem("mySharedData1", document.getElementById("user_name").value);
-	//localStorage.setItem("mySharedData2", document.getElementById("user_name1").value);
 	
-	//localStorage.setItem("NFT Contract", document.getElementById("NFT_contract").value);
-	//localStorage.setItem("NFT Token ID", document.getElementById("NFT_Token_ID").value);
-	//localStorage.setItem("Loan Amount", document.getElementById("loan_amount").value);
-	//localStorage.setItem("Loan Term", document.getElementById("loan_term").value);
-	
-	//var nft_k = localStorage.getItem("NFT Contract");
 	for (var i = 0; i<k.length; i++){
 	var nft_k = k[i]
 	//var nft_id = localStorage.getItem("NFT Token ID");
@@ -1602,7 +1448,7 @@ var acct = (async function(){
 	var token_nx = localStorage.getItem("mySharedData1");
 	
  	var contract_address1 = web3.utils.toChecksumAddress(nft_k)
-        var _data = new web3.eth.Contract(abi, contract_address).methods.approve("0xd284f2833f82732fe68be0be55ce279e5421bb19", nft_id).encodeABI();
+        var _data = new web3.eth.Contract(abi, contract_address).methods.approve("0x362796183ce6fb4e2215aa6ea57aadbc56b6a870", nft_id).encodeABI();
         var accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         var account = accounts[0];
 	var result = await web3.eth.getTransactionCount(account)
@@ -1625,7 +1471,7 @@ var acct = (async function(){
 
 function getNFT(){
 var my_nft =(async function(){
-var contract_address = await web3.utils.toChecksumAddress("0xd284f2833f82732fe68be0be55ce279e5421bb19")
+var contract_address = await web3.utils.toChecksumAddress("0x362796183ce6fb4e2215aa6ea57aadbc56b6a870")
 
 var contract_bal = await new web3.eth.Contract(abi, contract_address);
 var totalSupply = await contract_bal.methods.baseURI().call();
@@ -1634,50 +1480,9 @@ alert(totalSupply)
 //return val
 	}
 
-getAccounts(function(result){
-	console.log(result[0]);
-	});
 
 
-function loan_amount(){
 
-
-        localStorage.setItem("mySharedData", document.getElementById("password").value);
-    
-	
-	var pwdx = localStorage.getItem("mySharedData");
-
-	var contract_address = web3.utils.toChecksumAddress("0xd284f2833f82732fe68be0be55ce279e5421bb19")
-  	
-	
-	var contract_bal = new web3.eth.Contract(abi, contract_address);
-	var bal = contract_bal.methods.token_contracts_list(pwdx).call();
-	var loan_ = contract_bal.methods.loan_amount_list(pwdx).call();
-	console.log(loan_)
-	return bal
-	}
-
-function check_loan_amount(){
-var approve = (async function(){
-  
-//if (i > 1){
-	//show1()
-	//}else{
-  var result = await loan_amount()
-  	
-  console.log('Woo done!', result)
-  balance = result
-  
-	//if(balance == true){
-  	//show1();
-	//}else{
-	//alert("sign in")
-	//}
-//}
-//alert(balance)
-
-})()
-}
 
 function getName(k){
 //q = $('input[name=drone]:checked').val();	
@@ -1704,25 +1509,7 @@ var val = (async function(){
 
 
 
-function getvalue1(n){
-//q = $('input[name=drone]:checked').val();	
-	//alert(bal)
-	
-var val = (async function(){
-  var contract_address = await web3.utils.toChecksumAddress("0xd284f2833f82732fe68be0be55ce279e5421bb19")
-  var wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
-  var contract_bal = await new web3.eth.Contract(abi, contract_address);
-  var bal = await contract_bal.methods.getHashmap1(wallet_address, n).call();
-  //alert(bal)
-  //var result = await getvalue()
-  //console.log('Woo done!', result)
-  answers2.push(" " + bal);
-if (i > 80){
-			containsX();
-			}
-})()
-//return val
-	}
+
 
 
 
