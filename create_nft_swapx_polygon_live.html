@@ -1,7 +1,7 @@
 
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/plain"; Charset=UTF-8">
+
 <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
@@ -100,7 +100,7 @@ font-size: large;
 
 
 <script>
-
+//<meta http-equiv="Content-Type" content="text/plain"; Charset=UTF-8">
 
 function open_window() {
   var myWindow = window.open("create_nft_swap_form_polygonx_live.html", "offer trade");
@@ -1075,12 +1075,16 @@ var display = (async function(){
 	//chat.appendChild(newDiv);
 	ew1Div.addEventListener("load", getImage);
 	
-	try {
+	
 	function getImage(xhttp){
 			//var result = xhttp.response;
 			
 			var result = xhttp.response;
+			try {
 			JSONresult = JSON.parse(result);
+			} catch {
+			JSONresult = result
+			}
 			//console.log(JSONresult.image);
 			//var result1 = JSONresult.image
 			//return result1
@@ -1097,9 +1101,7 @@ var display = (async function(){
 			
 	
 	}
-	} finally { 
-	continue 
-	}
+	
 	
 	
 	var newDiv = document.createElement('div');
