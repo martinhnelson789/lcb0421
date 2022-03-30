@@ -1075,6 +1075,7 @@ var display = (async function(){
 	//chat.appendChild(newDiv);
 	ew1Div.addEventListener("load", getImage);
 	
+	try {
 	function getImage(xhttp){
 			//var result = xhttp.response;
 			
@@ -1096,7 +1097,9 @@ var display = (async function(){
 			
 	
 	}
-	
+	} finally { 
+	continue 
+	}
 	
 	
 	var newDiv = document.createElement('div');
