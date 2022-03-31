@@ -1134,7 +1134,7 @@ var _image = (async function(){
 			 image_ = 'https://ipfs.io/ipfs/' + JSONresult.image.slice(7)
 			}
             img.src = image_
-            ew1Div.appendChild(img);
+            //ew1Div.appendChild(img);
 			console.log(image_)
 			return 1
 			
@@ -1171,8 +1171,8 @@ var display = (async function(){
 	
 	var addressCount = await contract_bal.methods.Address_listCount().call();
 	console.log(addressCount);
-	var fee = await contract_bal.methods.Address_fee().call();
-	console.log(fee);
+	//var fee = await contract_bal.methods.Address_fee().call();
+	//console.log(fee);
 	
 	var toAdd = document.createDocumentFragment();
 	for (var i = addressCount-1; i>=0; i++){
