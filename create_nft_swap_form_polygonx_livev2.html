@@ -1201,12 +1201,14 @@ var _image = (async function(){
 	//newDiv.addEventListener("load", "(image_and_name(" + contract_ID1 + ", " + tokenID + ", getImage))");
 	//chat.appendChild(newDiv);
 	//ew1Div.addEventListener("load", getImage);
+	
 	return 1
 	
 	})()
-	var image1 = j_image
-	console.log(image1)
+	
 	}
+	
+	console.log()
 	
 	function getImage(xhttp){
 			//var result = xhttp.response;
@@ -1227,8 +1229,9 @@ var _image = (async function(){
 			 image_ = 'https://ipfs.io/ipfs/' + JSONresult.image.slice(7)
 			}
             img.src = image_
-            //ew1Div.appendChild(img);
 			j_image = image_
+            //ew1Div.appendChild(img);
+			
 			
 			return 1
 			
