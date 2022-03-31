@@ -1029,7 +1029,7 @@ var display = (async function(){
 	
 	for (var i = addressCount; i>0; i--){
 	var address = await contract_bal.methods.address_list(i-1).call();
-	
+	var address = web3.utils.toChecksumAddress(address)
 	var chat = document.getElementById("contract_address_ID"); // finds the container
 	//var chat = document.createElement("box");
 	
@@ -1080,11 +1080,11 @@ var display = (async function(){
 			//var result = xhttp.response;
 			
 			var result = xhttp.response;
-			try {
+			
 			JSONresult = JSON.parse(result);
-			} catch {
-			JSONresult = result
-			}
+			
+			//JSONresult = result
+			
 			//console.log(JSONresult.image);
 			//var result1 = JSONresult.image
 			//return result1
