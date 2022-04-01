@@ -1196,6 +1196,7 @@ var display = (async function(){
 	}
 	
 	var _image = await contract_bal.methods.tokens_image1xy(i, address, j).call();
+	console.log(_image);
 	var img = new Image;
 	img.src = _image;
 	ew1Div.appendChild(img);
