@@ -1277,19 +1277,20 @@ var display = (async function(){
 			//return result1
 			var image_ = JSONresult.image
 			
-			var img = new Image();
+			//var img = new Image();
 			if (JSONresult.image.substring(0,4) == "ipfs"){
 			 image_ = 'https://ipfs.io/ipfs/' + JSONresult.image.slice(7)
 			}
-            img.src = image_
-            ew2Div.appendChild(img);
+            //img.src = image_
+            //ew2Div.appendChild(img);
 			
 	}
 	
-	
-	
-	
-	
+	var _image2 = await contract_bal.methods.tokens_image1xy(i, address, j).call();
+	console.log(_image2);
+	var img = new Image();
+	img.src = _image2
+	ew2Div.appendChild(img);
 	
 	
 	}
