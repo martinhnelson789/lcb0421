@@ -1158,7 +1158,7 @@ var _image = (async function(){
 	//newDiv.addEventListener("load", "(image_and_name(" + contract_ID1 + ", " + tokenID + ", getImage))");
 	//chat.appendChild(newDiv);
 	//ew1Div.addEventListener("load", getImage);
-	to_approve()
+	
 	return 1
 	
 	})()
@@ -1186,11 +1186,12 @@ var _image = (async function(){
 			 image_ = 'https://ipfs.io/ipfs/' + JSONresult.image.slice(7)
 			}
             img.src = image_
+			console.log(image_);
 			document.getElementById("content1").innerHTML = image_
             //ew1Div.appendChild(img);
 			
 			
-			return image_
+			//return image_
 			
 			
 	
@@ -1215,11 +1216,12 @@ var _image = (async function(){
 			 image_ = 'https://ipfs.io/ipfs/' + JSONresult.image.slice(7)
 			}
             img.src = image_
+			console.log(image_);
 			document.getElementById("content2").innerHTML = image_
             //ew1Div.appendChild(img);
 			
-			
-			return image_
+			to_approve()
+			//return image_
 			
 			
 	
