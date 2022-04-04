@@ -1316,15 +1316,15 @@ localStorage.setItem("NFT_contract1", document.getElementById("NFT_contract1").v
 	localStorage.setItem("NFT_Token_ID2", document.getElementById("NFT_Token_ID2").value);
 	//localStorage.setItem("mySharedData", document.getElementById("password").value);
 	
-	localStorage.setItem("content1", document.getElementById("content1").value);
-	localStorage.setItem("content2", document.getElementById("content2").value);
+	//localStorage.setItem("content1", document.getElementById("content1").value);
+	//localStorage.setItem("content2", document.getElementById("content2").value);
 	
 	var nft_k = localStorage.getItem("NFT_contract1");
 	var nft_id = localStorage.getItem("NFT_Token_ID1");
 	var loan_amt = localStorage.getItem("NFT_contract2");
 	var loan_term = localStorage.getItem("NFT_Token_ID2");
-	var img1 = localStorage.getItem("content1");
-	var img2 = localStorage.getItem("content2");
+	var img1 = document.getElementById("content1").value;
+	var img2 = document.getElementById("content2").value;
 	//var add1x = localStorage.getItem("mySharedData");
 //account_address.push(add1x)
 //console.log(account_address[0])
