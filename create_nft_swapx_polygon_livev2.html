@@ -106,7 +106,7 @@ font-size: large;
 //<meta http-equiv="Content-Type" content="text/plain"; Charset=UTF-8">
 
 function open_window() {
-  var myWindow = window.open("create_nft_swap_form_polygonx_live.html", "offer trade");
+  var myWindow = window.open("create_nft_swap_form_polygonx_livev3.html", "offer trade");
 }             
 
 
@@ -120,6 +120,10 @@ function open_window() {
 //})()
 
 //sleep(200);
+function connect(){
+    provider.request({ method: "eth_requestAccounts" })
+         
+  };
 web3 = new Web3(web3.currentProvider);        
 
 //var web3 = new Web3(new Web3.providers.HttpProvider(
@@ -1093,11 +1097,7 @@ const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
 const account_address = [];
 
 
-function connect(){
-    provider.request({ method: "eth_requestAccounts" })
-         .then(response => console.log(response)
-         .catch(err => console.log(err)
-  };
+
 
 
 
