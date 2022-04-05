@@ -1223,8 +1223,8 @@ var display = (async function(){
 	
 	var contract_length1 = await contract_bal.methods.token_contracts_list2xyCount(i, address).call();
 	
-	//var array_contract_ID2 = new Array();
-	//var array_tokenID2 = new Array();
+	var array_contract_ID2 = new Array();
+	var array_tokenID2 = new Array();
 	
 	var newDiv = document.createElement('div');
 	newDiv.id = 'ss'+i;
@@ -1237,7 +1237,7 @@ var display = (async function(){
 	
 	var contract_ID2 = await contract_bal.methods.token_contracts_list2xy(i, address, j).call();
 	//console.log("array_contract: " + contract_ID2 + "no# " + i + ' ' + j)
-	//array_contract_ID2.push("'" + contract_ID2 + "'");
+	array_contract_ID2.push("'" + contract_ID2 + "'");
 	
 	
 	var name2 = await new web3.eth.Contract(abi, contract_ID2).methods.name().call();
@@ -1259,7 +1259,7 @@ var display = (async function(){
 	
 	//var tokenID2 = await contract_bal.methods.tokens_list2xy(i, address, j).call();
 	//console.log("array_token: " + tokenID2)
-	//array_tokenID2.push(tokenID2);
+	array_tokenID2.push(tokenID2);
 	//document.getElementById("loan_obligation").innerHTML = "Loan is already made is " + obligation;
 	//console.log(obligation)
 	var newDiv = document.createElement('div');
