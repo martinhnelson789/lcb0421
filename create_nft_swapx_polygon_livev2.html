@@ -1156,7 +1156,7 @@ var display = (async function(){
 	
 	
 	
-	var image = await image_and_name(contract_ID1, tokenID, getImage);
+	//var image = await image_and_name(contract_ID1, tokenID, getImage);
 	//console.log(image);
 	var newDiv = document.createElement('img');
 	newDiv.id = 'rs'+i + j;
@@ -1166,7 +1166,7 @@ var display = (async function(){
 	//newDiv.onload = await "(image_and_name(" + contract_ID1 + ", " + tokenID + ", getImage))"
 	//newDiv.addEventListener("load", "(image_and_name(" + contract_ID1 + ", " + tokenID + ", getImage))");
 	//chat.appendChild(newDiv);
-	ew1Div.addEventListener("load", getImage);
+	//ew1Div.addEventListener("load", getImage);
 	
 	
 	function getImage(xhttp){
@@ -1261,13 +1261,13 @@ var display = (async function(){
 	
 	
 	
-	var image1 = image_and_name(contract_ID2, tokenID2, getImage);
+	//var image1 = image_and_name(contract_ID2, tokenID2, getImage);
 	//console.log(image);
 	var newDiv = document.createElement('img');
 	newDiv.id = 'vs'+i + j;
 	newDiv.loading = "lazy";
 	//chat.appendChild(newDiv);
-	ew2Div.addEventListener("load", getImage);
+	//ew2Div.addEventListener("load", getImage);
 	
 	function getImage(xhttp){
 			var result = xhttp.response;
