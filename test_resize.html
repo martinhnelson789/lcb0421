@@ -1,7 +1,8 @@
 <html>
 <body>
-<input type="text" class="your-nft" id="fileinput" name="NFT_contract1" style="color:grey; font-family: helvetica narrow, sans-serif; font-size:x-large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:218; right:790;">NFT contract address 1</label>	
+<input type="text" class="your-nft" id="fileinput" name="NFT_contract1" style="color:grey; font-family: helvetica narrow, sans-serif; font-size:x-large;">
 <canvas id='form'></canvas>
+<input type="button" class="btn" value="resize" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;" onClick="processfile()"/>
 </body>
 <head>
 <script>
@@ -13,7 +14,7 @@ var max_height = fileinput.getAttribute('data-maxheight');
 var preview = document.getElementById('preview');
 
 var form = document.getElementById('form');
-
+var file = fileinput
 function processfile(file) {
   
     if( !( /image/i ).test( file.type ) )
