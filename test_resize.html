@@ -1,9 +1,10 @@
 <html>
 <body>
 <input type="text" class="your-nft" id="fileinput" name="NFT_contract1" style="color:grey; font-family: helvetica narrow, sans-serif; font-size:x-large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:218; right:790;">NFT contract address 1</label>	
-<p id='form'></p>
+<canvas id='form'></canvas>
 </body>
 <head>
+<script>
 var fileinput = document.getElementById('fileinput');
 
 var max_width = fileinput.getAttribute('data-maxwidth');
@@ -109,5 +110,6 @@ function resizeMe(img) {
   return canvas.toDataURL("image/jpeg",0.7); // get the data from canvas as 70% JPG (can be also PNG, etc.)
 
 }
+</script>
 </head>
 </html>
