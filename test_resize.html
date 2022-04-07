@@ -14,8 +14,11 @@ var max_height = fileinput.getAttribute('data-maxheight');
 var preview = document.getElementById('preview');
 
 var form = document.getElementById('form');
-var file = fileinput
-function processfile(file) {
+var file = fileinput;
+var img = new Image();
+img.src = file;
+
+function processfile(img) {
   
     <!-- if( !( /image/i ).test( file.type ) ) -->
         <!-- { -->
