@@ -2,7 +2,7 @@
 <body>
 <input type="text" class="your-nft" id="fileinput" name="NFT_contract1" style="color:grey; font-family: helvetica narrow, sans-serif; font-size:x-large;">
 <canvas id='form'></canvas>
-<img id='preview'></img>
+<img id='myImg'></img>
 <input type="button" class="btn" value="resize" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;" onClick="processfile()"/>
 </body>
 <head>
@@ -28,9 +28,21 @@ var form = document.getElementById('form');
   <!-- processfile(data) -->
 <!-- })() -->
 
+fetch('https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg')
+  .then(res => res.blob()) // Gets the response and returns it as a blob
+  .then(blob => {
+    // Here's where you get access to the blob
+    // And you can use it for whatever you want
+    // Like calling ref().put(blob)
 
+    // Here, I use it to make an image appear on the page
+    let objectURL = URL.createObjectURL(blob);
+    //processfile(blob);
+	let myImage = new Image();
+    myImage.src = objectURL;
+    document.getElementById('myImg').appendChild(myImage)
 
-
+}
 function processfile(file) {
   
 fetch('https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg')
