@@ -17,15 +17,30 @@ var form = document.getElementById('form');
 
 //const file = await getFileFromUrl(fileinput, 'example.jpg');
 
-var display = (async function(){
-  const url = 'https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg'
-  const response = await fetch(url);
-  const data = await response.blob();
-  //return new File([data], name, {
-    //type: data.type || defaultType,
-	//}
-  processfile(data)
-})()
+<!-- var display = (async function(){ -->
+  <!-- const url = 'https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg' -->
+  <!-- const response = await fetch(url); -->
+  <!-- const data = await response.blob(); -->
+  <!-- //return new File([data], name, { -->
+    <!-- //type: data.type || defaultType, -->
+	<!-- //} -->
+  <!-- processfile(data) -->
+<!-- })() -->
+
+fetch('https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg')
+  .then(res => res.blob()) // Gets the response and returns it as a blob
+  .then(blob => {
+    // Here's where you get access to the blob
+    // And you can use it for whatever you want
+    // Like calling ref().put(blob)
+
+    // Here, I use it to make an image appear on the page
+    let objectURL = URL.createObjectURL(blob);
+    processfile(objectURL);
+	let myImage = new Image();
+    myImage.src = objectURL;
+    //document.getElementById('myImg').appendChild(myImage)
+});
 
 
 function processfile(file) {
