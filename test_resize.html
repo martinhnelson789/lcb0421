@@ -14,11 +14,11 @@ var max_height = fileinput.getAttribute('data-maxheight');
 var preview = document.getElementById('preview');
 
 var form = document.getElementById('form');
-var file = fileinput;
-var img = new Image();
-img.src = file;
 
-function processfile(img) {
+const file = await getFileFromUrl(fileinput, 'example.jpg');
+
+
+function processfile(file) {
   
     <!-- if( !( /image/i ).test( file.type ) ) -->
         <!-- { -->
@@ -80,6 +80,13 @@ fileinput.onchange = function(){
 }
 
 // === RESIZE ====
+async function getFileFromUrl(url, name, defaultType = 'image/jpeg'){
+  const response = await fetch(url);
+  const data = await response.blob();
+  return new File([data], name, {
+    type: data.type || defaultType,
+  });
+}
 
 function resizeMe(img) {
   
