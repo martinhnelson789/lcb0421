@@ -15,7 +15,16 @@ var preview = document.getElementById('preview');
 
 var form = document.getElementById('form');
 
-const file = await getFileFromUrl(fileinput, 'example.jpg');
+//const file = await getFileFromUrl(fileinput, 'example.jpg');
+
+var display = (async function(){
+  const url = 'https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg'
+  const response = await fetch(url);
+  const data = await response.blob();
+  return new File([data], name, {
+    type: data.type || defaultType,
+  processfile(data)
+})()
 
 
 function processfile(file) {
@@ -80,13 +89,7 @@ fileinput.onchange = function(){
 }
 
 // === RESIZE ====
-async function getFileFromUrl(url, name, defaultType = 'image/jpeg'){
-  const response = await fetch(url);
-  const data = await response.blob();
-  return new File([data], name, {
-    type: data.type || defaultType,
-  });
-}
+
 
 function resizeMe(img) {
   
