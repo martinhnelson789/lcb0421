@@ -36,7 +36,7 @@ fetch(imgurl)
   var urlCreator = window.URL || window.webkitURL;
    var imageUrl = urlCreator.createObjectURL(myBlob);
    const myImgElem = document.getElementById('my-img');
-   myImgElem.src = imageUrl
+   myImgElem.src = resizeMe(imageUrl);
 })
 
 
