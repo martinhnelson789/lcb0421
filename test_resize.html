@@ -21,8 +21,9 @@ var display = (async function(){
   const url = 'https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg'
   const response = await fetch(url);
   const data = await response.blob();
-  return new File([data], name, {
-    type: data.type || defaultType,
+  //return new File([data], name, {
+    //type: data.type || defaultType,
+	//}
   processfile(data)
 })()
 
