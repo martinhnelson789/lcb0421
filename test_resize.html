@@ -3,6 +3,7 @@
 <input type="text" class="your-nft" id="fileinput" name="NFT_contract1" style="color:grey; font-family: helvetica narrow, sans-serif; font-size:x-large;">
 <canvas id='form'></canvas>
 <img id='myImg'></img>
+<img id="my-img" /></img>
 <input type="button" class="btn" value="resize" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;" onClick="processfile()"/>
 </body>
 <head>
@@ -28,21 +29,17 @@ var form = document.getElementById('form');
   <!-- processfile(data) -->
 <!-- })() -->
 
-fetch('https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg')
-  .then(res => res.blob()) // Gets the response and returns it as a blob
-  .then(blob => {
-    // Here's where you get access to the blob
-    // And you can use it for whatever you want
-    // Like calling ref().put(blob)
-
-    // Here, I use it to make an image appear on the page
-    let objectURL = URL.createObjectURL(blob);
-    //processfile(blob);
-	let myImage = new Image();
-    myImage.src = objectURL;
-    document.getElementById('myImg').appendChild(myImage)
-
+const imgurl = "https://cdn62.picsart.com/182788826000202.jpg?type=webp&to=crop&r=256"
+fetch(imgurl)
+  .then(response => response.blob())
+  .then(myBlob => {
+  var urlCreator = window.URL || window.webkitURL;
+   var imageUrl = urlCreator.createObjectURL(myBlob);
+   const myImgElem = document.getElementById('my-img');
+   myImgElem.src = imageUrl
 })
+
+
 function processfile(file) {
   
 fetch('https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg')
