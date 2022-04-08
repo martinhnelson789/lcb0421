@@ -56,7 +56,7 @@ fetch('https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzH
     var reader = new FileReader();
     //reader.readAsArrayBuffer(blob);
     
-    reader.onload = function (event) {
+    //reader.onload = function (event) {
       // blob stuff
       //var blob = new Blob([event.target.result]); // create blob...
       window.URL = window.URL || window.webkitURL;
@@ -66,7 +66,7 @@ fetch('https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzH
       var image = new Image();
       image.src = blobURL;
       //preview.appendChild(image); // preview commented out, I am using the canvas instead
-      image.onload = function() {
+      //image.onload = function() {
         // have to wait till it's loaded
         var resized = resizeMe(image); // send it to canvas
         var newinput = document.createElement("input");
@@ -74,8 +74,9 @@ fetch('https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzH
         newinput.name = 'images[]';
         newinput.value = resized; // put result from canvas into new hidden input
         form.appendChild(newinput);
-      }
+      //}
 	  });
+	  
     };
 }
 
