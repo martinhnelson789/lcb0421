@@ -37,10 +37,21 @@ fetch(imgurl)
    var imageUrl = urlCreator.createObjectURL(myBlob);
    //const myImgElem = document.getElementById('my-img');
    var myImgElem = new Image;
-   myImgElem.width = "50"
-   myImgElem.height = "50"
+   
    myImgElem.src = imageUrl;
-   resizeMe(myImgElem);
+   const canvas = document.createElement(‘canvas’);
+	canvas.width = "50";
+	canvas.height = "50";
+	
+	const ctx = canvas.getContext(‘2d’);
+	ctx.drawImage(myImgElem, 0, 0, "50", "50");
+	
+	canvas.toBlob(function (blob) {
+  // Handle the compressed image
+	}, mimeType, quality);
+
+	document.body.append(canvas);
+  
 })
 
 
