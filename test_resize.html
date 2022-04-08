@@ -37,6 +37,8 @@ fetch(imgurl)
    var imageUrl = urlCreator.createObjectURL(myBlob);
    //const myImgElem = document.getElementById('my-img');
    var myImgElem = new Image;
+   myImgElem.width = "50"
+   myImgElem.height = "50"
    myImgElem.src = imageUrl;
    resizeMe(myImgElem);
 })
@@ -76,6 +78,7 @@ fetch('https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzH
       
       // helper Image object
       var image = new Image();
+	  
       image.src = blobURL;
       //preview.appendChild(image); // preview commented out, I am using the canvas instead
       //image.onload = function() {
