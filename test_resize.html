@@ -3,7 +3,7 @@
 <input type="text" class="your-nft" id="fileinput" name="NFT_contract1" style="color:grey; font-family: helvetica narrow, sans-serif; font-size:x-large;">
 <canvas id='form'></canvas>
 <img id='myImg'></img>
-<img id="my-img" /></img>
+<canvas id="my-img" width="200" height="100"></canvas>
 <input type="button" class="btn" value="resize" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;" onClick="processfile()"/>
 </body>
 <head>
@@ -35,22 +35,22 @@ fetch(imgurl)
   .then(myBlob => {
   var urlCreator = window.URL || window.webkitURL;
    var imageUrl = urlCreator.createObjectURL(myBlob);
-   //const myImgElem = document.getElementById('my-img');
-   var myImgElem = new Image;
+   const myImgElem = document.getElementById('my-img');
+   //var myImgElem = new Image;
    
    myImgElem.src = imageUrl;
-   const canvas = document.createElement('canvas');
-	canvas.width = "50";
-	canvas.height = "50";
+   <!-- const canvas = document.createElement('canvas'); -->
+	<!-- canvas.width = "50"; -->
+	<!-- canvas.height = "50"; -->
 	
-	const ctx = canvas.getContext(‘2d’);
-	ctx.drawImage(myImgElem, 0, 0, "50", "50");
+	<!-- const ctx = canvas.getContext(‘2d’); -->
+	<!-- ctx.drawImage(myImgElem, 0, 0, "50", "50"); -->
 	
-	canvas.toBlob(function (blob) {
-  // Handle the compressed image
-	}, mimeType, quality);
+	<!-- canvas.toBlob(function (blob) { -->
+  <!-- // Handle the compressed image -->
+	<!-- }, mimeType, quality); -->
 
-	document.body.append(canvas);
+	<!-- document.body.append(canvas); -->
   
 })
 
