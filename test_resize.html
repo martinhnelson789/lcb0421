@@ -27,6 +27,11 @@ var form = document.getElementById('form');
   <!-- processfile(data) -->
 <!-- })() -->
 
+
+
+
+function processfile(file) {
+  
 fetch('https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg')
   .then(res => res.blob()) // Gets the response and returns it as a blob
   .then(blob => {
@@ -35,16 +40,12 @@ fetch('https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzH
     // Like calling ref().put(blob)
 
     // Here, I use it to make an image appear on the page
-    let objectURL = URL.createObjectURL(blob);
-    processfile(blob);
-	let myImage = new Image();
-    myImage.src = objectURL;
+    //let objectURL = URL.createObjectURL(blob);
+    //processfile(blob);
+	//let myImage = new Image();
+    //myImage.src = objectURL;
     //document.getElementById('myImg').appendChild(myImage)
-});
 
-
-function processfile(file) {
-  
     <!-- if( !( /image/i ).test( file.type ) ) -->
         <!-- { -->
             <!-- alert( "File "+ file.name +" is not an image." ); -->
@@ -53,11 +54,11 @@ function processfile(file) {
 
     // read the files
     var reader = new FileReader();
-    reader.readAsArrayBuffer(file);
+    //reader.readAsArrayBuffer(blob);
     
     reader.onload = function (event) {
       // blob stuff
-      var blob = new Blob([event.target.result]); // create blob...
+      //var blob = new Blob([event.target.result]); // create blob...
       window.URL = window.URL || window.webkitURL;
       var blobURL = window.URL.createObjectURL(blob); // and get it's URL
       
@@ -74,6 +75,7 @@ function processfile(file) {
         newinput.value = resized; // put result from canvas into new hidden input
         form.appendChild(newinput);
       }
+	  });
     };
 }
 
