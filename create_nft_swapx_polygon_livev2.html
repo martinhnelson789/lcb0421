@@ -1218,7 +1218,7 @@ fetch(imgurl)
 	img.src = imageUrl
 	ew1Div.addEventListener("load", getCanvas);
 	//img.onload = function (){
-	function getCanvas(img){
+	var canvas1 = getCanvas(img){
 			var canvas = document.createElement('canvas');
             var ctx = canvas.getContext('2d');
 
@@ -1226,10 +1226,11 @@ fetch(imgurl)
             canvas.height = img.height;
 
             ctx.drawImage(img, 0, 0);
-			ew1Div.appendChild(canvas);
+			
 			//}
 	
    }
+   ew1Div.appendChild(canvas1);
   
 })
 		
