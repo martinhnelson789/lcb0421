@@ -1204,10 +1204,31 @@ var display = (async function(){
 	}
 	
 	var _image = await contract_bal.methods.tokens_image1xy(i, address, j).call();
-	console.log(_image);
-	var img = new Image;
-	img.src = _image;
+	const imgurl = _image //"https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg"
+fetch(imgurl)
+  .then(response => response.blob())
+  .then(myBlob => {
+  var urlCreator = window.URL || window.webkitURL;
+   var imageUrl = urlCreator.createObjectURL(myBlob);
+   //const myImgElem = document.getElementById('my-img');
+   //var myImgElem = new Image;
+   
+   //myImgElem.src = imageUrl;
+   var img = new Image();
+	img.src = imageUrl
+	img.width = "50"
+	img.height = "50"
 	ew1Div.appendChild(img);
+   
+  
+})
+		
+	
+	
+	
+	
+	
+	
 	
 	var newDiv = document.createElement('div');
 	newDiv.id = 's'+i + j;
