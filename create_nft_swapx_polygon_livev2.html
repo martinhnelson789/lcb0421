@@ -1216,13 +1216,15 @@ fetch(imgurl)
    //myImgElem.src = imageUrl;
    var img = new Image();
 	img.src = imageUrl
+	img.onload = function (){
 	var canvas = document.getElementById('canvas');
             var ctx = canvas.getContext('2d');
 
-            canvas.width = (img.width)/3;
-            canvas.height = (img.height)/3;
+            canvas.width = img.width;
+            canvas.height = img.height;
 
             ctx.drawImage(img, 0, 0);
+			}
 	ew1Div.appendChild(canvas);
    
   
