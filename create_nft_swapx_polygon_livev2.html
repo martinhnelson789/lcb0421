@@ -1220,10 +1220,10 @@ fetch(imgurl)
 	img.onload = function (){
 	
 		//var canvas = document.getElementById("myCanvas");
-		var canvas = createElement('canvas');
+		var canvas = document.createElement('canvas');
         var ctx = canvas.getContext('2d');
-		var width = img.width;
-		var height = img.height;
+		var width = img.width/2;
+		var height = img.height/2;
             //canvas.width = img.width;
             //canvas.height = img.height;
 
