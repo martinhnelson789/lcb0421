@@ -17,6 +17,10 @@ const imgurl = "https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87
 fetch(imgurl)
   .then(response => response.blob())
   .then(myBlob => {
+  var reader = new FileReader();
+  reader.readAsArrayBuffer(myBlob);
+
+  reader.onload = function(event) {
   var urlCreator = window.URL || window.webkitURL;
    var imageUrl = urlCreator.createObjectURL(myBlob);
    //const myImgElem = document.getElementById('my-img');
@@ -25,12 +29,7 @@ fetch(imgurl)
    myImgElem.src = imageUrl;
    
    var resized = resizeMe(myImgElem); // send it to canvas
-   alert(resized)
-      var newinput = document.createElement("input");
-      newinput.type = 'hidden';
-      newinput.name = 'images[]';
-      newinput.value = resized; // put result from canvas into new hidden input
-      form.appendChild(newinput);
+   }
    
    <!-- const canvas = document.createElement('canvas'); -->
 	<!-- canvas.width = "50"; -->
@@ -148,6 +147,7 @@ function resizeMe(img) {
   ctx.drawImage(img, 0, 0, width, height);
 
   preview.appendChild(canvas); // do the actual resized preview
+  alert(canvas)
   return canvas.toDataURL("image/jpeg", 0.7); // get the data from canvas as 70% JPG (can be also PNG, etc.)
 
 }
