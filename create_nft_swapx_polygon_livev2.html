@@ -1175,7 +1175,7 @@ var display = (async function(){
 	//newDiv.addEventListener("load", "(image_and_name(" + contract_ID1 + ", " + tokenID + ", getImage))");
 	//chat.appendChild(newDiv);
 	//ew1Div.addEventListener("load", getImage);
-	
+	document.getElementById("rs" + i).outerHTML = '<canvas id="myCanvas"' + i + '" width="200" height="100"></canvas>'
 	
 	function getImage(xhttp){
 			//var result = xhttp.response;
@@ -1216,21 +1216,21 @@ fetch(imgurl)
    //myImgElem.src = imageUrl;
    var img = new Image();
 	img.src = imageUrl
-	ew1Div.addEventListener("load", getCanvas);
+	//ew1Div.addEventListener("load", getCanvas);
 	//img.onload = function (){
-	var canvas1 = getCanvas(img){
-			var canvas = document.createElement('canvas');
+	
+			var canvas = document.getElementById("myCanvas" + i);
             var ctx = canvas.getContext('2d');
 
-            canvas.width = img.width;
-            canvas.height = img.height;
+            //canvas.width = img.width;
+            //canvas.height = img.height;
 
             ctx.drawImage(img, 0, 0);
 			
 			//}
 	
-   }
-   ew1Div.appendChild(canvas1);
+   
+   //ew1Div.appendChild(canvas1);
   
 })
 		
