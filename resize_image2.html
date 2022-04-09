@@ -19,8 +19,8 @@ fetch(imgurl)
   .then(myBlob => {
   var urlCreator = window.URL || window.webkitURL;
    var imageUrl = urlCreator.createObjectURL(myBlob);
-   const myImgElem = document.getElementById('my-img');
-   //var myImgElem = new Image;
+   //const myImgElem = document.getElementById('my-img');
+   var myImgElem = new Image;
    
    myImgElem.src = imageUrl;
    
