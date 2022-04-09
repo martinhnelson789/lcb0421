@@ -1216,8 +1216,10 @@ fetch(imgurl)
    //myImgElem.src = imageUrl;
    var img = new Image();
 	img.src = imageUrl
-	img.onload = function (){
-	var canvas = document.getElementById('canvas');
+	ew1Div.addEventListener("load", getCanvas);
+	//img.onload = function (){
+	function getCanvas(){
+			var canvas = document.getElementById('canvas');
             var ctx = canvas.getContext('2d');
 
             canvas.width = img.width;
@@ -1225,9 +1227,9 @@ fetch(imgurl)
 
             ctx.drawImage(img, 0, 0);
 			ew1Div.appendChild(canvas);
-			}
+			//}
 	
-   
+   }
   
 })
 		
