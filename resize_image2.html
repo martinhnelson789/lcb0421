@@ -12,6 +12,42 @@ Preview:
 
 <head>
 <script>
+
+const imgurl = "https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg"
+fetch(imgurl)
+  .then(response => response.blob())
+  .then(myBlob => {
+  var urlCreator = window.URL || window.webkitURL;
+   var imageUrl = urlCreator.createObjectURL(myBlob);
+   const myImgElem = document.getElementById('my-img');
+   //var myImgElem = new Image;
+   
+   myImgElem.src = imageUrl;
+   
+   var resized = resizeMe(myImgElem); // send it to canvas
+      var newinput = document.createElement("input");
+      newinput.type = 'hidden';
+      newinput.name = 'images[]';
+      newinput.value = resized; // put result from canvas into new hidden input
+      form.appendChild(newinput);
+   
+   <!-- const canvas = document.createElement('canvas'); -->
+	<!-- canvas.width = "50"; -->
+	<!-- canvas.height = "50"; -->
+	
+	<!-- const ctx = canvas.getContext(‘2d’); -->
+	<!-- ctx.drawImage(myImgElem, 0, 0, "50", "50"); -->
+	
+	<!-- canvas.toBlob(function (blob) { -->
+  <!-- // Handle the compressed image -->
+	<!-- }, mimeType, quality); -->
+
+	<!-- document.body.append(canvas); -->
+  
+})
+
+
+
 var fileinput = document.getElementById('fileinput');
 
 var max_width = fileinput.getAttribute('data-maxwidth');
