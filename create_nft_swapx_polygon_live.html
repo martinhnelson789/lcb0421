@@ -1229,7 +1229,56 @@ fetch(imgurl)
 			 image_ = 'https://ipfs.io/ipfs/' + JSONresult.image.slice(7)
 			}
             img.src = image_
-            ew2Div.appendChild(img);
+            const imgurl = image_ //"https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg"
+fetch(imgurl)
+  .then(response => response.blob())
+  .then(myBlob => {
+  var urlCreator = window.URL || window.webkitURL;
+   var imageUrl = urlCreator.createObjectURL(myBlob);
+   //const myImgElem = document.getElementById('my-img');
+   //var myImgElem = new Image;
+   
+   //myImgElem.src = imageUrl;
+   var img = new Image();
+	img.src = imageUrl
+	//ew1Div.addEventListener("load", getCanvas);
+	img.onload = function (){
+	
+		//var canvas = document.getElementById("myCanvas");
+		var canvas = document.createElement('canvas');
+        var ctx = canvas.getContext('2d');
+		var width = img.width;
+		var height = img.height;
+
+ if (width > height) {
+    if (width > 200) {
+      //height *= max_width / width;
+      height = Math.round(height *= 200 / width);
+      width = 200;
+    }
+  } else {
+    if (height > 200) {
+      //width *= max_height / height;
+      width = Math.round(width *= 200 / height);
+      height = 200;
+    }
+  }
+  
+  // resize the canvas and draw the image data into it
+  canvas.width = width;
+  canvas.height = height;
+  var ctx = canvas.getContext("2d");
+  ctx.drawImage(img, 0, 0, width, height);
+
+        ctx.drawImage(img, 0, 0, width, height);
+		ew2Div.appendChild(canvas);
+		return canvas.toDataURL("image/jpeg",0.7);
+			}
+			return 1
+			
+			
+	
+	})
 			
 	}
 	
