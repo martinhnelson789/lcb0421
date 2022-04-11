@@ -1082,13 +1082,13 @@ var display = (async function(){
 			
 			var result = xhttp.response;
 			
-			const contentType = xhttp.response.headers.get("content-type");
 			
-			if (contentType && contentType.indexOf("application/json") !== -1) {
-			JSONresult = result;
-			}else{
+			
+			
+			
+			
 			JSONresult = JSON.parse(result);
-			};
+			
 			//JSONresult = result
 			
 			//console.log(JSONresult.image);
