@@ -1082,8 +1082,13 @@ var display = (async function(){
 			
 			var result = xhttp.response;
 			
-			JSONresult = JSON.parse(result);
+			const contentType = xhttp.response.headers.get("content-type");
 			
+			if (contentType && contentType.indexOf("application/json") !== -1) {
+			JSONresult = result;
+			}else{
+			JSONresult = JSON.parse(result);
+			};
 			//JSONresult = result
 			
 			//console.log(JSONresult.image);
@@ -1138,7 +1143,7 @@ fetch(imgurl)
 
         ctx.drawImage(img, 0, 0, width, height);
 		ew1Div.appendChild(canvas);
-		return canvas.toDataURL("image/jpeg",0.7);
+		return canvas.toDataURL("image/jpeg",0.5);
 			}
 			return 1
 			
@@ -1272,7 +1277,7 @@ fetch(imgurl)
 
         ctx.drawImage(img, 0, 0, width, height);
 		ew2Div.appendChild(canvas);
-		return canvas.toDataURL("image/jpeg",0.7);
+		return canvas.toDataURL("image/jpeg",0.5);
 			}
 			return 1
 			
