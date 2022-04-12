@@ -34,7 +34,7 @@ cursor: pointer;
   border: 2px solid #aaaaaa;
 }
 
-div {
+div.box {
 border-radius: 25px;
 padding: 5px;
 border: 2px solid #5F6C6D;
@@ -1052,6 +1052,7 @@ var display = (async function(){
 	 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
 	
 	var ewDiv = document.createElement('div');
+	ewDiv.class = "box"
 	//ewDiv.id = 'r'+i;
 	
 	chat.appendChild(ewDiv);
