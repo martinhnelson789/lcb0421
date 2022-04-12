@@ -34,18 +34,32 @@ cursor: pointer;
   border: 2px solid #aaaaaa;
 }
 
-table {
+div {
 border-radius: 25px;
-width: 500px;
-height: 150px;
 border: 2px solid #5F6C6D;
+background-size: auto;
+
+}
+
+div.odd {
+
+height: 50%;
+width: 50%;
+
+
+}
+
+div.even {
+
+height: 50%;
+width: 50%;
 
 }
 
 img {
 
-width: 35px;
-height: 35px;
+width: 50px;
+height: 50px;
 border: 2px solid #5F6C6D;
 
 }
@@ -116,7 +130,7 @@ var metamask = (async function(){
 
 })()
 
-sleep(200);
+//sleep(200);
 web3 = new Web3(web3.currentProvider);        
 
 //var web3 = new Web3(new Web3.providers.HttpProvider(
@@ -1036,11 +1050,12 @@ var display = (async function(){
 	
 	 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
 	
-	var ewDiv = document.createElement('table');
+	var ewDiv = document.createElement('div');
 	//ewDiv.id = 'r'+i;
 	
 	chat.appendChild(ewDiv);
-	var ew1Div = document.createElement('table');
+	var ew1Div = document.createElement('div');
+	ew1Div.class = "odd";
 	ewDiv.appendChild(ew1Div);
 	//document.getElementById("r" + i).innerHTML = "" //"account address: " + address;
 	var newDiv = document.createElement('div');
@@ -1082,13 +1097,13 @@ var display = (async function(){
 			
 			var result = xhttp.response;
 			
-			const contentType = xhttp.response.headers.get("content-type");
 			
-			if (contentType && contentType.indexOf("application/json") !== -1) {
-			JSONresult = result;
-			}else{
+			
+			
+			
+			
 			JSONresult = JSON.parse(result);
-			};
+			
 			//JSONresult = result
 			
 			//console.log(JSONresult.image);
@@ -1174,8 +1189,8 @@ fetch(imgurl)
 	newDiv.id = 'ss'+i;
 	ewDiv.appendChild(newDiv);
 	document.getElementById("ss" + i).outerHTML = '<center style="color:#ba55d3; font-family: helvetica narrow, sans-serif;"> &#8657; trade &#8659;</center>'
-	var ew2Div = document.createElement('table');
-	
+	var ew2Div = document.createElement('div');
+	ew1Div.class = "even";
 	ewDiv.appendChild(ew2Div);
 	for (j=0;j<contract_length1;j++){ 
 	
