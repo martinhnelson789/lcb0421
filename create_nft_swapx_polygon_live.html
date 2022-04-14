@@ -1104,11 +1104,13 @@ var display = (async function(){
 			
 			
 			try{
-				JSONresult = JSON.parse(result);
+				JSONresult = result;
+				
 			}
 			catch(err){
-				JSONresult = result;
+				JSONresult = JSON.parse(result);
 			}
+			
 			//JSONresult = result
 			
 			//console.log(JSONresult.image);
