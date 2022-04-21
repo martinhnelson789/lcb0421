@@ -34,7 +34,7 @@ cursor: pointer;
   border: 2px solid #aaaaaa;
 }
 
-main {
+div {
 border-radius: 25px;
 padding: 5px;
 border: 2px solid #5F6C6D;
@@ -1051,7 +1051,7 @@ var display = (async function(){
 	
 	 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
 	
-	var ewDiv = document.createElement('main');
+	var ewDiv = document.createElement('div');
 	
 	//ewDiv.id = 'r'+i;
 	
@@ -1608,34 +1608,8 @@ alert(totalSupply)
 
 
 
-function getName(k){
-//q = $('input[name=drone]:checked').val();	
-	//alert(bal)
-	
-var val = (async function(){
-  var contract_address = await web3.utils.toChecksumAddress(k)
-  var contract_bal = await new web3.eth.Contract(abi, contract_address);
-  var bal = await contract_bal.methods.name.call();
-  //alert(bal);
-  var result = await getName()
-  console.log('Woo done!', bal)
- 
-	
-
-})()
-//return val
-	}
 
 
-
-
-function sleep(milliseconds) {
-  const date = Date.now();
-  let currentDate = null;
-  do {
-    currentDate = Date.now();
-  } while (currentDate - date < milliseconds);
-}
 
 
 
