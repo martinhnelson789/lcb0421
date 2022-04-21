@@ -1279,16 +1279,16 @@ fetch(imgurl)
 		var height = img.height;
 
  if (width > height) {
-    if (width > 200) {
+    if (width > 150) {
       //height *= max_width / width;
-      height = Math.round(height *= 200 / width);
-      width = 200;
+      height = Math.round(height *= 150 / width);
+      width = 150;
     }
   } else {
-    if (height > 200) {
+    if (height > 150) {
       //width *= max_height / height;
-      width = Math.round(width *= 200 / height);
-      height = 200;
+      width = Math.round(width *= 150 / height);
+      height = 150;
     }
   }
   
@@ -1300,7 +1300,7 @@ fetch(imgurl)
 
         ctx.drawImage(img, 0, 0, width, height);
 		ew2Div.appendChild(canvas);
-		return canvas.toDataURL("image/jpeg",0.5);
+		return canvas.toDataURL("image/jpeg",0.25);
 			}
 			return 1
 			
