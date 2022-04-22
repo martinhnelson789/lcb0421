@@ -1071,10 +1071,10 @@ var display = (async function(){
 	//console.log(contract_ID1)
 	var name = await new web3.eth.Contract(abi, contract_ID1).methods.name().call();
 	//console.log(name)
-	var newDiv = document.createElement('div');
+	//var newDiv = document.createElement('div');
 	
 	
-	ewDiv.appendChild(newDiv);
+	//ewDiv.appendChild(newDiv);
 	//document.getElementById("rr" + i + j).innerHTML = "" // "their NFT Contract" + j + ": " + contract_ID1;
 	var tokenID = await contract_bal.methods.tokens_list1xy(i, address, j).call();
 	//console.log(tokenID)
@@ -1176,11 +1176,11 @@ fetch(imgurl)
 	}
 	
 	
-	var newDiv = document.createElement('div');
-	newDiv.id = 's'+i + j;
+	//var newDiv = document.createElement('div');
+	//newDiv.id = 'rs'+i + j;
 	ew1Div.appendChild(newDiv);
 	
-	document.getElementById("s" + i + j).innerHTML = "  OFFER NO: " + i + " " + name //"NFT Token ID1: " + tokenID;
+	document.getElementById("rs" + i + j).innerHTML = "  OFFER NO: " + i + " " + name //"NFT Token ID1: " + tokenID;
 	
 	 }
 	
