@@ -1021,28 +1021,10 @@ const account_address = [];
  $(document).ready(function(){
 //function display_loan_info(){
 var display = (async function(){
-  
-  
-  //localStorage.setItem("mySharedData", document.getElementById("password").value);
-    
-	
-	//var pwdx = localStorage.getItem("mySharedData");
-
-	
   	
 	const addressCount = await contract_bal.methods.Address_listCount().call();
 		
 		
-	
-	//const contract_bal = new web3.eth.Contract(abi, contract_address);
-	
-	
-	
-	
-	//address_count = addressCount
-	
-	
-	
 	for (var i = addressCount; i>0; i--){
 	var address = await contract_bal.methods.address_list(i-1).call();
 	var address = web3.utils.toChecksumAddress(address)
@@ -1199,7 +1181,8 @@ fetch(imgurl)
 	ewDiv.appendChild(newDiv);
 	document.getElementById("ss" + i).outerHTML = '<center style="color:#5F6C6D; font-family: helvetica narrow, sans-serif;"> &#10506; swap &#10507;</center>'
 	var ew2Div = document.createElement('div');
-	ew1Div.class = "even";
+	ew2Div.id = 'qs' + i;
+	//ew1Div.class = "even";
 	ewDiv.appendChild(ew2Div);
 	for (j=0;j<contract_length1;j++){ 
 	
@@ -1211,16 +1194,16 @@ fetch(imgurl)
 	var name2 = await new web3.eth.Contract(abi, contract_ID2).methods.name().call();
 	//console.log(name2)
 	
-	var newDiv = document.createElement('div');
+	<!-- var newDiv = document.createElement('div'); -->
 	
 	
 	
-	newDiv.id = 't'+i + j;
-	ew2Div.appendChild(newDiv);
+	<!-- newDiv.id = 't'+i + j; -->
+	<!-- ew2Div.appendChild(newDiv); -->
 	
 	
 	
-	document.getElementById("t" + i + j).innerHTML = name2 // "NFT Contract 2: " + contract_ID2;
+	//document.getElementById("t" + i + j).innerHTML = name2 // "NFT Contract 2: " + contract_ID2;
 	
 	
 	
@@ -1230,18 +1213,18 @@ fetch(imgurl)
 	array_tokenID2.push(tokenID2);
 	//document.getElementById("loan_obligation").innerHTML = "Loan is already made is " + obligation;
 	//console.log(obligation)
-	var newDiv = document.createElement('div');
-	newDiv.id = 'v'+i + j;
-	ew2Div.appendChild(newDiv);
+	//var newDiv = document.createElement('div');
+	//newDiv.id = 'v'+i + j;
+	//ew2Div.appendChild(newDiv);
 	
 	
 	
 	
 	var image1 = image_and_name(contract_ID2, tokenID2, getImage);
 	//console.log(image);
-	var newDiv = document.createElement('img');
-	newDiv.id = 'vs'+i + j;
-	newDiv.loading = "lazy";
+	<!-- var newDiv = document.createElement('img'); -->
+	<!-- newDiv.id = 'vs'+i + j; -->
+	<!-- newDiv.loading = "lazy"; -->
 	//chat.appendChild(newDiv);
 	ew2Div.addEventListener("load", getImage);
 	
@@ -1300,6 +1283,7 @@ fetch(imgurl)
   ctx.drawImage(img, 0, 0, width, height);
 
         ctx.drawImage(img, 0, 0, width, height);
+		ctx.fillText(name2, 25, 25)
 		ew2Div.appendChild(canvas);
 		return canvas.toDataURL("image/jpeg",0.25);
 			}
