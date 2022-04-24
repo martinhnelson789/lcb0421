@@ -34,7 +34,7 @@ cursor: pointer;
   border: 2px solid #aaaaaa;
 }
 
-div.main {
+div {
 border-radius: 25px;
 padding: 5px;
 border: 2px solid #5F6C6D;
@@ -1036,7 +1036,7 @@ var display = (async function(){
 	var ewDiv = document.createElement('div');
 	
 	ewDiv.id = 'r'+i;
-	ewDiv.class = "main";
+	
 	
 	chat.appendChild(ewDiv);
 	var ew1Div = document.createElement('div');
@@ -1045,8 +1045,8 @@ var display = (async function(){
 	//document.getElementById("r" + i).innerHTML = "" //"account address: " + address;
 	//var newDiv = document.createElement('div');
 	ew1Div.id = 'q'+i;
-	document.getElementById("r" + i).innerHTML = "  OFFER NO: " + i
-	document.getElementById("r" + i).style = "font-weight: bold;"
+	document.getElementById("q" + i).innerHTML = "  OFFER NO: " + i
+	document.getElementById("q" + i).style = "font-weight: bold;"
 	//ew1Div.appendChild(newDiv);
 	
 	var contract_length = await contract_bal.methods.token_contracts_list1xyCount(i, address).call();
