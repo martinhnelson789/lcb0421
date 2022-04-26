@@ -1199,12 +1199,12 @@ fetch(imgurl)
 	var name2 = await new web3.eth.Contract(abi, contract_ID2).methods.name().call();
 	//console.log(name2)
 	
-	<!-- var newDiv = document.createElement('div'); -->
+	var newDiv = document.createElement('div');
 	
 	
 	
-	<!-- newDiv.id = 't'+i + j; -->
-	<!-- ew2Div.appendChild(newDiv); -->
+	newDiv.id = 't'+i + j;
+	ew2Div.appendChild(newDiv);
 	
 	
 	
@@ -1322,7 +1322,7 @@ fetch(imgurl)
 	newBtn.id = 'a' + i;
 	
 	
-	ew2Div.appendChild(newBtn);
+	newDiv.appendChild(newBtn);
 	
 	var latest = await contract_bal.methods.debt_obligation_listx(i, address).call();
 	<!-- var newDiv = document.createElement('div'); -->
