@@ -1322,7 +1322,7 @@ fetch(imgurl)
 	newBtn.id = 'a' + i;
 	
 	
-	newDiv.appendChild(newBtn);
+	ew2Div.appendChild(newBtn);
 	
 	var latest = await contract_bal.methods.debt_obligation_listx(i, address).call();
 	<!-- var newDiv = document.createElement('div'); -->
@@ -1330,6 +1330,7 @@ fetch(imgurl)
 	<!-- ew2Div.appendChild(newDiv); -->
 	
 	document.getElementById("qs" + i).innerHTML = "swap completed: " + latest;
+	ew2Div.appendChild(newBtn);
 	//document.getElementById("latest_block").innerHTML = latest;
 	//console.log(latest)
 	
