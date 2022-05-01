@@ -1145,7 +1145,7 @@ var _image = (async function(){
 	var loan_term = localStorage.getItem("NFT_Token_ID2");
 	//var add1x = localStorage.getItem("mySharedData");
 
-	await ipfs.files.write('/hello-world', new TextEncoder().encode('Hello, world!'), true)
+	await window.ipfs.files.write('/hello-world', new TextEncoder().encode('Hello, world!'), true)
 	var image = await image_and_name(contract_ID1, tokenID, getImage);
 	var image = await image_and_name(loan_amt, loan_term, getImage1);
 	//console.log(image);
