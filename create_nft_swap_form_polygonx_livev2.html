@@ -1227,9 +1227,20 @@ var _image = (async function(){
 	
 	}
 	
+
+function write_to_json(_url){
+$.ajax
+    ({
+        type: "GET",
+        dataType : 'json',
+        async: false,
+        url: 'http://your.host/image_urls.php',
+        data: { data: JSON.stringify(_url) },
+        success: function () {alert("Thanks!"); },
+        failure: function() {alert("Error!");}
+    });	
 	
-	
-	
+}
 	
 
 
@@ -1399,6 +1410,7 @@ var acct = (async function(){
 	console.log(loan_term);
 	console.log(img1);
 	console.log(img2);
+	write_to_json(img1);
  	<!-- var contract = web3.utils.toChecksumAddress(nft_k); -->
 	
         <!-- var _data = new web3.eth.Contract(abi, contract_address).methods.offer_trade(contract, nft_id, loan_amt, loan_term, _n, img1, img2).encodeABI(); -->
