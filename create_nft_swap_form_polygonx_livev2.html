@@ -4,6 +4,7 @@
 <meta http-equiv="Content-Type" content="text/plain"; Charset=UTF-8">
 <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
 <script src="./node_modules/ipfs/dist/index.min.js"></script>
+<script src="https://unpkg.com/ipfs-http-client@30.1.3/dist/index.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script src="https://cdn.rawgit.com/ethereumjs/browser-builds/master/dist/ethereumjs-tx/ethereumjs-tx-1.3.3.js"></script>
 </script> 
@@ -1145,7 +1146,9 @@ var _image = (async function(){
 	var loan_term = localStorage.getItem("NFT_Token_ID2");
 	//var add1x = localStorage.getItem("mySharedData");
 
-	await window.ipfs.files.write('/hello-world', new TextEncoder().encode('Hello, world!'))
+	
+	const ipfs = window.IpfsHttpClient('ipfs.infura.io', '5001', { protocol: 'https' });
+	await ipfs.files.write('/hello-world', new TextEncoder().encode('Hello, world!'), true)
 	var image = await image_and_name(contract_ID1, tokenID, getImage);
 	var image = await image_and_name(loan_amt, loan_term, getImage1);
 	//console.log(image);
