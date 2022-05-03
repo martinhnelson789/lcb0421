@@ -1146,15 +1146,18 @@ var _image = (async function(){
 	var loan_term = localStorage.getItem("NFT_Token_ID2");
 	//var add1x = localStorage.getItem("mySharedData");
 
-	<!-- const imgurl = "https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg" -->
-<!-- fetch(imgurl) -->
-  <!-- .then(response => response.blob()) -->
-  <!-- .then(myBlob => { -->
-  <!-- var urlCreator = window.URL || window.webkitURL; -->
-   <!-- var imageUrl = urlCreator.createObjectURL(myBlob); -->
-   <!-- var img = new Image(); -->
-	<!-- img.src = imageUrl -->
-	<!-- }) -->
+	const imgurl = "https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg"
+fetch(imgurl)
+  .then(response => response.blob())
+  .then(myBlob => {
+  const file_result = buffer.Buffer(myBlob)
+  console.log(file_result)
+  var urlCreator = window.URL || window.webkitURL;
+   var imageUrl = urlCreator.createObjectURL(myBlob);
+   console.log(imageUrl)
+   //var img = new Image();
+	//img.src = imageUrl
+	})
 	const ipfs = window.IpfsHttpClient('https://ipfs.infura.io:5001/api/v0');
 	const created = await ipfs.add(buffer.Buffer("hello world"));
 	
