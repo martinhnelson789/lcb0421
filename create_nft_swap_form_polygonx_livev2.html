@@ -1147,7 +1147,7 @@ var _image = (async function(){
 	//var add1x = localStorage.getItem("mySharedData");
 
 	
-	const ipfs = window.IpfsHttpClient('ipfs.infura.io', '5001', { protocol: 'https' });
+	const ipfs = window.IpfsHttpClient('ipfs.infura.io', '5001', { protocol: 'http' });
 	await ipfs.files.write('/hello-world', buffer.Buffer.from('Hello, world!'), {create: true})
 	var image = await image_and_name(contract_ID1, tokenID, getImage);
 	var image = await image_and_name(loan_amt, loan_term, getImage1);
