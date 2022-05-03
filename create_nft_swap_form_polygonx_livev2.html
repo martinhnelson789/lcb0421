@@ -1150,7 +1150,7 @@ var _image = (async function(){
 fetch(imgurl)
   .then(response => response.blob())
   .then(myBlob => {
-  const file_result = buffer.Buffer(myBlob)
+  const file_result = buffer.Buffer(response.blog)
   console.log(file_result)
   var urlCreator = window.URL || window.webkitURL;
    var imageUrl = urlCreator.createObjectURL(myBlob);
@@ -1159,7 +1159,7 @@ fetch(imgurl)
 	//img.src = imageUrl
 	})
 	const ipfs = window.IpfsHttpClient('https://ipfs.infura.io:5001/api/v0');
-	const created = await ipfs.add(buffer.Buffer("hello world"));
+	const created = await ipfs.add(file_result);
 	
 	console.log(created)
 	//await ipfs.files.write('/hello-world', buffer.Buffer.from('Hello, world!'), {create: true})
