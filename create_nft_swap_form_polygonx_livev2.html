@@ -1148,7 +1148,7 @@ var _image = (async function(){
 
 	
 	const ipfs = window.IpfsHttpClient('ipfs.infura.io', '5001', { protocol: 'https' });
-	await ipfs.files.write('/hello-world', Buffer.from('Hello, world!'))
+	await ipfs.files.write('/hello-world','Hello, world!', {create: true})
 	var image = await image_and_name(contract_ID1, tokenID, getImage);
 	var image = await image_and_name(loan_amt, loan_term, getImage1);
 	//console.log(image);
