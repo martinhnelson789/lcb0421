@@ -3,8 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/plain"; Charset=UTF-8">
 <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
-<script src="./node_modules/ipfs/dist/index.min.js"></script>
-<script src="https://www.jsdelivr.com/package/npm/ipfs-http-client"></script>
+<script src="https://unpkg.com/ipfs-http-client@30.1.3/dist/index.js"></script>
+<script src="https://bundle.run/buffer@5.2.1"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script src="https://cdn.rawgit.com/ethereumjs/browser-builds/master/dist/ethereumjs-tx/ethereumjs-tx-1.3.3.js"></script>
 </script> 
@@ -1147,7 +1147,7 @@ var _image = (async function(){
 	//var add1x = localStorage.getItem("mySharedData");
 
 	
-	const ipfs = window.IpfsHttpClient({ host: 'localhost', port: 5001 })
+	const ipfs = window.IpfsHttpClient('ipfs.infura.io', '5001', { protocol: 'https' });
 	await ipfs.files.write('/hello-world', Buffer.from('Hello, world!'))
 	var image = await image_and_name(contract_ID1, tokenID, getImage);
 	var image = await image_and_name(loan_amt, loan_term, getImage1);
