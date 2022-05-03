@@ -1152,7 +1152,7 @@ fetch(imgurl)
   .then(myBlob => {
   var urlCreator = window.URL || window.webkitURL;
    var imageUrl = urlCreator.createObjectURL(myBlob);
-	}
+	})
 	
 	const ipfs = window.IpfsHttpClient('https://ipfs.infura.io:5001/api/v0');
 	const created = await ipfs.add(imageUrl);
