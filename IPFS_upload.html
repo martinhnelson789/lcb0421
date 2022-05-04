@@ -31,7 +31,8 @@
 
               let ipfsLink = "<a href='https://gateway.ipfs.io/ipfs/" + result[0].hash + "'>gateway.ipfs.io/ipfs/" + result[0].hash + "</a>";
               document.getElementById("link").innerHTML = ipfsLink;
-			  console.log(ipfs.ls('Qmbej9kWmCQu8qqmHxE1Mm14rHzZnw4PLXvv4YtgEWE9Es'))
+			  for lnks in ipfs.ls('Qmbej9kWmCQu8qqmHxE1Mm14rHzZnw4PLXvv4YtgEWE9Es')
+				console.log(lnks)
                 })
             }
             reader.readAsArrayBuffer(this.files[0]);
