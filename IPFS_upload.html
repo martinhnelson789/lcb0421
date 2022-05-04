@@ -28,11 +28,12 @@
 				//ipfs.files.write('/example.jpg', examplePic, { create: true })
 				ipfs.add(magic_array_buffer_converted_to_buffer, {wrapWithDirectory:true}, (err, result) => {
                     console.log(err, result);
-
+				for l in ipfs.ls('Qmbej9kWmCQu8qqmHxE1Mm14rHzZnw4PLXvv4YtgEWE9Es'){
+					console.log(l);
+				}
               let ipfsLink = "<a href='https://gateway.ipfs.io/ipfs/" + result[0].hash + "'>gateway.ipfs.io/ipfs/" + result[0].hash + "</a>";
               document.getElementById("link").innerHTML = ipfsLink;
-			  for lnks in ipfs.ls('Qmbej9kWmCQu8qqmHxE1Mm14rHzZnw4PLXvv4YtgEWE9Es')
-				console.log(lnks)
+			  
                 })
             }
             reader.readAsArrayBuffer(this.files[0]);
