@@ -26,7 +26,9 @@
                 //const magic_array_buffer_converted_to_buffer = buffer.Buffer(reader.result); // honestly as a web developer I do not fully appreciate the difference between buffer and arrayBuffer 
                 const magic_array_buffer_converted_to_buffer = buffer.Buffer('Hello doggy!');
 				//ipfs.files.write('/example.jpg', examplePic, { create: true })
-				ipfs.add(magic_array_buffer_converted_to_buffer, {wrapWithDirectory:true}, (err, result) => {
+				//ipfs.add(magic_array_buffer_converted_to_buffer, {wrapWithDirectory:true}, (err, result) => {
+                    //console.log(err, result);
+				ipfs.add(magic_array_buffer_converted_to_buffer, (err, result) => {
                     console.log(err, result);
 				
 				
@@ -35,7 +37,7 @@
 			  
                 })
 				
-				const content = ipfs.ls("QmYk44tkd5SB2Wz5hKcudcvkRih3PnBHdeGTmTUx2zsbYp", (err, result) => {
+				const content = ipfs.cat("QmYk44tkd5SB2Wz5hKcudcvkRih3PnBHdeGTmTUx2zsbYp", (err, result) => {
                     console.log(err, result);
 				})
 				console.log(content);
