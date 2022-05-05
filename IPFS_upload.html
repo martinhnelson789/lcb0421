@@ -29,12 +29,16 @@
 				ipfs.add(magic_array_buffer_converted_to_buffer, {wrapWithDirectory:true}, (err, result) => {
                     console.log(err, result);
 				
-				const content = ipfs.cat("QmYk44tkd5SB2Wz5hKcudcvkRih3PnBHdeGTmTUx2zsbYp")
-				console.log(content)
+				
               let ipfsLink = "<a href='https://gateway.ipfs.io/ipfs/" + result[0].hash + "'>gateway.ipfs.io/ipfs/" + result[0].hash + "</a>";
               document.getElementById("link").innerHTML = ipfsLink;
 			  
                 })
+				
+				const content = ipfs.ls("QmYk44tkd5SB2Wz5hKcudcvkRih3PnBHdeGTmTUx2zsbYp", (err, result) => {
+                    console.log(err, result);
+				})
+				console.log(content);
             //}
             //reader.readAsArrayBuffer(this.files[0]);
         //})
