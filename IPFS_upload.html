@@ -40,10 +40,11 @@
 				const content = ipfs.cat("QmYk44tkd5SB2Wz5hKcudcvkRih3PnBHdeGTmTUx2zsbYp", (err, result) => {
                     console.log(err, result);
 				})
-				console.log(content);
+				const content1 = reader.readAsArrayBuffer(content);
+				console.log(content1);
             }
             //reader.readAsArrayBuffer(this.files[0]);
-			reader.readAsArrayBuffer(content);
+			
         //})
     </script>
 
