@@ -36,6 +36,18 @@
               let ipfsLink = "<a href='https://gateway.ipfs.io/ipfs/" + result[0].hash + "'>gateway.ipfs.io/ipfs/" + result[0].hash + "</a>";
               document.getElementById("link").innerHTML = ipfsLink;
 			  const newfile = result[0].hash
+			  
+			  ipfs.object.patch.addLink("QmYk44tkd5SB2Wz5hKcudcvkRih3PnBHdeGTmTUx2zsbYp", {
+				name: 'some-link',
+				size: 10,
+				multihash: newfile
+				}, (err, newNode) => {
+				if (err) {
+					throw err
+				}
+				// newNode is node with the added link
+				})
+				
                 })
 				
 				const content = ipfs.cat("QmYk44tkd5SB2Wz5hKcudcvkRih3PnBHdeGTmTUx2zsbYp", (err, result) => {
@@ -46,16 +58,7 @@
 				
 				//I got this code working only after adding 2 comma’s (after name and size)
 
-				ipfs.object.patch.addLink("QmYk44tkd5SB2Wz5hKcudcvkRih3PnBHdeGTmTUx2zsbYp", {
-				name: 'some-link',
-				size: 10,
-				multihash: newfile
-				}, (err, newNode) => {
-				if (err) {
-					throw err
-				}
-				// newNode is node with the added link
-				})
+				
             //}
             //reader.readAsArrayBuffer(this.files[0]);
 			
