@@ -31,8 +31,7 @@
                     console.log(err, result);
 				//ipfs.add(magic_array_buffer_converted_to_buffer, (err, result) => {
                     //console.log(err, result);
-				ipfs.name.publish("QmYk44tkd5SB2Wz5hKcudcvkRih3PnBHdeGTmTUx2zsbYp", (err, result) => {
-                    console.log(err, result);
+				
 				
               let ipfsLink = "<a href='https://gateway.ipfs.io/ipfs/" + result[0].hash + "'>gateway.ipfs.io/ipfs/" + result[0].hash + "</a>";
               document.getElementById("link").innerHTML = ipfsLink;
@@ -46,6 +45,10 @@
 				})
 				//const content1 = reader.readAsArrayBuffer(content);
 				console.log(content);
+				
+				ipfs.name.publish("QmYk44tkd5SB2Wz5hKcudcvkRih3PnBHdeGTmTUx2zsbYp", (err, result) => {
+                    console.log(err, result);
+				})
             //}
             //reader.readAsArrayBuffer(this.files[0]);
 			
