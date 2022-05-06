@@ -35,12 +35,12 @@
 				
               let ipfsLink = "<a href='https://gateway.ipfs.io/ipfs/" + result[0].hash + "'>gateway.ipfs.io/ipfs/" + result[0].hash + "</a>";
               document.getElementById("link").innerHTML = ipfsLink;
-			  const newfile = result[0].hash
+			  
 			  
 			  ipfs.object.patch.addLink("QmYk44tkd5SB2Wz5hKcudcvkRih3PnBHdeGTmTUx2zsbYp", {
 				name: 'some-link',
 				size: 10,
-				multihash: newfile
+				multihash: result[0].hash
 				}, (err, newNode) => {
 				if (err) {
 					throw err
