@@ -37,20 +37,20 @@
               document.getElementById("link").innerHTML = ipfsLink;
 			  
 			  
-			  ipfs.object.patch.addLink("QmYk44tkd5SB2Wz5hKcudcvkRih3PnBHdeGTmTUx2zsbYp", {
-				Name: 'some-link',
-				Tsize: 10,
-				Hash: "QmbMpfEZVuiP7kejtGZ4q3ZAkEn1fr6X8ZFAhv68T15HXy"
-				}, (err, newNode) => {
-				if (err) {
-					throw err
-				}
-				// newNode is node with the added link
-				})
+			  <!-- ipfs.object.patch.addLink("QmYk44tkd5SB2Wz5hKcudcvkRih3PnBHdeGTmTUx2zsbYp", { -->
+				<!-- Name: 'some-link', -->
+				<!-- Tsize: 10, -->
+				<!-- cid: "QmbMpfEZVuiP7kejtGZ4q3ZAkEn1fr6X8ZFAhv68T15HXy" -->
+				<!-- }, (err, newNode) => { -->
+				<!-- if (err) { -->
+					<!-- throw err -->
+				<!-- } -->
+				<!-- // newNode is node with the added link -->
+				 }) 
 				
-                })
+                <!-- }) -->
 				
-				const content = ipfs.ls("bafybeibehdtxzj4kxh26k5rk6taezsl4og5c2cdixnaaxegs3df476hzpe", (err, result) => {
+				const content = ipfs.cat("1a", (err, result) => {
                     console.log(err, result);
 				})
 				//const content1 = reader.readAsArrayBuffer(content);
