@@ -30,7 +30,7 @@
 				//ipfs.add(magic_array_buffer_converted_to_buffer, {wrapWithDirectory:true}, (err, result) => {
                     //console.log(err, result);
 				ipfs.add(magic_array_buffer_converted_to_buffer, (err, result) => {
-                    //console.log(err, result);
+                    console.log(err, result);
 				
 				
               let ipfsLink = "<a href='https://gateway.ipfs.io/ipfs/" + result[0].hash + "'>gateway.ipfs.io/ipfs/" + result[0].hash + "</a>";
@@ -50,7 +50,7 @@
 				
                 })
 				
-				const content = ipfs.cat("QmYk44tkd5SB2Wz5hKcudcvkRih3PnBHdeGTmTUx2zsbYp", (err, result) => {
+				const content = ipfs.ls("bafybeibehdtxzj4kxh26k5rk6taezsl4og5c2cdixnaaxegs3df476hzpe", (err, result) => {
                     console.log(err, result);
 				})
 				//const content1 = reader.readAsArrayBuffer(content);
