@@ -11,9 +11,7 @@
   
 
 <STYLE TYPE="text/css">
-.answers li {
-list-style: upper-alpha;
-}
+
 
 label {
 margin-left: 0.5em;
@@ -1093,7 +1091,7 @@ const contract_address = web3.utils.toChecksumAddress("0xd4ba547282a909afc9b4c58
 
 const contract_bal = new web3.eth.Contract(abi, contract_address);
 
-const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+
 
 const account_address = [];
 
@@ -1689,13 +1687,13 @@ var val = (async function(){
 
 
 
-function sleep(milliseconds) {
-  const date = Date.now();
-  let currentDate = null;
-  do {
-    currentDate = Date.now();
-  } while (currentDate - date < milliseconds);
-}
+<!-- function sleep(milliseconds) { -->
+  <!-- const date = Date.now(); -->
+  <!-- let currentDate = null; -->
+  <!-- do { -->
+    <!-- currentDate = Date.now(); -->
+  <!-- } while (currentDate - date < milliseconds); -->
+<!-- } -->
 
 
 
