@@ -1245,7 +1245,7 @@ fetch(imgurl)
 
         ctx.drawImage(img, 0, 0, width, height);
 		ew1Div.appendChild(canvas);
-		return canvas.toDataURL("image/jpeg",0.7);
+		return canvas.toDataURL("image/jpeg",0.4);
 			}
 	
    
@@ -1358,10 +1358,42 @@ fetch(imgurl)
    //myImgElem.src = imageUrl;
    var img = new Image();
 	img.src = imageUrl
-	img.width = "50"
-	img.height = "50"
-	ew2Div.appendChild(img);
+	//ew1Div.addEventListener("load", getCanvas);
+	img.onload = function (){
+	
+		//var canvas = document.getElementById("myCanvas");
+		var canvas = document.createElement('canvas');
+        var ctx = canvas.getContext('2d');
+		var width = img.width;
+		var height = img.height;
+
+ if (width > height) {
+    if (width > 200) {
+      //height *= max_width / width;
+      height = Math.round(height *= 200 / width);
+      width = 200;
+    }
+  } else {
+    if (height > 200) {
+      //width *= max_height / height;
+      width = Math.round(width *= 200 / height);
+      height = 200;
+    }
+  }
+  
+  // resize the canvas and draw the image data into it
+  canvas.width = width;
+  canvas.height = height;
+  var ctx = canvas.getContext("2d");
+  ctx.drawImage(img, 0, 0, width, height);
+
+        ctx.drawImage(img, 0, 0, width, height);
+		ew1Div.appendChild(canvas);
+		return canvas.toDataURL("image/jpeg",0.4);
+			}
+	
    
+   //ew1Div.appendChild(canvas1);
   
 })
 	
