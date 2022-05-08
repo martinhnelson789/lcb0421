@@ -33,11 +33,12 @@ cursor: pointer;
   border: 2px solid #aaaaaa;
 }
 
-table {
+div {
 border-radius: 25px;
 width: 500px;
 height: 150px;
 border: 2px solid #5F6C6D;
+background-size: auto;
 
 }
 
@@ -1134,11 +1135,11 @@ var display = (async function(){
 	
 	 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
 	
-	var ewDiv = document.createElement('table');
+	var ewDiv = document.createElement('div');
 	//ewDiv.id = 'r'+i;
 	
 	chat.appendChild(ewDiv);
-	var ew1Div = document.createElement('table');
+	var ew1Div = document.createElement('div');
 	ewDiv.appendChild(ew1Div);
 	//document.getElementById("r" + i).innerHTML = "" //"account address: " + address;
 	var newDiv = document.createElement('div');
@@ -1281,7 +1282,7 @@ fetch(imgurl)
 	newDiv.id = 'ss'+i;
 	ewDiv.appendChild(newDiv);
 	document.getElementById("ss" + i).outerHTML = '<center style="color:#ba55d3; font-family: helvetica narrow, sans-serif;"> &#8657; trade &#8659;</center>'
-	var ew2Div = document.createElement('table');
+	var ew2Div = document.createElement('div');
 	
 	ewDiv.appendChild(ew2Div);
 	for (j=0;j<contract_length1;j++){ 
