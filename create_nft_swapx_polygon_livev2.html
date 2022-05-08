@@ -1177,31 +1177,31 @@ var display = (async function(){
 	//ew1Div.addEventListener("load", getImage);
 	//document.getElementById('rs' + i + j).outerHTML = '<canvas id="myCanvas" width="200" height="100"></canvas>'
 	
-	function getImage(xhttp){
-			//var result = xhttp.response;
+	<!-- function getImage(xhttp){ -->
+			<!-- //var result = xhttp.response; -->
 			
-			var result = xhttp.response;
+			<!-- var result = xhttp.response; -->
 			
-			JSONresult = JSON.parse(result);
+			<!-- JSONresult = JSON.parse(result); -->
 			
-			//JSONresult = result
+			<!-- //JSONresult = result -->
 			
-			//console.log(JSONresult.image);
-			//var result1 = JSONresult.image
-			//return result1
-			//var image_ = JSONresult.image
-			//var img = new Image();
-			//'https://ipfs.io/ipfs/' + lnk.slice(7)
-			if (JSONresult.image.substring(0,4) == "ipfs"){
-			 image_ = 'https://ipfs.io/ipfs/' + JSONresult.image.slice(7)
-			}
-            //img.src = image_
-            //ew1Div.appendChild(img);
-			return 1
+			<!-- //console.log(JSONresult.image); -->
+			<!-- //var result1 = JSONresult.image -->
+			<!-- //return result1 -->
+			<!-- //var image_ = JSONresult.image -->
+			<!-- //var img = new Image(); -->
+			<!-- //'https://ipfs.io/ipfs/' + lnk.slice(7) -->
+			<!-- if (JSONresult.image.substring(0,4) == "ipfs"){ -->
+			 <!-- image_ = 'https://ipfs.io/ipfs/' + JSONresult.image.slice(7) -->
+			<!-- } -->
+            <!-- //img.src = image_ -->
+            <!-- //ew1Div.appendChild(img); -->
+			<!-- return 1 -->
 			
 			
 	
-	}
+	<!-- } -->
 	
 	var _image = await contract_bal.methods.tokens_image1xy(i, address, j).call();
 	const imgurl = _image //"https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg"
@@ -1330,22 +1330,22 @@ fetch(imgurl)
 	//chat.appendChild(newDiv);
 	//ew2Div.addEventListener("load", getImage);
 	
-	function getImage(xhttp){
-			var result = xhttp.response;
-			JSONresult = JSON.parse(result);
-			//console.log(JSONresult.image);
-			//var result1 = JSONresult.image
-			//return result1
-			var image_ = JSONresult.image
+	<!-- function getImage(xhttp){ -->
+			<!-- var result = xhttp.response; -->
+			<!-- JSONresult = JSON.parse(result); -->
+			<!-- //console.log(JSONresult.image); -->
+			<!-- //var result1 = JSONresult.image -->
+			<!-- //return result1 -->
+			<!-- var image_ = JSONresult.image -->
 			
-			//var img = new Image();
-			if (JSONresult.image.substring(0,4) == "ipfs"){
-			 image_ = 'https://ipfs.io/ipfs/' + JSONresult.image.slice(7)
-			}
-            //img.src = image_
-            //ew2Div.appendChild(img);
+			<!-- //var img = new Image(); -->
+			<!-- if (JSONresult.image.substring(0,4) == "ipfs"){ -->
+			 <!-- image_ = 'https://ipfs.io/ipfs/' + JSONresult.image.slice(7) -->
+			<!-- } -->
+            <!-- //img.src = image_ -->
+            <!-- //ew2Div.appendChild(img); -->
 			
-	}
+	<!-- } -->
 	
 	var _image2 = await contract_bal.methods.tokens_image2xy(i, address, j).call();
 	const imgurl = _image2 //"https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg"
