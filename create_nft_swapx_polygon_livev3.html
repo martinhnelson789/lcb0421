@@ -1,0 +1,1708 @@
+
+<html>
+<head>
+
+<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="https://cdn.rawgit.com/ethereumjs/browser-builds/master/dist/ethereumjs-tx/ethereumjs-tx-1.3.3.js"></script>
+</script> 
+  
+
+<STYLE TYPE="text/css">
+.answers li {
+list-style: upper-alpha;
+}
+
+label {
+margin-left: 0.5em;
+cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+div {
+
+padding: 5px;
+border: 2px solid #5F6C6D;
+background-size: auto;
+
+}
+
+div.odd {
+
+height: 50%;
+width: 50%;
+
+
+}
+
+div.even {
+
+height: 50%;
+width: 50%;
+
+}
+
+img {
+
+color:#5F6C6D; 
+padding: 5px;
+font-family: helvetica narrow, sans-serif;
+font-size: 25px;
+
+
+}
+
+
+
+
+<!-- input { -->
+
+<!-- font-size: large; -->
+<!-- right:0; -->
+<!-- position: absolute; -->
+<!-- left: 50%; -->
+<!-- color:#5F6C6D; -->
+<!-- border: 2px solid #5F6C6D; -->
+
+<!-- } -->
+
+newDiv {
+
+color:#5F6C6D; 
+font-family: helvetica narrow;
+
+}
+
+center {
+
+color:grey; 
+font-family: helvetica narrow; 
+font-size: large;
+}
+
+
+
+
+</style>
+</head>
+
+
+<body>
+<img id="logo" src=logoCapture4.PNG></img>
+<button style="color:#5F6C6D; font-family: helvetica narrow, sans-serif;font-size: x-large;  position:absolute; top:0; right:0;" onclick="open_window()"">offer trade</button>
+<p id="contract_address_ID" style="color:grey; font-family: helvetica narrow, sans-serif; font-size: large; position:absolute; top:35; right:400;"></p>
+
+	
+</div>
+
+
+
+
+
+
+
+<script>
+//<meta http-equiv="Content-Type" content="text/plain"; Charset=UTF-8">
+
+function open_window() {
+  var myWindow = window.open("create_nft_swap_form_polygonx_live.html", "offer trade");
+}             
+
+
+var metamask = (async function(){
+  	
+  await ethereum.enable();
+  	
+  
+  //alert(balance)
+
+})()
+
+//sleep(200);
+web3 = new Web3(web3.currentProvider);        
+
+//var web3 = new Web3(new Web3.providers.HttpProvider(
+    //"https://mainnet.infura.io/v3/69462286c61f42d2891a2ced35c91f8d"
+//));
+
+
+web3.eth.net.getNetworkType()
+.then(console.log);
+
+web3.eth.net.isListening()
+   .then(() => console.log('web3 is connected'))
+   .catch(e => console.log('Wow. Something went wrong'));
+
+var abi = [
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "_owner",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "_approved",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "uint256",
+				"name": "_tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "Approval",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "_owner",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "_operator",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "bool",
+				"name": "_approved",
+				"type": "bool"
+			}
+		],
+		"name": "ApprovalForAll",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "previousOwner",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "OwnershipTransferred",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "_from",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "_to",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "uint256",
+				"name": "_tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "Transfer",
+		"type": "event"
+	},
+	{
+		"inputs": [],
+		"name": "Address_listCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "CANNOT_TRANSFER_TO_ZERO_ADDRESS",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "NOT_CURRENT_OWNER",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "num",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "_offeror",
+				"type": "address"
+			}
+		],
+		"name": "accept_trade",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "account_list",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "contract ERC721",
+				"name": "_nftAddress",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_tokenId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_num",
+				"type": "uint256"
+			}
+		],
+		"name": "add_to_accept",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "contract ERC721",
+				"name": "_nftAddress",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_tokenId1",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_num",
+				"type": "uint256"
+			}
+		],
+		"name": "add_to_offer",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "address_list",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_approved",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "approve",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_owner",
+				"type": "address"
+			}
+		],
+		"name": "balanceOf",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "debt_obligation_listx",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "fee",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "getApproved",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_owner",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "_operator",
+				"type": "address"
+			}
+		],
+		"name": "isApprovedForAll",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "last",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "name",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "_name",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "contract ERC721",
+				"name": "_nftAddress",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_tokenId1",
+				"type": "uint256"
+			},
+			{
+				"internalType": "contract ERC721",
+				"name": "_address",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_tokenId2",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_num",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_image1",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_image2",
+				"type": "string"
+			}
+		],
+		"name": "offer_trade",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bytes",
+				"name": "",
+				"type": "bytes"
+			}
+		],
+		"name": "onERC721Received",
+		"outputs": [
+			{
+				"internalType": "bytes4",
+				"name": "",
+				"type": "bytes4"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "ownerOf",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "_owner",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_from",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "_to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "safeTransferFrom",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_from",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "_to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_tokenId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bytes",
+				"name": "_data",
+				"type": "bytes"
+			}
+		],
+		"name": "safeTransferFrom",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_operator",
+				"type": "address"
+			},
+			{
+				"internalType": "bool",
+				"name": "_approved",
+				"type": "bool"
+			}
+		],
+		"name": "setApprovalForAll",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_fee",
+				"type": "uint256"
+			}
+		],
+		"name": "setfee",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes4",
+				"name": "_interfaceID",
+				"type": "bytes4"
+			}
+		],
+		"name": "supportsInterface",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "symbol",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "_symbol",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "term_list",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "tokenURI",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "token_contracts_list1xy",
+		"outputs": [
+			{
+				"internalType": "contract ERC721",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "num",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "_offeror",
+				"type": "address"
+			}
+		],
+		"name": "token_contracts_list1xyCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "token_contracts_list2xy",
+		"outputs": [
+			{
+				"internalType": "contract ERC721",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "num",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "_offeror",
+				"type": "address"
+			}
+		],
+		"name": "token_contracts_list2xyCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "tokens_image1xy",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "tokens_image2xy",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "tokens_list1xy",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "tokens_list2xy",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_from",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "_to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "transferFrom",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_newOwner",
+				"type": "address"
+			}
+		],
+		"name": "transferOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "transferto",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "num",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "id",
+				"type": "uint256"
+			}
+		],
+		"name": "withdraw_nft",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"stateMutability": "payable",
+		"type": "receive"
+	}
+]
+	//localStorage.setItem("NFT Contract", document.getElementById("NFT_contract").value);
+	//localStorage.setItem("NFT Token ID", document.getElementById("NFT_Token_ID").value);
+	//localStorage.setItem("Loan Amount", document.getElementById("loan_amount").value);
+	//localStorage.setItem("Loan Term", document.getElementById("loan_term").value);
+
+const contract_address = web3.utils.toChecksumAddress("0xd4ba547282a909afc9b4c58c9f4777a34a8582eb")
+
+const contract_bal = new web3.eth.Contract(abi, contract_address);
+
+const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+
+const account_address = [];
+
+
+
+
+
+
+
+ $(document).ready(function(){
+//function display_loan_info(){
+var display = (async function(){
+  	
+	const addressCount = await contract_bal.methods.Address_listCount().call();
+		
+		
+	for (var i = addressCount; i>0; i--){
+	var address = await contract_bal.methods.address_list(i-1).call();
+	var address = web3.utils.toChecksumAddress(address)
+	var chat = document.getElementById("contract_address_ID"); // finds the container
+	//var chat = document.createElement("box");
+	
+	 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
+	
+	var ewDiv = document.createElement('div');
+	
+	
+	
+	
+	chat.appendChild(ewDiv);
+	ewDiv.id = 'r'+i;
+	document.getElementById("r" + i).innerHTML = "  OFFER NO: " + i
+	document.getElementById("r" + i).style = "font-weight: bold;"
+	var ew1Div = document.createElement('div');
+	ew1Div.class = "odd";
+	ewDiv.appendChild(ew1Div);
+	//document.getElementById("r" + i).innerHTML = "" //"account address: " + address;
+	//var newDiv = document.createElement('div');
+	//ew1Div.id = 'q'+i;
+	
+	//ew1Div.appendChild(newDiv);
+	
+	var contract_length = await contract_bal.methods.token_contracts_list1xyCount(i, address).call();
+	for (j=0;j<contract_length;j++){
+	var contract_ID1 = await contract_bal.methods.token_contracts_list1xy(i, address, j).call();
+	//console.log(contract_ID1)
+	var name = await new web3.eth.Contract(abi, contract_ID1).methods.name().call();
+	//console.log(name)
+	//var newDiv = document.createElement('div');
+	
+	
+	//ewDiv.appendChild(newDiv);
+	//document.getElementById("rr" + i + j).innerHTML = "" // "their NFT Contract" + j + ": " + contract_ID1;
+	var tokenID = await contract_bal.methods.tokens_list1xy(i, address, j).call();
+	//console.log(tokenID)
+	
+	
+	
+	var image = await image_and_name(contract_ID1, tokenID, getImage);
+	//console.log(image);
+	//var newDiv = document.createElement('img');
+	//newDiv.id = 'rs'+i + j;
+	//newDiv.setAttribute('width', '15%');
+	//newDiv.setAttribute('height', '15%');
+	//newDiv.loading = "lazy";
+	//newDiv.onload = await "(image_and_name(" + contract_ID1 + ", " + tokenID + ", getImage))"
+	//newDiv.addEventListener("load", "(image_and_name(" + contract_ID1 + ", " + tokenID + ", getImage))");
+	//chat.appendChild(newDiv);
+	ew1Div.addEventListener("load", getImage);
+	
+	
+	function getImage(xhttp){
+			//var result = xhttp.response;
+			
+			var result = xhttp.response;
+			console.log(result)
+			
+			
+			
+			
+			try{
+				JSONresult = JSON.parse(result);
+				
+				
+			}
+			catch(err){
+				JSONresult = result;
+			}
+			
+			//JSONresult = result
+			
+			//console.log(JSONresult.image);
+			//var result1 = JSONresult.image
+			//return result1
+			//var image_ = JSONresult.image
+			var img = new Image();
+			//'https://ipfs.io/ipfs/' + lnk.slice(7)
+			if (JSONresult.image.substring(0,4) == "ipfs"){
+			 image_ = 'https://ipfs.io/ipfs/' + JSONresult.image.slice(7)
+			}
+				var image_ = await contract_bal.methods.tokens_image1xy(i, address, j).call();
+            	const imgurl = image_ //"https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg"
+fetch(imgurl)
+  .then(response => response.blob())
+  .then(myBlob => {
+  var urlCreator = window.URL || window.webkitURL;
+   var imageUrl = urlCreator.createObjectURL(myBlob);
+   //const myImgElem = document.getElementById('my-img');
+   //var myImgElem = new Image;
+   
+   //myImgElem.src = imageUrl;
+   var img = new Image();
+	img.src = imageUrl
+	//ew1Div.addEventListener("load", getCanvas);
+	img.onload = function (){
+	
+		//var canvas = document.getElementById("myCanvas");
+		var canvas = document.createElement('canvas');
+        var ctx = canvas.getContext('2d');
+		var width = img.width;
+		var height = img.height;
+
+ if (width > height) {
+    if (width > 200) {
+      //height *= max_width / width;
+      height = Math.round(height *= 200 / width);
+      width = 200;
+    }
+  } else {
+    if (height > 200) {
+      //width *= max_height / height;
+      width = Math.round(width *= 200 / height);
+      height = 200;
+    }
+  }
+  
+  // resize the canvas and draw the image data into it
+  canvas.width = width;
+  canvas.height = height;
+  var ctx = canvas.getContext("2d");
+  ctx.drawImage(img, 0, 0, width, height);
+
+        ctx.drawImage(img, 0, 0, width, height);
+		ctx.fillText(name, 30, 30)
+		ew1Div.appendChild(canvas);
+		return canvas.toDataURL("image/jpeg",0.5);
+			}
+			return 1
+			
+			
+	
+	})
+	}
+	
+	
+	//var newDiv = document.createElement('div');
+	//newDiv.id = 'rs'+i + j;
+	//ew1Div.appendChild(newDiv);
+	
+	//document.getElementById("rs" + i + j).innerHTML = "  OFFER NO: " + i + " " + name //"NFT Token ID1: " + tokenID;
+	
+	 }
+	
+	
+	
+	
+	
+	var contract_length1 = await contract_bal.methods.token_contracts_list2xyCount(i, address).call();
+	
+	var array_contract_ID2 = new Array();
+	var array_tokenID2 = new Array();
+	
+	var newDiv = document.createElement('div');
+	newDiv.id = 'ss'+i;
+	ewDiv.appendChild(newDiv);
+	document.getElementById("ss" + i).outerHTML = '<center style="color:#5F6C6D; font-family: helvetica narrow, sans-serif;"> &#10506; swap &#10507;</center>'
+	var ew2Div = document.createElement('div');
+	ew2Div.id = 'qs' + i;
+	//ew1Div.class = "even";
+	ewDiv.appendChild(ew2Div);
+	for (j=0;j<contract_length1;j++){ 
+	
+	var contract_ID2 = await contract_bal.methods.token_contracts_list2xy(i, address, j).call();
+	//console.log("array_contract: " + contract_ID2 + "no# " + i + ' ' + j)
+	array_contract_ID2.push("'" + contract_ID2 + "'");
+	
+	
+	var name2 = await new web3.eth.Contract(abi, contract_ID2).methods.name().call();
+	//console.log(name2)
+	
+	var newDiv = document.createElement('div');
+	
+	
+	
+	newDiv.id = 't'+i + j;
+	ew2Div.appendChild(newDiv);
+	
+	
+	
+	//document.getElementById("t" + i + j).innerHTML = name2 // "NFT Contract 2: " + contract_ID2;
+	
+	
+	
+	
+	var tokenID2 = await contract_bal.methods.tokens_list2xy(i, address, j).call();
+	//console.log("array_token: " + tokenID2)
+	array_tokenID2.push(tokenID2);
+	//document.getElementById("loan_obligation").innerHTML = "Loan is already made is " + obligation;
+	//console.log(obligation)
+	//var newDiv = document.createElement('div');
+	//newDiv.id = 'v'+i + j;
+	//ew2Div.appendChild(newDiv);
+	
+	
+	
+	
+	var image1 = image_and_name(contract_ID2, tokenID2, getImage);
+	//console.log(image);
+	<!-- var newDiv = document.createElement('img'); -->
+	<!-- newDiv.id = 'vs'+i + j; -->
+	<!-- newDiv.loading = "lazy"; -->
+	//chat.appendChild(newDiv);
+	ew2Div.addEventListener("load", getImage);
+	
+	function getImage(xhttp){
+			var result = xhttp.response;
+			JSONresult = JSON.parse(result);
+			//console.log(JSONresult.image);
+			//var result1 = JSONresult.image
+			//return result1
+			//var image_ = JSONresult.image
+			
+			var img = new Image();
+			if (JSONresult.image.substring(0,4) == "ipfs"){
+			 image_ = 'https://ipfs.io/ipfs/' + JSONresult.image.slice(7)
+			}
+            //img.src = image_
+            var _image2 = await contract_bal.methods.tokens_image2xy(i, address, j).call();
+			const imgurl = _image2 //"https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg"
+fetch(imgurl)
+  .then(response => response.blob())
+  .then(myBlob => {
+  var urlCreator = window.URL || window.webkitURL;
+   var imageUrl = urlCreator.createObjectURL(myBlob);
+   //const myImgElem = document.getElementById('my-img');
+   //var myImgElem = new Image;
+   
+   //myImgElem.src = imageUrl;
+   var img = new Image();
+	img.src = imageUrl
+	//ew1Div.addEventListener("load", getCanvas);
+	img.onload = function (){
+	
+		//var canvas = document.getElementById("myCanvas");
+		var canvas = document.createElement('canvas');
+        var ctx = canvas.getContext('2d');
+		var width = img.width;
+		var height = img.height;
+
+ if (width > height) {
+    if (width > 150) {
+      //height *= max_width / width;
+      height = Math.round(height *= 150 / width);
+      width = 150;
+    }
+  } else {
+    if (height > 150) {
+      //width *= max_height / height;
+      width = Math.round(width *= 150 / height);
+      height = 150;
+    }
+  }
+  
+  // resize the canvas and draw the image data into it
+  canvas.width = width;
+  canvas.height = height;
+  var ctx = canvas.getContext("2d");
+  ctx.drawImage(img, 0, 0, width, height);
+
+        ctx.drawImage(img, 0, 0, width, height);
+		ctx.fillText(name2, 25, 25)
+		ew2Div.appendChild(canvas);
+		return canvas.toDataURL("image/jpeg",0.25);
+			}
+			return 1
+			
+			
+	
+	})
+			
+	}
+	
+	
+	
+	
+	
+	
+	
+	}
+	
+	
+	
+	var _i = (i)
+	var newBtn = document.createElement('input');
+	newBtn.setAttribute('type', 'button');
+	newBtn.value = "accept trade";
+	//newBtn.setAttribute('onclick', 'to_approve(' + "'" + contract_ID2 + "'" + ","  + "'" + address + "'" + "," + tokenID2 + "," + _i + ')');
+	newBtn.setAttribute('onclick', 'to_approve(' + "[" + array_contract_ID2 + "]" + ","  + "'" + address + "'" + ", [" + array_tokenID2 + "]," + _i + ')');
+	//console.log('make_trade(' + "'" + array_contract_ID2 + "'" + ","  + "'" + address + "'" + "," + array_tokenID2 + ')')
+	//newBtn.style = "color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute;left:50%;";
+	
+	newBtn.id = 'a' + i;
+	
+	
+	ew2Div.appendChild(newBtn);
+	
+	var latest = await contract_bal.methods.debt_obligation_listx(i, address).call();
+	<!-- var newDiv = document.createElement('div'); -->
+	<!-- newDiv.id = 'w'+i; -->
+	<!-- ew2Div.appendChild(newDiv); -->
+	
+	document.getElementById("qs" + i).innerHTML = "swap completed: " + latest;
+	ew2Div.appendChild(newBtn);
+	//document.getElementById("latest_block").innerHTML = latest;
+	//console.log(latest)
+	
+	}
+	
+	
+  
+	//document.getElementById("thetable").appendChild(toAdd);
+
+
+
+})()
+        });
+
+
+
+	
+
+
+
+
+
+function make_trade(add1x, add2x, tokenID, n){
+
+	var nft = add1x
+	var address = add2x
+	var nft_id = tokenID
+	var num = n
+	
+	//to_approve(nft, nft_id)
+var acct = (async function(){
+  	
+  //var result = await getAccounts()
+	await window.ethereum.enable();
+	
+	
+	
+	
+	
+        var _data = new web3.eth.Contract(abi, contract_address).methods.accept_trade(num, address).encodeABI();
+        var accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        var account = accounts[0];
+	var result = await web3.eth.getTransactionCount(account)
+	_nonce = result
+        console.log(account)
+		
+	await web3.eth.sendTransaction({'gas': web3.utils.toHex(500000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address, 'nonce': web3.utils.toHex(_nonce),'data': _data})
+         
+
+})()
+}
+
+	
+	
+
+
+
+
+
+function image_and_name(k,n, getImage){
+
+	//localStorage.setItem("NFT Contract", document.getElementById("NFT_contract").value);
+	//localStorage.setItem("NFT Token ID", document.getElementById("NFT_Token_ID").value);
+	
+	//var nft_k = localStorage.getItem("NFT Contract");
+	var nft_k = k 
+	//var nft_id = localStorage.getItem("NFT Token ID");
+	var nft_id = n
+  var val = (async function(){
+  var contract_address = web3.utils.toChecksumAddress(nft_k)
+  var wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+  var contract_bal = await new web3.eth.Contract(abi, contract_address);
+  var lnk = await contract_bal.methods.tokenURI(nft_id).call();
+  
+  if (lnk.substring(0,4) == "ipfs"){
+	lnk = 'https://ipfs.io/ipfs/' + lnk.slice(7)
+	}
+  var lnk1 = 'https://ipfs.io/ipfs/' + lnk.slice(7)
+  //alert(lnk1)
+  //alert(lnk)
+  //var lnk = "https://opensea.io/assets/matic/" & nft_k & "/" & nft_id
+  //alert(bal);
+  //var result = await getvalue()
+  //console.log('Woo done!', json)
+  
+	
+	var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            getImage(this)
+			
+       }
+	
+    };
+    xhttp.open("GET", lnk, false);
+    xhttp.send();
+	
+
+})()
+//return val
+	}
+	
+	
+function get_image(k,n){
+var image = (async function(){
+
+var img = await image_and_name(k,n)
+  	
+  console.log('Woo done!', img)
+  
+  
+	return img
+
+})()
+}
+	
+<!-- function transfer_to_lender(addx, id){ -->
+<!-- var acct = (async function(){ -->
+  	
+  <!-- //var result = await getAccounts() -->
+	<!-- await window.ethereum.enable(); -->
+	
+	
+	<!-- //var add1x = localStorage.getItem("mySharedData"); -->
+	<!-- var add1x = addx -->
+	
+	
+	<!-- var nft_k = localStorage.getItem("NFT Contract"); -->
+	<!-- //var nft_id = localStorage.getItem("NFT Token ID"); -->
+	<!-- //var nft_id = id -->
+	<!-- var tokenID = await contract_bal.methods.tokens_list1(address).call(); -->
+	<!-- console.log(tokenID) -->
+	<!-- var loan_amt = localStorage.getItem("Loan Amount"); -->
+	<!-- var loan_term = localStorage.getItem("Loan Term"); -->
+	
+ 	<!-- //var contract = web3.utils.toChecksumAddress(nft_k) -->
+        <!-- var _data = new web3.eth.Contract(abi, contract_address).methods.TransferToLender(add1x, nft_id).encodeABI(); -->
+        <!-- var accounts = await window.ethereum.request({ method: 'eth_requestAccounts' }); -->
+        <!-- var account = accounts[0]; -->
+		<!-- var amt = await contract_bal.methods.loan_amount_list(add1x).call(); -->
+	
+	<!-- var result = await web3.eth.getTransactionCount(account) -->
+	<!-- _nonce = result -->
+        <!-- console.log(account) -->
+		
+	<!-- await web3.eth.sendTransaction({'gas': web3.utils.toHex(200000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address, 'nonce': web3.utils.toHex(_nonce),'data': _data}) -->
+         <!-- //window.ethereum.on('accountsChanged', function (accounts) { -->
+            <!-- // Time to reload your interface with accounts[0]! -->
+            <!-- //console.log(accounts[0]) -->
+           	
+  <!-- //console.log('Woo done!', result[0]) -->
+  <!-- //balance = result -->
+  <!-- //alert(balance) -->
+
+<!-- })() -->
+<!-- } -->
+
+<!-- function reclaim_asset(){ -->
+<!-- var acct = (async function(){ -->
+  	
+  <!-- //var result = await getAccounts() -->
+	<!-- await window.ethereum.enable(); -->
+	<!-- localStorage.setItem("mySharedData", document.getElementById("password").value); -->
+	<!-- localStorage.setItem("mySharedData1", document.getElementById("user_name").value); -->
+	<!-- localStorage.setItem("mySharedData2", document.getElementById("user_name1").value); -->
+	
+	<!-- var add1x = localStorage.getItem("mySharedData"); -->
+	<!-- var add2x = localStorage.getItem("mySharedData2"); -->
+	<!-- var token_nx = localStorage.getItem("mySharedData1"); -->
+	
+	<!-- localStorage.setItem("NFT Contract", document.getElementById("NFT_contract").value); -->
+	<!-- localStorage.setItem("NFT Token ID", document.getElementById("NFT_Token_ID").value); -->
+	<!-- localStorage.setItem("Loan Amount", document.getElementById("loan_amount").value); -->
+	<!-- localStorage.setItem("Loan Term", document.getElementById("loan_term").value); -->
+	
+	<!-- var nft_k = localStorage.getItem("NFT Contract"); -->
+	<!-- var nft_id = localStorage.getItem("NFT Token ID"); -->
+	<!-- var loan_amt = localStorage.getItem("Loan Amount"); -->
+	<!-- var loan_term = localStorage.getItem("Loan Term"); -->
+	
+ 	<!-- var contract = web3.utils.toChecksumAddress(nft_k) -->
+        <!-- var _data = new web3.eth.Contract(abi, contract_address).methods.ReturnToBorrower().encodeABI(); -->
+        <!-- var accounts = await window.ethereum.request({ method: 'eth_requestAccounts' }); -->
+        <!-- var account = accounts[0]; -->
+		<!-- var amt = await contract_bal.methods.loan_amount_list(add1x).call(); -->
+	<!-- var _amt = parseInt(amt) + (amt/50) + 1 -->
+	<!-- console.log(amt); -->
+	<!-- console.log(_amt); -->
+	<!-- var result = await web3.eth.getTransactionCount(account) -->
+	<!-- _nonce = result -->
+        <!-- console.log(account) -->
+		
+	<!-- await web3.eth.sendTransaction({'gas': web3.utils.toHex(200000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address, 'value': _amt, 'nonce': web3.utils.toHex(_nonce),'data': _data}) -->
+         <!-- //window.ethereum.on('accountsChanged', function (accounts) { -->
+            <!-- // Time to reload your interface with accounts[0]! -->
+            <!-- //console.log(accounts[0]) -->
+           	
+  <!-- //console.log('Woo done!', result[0]) -->
+  <!-- //balance = result -->
+  <!-- //alert(balance) -->
+
+<!-- })() -->
+<!-- } -->
+
+
+
+
+
+//client_account = accounts[0]; // assuming master client addr
+
+
+
+function to_approve(k, add, k_id, num){
+var acct = (async function(){
+  	
+  //var result = await getAccounts()
+	await window.ethereum.enable();
+	
+	for (var i = 0; i<k.length; i++){
+	var nft_k = k[i]
+	//var nft_id = localStorage.getItem("NFT Token ID");
+	var add1 = add
+	var nft_id = k_id[i]
+	var n = num
+	var loan_amt = localStorage.getItem("Loan Amount");
+	var loan_term = localStorage.getItem("Loan Term");
+	
+	var add1x = localStorage.getItem("mySharedData");
+	var add2x = localStorage.getItem("mySharedData2");
+	var token_nx = localStorage.getItem("mySharedData1");
+	
+ 	var contract_address1 = web3.utils.toChecksumAddress(nft_k)
+        var _data = new web3.eth.Contract(abi, contract_address).methods.approve("0xd4ba547282a909afc9b4c58c9f4777a34a8582eb", nft_id).encodeABI();
+        var accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        var account = accounts[0];
+	var result = await web3.eth.getTransactionCount(account)
+	_nonce = result
+        console.log(account)
+		
+	await web3.eth.sendTransaction({'gas': web3.utils.toHex(100000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address1, 'nonce': web3.utils.toHex(_nonce),'data': _data})
+         //window.ethereum.on('accountsChanged', function (accounts) {
+            // Time to reload your interface with accounts[0]!
+            //console.log(accounts[0])
+           	
+  //console.log('Woo done!', result[0])
+  //balance = result
+  //alert(balance)
+  }
+	make_trade(nft_k, add1, nft_id, n)
+})()
+
+}
+
+function getNFT(){
+var my_nft =(async function(){
+var contract_address = await web3.utils.toChecksumAddress("0xd4ba547282a909afc9b4c58c9f4777a34a8582eb")
+
+var contract_bal = await new web3.eth.Contract(abi, contract_address);
+var totalSupply = await contract_bal.methods.baseURI().call();
+alert(totalSupply)
+})()
+//return val
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+    </script>
+	
+</body>
+</html>
