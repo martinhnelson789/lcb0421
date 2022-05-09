@@ -1184,11 +1184,11 @@ var display = (async function(){
 	
 	//var image = await image_and_name(contract_ID1, tokenID, getImage);
 	//console.log(image);
-	var newDiv = document.createElement('img');
-	newDiv.id = 'rs'+i + j;
+	//var newDiv = document.createElement('img');
+	//newDiv.id = 'rs'+i + j;
 	//newDiv.setAttribute('width', '15%');
 	//newDiv.setAttribute('height', '15%');
-	newDiv.loading = "lazy";
+	//newDiv.loading = "lazy";
 	//newDiv.onload = await "(image_and_name(" + contract_ID1 + ", " + tokenID + ", getImage))"
 	//newDiv.addEventListener("load", "(image_and_name(" + contract_ID1 + ", " + tokenID + ", getImage))");
 	//chat.appendChild(newDiv);
@@ -1264,6 +1264,7 @@ fetch(imgurl)
   ctx.drawImage(img, 0, 0, width, height);
 
         ctx.drawImage(img, 0, 0, width, height);
+		ctx.fillText(name, 30, 30)
 		ew1Div.appendChild(canvas);
 		return canvas.toDataURL("image/jpeg",0.2);
 			}
@@ -1280,11 +1281,11 @@ fetch(imgurl)
 	
 	
 	
-	var newDiv = document.createElement('div');
-	newDiv.id = 's'+i + j;
-	ew1Div.appendChild(newDiv);
+	//var newDiv = document.createElement('div');
+	//newDiv.id = 's'+i + j;
+	//ew1Div.appendChild(newDiv);
 	
-	document.getElementById("s" + i + j).innerHTML = name //"NFT Token ID1: " + tokenID;
+	//document.getElementById("s" + i + j).innerHTML = name //"NFT Token ID1: " + tokenID;
 	
 	 }
 	
