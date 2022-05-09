@@ -33,7 +33,7 @@ cursor: pointer;
   border: 2px solid #aaaaaa;
 }
 
-div {
+table {
 padding: 5px;
 border-radius: 25px;
 border: 2px solid #5F6C6D;
@@ -1149,7 +1149,7 @@ var display = (async function(){
 	
 	 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
 	
-	var ewDiv = document.createElement('div');
+	var ewDiv = document.createElement('table');
 	
 	
 	
@@ -1158,7 +1158,7 @@ var display = (async function(){
 	ewDiv.id = 'r'+i;
 	document.getElementById("r" + i).innerHTML = "  OFFER NO: " + i
 	document.getElementById("r" + i).style = "font-weight: bold;"
-	var ew1Div = document.createElement('div');
+	var ew1Div = document.createElement('table');
 	//ew1Div.class = "odd";
 	ewDiv.appendChild(ew1Div);
 	//document.getElementById("r" + i).innerHTML = "" //"account address: " + address;
@@ -1298,7 +1298,7 @@ fetch(imgurl)
 	var array_contract_ID2 = new Array();
 	var array_tokenID2 = new Array();
 	
-	var newDiv = document.createElement('div');
+	var newDiv = document.createElement('table');
 	newDiv.id = 'ss'+i;
 	ewDiv.appendChild(newDiv);
 	document.getElementById("ss" + i).outerHTML = '<center style="color:#ba55d3; font-family: helvetica narrow, sans-serif;"> &#8657; trade &#8659;</center>'
