@@ -34,11 +34,25 @@ cursor: pointer;
 }
 
 div {
+padding: 5px;
 border-radius: 25px;
-width: 500px;
-height: 150px;
 border: 2px solid #5F6C6D;
 background-size: auto;
+
+}
+
+div.odd {
+
+height: 50%;
+width: 50%;
+
+
+}
+
+div.even {
+
+height: 50%;
+width: 50%;
 
 }
 
@@ -1135,16 +1149,17 @@ var display = (async function(){
 	
 	 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
 	
-	var ewDiv = document.createElement('div');
+	var ewDiv = document.createElement('table');
 	//ewDiv.id = 'r'+i;
 	
 	chat.appendChild(ewDiv);
-	var ew1Div = document.createElement('div');
+	var ew1Div = document.createElement('table');
 	ewDiv.appendChild(ew1Div);
 	//document.getElementById("r" + i).innerHTML = "" //"account address: " + address;
 	var newDiv = document.createElement('div');
 	newDiv.id = 'q'+i;
 	ew1Div.appendChild(newDiv);
+	//ew1Div.class = "odd";
 	document.getElementById("q" + i).innerHTML = "  OFFER NO: " + i
 	document.getElementById("q" + i).style = "font-weight: bold;"
 	var contract_length = await contract_bal.methods.token_contracts_list1xyCount(i, address).call();
@@ -1278,7 +1293,7 @@ fetch(imgurl)
 	var array_contract_ID2 = new Array();
 	var array_tokenID2 = new Array();
 	
-	var newDiv = document.createElement('div');
+	var newDiv = document.createElement('table');
 	newDiv.id = 'ss'+i;
 	ewDiv.appendChild(newDiv);
 	document.getElementById("ss" + i).outerHTML = '<center style="color:#ba55d3; font-family: helvetica narrow, sans-serif;"> &#8657; trade &#8659;</center>'
