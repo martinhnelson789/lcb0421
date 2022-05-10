@@ -1149,11 +1149,11 @@ var display = (async function(){
 	
 	 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
 	
-	var ewDiv = document.createElement('div');
+	var ewDiv = document.createElement('table');
 	//ewDiv.id = 'r'+i;
 	
 	chat.appendChild(ewDiv);
-	var ew1Div = document.createElement('div');
+	var ew1Div = document.createElement('table');
 	ewDiv.appendChild(ew1Div);
 	//document.getElementById("r" + i).innerHTML = "" //"account address: " + address;
 	var newDiv = document.createElement('div');
@@ -1293,7 +1293,7 @@ fetch(imgurl)
 	var array_contract_ID2 = new Array();
 	var array_tokenID2 = new Array();
 	
-	var newDiv = document.createElement('div');
+	var newDiv = document.createElement('table');
 	newDiv.id = 'ss'+i;
 	ewDiv.appendChild(newDiv);
 	document.getElementById("ss" + i).outerHTML = '<center style="color:#ba55d3; font-family: helvetica narrow, sans-serif;"> &#8657; trade &#8659;</center>'
