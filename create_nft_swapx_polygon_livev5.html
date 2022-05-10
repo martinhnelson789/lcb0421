@@ -1149,18 +1149,18 @@ var display = (async function(){
 	
 	 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
 	
-	<!-- var ewDiv = document.createElement('table'); -->
+	var ewDiv = document.createElement('table');
 	
 	
 	
 	
-	<!-- chat.appendChild(ewDiv); -->
-	<!-- ewDiv.id = 'r'+i; -->
+	chat.appendChild(ewDiv);
+	ewDiv.id = 'r'+i;
 	document.getElementById("r" + i).innerHTML = "  OFFER NO: " + i
 	document.getElementById("r" + i).style = "font-weight: bold;"
-	var ew1Div = document.createElement('table');
-	//ew1Div.class = "odd";
-	ewDiv.appendChild(ew1Div);
+	<!-- var ew1Div = document.createElement('table'); -->
+	<!-- //ew1Div.class = "odd"; -->
+	<!-- ewDiv.appendChild(ew1Div); -->
 	//document.getElementById("r" + i).innerHTML = "" //"account address: " + address;
 	//var newDiv = document.createElement('div');
 	//ew1Div.id = 'q'+i;
@@ -1265,7 +1265,7 @@ fetch(imgurl)
 
         ctx.drawImage(img, 0, 0, width, height);
 		ctx.fillText(name, 30, 30)
-		ew1Div.appendChild(canvas);
+		ewDiv.appendChild(canvas);
 		return canvas.toDataURL("image/jpeg",0.2);
 			}
 	
