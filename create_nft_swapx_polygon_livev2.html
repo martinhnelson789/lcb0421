@@ -1296,7 +1296,7 @@ fetch(imgurl)
 	<!-- var newDiv = document.createElement('div'); -->
 	<!-- newDiv.id = 'ss'+i; -->
 	<!-- ewDiv.appendChild(newDiv); -->
-	document.getElementById("r" + i).outerHTML = '<center style="color:#ba55d3; font-family: helvetica narrow, sans-serif;"> &#8657; trade &#8659;</center>'
+	//document.getElementById("r" + i).outerHTML = '<center style="color:#ba55d3; font-family: helvetica narrow, sans-serif;"> &#8657; trade &#8659;</center>'
 	<!-- var ew2Div = document.createElement('div'); -->
 	
 	<!-- ewDiv.appendChild(ew2Div); -->
@@ -1441,11 +1441,11 @@ fetch(imgurl)
 	ewDiv.appendChild(newBtn);
 	
 	var latest = await contract_bal.methods.debt_obligation_listx(i, address).call();
-	var newDiv = document.createElement('div');
-	newDiv.id = 'w'+i;
-	ewDiv.appendChild(newDiv);
+	<!-- var newDiv = document.createElement('div'); -->
+	<!-- newDiv.id = 'w'+i; -->
+	<!-- ewDiv.appendChild(newDiv); -->
 	
-	document.getElementById("w" + i).innerHTML = "swap completed: " + latest;
+	<!-- document.getElementById("w" + i).innerHTML = "swap completed: " + latest; -->
 	//document.getElementById("latest_block").innerHTML = latest;
 	//console.log(latest)
 	
