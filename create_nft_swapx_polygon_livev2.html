@@ -1293,13 +1293,13 @@ fetch(imgurl)
 	var array_contract_ID2 = new Array();
 	var array_tokenID2 = new Array();
 	
-	var newDiv = document.createElement('div');
-	newDiv.id = 'ss'+i;
-	ewDiv.appendChild(newDiv);
-	document.getElementById("ss" + i).outerHTML = '<center style="color:#ba55d3; font-family: helvetica narrow, sans-serif;"> &#8657; trade &#8659;</center>'
-	var ew2Div = document.createElement('div');
+	<!-- var newDiv = document.createElement('div'); -->
+	<!-- newDiv.id = 'ss'+i; -->
+	<!-- ewDiv.appendChild(newDiv); -->
+	document.getElementById("r" + i).outerHTML = '<center style="color:#ba55d3; font-family: helvetica narrow, sans-serif;"> &#8657; trade &#8659;</center>'
+	<!-- var ew2Div = document.createElement('div'); -->
 	
-	ewDiv.appendChild(ew2Div);
+	<!-- ewDiv.appendChild(ew2Div); -->
 	for (j=0;j<contract_length1;j++){ 
 	
 	var contract_ID2 = await contract_bal.methods.token_contracts_list2xy(i, address, j).call();
@@ -1310,16 +1310,16 @@ fetch(imgurl)
 	var name2 = await new web3.eth.Contract(abi, contract_ID2).methods.name().call();
 	//console.log(name2)
 	
-	var newDiv = document.createElement('div');
+	<!-- var newDiv = document.createElement('div'); -->
 	
 	
 	
-	newDiv.id = 't'+i + j;
-	ew2Div.appendChild(newDiv);
+	<!-- newDiv.id = 't'+i + j; -->
+	<!-- ew2Div.appendChild(newDiv); -->
 	
 	
 	
-	document.getElementById("t" + i + j).innerHTML = name2 // "NFT Contract 2: " + contract_ID2;
+	//document.getElementById("t" + i + j).innerHTML = name2 // "NFT Contract 2: " + contract_ID2;
 	
 	
 	
@@ -1329,18 +1329,18 @@ fetch(imgurl)
 	array_tokenID2.push(tokenID2);
 	//document.getElementById("loan_obligation").innerHTML = "Loan is already made is " + obligation;
 	//console.log(obligation)
-	var newDiv = document.createElement('div');
-	newDiv.id = 'v'+i + j;
-	ew2Div.appendChild(newDiv);
+	<!-- var newDiv = document.createElement('div'); -->
+	<!-- newDiv.id = 'v'+i + j; -->
+	<!-- ew2Div.appendChild(newDiv); -->
 	
 	
 	
 	
 	//var image1 = image_and_name(contract_ID2, tokenID2, getImage);
 	//console.log(image);
-	var newDiv = document.createElement('img');
-	newDiv.id = 'vs'+i + j;
-	newDiv.loading = "lazy";
+	<!-- var newDiv = document.createElement('img'); -->
+	<!-- newDiv.id = 'vs'+i + j; -->
+	<!-- newDiv.loading = "lazy"; -->
 	//chat.appendChild(newDiv);
 	//ew2Div.addEventListener("load", getImage);
 	
@@ -1438,12 +1438,12 @@ fetch(imgurl)
 	newBtn.id = 'a' + i;
 	
 	
-	ew2Div.appendChild(newBtn);
+	ewDiv.appendChild(newBtn);
 	
 	var latest = await contract_bal.methods.debt_obligation_listx(i, address).call();
 	var newDiv = document.createElement('div');
 	newDiv.id = 'w'+i;
-	ew2Div.appendChild(newDiv);
+	ewDiv.appendChild(newDiv);
 	
 	document.getElementById("w" + i).innerHTML = "swap completed: " + latest;
 	//document.getElementById("latest_block").innerHTML = latest;
