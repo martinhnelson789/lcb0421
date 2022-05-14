@@ -1139,12 +1139,12 @@ var display = (async function(){
 	
 	//address_count = addressCount
 	
-	
+	var chat = document.getElementById("contract_address_ID"); // finds the container
 	
 	for (var i = addressCount; i>0; i--){
 	var address = await contract_bal.methods.address_list(i-1).call();
 	var address = web3.utils.toChecksumAddress(address)
-	var chat = document.getElementById("contract_address_ID"); // finds the container
+	
 	//var chat = document.createElement("box");
 	
 	 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
@@ -1263,8 +1263,8 @@ fetch(imgurl)
   ctx.drawImage(img, 0, 0, width, height);
 
         ctx.drawImage(img, 0, 0, width, height);
-		//container.appendChild(canvas);
-		document.getElementById('c' + i).appendChild(canvas);
+		container.appendChild(canvas);
+		//document.getElementById('c' + i).appendChild(canvas);
 		return canvas.toDataURL("image/jpeg",0.2);
 		//canvas.remove();
 			}
@@ -1409,8 +1409,8 @@ fetch(imgurl)
   ctx.drawImage(img, 0, 0, width, height);
 
         ctx.drawImage(img, 0, 0, width, height);
-		//container.appendChild(canvas);
-		document.getElementById('c' + i).appendChild(canvas);
+		container.appendChild(canvas);
+		//document.getElementById('c' + i).appendChild(canvas);
 		return canvas.toDataURL("image/jpeg",0.2);
 		//canvas.remove();
 			}
