@@ -1160,8 +1160,8 @@ var display = (async function(){
 	<!-- newDiv.id = 'q'+i; -->
 	<!-- ew1Div.appendChild(newDiv); -->
 	//ew1Div.class = "odd";
-	document.getElementById("r" + i).innerHTML = "  OFFER NO: " + i
-	document.getElementById("r" + i).style = "font-weight: bold;"
+	//document.getElementById("r" + i).innerHTML = "  OFFER NO: " + i
+	//document.getElementById("r" + i).style = "font-weight: bold;"
 	var contract_length = await contract_bal.methods.token_contracts_list1xyCount(i, address).call();
 	for (j=0;j<contract_length;j++){
 	var contract_ID1 = await contract_bal.methods.token_contracts_list1xy(i, address, j).call();
