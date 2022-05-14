@@ -1218,6 +1218,7 @@ var display = (async function(){
 	<!-- } -->
 	
 	var _image = await contract_bal.methods.tokens_image1xy(i, address, j).call();
+	console.log(_image);
 	const imgurl = _image //"https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg"
 fetch(imgurl)
   .then(response => response.blob())
