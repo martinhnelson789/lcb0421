@@ -1140,6 +1140,7 @@ var display = (async function(){
 	//address_count = addressCount
 	
 	var chat = document.getElementById("contract_address_ID"); // finds the container
+	var documentFragment = document.createDocumentFragment();
 	
 	for (var i = addressCount; i>0; i--){
 	var address = await contract_bal.methods.address_list(i-1).call();
@@ -1149,7 +1150,7 @@ var display = (async function(){
 	
 	 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
 	
-	var documentFragment = document.createDocumentFragment();
+	
 	
 	var container = document.createElement('div')
 	container.id = 'c'+i;
