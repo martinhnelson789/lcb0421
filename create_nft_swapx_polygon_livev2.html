@@ -1165,7 +1165,7 @@ var display = (async function(){
 	//ew1Div.class = "odd";
 	//document.getElementById("r" + i).innerHTML = "  OFFER NO: " + i
 	//document.getElementById("r" + i).style = "font-weight: bold;"
-	container.appendChild(container);
+	//container.appendChild(container);
 	var contract_length = await contract_bal.methods.token_contracts_list1xyCount(i, address).call();
 	for (j=0;j<contract_length;j++){
 	var contract_ID1 = await contract_bal.methods.token_contracts_list1xy(i, address, j).call();
@@ -1458,10 +1458,10 @@ fetch(imgurl)
 	//document.getElementById("latest_block").innerHTML = latest;
 	//console.log(latest)
 	
-	chat.appendChild(documentFragment);
+	
 	}
 	
-	
+	chat.appendChild(documentFragment);
   
 	//document.getElementById("thetable").appendChild(toAdd);
 
