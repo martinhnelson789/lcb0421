@@ -1142,6 +1142,7 @@ var display = (async function(){
 	var chat = document.getElementById("contract_address_ID"); // finds the container
 	var documentFragment = document.createDocumentFragment();
 	var container = document.createElement('div')
+	documentFragment.appendChild(container);
 	for (var i = addressCount; i>0; i--){
 	var address = await contract_bal.methods.address_list(i-1).call();
 	var address = web3.utils.toChecksumAddress(address)
@@ -1155,7 +1156,7 @@ var display = (async function(){
 	
 	
 	
-	documentFragment.appendChild(container);
+	
 	<!-- var ew1Div = document.createElement('div'); -->
 	<!-- ewDiv.appendChild(ew1Div); -->
 	//document.getElementById("r" + i).innerHTML = "" //"account address: " + address;
@@ -1458,10 +1459,10 @@ fetch(imgurl)
 	//document.getElementById("latest_block").innerHTML = latest;
 	//console.log(latest)
 	
-	
+	chat.appendChild(documentFragment);
 	}
 	
-	chat.appendChild(documentFragment);
+	
   
 	//document.getElementById("thetable").appendChild(toAdd);
 
