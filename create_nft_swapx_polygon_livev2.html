@@ -1152,7 +1152,7 @@ var display = (async function(){
 	var documentFragment = document.createDocumentFragment();
 	
 	var container = document.createElement('div')
-	//ewDiv.id = 'r'+i;
+	container.id = 'c'+i;
 	
 	documentFragment.appendChild(container);
 	<!-- var ew1Div = document.createElement('div'); -->
@@ -1263,9 +1263,10 @@ fetch(imgurl)
   ctx.drawImage(img, 0, 0, width, height);
 
         ctx.drawImage(img, 0, 0, width, height);
-		container.appendChild(canvas);
+		//container.appendChild(canvas);
+		document.getElementById('c' + i).appendChild(canvas);
 		return canvas.toDataURL("image/jpeg",0.2);
-		canvas.remove();
+		//canvas.remove();
 			}
 	
 		
@@ -1408,9 +1409,10 @@ fetch(imgurl)
   ctx.drawImage(img, 0, 0, width, height);
 
         ctx.drawImage(img, 0, 0, width, height);
-		container.appendChild(canvas);
+		//container.appendChild(canvas);
+		document.getElementById('c' + i).appendChild(canvas);
 		return canvas.toDataURL("image/jpeg",0.2);
-		canvas.remove();
+		//canvas.remove();
 			}
 	
    
