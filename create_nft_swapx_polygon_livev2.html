@@ -1142,13 +1142,13 @@ var display = (async function(){
 	var chat = document.getElementById("contract_address_ID"); // finds the container
 	var documentFragment = document.createDocumentFragment();
 	var container = document.createElement('div')
-	documentFragment.appendChild(container);
+	
 	for (var i = addressCount; i>0; i--){
 	var address = await contract_bal.methods.address_list(i-1).call();
 	var address = web3.utils.toChecksumAddress(address)
 	
 	//var chat = document.createElement("box");
-	
+	documentFragment.appendChild(container);
 	 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
 	
 	
