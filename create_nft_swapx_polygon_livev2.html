@@ -1141,12 +1141,12 @@ var display = (async function(){
 	
 	var chat = document.getElementById("contract_address_ID"); // finds the container
 	var documentFragment = document.createDocumentFragment();
-	var container = document.createElement('div')
+	
 	
 	for (var i = addressCount; i>0; i--){
 	var address = await contract_bal.methods.address_list(i-1).call();
 	var address = web3.utils.toChecksumAddress(address)
-	
+	var container = document.createElement('div')
 	//var chat = document.createElement("box");
 	documentFragment.appendChild(container);
 	
@@ -1426,18 +1426,6 @@ fetch(imgurl)
 })
 	
 	
-	
-	
-	
-	
-	//console.log(_image2);
-	
-	
-	
-	}
-	
-	
-	
 	var _i = (i)
 	var newBtn = document.createElement('input');
 	newBtn.setAttribute('type', 'button');
@@ -1453,6 +1441,18 @@ fetch(imgurl)
 	
 	
 	var latest = await contract_bal.methods.debt_obligation_listx(i, address).call();
+	
+	
+	
+	//console.log(_image2);
+	
+	
+	chat.appendChild(documentFragment);
+	}
+	
+	
+	
+	
 	<!-- var newDiv = document.createElement('div'); -->
 	<!-- newDiv.id = 'w'+i; -->
 	<!-- ewDiv.appendChild(newDiv); -->
@@ -1460,7 +1460,7 @@ fetch(imgurl)
 	<!-- document.getElementById("w" + i).innerHTML = "swap completed: " + latest; -->
 	//document.getElementById("latest_block").innerHTML = latest;
 	//console.log(latest)
-	chat.appendChild(documentFragment);
+	
 	
 	}
 	
