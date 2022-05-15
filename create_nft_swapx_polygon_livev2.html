@@ -1147,6 +1147,7 @@ var display = (async function(){
 	var address = await contract_bal.methods.address_list(i-1).call();
 	var address = web3.utils.toChecksumAddress(address)
 	var container = document.createElement('div')
+	container.id = "c" & i;
 	//var chat = document.createElement("box");
 	documentFragment.appendChild(container);
 	
@@ -1447,11 +1448,11 @@ fetch(imgurl)
 	//console.log(_image2);
 	
 	
-	chat.appendChild(documentFragment);
+	
 	}
 	
 	
-	
+	chat.appendChild(documentFragment);
 	
 	<!-- var newDiv = document.createElement('div'); -->
 	<!-- newDiv.id = 'w'+i; -->
