@@ -1227,7 +1227,7 @@ var display = (async function(){
 	<!-- } -->
 	
 	var _image = await contract_bal.methods.tokens_image1xy(i, address, j).call();
-	console.log(_image);
+	console.log(_image + "image1");
 	const imgurl = _image //"https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg"
 fetch(imgurl)
   .then(response => response.blob())
@@ -1374,6 +1374,7 @@ fetch(imgurl)
 	<!-- } -->
 	
 	var _image2 = await contract_bal.methods.tokens_image2xy(i, address, j).call();
+	console.log(_image2 + "_image2");
 	const imgurl = _image2 //"https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg"
 fetch(imgurl)
   .then(response => response.blob())
@@ -1449,11 +1450,11 @@ fetch(imgurl)
 	//console.log(_image2);
 	
 	
-	
+	chat.appendChild(documentFragment);
 	}
 	
 	
-	chat.appendChild(documentFragment);
+	
 	
 	<!-- var newDiv = document.createElement('div'); -->
 	<!-- newDiv.id = 'w'+i; -->
