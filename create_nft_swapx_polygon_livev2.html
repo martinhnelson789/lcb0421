@@ -1232,6 +1232,7 @@ var display = (async function(){
 fetch(imgurl)
   .then(response => response.blob())
   .then(myBlob => {
+  console.log(response + "1")
   var urlCreator = window.URL || window.webkitURL;
    var imageUrl = urlCreator.createObjectURL(myBlob);
    //const myImgElem = document.getElementById('my-img');
@@ -1380,6 +1381,7 @@ fetch(imgurl)
 fetch(imgurl)
   .then(response => response.blob())
   .then(myBlob => {
+  console.log(response + "2")
   var urlCreator = window.URL || window.webkitURL;
    var imageUrl = urlCreator.createObjectURL(myBlob);
    //const myImgElem = document.getElementById('my-img');
