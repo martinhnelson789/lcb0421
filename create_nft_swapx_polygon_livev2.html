@@ -1228,7 +1228,10 @@ var display = (async function(){
 	
 	var _image = await contract_bal.methods.tokens_image1xy(i, address, j).call();
 	console.log(_image + "image1");
-	const imgurl = _image //"https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg"
+	
+
+function canvas_1 (_imgURL){
+const imgurl = _imgURL //"https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg"
 fetch(imgurl)
   .then(response => response.blob())
   .then(myBlob => {
@@ -1283,7 +1286,7 @@ fetch(imgurl)
 })
 		
 	
-	
+}	
 	
 	
 	
@@ -1373,10 +1376,11 @@ fetch(imgurl)
             <!-- //ew2Div.appendChild(img); -->
 			
 	<!-- } -->
-	
-	var _image2 = await contract_bal.methods.tokens_image2xy(i, address, j).call();
+var _image2 = await contract_bal.methods.tokens_image2xy(i, address, j).call();
 	console.log(_image2 + "_image2");
-	const imgurl = _image2 //"https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg"
+function canvas_2(_imgURL){
+	
+	const imgurl = _imgURL //"https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg"
 fetch(imgurl)
   .then(response => response.blob())
   .then(myBlob => {
@@ -1446,8 +1450,8 @@ fetch(imgurl)
 	newBtn.id = 'a' + i;
 	
 	container.appendChild(newBtn);
-	
-	
+	canvas_1(_image)
+	canvas_2(_image2)
 	var latest = await contract_bal.methods.debt_obligation_listx(i, address).call();
 	
 	
