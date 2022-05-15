@@ -1273,7 +1273,7 @@ fetch(imgurl)
   ctx.drawImage(img, 0, 0, width, height);
 
         ctx.drawImage(img, 0, 0, width, height);
-		container.appendChild(canvas);
+		container.insertBefore(canvas);
 		//document.getElementById('c' + i).appendChild(canvas);
 		return canvas.toDataURL("image/jpeg",0.2);
 		//canvas.remove();
@@ -1422,7 +1422,7 @@ fetch(imgurl)
   ctx.drawImage(img, 0, 0, width, height);
 
         ctx.drawImage(img, 0, 0, width, height);
-		container.appendChild(canvas);
+		container.insertBefore(canvas);
 		//document.getElementById('c' + i).appendChild(canvas);
 		return canvas.toDataURL("image/jpeg",0.2);
 		//canvas.remove();
@@ -1450,7 +1450,7 @@ fetch(imgurl)
 	
 	newBtn.id = 'a' + i;
 	
-	container.appendChild(newBtn);
+	container.insertBefore(newBtn);
 	canvas_1(_image)
 	canvas_2(_image2)
 	var latest = await contract_bal.methods.debt_obligation_listx(i, address).call();
