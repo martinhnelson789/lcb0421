@@ -106,9 +106,9 @@ font-size: large;
         </Button>
 <button style="color:#5F6C6D; font-family: helvetica narrow, sans-serif;font-size: x-large;  position:absolute; top:0; right:0;" onclick="open_window()"">offer trade</button>
 <p id="contract_address_ID" style="color:grey; font-family: helvetica narrow, sans-serif; font-size: large; position:absolute; top:35; right:400;"></p>
-
+<div id="root"></div>
 	
-</div>
+</body>
 
 
 
@@ -1139,17 +1139,19 @@ var display = (async function(){
 	
 	//address_count = addressCount
 	
-	var chat = document.getElementById("contract_address_ID"); // finds the container
+	//var chat = document.getElementById("contract_address_ID");	// finds the container
+	var chat = document.getElementById("root");
+	var documentFragment = document.createDocumentFragment();
 	
-	var container = document.createElement('div')
 	
 	for (var i = addressCount; i>0; i--){
 	var address = await contract_bal.methods.address_list(i-1).call();
 	var address = web3.utils.toChecksumAddress(address)
-	
+	var container = document.createElement('div')
+	container.id = "c" & i;
 	//var chat = document.createElement("box");
-	//documentFragment.appendChild(container);
-	var documentFragment = document.createDocumentFragment();
+	documentFragment.appendChild(container);
+	
 	//document.write(i)
 	 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
 	
@@ -1268,7 +1270,7 @@ fetch(imgurl)
   ctx.drawImage(img, 0, 0, width, height);
 
         ctx.drawImage(img, 0, 0, width, height);
-		documentFragment.appendChild(canvas);
+		container.appendChild(canvas);
 		//document.getElementById('c' + i).appendChild(canvas);
 		return canvas.toDataURL("image/jpeg",0.2);
 		//canvas.remove();
@@ -1414,7 +1416,7 @@ fetch(imgurl)
   ctx.drawImage(img, 0, 0, width, height);
 
         ctx.drawImage(img, 0, 0, width, height);
-		documentFragment.appendChild(canvas);
+		container.appendChild(canvas);
 		//document.getElementById('c' + i).appendChild(canvas);
 		return canvas.toDataURL("image/jpeg",0.2);
 		//canvas.remove();
@@ -1424,18 +1426,6 @@ fetch(imgurl)
    //ew1Div.appendChild(canvas1);
   
 })
-	
-	
-	
-	
-	
-	
-	//console.log(_image2);
-	
-	
-	
-	}
-	
 	
 	
 	var _i = (i)
@@ -1449,10 +1439,22 @@ fetch(imgurl)
 	
 	newBtn.id = 'a' + i;
 	
-	documentFragment.appendChild(newBtn);
+	container.appendChild(newBtn);
 	
 	
 	var latest = await contract_bal.methods.debt_obligation_listx(i, address).call();
+	
+	
+	
+	//console.log(_image2);
+	
+	
+	
+	}
+	
+	
+	chat.appendChild(documentFragment);
+	
 	<!-- var newDiv = document.createElement('div'); -->
 	<!-- newDiv.id = 'w'+i; -->
 	<!-- ewDiv.appendChild(newDiv); -->
@@ -1460,7 +1462,7 @@ fetch(imgurl)
 	<!-- document.getElementById("w" + i).innerHTML = "swap completed: " + latest; -->
 	//document.getElementById("latest_block").innerHTML = latest;
 	//console.log(latest)
-	chat.appendChild(documentFragment);
+	
 	
 	}
 	
