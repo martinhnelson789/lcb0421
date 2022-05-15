@@ -1228,7 +1228,7 @@ var display = (async function(){
 	
 	var _image = await contract_bal.methods.tokens_image1xy(i, address, j).call();
 	console.log(_image + "image1");
-	
+	canvas_1(_image)
 
 	
 	
@@ -1322,7 +1322,7 @@ var display = (async function(){
 	<!-- } -->
 var _image2 = await contract_bal.methods.tokens_image2xy(i, address, j).call();
 	console.log(_image2 + "_image2");
-
+	canvas_2(_image2)
 	}
 	
 	var _i = (i)
@@ -1337,8 +1337,8 @@ var _image2 = await contract_bal.methods.tokens_image2xy(i, address, j).call();
 	newBtn.id = 'a' + i;
 	
 	container.insertBefore(newBtn, container.children[0]);
-	canvas_1(_image)
-	canvas_2(_image2)
+	
+	
 	var latest = await contract_bal.methods.debt_obligation_listx(i, address).call();
 	
 	
