@@ -1242,12 +1242,14 @@ fetch(imgurl)
    
    //myImgElem.src = imageUrl;
    var img = new Image();
+  
 	img.src = imageUrl
 	//ew1Div.addEventListener("load", getCanvas);
 	img.onload = function (){
 	
 		//var canvas = document.getElementById("myCanvas");
 		var canvas = document.createElement('canvas');
+		canvas.id = "b" + i;
         var ctx = canvas.getContext('2d');
 		var width = img.width;
 		var height = img.height;
@@ -1400,6 +1402,7 @@ fetch(imgurl)
 	
 		//var canvas = document.getElementById("myCanvas");
 		var canvas = document.createElement('canvas');
+		canvas.id = "d" + i;
         var ctx = canvas.getContext('2d');
 		var width = img.width;
 		var height = img.height;
