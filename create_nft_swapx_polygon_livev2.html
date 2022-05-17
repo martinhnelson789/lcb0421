@@ -1163,7 +1163,7 @@ var display = (async function(){
 	var name = await new web3.eth.Contract(abi, contract_ID1).methods.name().call();
 	
 
-		canvas_3(contract_bal.methods.tokens_image1xy, i, address, j);
+		canvas_3(contract_bal.methods.tokens_image1xy, i, address, j, 0);
 
 
 
@@ -1198,9 +1198,9 @@ var display = (async function(){
 	array_tokenID2.push(tokenID2);
 	
 	try {
-	canvas_3(contract_bal.methods.tokens_image2xy, i, address, j);
+	canvas_3(contract_bal.methods.tokens_image2xy, i, address, j, 10);
 	 }catch(err){
-		canvas_3(contract_bal, i, address, j);
+		canvas_3(contract_bal, i, address, j, 10);
 	 }
 	
 
@@ -1241,7 +1241,7 @@ var display = (async function(){
 	
 	}
 	
-	function canvas_3 (k, num1, addr, num2){
+	function canvas_3 (k, num1, addr, num2, n){
 var acct = (async function(){
 var _image = await k(num1, addr, num2).call();
 const imgurl = _image //"https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg"
@@ -1271,13 +1271,13 @@ fetch(imgurl)
     if (width > 75 ){
       //height *= max_width / width;
       height = Math.round(height *= 75 / width);
-      width = 75 + math.random();
+      width = 75 + n;
     }
   } else {
     if (height > 75) {
       //width *= max_height / height;
       width = Math.round(width *= 75 / height);
-      height = 75 + math.random();
+      height = 75 + n;
     }
   }
   
