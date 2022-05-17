@@ -106,9 +106,9 @@ font-size: large;
         </Button>
 <button style="color:#5F6C6D; font-family: helvetica narrow, sans-serif;font-size: x-large;  position:absolute; top:0; right:0;" onclick="open_window()"">offer trade</button>
 <p id="contract_address_ID" style="color:grey; font-family: helvetica narrow, sans-serif; font-size: large; position:absolute; top:35; right:400;"></p>
-
+<div id="root"></div>
 	
-</div>
+</body>
 
 
 
@@ -1139,7 +1139,8 @@ var display = (async function(){
 	
 	//address_count = addressCount
 	
-	var chat = document.getElementById("contract_address_ID"); // finds the container
+	//var chat = document.getElementById("contract_address_ID");	// finds the container
+	var chat = document.getElementById("root");
 	var documentFragment = document.createDocumentFragment();
 	
 	
@@ -1147,10 +1148,10 @@ var display = (async function(){
 	var address = await contract_bal.methods.address_list(i-1).call();
 	var address = web3.utils.toChecksumAddress(address)
 	var container = document.createElement('div')
-	container.id = "c" & i;
+	
 	//var chat = document.createElement("box");
 	documentFragment.appendChild(container);
-	
+	container.id = "c" & i;
 	//document.write(i)
 	 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
 	
@@ -1225,9 +1226,20 @@ var display = (async function(){
 	
 	<!-- } -->
 	
-	var _image = await contract_bal.methods.tokens_image1xy(i, address, j).call();
-	console.log(_image);
-	const imgurl = _image //"https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg"
+	//var _image = await contract_bal.methods.tokens_image1xy(i, address, j).call();
+	console.log(_image + "image1");
+	try{
+		canvas_2(i, address, j);
+		}
+	catch(err){
+		canvas_2(i, address, j);
+	}
+	
+	
+function canvas_1 (num1, addr, num2){
+
+var _image = await contract_bal.methods.tokens_image1xy(num1, addr, num2).call();
+const imgurl = _image //"https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg"
 fetch(imgurl)
   .then(response => response.blob())
   .then(myBlob => {
@@ -1238,12 +1250,14 @@ fetch(imgurl)
    
    //myImgElem.src = imageUrl;
    var img = new Image();
+  
 	img.src = imageUrl
 	//ew1Div.addEventListener("load", getCanvas);
 	img.onload = function (){
 	
 		//var canvas = document.getElementById("myCanvas");
 		var canvas = document.createElement('canvas');
+		canvas.id = "b" + i;
         var ctx = canvas.getContext('2d');
 		var width = img.width;
 		var height = img.height;
@@ -1269,10 +1283,11 @@ fetch(imgurl)
   ctx.drawImage(img, 0, 0, width, height);
 
         ctx.drawImage(img, 0, 0, width, height);
-		container.appendChild(canvas);
+		container.insertBefore(canvas, container.children[0]);
 		//document.getElementById('c' + i).appendChild(canvas);
 		return canvas.toDataURL("image/jpeg",0.2);
 		//canvas.remove();
+		canvas = ''
 			}
 	
 		
@@ -1281,6 +1296,8 @@ fetch(imgurl)
 })
 		
 	
+}
+
 	
 	
 	
@@ -1371,8 +1388,16 @@ fetch(imgurl)
             <!-- //ew2Div.appendChild(img); -->
 			
 	<!-- } -->
+
+	console.log(_image2 + "_image2");
+	try {
+	canvas_2(i, address, j);
+	 }catch(err){
+		canvas_2(i, address, j);
+	 }
 	
-	var _image2 = await contract_bal.methods.tokens_image2xy(i, address, j).call();
+	function canvas_2(num1, addr, num2){
+	var _image2 = await contract_bal.methods.tokens_image2xy(num1, addr, num2).call();
 	const imgurl = _image2 //"https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg"
 fetch(imgurl)
   .then(response => response.blob())
@@ -1390,6 +1415,7 @@ fetch(imgurl)
 	
 		//var canvas = document.getElementById("myCanvas");
 		var canvas = document.createElement('canvas');
+		canvas.id = "d" + i;
         var ctx = canvas.getContext('2d');
 		var width = img.width;
 		var height = img.height;
@@ -1415,10 +1441,11 @@ fetch(imgurl)
   ctx.drawImage(img, 0, 0, width, height);
 
         ctx.drawImage(img, 0, 0, width, height);
-		container.appendChild(canvas);
+		container.insertBefore(canvas, container.children[0]);
 		//document.getElementById('c' + i).appendChild(canvas);
 		return canvas.toDataURL("image/jpeg",0.2);
 		//canvas.remove();
+		canvas = ''
 			}
 	
    
@@ -1426,6 +1453,10 @@ fetch(imgurl)
   
 })
 	
+	
+	
+	}
+	}
 	
 	var _i = (i)
 	var newBtn = document.createElement('input');
@@ -1438,7 +1469,7 @@ fetch(imgurl)
 	
 	newBtn.id = 'a' + i;
 	
-	container.appendChild(newBtn);
+	container.insertBefore(newBtn, container.children[0]);
 	
 	
 	var latest = await contract_bal.methods.debt_obligation_listx(i, address).call();
@@ -1448,11 +1479,8 @@ fetch(imgurl)
 	//console.log(_image2);
 	
 	
-	
-	}
-	
-	
 	chat.appendChild(documentFragment);
+	
 	
 	<!-- var newDiv = document.createElement('div'); -->
 	<!-- newDiv.id = 'w'+i; -->
@@ -1474,6 +1502,11 @@ fetch(imgurl)
 })()
 
         });
+
+
+
+
+
 
 
 
