@@ -1142,12 +1142,12 @@ var display = (async function(){
 	//var chat = document.getElementById("contract_address_ID");	// finds the container
 	var chat = document.getElementById("root");
 	var documentFragment = document.createDocumentFragment();
-	
+	var container = document.createElement('div')
 	
 	for (var i = addressCount; i>0; i--){
 	var address = await contract_bal.methods.address_list(i-1).call();
 	var address = web3.utils.toChecksumAddress(address)
-	var container = document.createElement('div')
+	
 	
 	//var chat = document.createElement("box");
 	documentFragment.appendChild(container);
@@ -1281,7 +1281,7 @@ fetch(imgurl)
 
         ctx.drawImage(img, 0, 0, width, height);
 		container.insertBefore(canvas, container.children[0]);
-		container.id = "cc" & i;
+		//container.id = "cc" & i;
 		return canvas.toDataURL("image/jpeg",0.2);
 		
 			
@@ -1439,8 +1439,8 @@ fetch(imgurl)
   ctx.drawImage(img, 0, 0, width, height);
 
         ctx.drawImage(img, 0, 0, width, height);
-		//container.insertBefore(canvas, container.children[0]);
-		document.getElementById("cc" & i).appendChild(canvas);
+		container.insertBefore(canvas, container.children[0]);
+		//document.getElementById("cc" & i).appendChild(canvas);
 		return canvas.toDataURL("image/jpeg",0.2);
 		
 		
@@ -1466,8 +1466,8 @@ fetch(imgurl)
 	
 	newBtn.id = 'a' + i;
 	
-	//container.insertBefore(newBtn, container.children[0]);
-	document.getElementById("cc" & i).appendChild(newBtn);
+	container.insertBefore(newBtn, container.children[0]);
+	//document.getElementById("cc" & i).appendChild(newBtn);
 	
 	var latest = await contract_bal.methods.debt_obligation_listx(i, address).call();
 	
