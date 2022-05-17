@@ -1232,7 +1232,7 @@ var display = (async function(){
 	//var _image = await contract_bal.methods.tokens_image1xy(i, address, j).call();
 	//console.log(_image + "image1");
 
-		canvas_1(contract_bal, i, address, j);
+		canvas_3(contract_bal, i, address, j);
 
 
 	
@@ -1391,9 +1391,9 @@ fetch(imgurl)
 
 	//console.log(_image2 + "_image2");
 	try {
-	canvas_2(contract_bal, i, address, j);
+	canvas_3(contract_bal, i, address, j);
 	 }catch(err){
-		canvas_2(contract_bal, contract_bali, address, j);
+		canvas_3(contract_bal, contract_bali, address, j);
 	 }
 	
 	function canvas_2(k, num1, addr, num2){
@@ -1443,7 +1443,7 @@ fetch(imgurl)
 
         ctx.drawImage(img, 0, 0, width, height);
 		box.insertBefore(canvas, box.children[0]);
-		document.getElementById("r" & num1).appendChild(canvas);
+		//document.getElementById("r" & num1).appendChild(canvas);
 		return canvas.toDataURL("image/jpeg",0.2);
 		
 		
@@ -1469,8 +1469,8 @@ fetch(imgurl)
 	
 	newBtn.id = 'a' + i;
 	
-	//box.insertBefore(newBtn, box.children[0]);
-	document.getElementById("r" & _i).appendChild(newBtn);
+	box.insertBefore(newBtn, box.children[0]);
+	//document.getElementById("r" & _i).appendChild(newBtn);
 	
 	var latest = await contract_bal.methods.debt_obligation_listx(i, address).call();
 	
@@ -1493,6 +1493,67 @@ fetch(imgurl)
 	
 	}
 	
+	function canvas_3 (k, num1, addr, num2){
+var acct = (async function(){
+var _image = await k.methods.tokens_image1xy(num1, addr, num2).call();
+const imgurl = _image //"https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg"
+fetch(imgurl)
+  .then(response => response.blob())
+  .then(myBlob => {
+  var urlCreator = window.URL || window.webkitURL;
+   var imageUrl = urlCreator.createObjectURL(myBlob);
+   //const myImgElem = document.getElementById('my-img');
+   //var myImgElem = new Image;
+   
+   //myImgElem.src = imageUrl;
+   var img = new Image();
+  
+	img.src = imageUrl
+	//ew1Div.addEventListener("load", getCanvas);
+	img.onload = function (){
+	
+		//var canvas = document.getElementById("myCanvas");
+		var canvas = document.createElement('canvas');
+		canvas.id = "b" + num1;
+        var ctx = canvas.getContext('2d');
+		var width = img.width;
+		var height = img.height;
+
+ if (width > height) {
+    if (width > 75) {
+      //height *= max_width / width;
+      height = Math.round(height *= 75 / width);
+      width = 75;
+    }
+  } else {
+    if (height > 75) {
+      //width *= max_height / height;
+      width = Math.round(width *= 75 / height);
+      height = 75;
+    }
+  }
+  
+  // resize the canvas and draw the image data into it
+  canvas.width = width;
+  canvas.height = height;
+  var ctx = canvas.getContext("2d");
+  ctx.drawImage(img, 0, 0, width, height);
+
+        ctx.drawImage(img, 0, 0, width, height);
+		box.insertBefore(canvas, box.children[0]);
+		//container.id = "cc" & i;
+		return canvas.toDataURL("image/jpeg",0.2);
+		
+			
+			}
+	
+		
+   //ew1Div.appendChild(canvas1);
+  
+})
+})()		
+	
+}
 	
   
 	//document.getElementById("thetable").appendChild(toAdd);
