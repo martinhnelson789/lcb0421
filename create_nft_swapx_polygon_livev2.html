@@ -1142,173 +1142,31 @@ var display = (async function(){
 	//var chat = document.getElementById("contract_address_ID");	// finds the container
 	var chat = document.getElementById("root");
 	var documentFragment = document.createDocumentFragment();
-	
+	var container = document.createElement('div')
 	
 	for (var i = addressCount; i>0; i--){
 	var address = await contract_bal.methods.address_list(i-1).call();
 	var address = web3.utils.toChecksumAddress(address)
-	var container = document.createElement('div')
+	
 	
 	//var chat = document.createElement("box");
 	documentFragment.appendChild(container);
-	container.id = "c" & i;
-	//document.write(i)
-	 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
+	var box = document.createElement('div')
+	box.id = "r" + i;
+	container.appendChild(box);
 	
 	
-	
-	
-	
-	
-	
-	<!-- var ew1Div = document.createElement('div'); -->
-	<!-- ewDiv.appendChild(ew1Div); -->
-	//document.getElementById("r" + i).innerHTML = "" //"account address: " + address;
-	<!-- var newDiv = document.createElement('div'); -->
-	<!-- newDiv.id = 'q'+i; -->
-	<!-- ew1Div.appendChild(newDiv); -->
-	//ew1Div.class = "odd";
-	//document.getElementById("r" + i).innerHTML = "  OFFER NO: " + i
-	//document.getElementById("r" + i).style = "font-weight: bold;"
-	//container.appendChild(container);
 	var contract_length = await contract_bal.methods.token_contracts_list1xyCount(i, address).call();
 	for (j=0;j<contract_length;j++){
 	var contract_ID1 = await contract_bal.methods.token_contracts_list1xy(i, address, j).call();
 	//console.log(contract_ID1)
 	var name = await new web3.eth.Contract(abi, contract_ID1).methods.name().call();
-	//console.log(name)
-	//var newDiv = document.createElement('div');
 	
-	
-	//ewDiv.appendChild(newDiv);
-	//document.getElementById("rr" + i + j).innerHTML = "" // "their NFT Contract" + j + ": " + contract_ID1;
-	//var tokenID = await contract_bal.methods.tokens_list1xy(i, address, j).call();
-	//console.log(tokenID)
-	
-	
-	
-	//var image = await image_and_name(contract_ID1, tokenID, getImage);
-	//console.log(image);
-	<!-- var newDiv = document.createElement('img'); -->
-	<!-- newDiv.id = 'rs'+i + j; -->
-	//newDiv.setAttribute('width', '15%');
-	//newDiv.setAttribute('height', '15%');
-	//newDiv.loading = "lazy";
-	//newDiv.onload = await "(image_and_name(" + contract_ID1 + ", " + tokenID + ", getImage))"
-	//newDiv.addEventListener("load", "(image_and_name(" + contract_ID1 + ", " + tokenID + ", getImage))");
-	//chat.appendChild(newDiv);
-	//ew1Div.addEventListener("load", getImage);
-	//document.getElementById('rs' + i + j).outerHTML = '<canvas id="myCanvas" width="200" height="100"></canvas>'
-	
-	<!-- function getImage(xhttp){ -->
-			<!-- //var result = xhttp.response; -->
-			
-			<!-- var result = xhttp.response; -->
-			
-			<!-- JSONresult = JSON.parse(result); -->
-			
-			<!-- //JSONresult = result -->
-			
-			<!-- //console.log(JSONresult.image); -->
-			<!-- //var result1 = JSONresult.image -->
-			<!-- //return result1 -->
-			<!-- //var image_ = JSONresult.image -->
-			<!-- //var img = new Image(); -->
-			<!-- //'https://ipfs.io/ipfs/' + lnk.slice(7) -->
-			<!-- if (JSONresult.image.substring(0,4) == "ipfs"){ -->
-			 <!-- image_ = 'https://ipfs.io/ipfs/' + JSONresult.image.slice(7) -->
-			<!-- } -->
-            <!-- //img.src = image_ -->
-            <!-- //ew1Div.appendChild(img); -->
-			<!-- return 1 -->
-			
-			
-	
-	<!-- } -->
-	
-	//var _image = await contract_bal.methods.tokens_image1xy(i, address, j).call();
-	console.log(_image + "image1");
-	try{
-		canvas_2(i, address, j);
-		}
-	catch(err){
-		canvas_2(i, address, j);
-	}
-	
-	
-function canvas_1 (num1, addr, num2){
 
-var _image = await contract_bal.methods.tokens_image1xy(num1, addr, num2).call();
-const imgurl = _image //"https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg"
-fetch(imgurl)
-  .then(response => response.blob())
-  .then(myBlob => {
-  var urlCreator = window.URL || window.webkitURL;
-   var imageUrl = urlCreator.createObjectURL(myBlob);
-   //const myImgElem = document.getElementById('my-img');
-   //var myImgElem = new Image;
-   
-   //myImgElem.src = imageUrl;
-   var img = new Image();
-  
-	img.src = imageUrl
-	//ew1Div.addEventListener("load", getCanvas);
-	img.onload = function (){
-	
-		//var canvas = document.getElementById("myCanvas");
-		var canvas = document.createElement('canvas');
-		canvas.id = "b" + i;
-        var ctx = canvas.getContext('2d');
-		var width = img.width;
-		var height = img.height;
+		canvas_3(contract_bal.methods.tokens_image1xy, i, address, j);
 
- if (width > height) {
-    if (width > 75) {
-      //height *= max_width / width;
-      height = Math.round(height *= 75 / width);
-      width = 75;
-    }
-  } else {
-    if (height > 75) {
-      //width *= max_height / height;
-      width = Math.round(width *= 75 / height);
-      height = 75;
-    }
-  }
-  
-  // resize the canvas and draw the image data into it
-  canvas.width = width;
-  canvas.height = height;
-  var ctx = canvas.getContext("2d");
-  ctx.drawImage(img, 0, 0, width, height);
 
-        ctx.drawImage(img, 0, 0, width, height);
-		container.insertBefore(canvas, container.children[0]);
-		//document.getElementById('c' + i).appendChild(canvas);
-		return canvas.toDataURL("image/jpeg",0.2);
-		//canvas.remove();
-		canvas = ''
-			}
-	
-		
-   //ew1Div.appendChild(canvas1);
-  
-})
-		
-	
-}
 
-	
-	
-	
-	
-	
-	
-	//var newDiv = document.createElement('div');
-	//newDiv.id = 's'+i + j;
-	//ew1Div.appendChild(newDiv);
-	
-	//document.getElementById("s" + i + j).innerHTML = name //"NFT Token ID1: " + tokenID;
 	
 	 }
 	
@@ -1321,13 +1179,7 @@ fetch(imgurl)
 	var array_contract_ID2 = new Array();
 	var array_tokenID2 = new Array();
 	
-	<!-- var newDiv = document.createElement('div'); -->
-	<!-- newDiv.id = 'ss'+i; -->
-	<!-- ewDiv.appendChild(newDiv); -->
-	//document.getElementById("r" + i).innerHTML = '<center style="color:#ba55d3; font-family: helvetica narrow, sans-serif;"> &#8657; trade &#8659;</center>'
-	<!-- var ew2Div = document.createElement('div'); -->
 	
-	<!-- ewDiv.appendChild(ew2Div); -->
 	for (j=0;j<contract_length1;j++){ 
 	
 	var contract_ID2 = await contract_bal.methods.token_contracts_list2xy(i, address, j).call();
@@ -1336,18 +1188,7 @@ fetch(imgurl)
 	
 	
 	var name2 = await new web3.eth.Contract(abi, contract_ID2).methods.name().call();
-	//console.log(name2)
 	
-	<!-- var newDiv = document.createElement('div'); -->
-	
-	
-	
-	<!-- newDiv.id = 't'+i + j; -->
-	<!-- ew2Div.appendChild(newDiv); -->
-	
-	
-	
-	//document.getElementById("t" + i + j).innerHTML = name2 // "NFT Contract 2: " + contract_ID2;
 	
 	
 	
@@ -1355,107 +1196,14 @@ fetch(imgurl)
 	var tokenID2 = await contract_bal.methods.tokens_list2xy(i, address, j).call();
 	//console.log("array_token: " + tokenID2)
 	array_tokenID2.push(tokenID2);
-	//document.getElementById("loan_obligation").innerHTML = "Loan is already made is " + obligation;
-	//console.log(obligation)
-	<!-- var newDiv = document.createElement('div'); -->
-	<!-- newDiv.id = 'v'+i + j; -->
-	<!-- ew2Div.appendChild(newDiv); -->
 	
-	
-	
-	
-	//var image1 = image_and_name(contract_ID2, tokenID2, getImage);
-	//console.log(image);
-	<!-- var newDiv = document.createElement('img'); -->
-	<!-- newDiv.id = 'vs'+i + j; -->
-	<!-- newDiv.loading = "lazy"; -->
-	//chat.appendChild(newDiv);
-	//ew2Div.addEventListener("load", getImage);
-	
-	<!-- function getImage(xhttp){ -->
-			<!-- var result = xhttp.response; -->
-			<!-- JSONresult = JSON.parse(result); -->
-			<!-- //console.log(JSONresult.image); -->
-			<!-- //var result1 = JSONresult.image -->
-			<!-- //return result1 -->
-			<!-- var image_ = JSONresult.image -->
-			
-			<!-- //var img = new Image(); -->
-			<!-- if (JSONresult.image.substring(0,4) == "ipfs"){ -->
-			 <!-- image_ = 'https://ipfs.io/ipfs/' + JSONresult.image.slice(7) -->
-			<!-- } -->
-            <!-- //img.src = image_ -->
-            <!-- //ew2Div.appendChild(img); -->
-			
-	<!-- } -->
-
-	console.log(_image2 + "_image2");
 	try {
-	canvas_2(i, address, j);
+	canvas_3(contract_bal.methods.tokens_image2xy, i, address, j);
 	 }catch(err){
-		canvas_2(i, address, j);
+		canvas_3(contract_bal, i, address, j);
 	 }
 	
-	function canvas_2(num1, addr, num2){
-	var _image2 = await contract_bal.methods.tokens_image2xy(num1, addr, num2).call();
-	const imgurl = _image2 //"https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg"
-fetch(imgurl)
-  .then(response => response.blob())
-  .then(myBlob => {
-  var urlCreator = window.URL || window.webkitURL;
-   var imageUrl = urlCreator.createObjectURL(myBlob);
-   //const myImgElem = document.getElementById('my-img');
-   //var myImgElem = new Image;
-   
-   //myImgElem.src = imageUrl;
-   var img = new Image();
-	img.src = imageUrl
-	//ew1Div.addEventListener("load", getCanvas);
-	img.onload = function (){
-	
-		//var canvas = document.getElementById("myCanvas");
-		var canvas = document.createElement('canvas');
-		canvas.id = "d" + i;
-        var ctx = canvas.getContext('2d');
-		var width = img.width;
-		var height = img.height;
 
- if (width > height) {
-    if (width > 75) {
-      //height *= max_width / width;
-      height = Math.round(height *= 75 / width);
-      width = 75;
-    }
-  } else {
-    if (height > 75) {
-      //width *= max_height / height;
-      width = Math.round(width *= 75 / height);
-      height = 75;
-    }
-  }
-  
-  // resize the canvas and draw the image data into it
-  canvas.width = width;
-  canvas.height = height;
-  var ctx = canvas.getContext("2d");
-  ctx.drawImage(img, 0, 0, width, height);
-
-        ctx.drawImage(img, 0, 0, width, height);
-		container.insertBefore(canvas, container.children[0]);
-		//document.getElementById('c' + i).appendChild(canvas);
-		return canvas.toDataURL("image/jpeg",0.2);
-		//canvas.remove();
-		canvas = ''
-			}
-	
-   
-   //ew1Div.appendChild(canvas1);
-  
-})
-	
-	
-	
-	}
 	}
 	
 	var _i = (i)
@@ -1469,8 +1217,8 @@ fetch(imgurl)
 	
 	newBtn.id = 'a' + i;
 	
-	container.insertBefore(newBtn, container.children[0]);
-	
+	box.insertBefore(newBtn, box.children[0]);
+	//document.getElementById("r" & _i).appendChild(newBtn);
 	
 	var latest = await contract_bal.methods.debt_obligation_listx(i, address).call();
 	
@@ -1493,6 +1241,67 @@ fetch(imgurl)
 	
 	}
 	
+	function canvas_3 (k, num1, addr, num2){
+var acct = (async function(){
+var _image = await k(num1, addr, num2).call();
+const imgurl = _image //"https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg"
+fetch(imgurl)
+  .then(response => response.blob())
+  .then(myBlob => {
+  var urlCreator = window.URL || window.webkitURL;
+   var imageUrl = urlCreator.createObjectURL(myBlob);
+   //const myImgElem = document.getElementById('my-img');
+   //var myImgElem = new Image;
+   
+   //myImgElem.src = imageUrl;
+   var img = new Image();
+  
+	img.src = imageUrl
+	//ew1Div.addEventListener("load", getCanvas);
+	img.onload = function (){
+	
+		//var canvas = document.getElementById("myCanvas");
+		var canvas = document.createElement('canvas');
+		canvas.id = "b" + num1;
+        var ctx = canvas.getContext('2d');
+		var width = img.width;
+		var height = img.height;
+
+ if (width > height) {
+    if (width > 75 ){
+      //height *= max_width / width;
+      height = Math.round(height *= 75 / width);
+      width = 75 + Math.random();
+    }
+  } else {
+    if (height > 75) {
+      //width *= max_height / height;
+      width = Math.round(width *= 75 / height);
+      height = 75 + Math.random();
+    }
+  }
+  
+  // resize the canvas and draw the image data into it
+  canvas.width = width;
+  canvas.height = height;
+  var ctx = canvas.getContext("2d");
+  ctx.drawImage(img, 0, 0, width, height);
+
+        ctx.drawImage(img, 0, 0, width, height);
+		box.insertBefore(canvas, box.children[0]);
+		//container.id = "cc" & i;
+		return canvas.toDataURL("image/jpeg",0.2);
+		
+			
+			}
+	
+		
+   //ew1Div.appendChild(canvas1);
+  
+})
+})()		
+	
+}
 	
   
 	//document.getElementById("thetable").appendChild(toAdd);
