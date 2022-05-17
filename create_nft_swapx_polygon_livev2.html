@@ -1237,7 +1237,7 @@ var display = (async function(){
 	
 	
 function canvas_1 (num1, addr, num2){
-
+var acct = (async function(){
 var _image = await contract_bal.methods.tokens_image1xy(num1, addr, num2).call();
 const imgurl = _image //"https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg"
 fetch(imgurl)
@@ -1288,6 +1288,7 @@ fetch(imgurl)
 		return canvas.toDataURL("image/jpeg",0.2);
 		//canvas.remove();
 		canvas = ''
+		})()	
 			}
 	
 		
@@ -1397,6 +1398,7 @@ fetch(imgurl)
 	 }
 	
 	function canvas_2(num1, addr, num2){
+	var acct = (async function(){
 	var _image2 = await contract_bal.methods.tokens_image2xy(num1, addr, num2).call();
 	const imgurl = _image2 //"https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg"
 fetch(imgurl)
@@ -1446,7 +1448,9 @@ fetch(imgurl)
 		return canvas.toDataURL("image/jpeg",0.2);
 		//canvas.remove();
 		canvas = ''
+			})()
 			}
+			
 	
    
    //ew1Div.appendChild(canvas1);
