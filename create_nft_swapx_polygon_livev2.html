@@ -1229,16 +1229,16 @@ var display = (async function(){
 	//var _image = await contract_bal.methods.tokens_image1xy(i, address, j).call();
 	console.log(_image + "image1");
 	try{
-		canvas_2(i, address, j);
+		canvas_2(contract_bal, i, address, j);
 		}
 	catch(err){
-		canvas_2(i, address, j);
+		canvas_2(contract_bal, i, address, j);
 	}
 	
 	
-function canvas_1 (num1, addr, num2){
+function canvas_1 (k, num1, addr, num2){
 var acct = (async function(){
-var _image = await contract_bal.methods.tokens_image1xy(num1, addr, num2).call();
+var _image = await k.methods.tokens_image1xy(num1, addr, num2).call();
 const imgurl = _image //"https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg"
 fetch(imgurl)
   .then(response => response.blob())
@@ -1392,14 +1392,14 @@ fetch(imgurl)
 
 	console.log(_image2 + "_image2");
 	try {
-	canvas_2(i, address, j);
+	canvas_2(contract_bal, i, address, j);
 	 }catch(err){
-		canvas_2(i, address, j);
+		canvas_2(, contract_bali, address, j);
 	 }
 	
-	function canvas_2(num1, addr, num2){
+	function canvas_2(k, num1, addr, num2){
 	var acct = (async function(){
-	var _image2 = await contract_bal.methods.tokens_image2xy(num1, addr, num2).call();
+	var _image2 = await k.methods.tokens_image2xy(num1, addr, num2).call();
 	const imgurl = _image2 //"https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg"
 fetch(imgurl)
   .then(response => response.blob())
