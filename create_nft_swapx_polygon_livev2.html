@@ -1228,13 +1228,10 @@ var display = (async function(){
 	
 	//var _image = await contract_bal.methods.tokens_image1xy(i, address, j).call();
 	//console.log(_image + "image1");
-	try{
-		canvas_2(contract_bal, i, address, j);
-		}
-	catch(err){
-		canvas_2(contract_bal, i, address, j);
-	}
-	
+
+		canvas_1(contract_bal, i, address, j);
+
+
 	
 function canvas_1 (k, num1, addr, num2){
 var acct = (async function(){
@@ -1287,15 +1284,15 @@ fetch(imgurl)
 		//document.getElementById('c' + i).appendChild(canvas);
 		return canvas.toDataURL("image/jpeg",0.2);
 		//canvas.remove();
-		canvas = ''
+		//canvas = ''
 			
 			}
 	
-})()		
+		
    //ew1Div.appendChild(canvas1);
   
 })
-		
+})()		
 	
 }
 
@@ -1451,11 +1448,8 @@ fetch(imgurl)
 
 			}
 			
-			})()	
-   
-   //ew1Div.appendChild(canvas1);
-  
 })
+})()
 	
 	
 	
