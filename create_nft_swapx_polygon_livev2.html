@@ -1254,7 +1254,7 @@ fetch(imgurl)
 	
 		//var canvas = document.getElementById("myCanvas");
 		var canvas = document.createElement('canvas');
-		canvas.id = "b" + i;
+		canvas.id = "b" + num1;
         var ctx = canvas.getContext('2d');
 		var width = img.width;
 		var height = img.height;
@@ -1281,10 +1281,8 @@ fetch(imgurl)
 
         ctx.drawImage(img, 0, 0, width, height);
 		container.insertBefore(canvas, container.children[0]);
-		//document.getElementById('c' + i).appendChild(canvas);
 		return canvas.toDataURL("image/jpeg",0.2);
-		//canvas.remove();
-		//canvas = ''
+		
 			
 			}
 	
@@ -1414,7 +1412,7 @@ fetch(imgurl)
 	
 		//var canvas = document.getElementById("myCanvas");
 		var canvas = document.createElement('canvas');
-		canvas.id = "d" + i;
+		canvas.id = "d" + num1;
         var ctx = canvas.getContext('2d');
 		var width = img.width;
 		var height = img.height;
@@ -1441,10 +1439,9 @@ fetch(imgurl)
 
         ctx.drawImage(img, 0, 0, width, height);
 		container.insertBefore(canvas, container.children[0]);
-		//document.getElementById('c' + i).appendChild(canvas);
 		return canvas.toDataURL("image/jpeg",0.2);
-		//canvas.remove();
-		canvas = ''
+		
+		
 
 			}
 			
