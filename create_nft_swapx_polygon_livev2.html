@@ -1157,8 +1157,8 @@ var display = (async function(){
 	box2.id = "s" + i;
 	container.appendChild(box1);
 	container.appendChild(box2);
-	document.getElementById("q" + i).innerHTML = "  OFFER NO: " + i
-	document.getElementById("q" + i).style = "font-weight: bold;"
+	container.innerHTML = "  OFFER NO: " + i
+	container.style = "font-weight: bold;"
 	
 	var contract_length = await contract_bal.methods.token_contracts_list1xyCount(i, address).call();
 	for (j=0;j<contract_length;j++){
@@ -1182,7 +1182,7 @@ var display = (async function(){
 	
 	var array_contract_ID2 = new Array();
 	var array_tokenID2 = new Array();
-	document.getElementById("q" + i).outerHTML = '<center style="color:#ba55d3; font-family: helvetica narrow, sans-serif;"> &#8657; trade &#8659;</center>'
+	container.outerHTML = '<center style="color:#ba55d3; font-family: helvetica narrow, sans-serif;"> &#8657; trade &#8659;</center>'
 	
 	for (j=0;j<contract_length1;j++){ 
 	
