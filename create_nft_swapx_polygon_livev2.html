@@ -1143,18 +1143,20 @@ var display = (async function(){
 	var chat = document.getElementById("root");
 	var documentFragment = document.createDocumentFragment();
 	var container = document.createElement('div')
-	
+	documentFragment.appendChild(container);
 	for (var i = addressCount; i>0; i--){
 	var address = await contract_bal.methods.address_list(i-1).call();
 	var address = web3.utils.toChecksumAddress(address)
 	
 	
 	//var chat = document.createElement("box");
-	documentFragment.appendChild(container);
-	var box = document.createElement('div')
-	box.id = "r" + i;
-	container.appendChild(box);
 	
+	var box1 = document.createElement('div')
+	box1.id = "r" + i;
+	var box2 = document.createElement('div')
+	box2.id = "s" + i;
+	container.appendChild(box1);
+	container.appendChild(box2);
 	
 	var contract_length = await contract_bal.methods.token_contracts_list1xyCount(i, address).call();
 	for (j=0;j<contract_length;j++){
@@ -1163,7 +1165,7 @@ var display = (async function(){
 	var name = await new web3.eth.Contract(abi, contract_ID1).methods.name().call();
 	
 
-		canvas_3(contract_bal.methods.tokens_image1xy, i, address, j, -10);
+		canvas_3(contract_bal.methods.tokens_image1xy, i, address, j, -10, box1);
 
 
 
@@ -1198,9 +1200,9 @@ var display = (async function(){
 	array_tokenID2.push(tokenID2);
 	
 	try {
-	canvas_3(contract_bal.methods.tokens_image2xy, i, address, j, 10);
-	 }catch(err){
-		canvas_3(contract_bal, i, address, j, 10);
+	canvas_3(contract_bal.methods.tokens_image2xy, i, address, j, 10, box2);
+	 }catch(err){,
+		canvas_3(contract_bal, i, address, j, 10, box2);
 	 }
 	
 
@@ -1241,7 +1243,7 @@ var display = (async function(){
 	
 	}
 	
-	function canvas_3 (k, num1, addr, num2, n){
+	function canvas_3 (k, num1, addr, num2, n, bx){
 var acct = (async function(){
 var _image = await k(num1, addr, num2).call();
 const imgurl = _image //"https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg"
@@ -1288,7 +1290,7 @@ fetch(imgurl)
   ctx.drawImage(img, 0, 0, width, height);
 
         ctx.drawImage(img, 0, 0, width, height);
-		box.insertBefore(canvas, box.children[0]);
+		bx.insertBefore(canvas, bx.children[0]);
 		//container.id = "cc" & i;
 		return canvas.toDataURL("image/jpeg",0.2);
 		
