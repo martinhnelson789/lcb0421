@@ -1221,7 +1221,7 @@ var display = (async function(){
 	
 	newBtn.id = 'a' + i;
 	
-	box2.insertBefore(newBtn, box2.children[0]);
+	box2.appendChild(newBtn);
 	//document.getElementById("r" & _i).appendChild(newBtn);
 	
 	var latest = await contract_bal.methods.debt_obligation_listx(i, address).call();
