@@ -89,33 +89,33 @@ function open_window() {
 }             
 
 
-var metamask = (async function(){
+<!-- var metamask = (async function(){ -->
   	
-  await ethereum.enable();
+  <!-- await ethereum.enable(); -->
   	
   
-  //alert(balance)
+  <!-- //alert(balance) -->
 
-})()
+<!-- })() -->
 
-//sleep(200);
-function connect(){
-    provider.request({ method: "eth_requestAccounts" })
+<!-- //sleep(200); -->
+<!-- function connect(){ -->
+    <!-- provider.request({ method: "eth_requestAccounts" }) -->
          
-  };
-web3 = new Web3(web3.currentProvider);        
+  <!-- }; -->
+<!-- web3 = new Web3(web3.currentProvider);         -->
 
-//var web3 = new Web3(new Web3.providers.HttpProvider(
-    //"https://mainnet.infura.io/v3/69462286c61f42d2891a2ced35c91f8d"
-//));
+<!-- //var web3 = new Web3(new Web3.providers.HttpProvider( -->
+    <!-- //"https://mainnet.infura.io/v3/69462286c61f42d2891a2ced35c91f8d" -->
+<!-- //)); -->
 
 
-web3.eth.net.getNetworkType()
-.then(console.log);
+<!-- web3.eth.net.getNetworkType() -->
+<!-- .then(console.log); -->
 
-web3.eth.net.isListening()
-   .then(() => console.log('web3 is connected'))
-   .catch(e => console.log('Wow. Something went wrong'));
+<!-- web3.eth.net.isListening() -->
+   <!-- .then(() => console.log('web3 is connected')) -->
+   <!-- .catch(e => console.log('Wow. Something went wrong')); -->
 
 var abi = [
 	{
@@ -1073,7 +1073,43 @@ const contract_bal = new web3.eth.Contract(abi, contract_address);
 
 
 
-const account_address = [];
+
+
+
+
+
+
+window.addEventListener('load', async () => {
+    // Modern dapp browsers...
+    if (window.ethereum) {
+        window.web3 = new Web3(ethereum);
+        try {
+            await ethereum.enable();
+            var accounts= await web3.eth.getAccounts();
+            var option={from: accounts[0] };
+            var myContract = new web3.eth.Contract(abi,contract_address);
+            myContract.methods.RegisterInstructor('11','Ali')
+            .send(option,function(error,result){
+                if (! error)
+                    console.log(result);
+                else
+                    console.log(error);
+            });
+        } catch (error) {
+            // User denied account access...
+        }
+    }
+    // Legacy dapp browsers...
+    else if (window.web3) {
+        window.web3 = new Web3(web3.currentProvider);
+        // Acccounts always exposed
+        web3.eth.sendTransaction({/* ... */});
+    }
+    // Non-dapp browsers...
+    else {
+        console.log('Non-Ethereum browser detected. You should consider trying MetaMask!');
+    }
+});
 
 
 
