@@ -1367,62 +1367,62 @@ var acct = (async function(){
 
 
 
-function image_and_name(k,n, getImage){
+<!-- function image_and_name(k,n, getImage){ -->
 
-	//localStorage.setItem("NFT Contract", document.getElementById("NFT_contract").value);
-	//localStorage.setItem("NFT Token ID", document.getElementById("NFT_Token_ID").value);
+	<!-- //localStorage.setItem("NFT Contract", document.getElementById("NFT_contract").value); -->
+	<!-- //localStorage.setItem("NFT Token ID", document.getElementById("NFT_Token_ID").value); -->
 	
-	//var nft_k = localStorage.getItem("NFT Contract");
-	var nft_k = k 
-	//var nft_id = localStorage.getItem("NFT Token ID");
-	var nft_id = n
-  var val = (async function(){
-  var contract_address = web3.utils.toChecksumAddress(nft_k)
-  var wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
-  var contract_bal = await new web3.eth.Contract(abi, contract_address);
-  var lnk = await contract_bal.methods.tokenURI(nft_id).call();
+	<!-- //var nft_k = localStorage.getItem("NFT Contract"); -->
+	<!-- var nft_k = k  -->
+	<!-- //var nft_id = localStorage.getItem("NFT Token ID"); -->
+	<!-- var nft_id = n -->
+  <!-- var val = (async function(){ -->
+  <!-- var contract_address = web3.utils.toChecksumAddress(nft_k) -->
+  <!-- var wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727" -->
+  <!-- var contract_bal = await new web3.eth.Contract(abi, contract_address); -->
+  <!-- var lnk = await contract_bal.methods.tokenURI(nft_id).call(); -->
   
-  if (lnk.substring(0,4) == "ipfs"){
-	lnk = 'https://ipfs.io/ipfs/' + lnk.slice(7)
-	}
-  var lnk1 = 'https://ipfs.io/ipfs/' + lnk.slice(7)
-  //alert(lnk1)
-  //alert(lnk)
-  //var lnk = "https://opensea.io/assets/matic/" & nft_k & "/" & nft_id
-  //alert(bal);
-  //var result = await getvalue()
-  //console.log('Woo done!', json)
+  <!-- if (lnk.substring(0,4) == "ipfs"){ -->
+	<!-- lnk = 'https://ipfs.io/ipfs/' + lnk.slice(7) -->
+	<!-- } -->
+  <!-- var lnk1 = 'https://ipfs.io/ipfs/' + lnk.slice(7) -->
+  <!-- //alert(lnk1) -->
+  <!-- //alert(lnk) -->
+  <!-- //var lnk = "https://opensea.io/assets/matic/" & nft_k & "/" & nft_id -->
+  <!-- //alert(bal); -->
+  <!-- //var result = await getvalue() -->
+  <!-- //console.log('Woo done!', json) -->
   
 	
-	var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            getImage(this)
+	<!-- var xhttp = new XMLHttpRequest(); -->
+    <!-- xhttp.onreadystatechange = function() { -->
+        <!-- if (this.readyState == 4 && this.status == 200) { -->
+            <!-- getImage(this) -->
 			
-       }
+       <!-- } -->
 	
-    };
-    xhttp.open("GET", lnk, false);
-    xhttp.send();
+    <!-- }; -->
+    <!-- xhttp.open("GET", lnk, false); -->
+    <!-- xhttp.send(); -->
 	
 
-})()
-//return val
-	}
+<!-- })() -->
+<!-- //return val -->
+	<!-- } -->
 	
 	
-function get_image(k,n){
-var image = (async function(){
+<!-- function get_image(k,n){ -->
+<!-- var image = (async function(){ -->
 
-var img = await image_and_name(k,n)
+<!-- var img = await image_and_name(k,n) -->
   	
-  console.log('Woo done!', img)
+  <!-- console.log('Woo done!', img) -->
   
   
-	return img
+	<!-- return img -->
 
-})()
-}
+<!-- })() -->
+<!-- } -->
 	
 function transfer_to_lender(addx, id){
 var acct = (async function(){
@@ -1597,13 +1597,7 @@ var val = (async function(){
 
 
 
-<!-- function sleep(milliseconds) { -->
-  <!-- const date = Date.now(); -->
-  <!-- let currentDate = null; -->
-  <!-- do { -->
-    <!-- currentDate = Date.now(); -->
-  <!-- } while (currentDate - date < milliseconds); -->
-<!-- } -->
+
 
 
 
