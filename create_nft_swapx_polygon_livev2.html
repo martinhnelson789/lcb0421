@@ -1226,7 +1226,7 @@ var display = (async function(){
 		var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-	  this.server.open(this.method, this.url, true);
+	  this.open(this.method, this.url, true);
       this.setRequestHeader('Access-Control-Allow-Origin', '*')
 	  var response = this.blob;
 	  var urlCreator = this.blob; 
