@@ -1179,7 +1179,7 @@ var display = (async function(){
 	try {
 	canvas_3(contract_bal.methods.tokens_image2xy, i, address, j, 10, box2);
 	 }catch(err){
-		canvas_2(contract_bal, i, address, j, 10, box2);
+		canvas_1(contract_ID2, tokenID2, getImage, box2);
 	 }
 	
 
@@ -1219,6 +1219,53 @@ var display = (async function(){
 	
 	
 	}
+	
+	
+	function canvas_1(contract_ID1, tokenID, getImage, bx){
+	var acct = (async function(){
+	const image = await image_and_name(contract_ID1, tokenID, getImage);
+	//console.log(image);
+	var newDiv = document.createElement('img');
+	newDiv.id = 'rs'+i;
+	//newDiv.setAttribute('width', '15%');
+	//newDiv.setAttribute('height', '15%');
+	//newDiv.loading = "lazy";
+	//newDiv.onload = await "(image_and_name(" + contract_ID1 + ", " + tokenID + ", getImage))"
+	//newDiv.addEventListener("load", "(image_and_name(" + contract_ID1 + ", " + tokenID + ", getImage))");
+	//chat.appendChild(newDiv);
+	function getImage(xhttp){
+			var result = xhttp.response;
+			JSONresult = JSON.parse(result);
+			console.log(JSONresult.image);
+			//var result1 = JSONresult.image
+			//return result1
+	
+			var img = new Image();
+            img.src = JSONresult.image
+			img.id = "rs" & i
+			//img.style.width = '15%'
+			//img.style.height = '15%'
+			//img.setAttribute('width', '15%');
+			//img.setAttribute('height', '15%');
+			
+            bx.appendChild(img);
+			
+	//document.getElementById("rs" + i).loading = "lazy";
+	//document.getElementById("rs" + i).src = JSONresult.image;
+	//document.getElementById("rs" + i).setAttribute('width', '15%');
+	//document.getElementById("rs" + i).setAttribute('height', '15%');
+	}
+	})()
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	function canvas_2(k, num1, addr, num2, n, bx){
 	var acct = (async function(){
@@ -1449,6 +1496,46 @@ var acct = (async function(){
 
 })()
 }
+
+
+
+
+
+function image_and_name(k,n, getImage){
+
+	//localStorage.setItem("NFT Contract", document.getElementById("NFT_contract").value);
+	//localStorage.setItem("NFT Token ID", document.getElementById("NFT_Token_ID").value);
+	
+	//var nft_k = localStorage.getItem("NFT Contract");
+	var nft_k = k 
+	//var nft_id = localStorage.getItem("NFT Token ID");
+	var nft_id = n
+  var val = (async function(){
+  const contract_address = web3.utils.toChecksumAddress(nft_k)
+  const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+  const contract_bal = await new web3.eth.Contract(abi, contract_address);
+  const lnk = await contract_bal.methods.tokenURI(nft_id).call();
+  //alert(bal);
+  //var result = await getvalue()
+  //console.log('Woo done!', json)
+	var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            getImage(this)
+			//var result = this.response;
+			//JSONresult = JSON.parse(result);
+			//console.log(JSONresult.image);
+			//var result1 = JSONresult.image
+			//return result1
+       }
+    };
+    xhttp.open("GET", lnk, false);
+    xhttp.send();
+	
+
+})()
+//return val
+	}
 
 function reclaim_asset(){
 var acct = (async function(){
