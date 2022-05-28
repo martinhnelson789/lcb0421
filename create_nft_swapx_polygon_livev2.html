@@ -1283,6 +1283,8 @@ var display = (async function(){
   };
   xhttp.open("GET", _image, true);
   xhttp.setRequestHeader('Access-Control-Allow-Origin', '*');
+  xhttp.setRequestHeader('Access-Control-Allow-Headers', '*');
+  
   xhttp.send();
 	
 })()
