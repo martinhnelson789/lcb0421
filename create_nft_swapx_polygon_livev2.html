@@ -1177,7 +1177,7 @@ var display = (async function(){
 	array_tokenID2.push(tokenID2);
 	
 	try {
-	canvas_2(contract_bal.methods.tokens_image2xy, i, address, j, 10, box2);
+	canvas_3(contract_bal.methods.tokens_image2xy, i, address, j, 10, box2);
 	 }catch(err){
 		canvas_2(contract_bal, i, address, j, 10, box2);
 	 }
@@ -1230,8 +1230,9 @@ var display = (async function(){
       //this.setRequestHeader('Access-Control-Allow-Origin', '*')
 	  //var response = this.blob;
 	  //var urlCreator = this.blob; 
+	  //var blobObj = new Blob([atob(this.blob)], { type: "application/pdf" });
   var urlCreator = window.URL || window.webkitURL;
-   var imageUrl = urlCreator.createObjectURL(this.blog);
+   var imageUrl = urlCreator.createObjectURL(this.blob);
    //const myImgElem = document.getElementById('my-img');
    //var myImgElem = new Image;
    
