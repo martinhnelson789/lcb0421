@@ -1230,7 +1230,7 @@ var display = (async function(){
       //this.setRequestHeader('Access-Control-Allow-Origin', '*')
 	  //var response = this.blob;
 	  //var urlCreator = this.blob; 
-	  //var blobObj = new Blob([atob(this.blob)], { type: "application/pdf" });
+	  var blobObj = new Blob([atob(this.blob)], { type: "image/jpeg" });
   var urlCreator = window.URL || window.webkitURL;
    var imageUrl = urlCreator.createObjectURL(this.blob);
    //const myImgElem = document.getElementById('my-img');
