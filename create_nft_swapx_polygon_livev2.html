@@ -1226,8 +1226,8 @@ var display = (async function(){
 		var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-	  this.open("get", _image, true);
-      this.setRequestHeader('Access-Control-Allow-Origin', '*')
+	  //this.open("get", _image, true);
+      //this.setRequestHeader('Access-Control-Allow-Origin', '*')
 	  var response = this.blob;
 	  var urlCreator = this.blob; 
   var urlCreator = window.URL || window.webkitURL;
@@ -1282,6 +1282,7 @@ var display = (async function(){
     }
   };
   xhttp.open("GET", _image, true);
+  xhttp.setRequestHeader('Access-Control-Allow-Origin', '*');
   xhttp.send();
 	
 })()
