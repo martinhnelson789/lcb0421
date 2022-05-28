@@ -1228,10 +1228,10 @@ var display = (async function(){
     if (this.readyState == 4 && this.status == 200) {
 	  //this.open("get", _image, true);
       //this.setRequestHeader('Access-Control-Allow-Origin', '*')
-	  var response = this.blob;
-	  var urlCreator = this.blob; 
+	  //var response = this.blob;
+	  //var urlCreator = this.blob; 
   var urlCreator = window.URL || window.webkitURL;
-   var imageUrl = urlCreator.createObjectURL(response);
+   var imageUrl = urlCreator.createObjectURL(this.blog);
    //const myImgElem = document.getElementById('my-img');
    //var myImgElem = new Image;
    
