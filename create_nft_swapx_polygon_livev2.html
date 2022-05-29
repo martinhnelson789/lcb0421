@@ -25,8 +25,8 @@ div {
 padding: 10px;
 border-radius: 25px;
 border: 2px solid #5F6C6D;
-background-size: auto;
-width: 500px;
+background-color: powderblue;
+
 
 }
 
@@ -1132,7 +1132,7 @@ var display = (async function(){
 	box2.id = "s" + i;
 	container.appendChild(box1);
 	container.appendChild(box2);
-	container.insertAdjacentText('afterbegin', "  OFFER NO: " + i)
+	container.insertAdjacentHTML('afterbegin', '<p style="color:#5F6C6D; font-family: helvetica narrow, sans-serif;">  offer no: ' + i + '</p>')
 	//container.style = "font-weight: bold;"
 	
 	var contract_length = await contract_bal.methods.token_contracts_list1xyCount(i, address).call();
@@ -1141,9 +1141,11 @@ var display = (async function(){
 	//console.log(contract_ID1)
 	var name = await new web3.eth.Contract(abi, contract_ID1).methods.name().call();
 	
-
-		canvas_2(contract_bal.methods.tokens_image1xy, i, address, j, -10, box1);
-
+		try {
+		canvas_3(contract_bal.methods.tokens_image1xy, i, address, j, -10, box1);
+			}catch(err){
+		canvas_1(contract_ID2, tokenID2, box1);
+	 }
 
 
 	
@@ -1177,9 +1179,9 @@ var display = (async function(){
 	array_tokenID2.push(tokenID2);
 	
 	try {
-	canvas_2(contract_bal.methods.tokens_image2xy, i, address, j, 10, box2);
+	canvas_3(contract_bal.methods.tokens_image2xy, i, address, j, 10, box2);
 	 }catch(err){
-		canvas_2(contract_bal, i, address, j, 10, box2);
+		canvas_1(contract_ID2, tokenID2, box2);
 	 }
 	
 
@@ -1220,18 +1222,66 @@ var display = (async function(){
 	
 	}
 	
+	
+	function canvas_1(contract_ID1, tokenID, bx){
+	var acct = (async function(){
+	const image = await image_and_name(contract_ID1, tokenID, getImage);
+	//console.log(image);
+	var newDiv = document.createElement('img');
+	newDiv.id = 'rs'+i;
+	//newDiv.setAttribute('width', '15%');
+	//newDiv.setAttribute('height', '15%');
+	//newDiv.loading = "lazy";
+	//newDiv.onload = await "(image_and_name(" + contract_ID1 + ", " + tokenID + ", getImage))"
+	//newDiv.addEventListener("load", "(image_and_name(" + contract_ID1 + ", " + tokenID + ", getImage))");
+	//chat.appendChild(newDiv);
+	function getImage(xhttp){
+			var result = xhttp.response;
+			JSONresult = JSON.parse(result);
+			console.log(JSONresult.image);
+			//var result1 = JSONresult.image
+			//return result1
+	
+			var img = new Image();
+            img.src = JSONresult.image
+			img.id = "rs" & i
+			//img.style.width = '15%'
+			//img.style.height = '15%'
+			//img.setAttribute('width', '15%');
+			//img.setAttribute('height', '15%');
+			
+            bx.appendChild(img);
+			
+	//document.getElementById("rs" + i).loading = "lazy";
+	//document.getElementById("rs" + i).src = JSONresult.image;
+	//document.getElementById("rs" + i).setAttribute('width', '15%');
+	//document.getElementById("rs" + i).setAttribute('height', '15%');
+	}
+	})()
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	function canvas_2(k, num1, addr, num2, n, bx){
 	var acct = (async function(){
 	var _image = await k(num1, addr, num2).call();
 		var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-	  this.open("get", _image, true);
-      this.setRequestHeader('Access-Control-Allow-Origin', '*')
-	  var response = this.blob;
-	  var urlCreator = this.blob; 
+	  //this.open("get", _image, true);
+      //this.setRequestHeader('Access-Control-Allow-Origin', '*')
+	  //var response = this.blob;
+	  //var urlCreator = this.blob; 
+	  //var blobObj = new Blob([atob(this.blob)], { type: "image/jpeg" });
   var urlCreator = window.URL || window.webkitURL;
-   var imageUrl = urlCreator.createObjectURL(response);
+   var imageUrl = urlCreator.createObjectURL(this);
    //const myImgElem = document.getElementById('my-img');
    //var myImgElem = new Image;
    
@@ -1282,6 +1332,10 @@ var display = (async function(){
     }
   };
   xhttp.open("GET", _image, true);
+  xhttp.setRequestHeader('Access-Control-Allow-Origin', '*');
+  xhttp.setRequestHeader('Access-Control-Allow-Headers', '*');
+  xhttp.setRequestHeader('Content-type', 'image/jpeg');
+  xhttp.responseType = 'blob'
   xhttp.send();
 	
 })()
@@ -1444,6 +1498,46 @@ var acct = (async function(){
 
 })()
 }
+
+
+
+
+
+function image_and_name(k,n, getImage){
+
+	//localStorage.setItem("NFT Contract", document.getElementById("NFT_contract").value);
+	//localStorage.setItem("NFT Token ID", document.getElementById("NFT_Token_ID").value);
+	
+	//var nft_k = localStorage.getItem("NFT Contract");
+	var nft_k = k 
+	//var nft_id = localStorage.getItem("NFT Token ID");
+	var nft_id = n
+  var val = (async function(){
+  const contract_address = web3.utils.toChecksumAddress(nft_k)
+  const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+  const contract_bal = await new web3.eth.Contract(abi, contract_address);
+  const lnk = await contract_bal.methods.tokenURI(nft_id).call();
+  //alert(bal);
+  //var result = await getvalue()
+  //console.log('Woo done!', json)
+	var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            getImage(this)
+			//var result = this.response;
+			//JSONresult = JSON.parse(result);
+			//console.log(JSONresult.image);
+			//var result1 = JSONresult.image
+			//return result1
+       }
+    };
+    xhttp.open("GET", lnk, false);
+    xhttp.send();
+	
+
+})()
+//return val
+	}
 
 function reclaim_asset(){
 var acct = (async function(){
