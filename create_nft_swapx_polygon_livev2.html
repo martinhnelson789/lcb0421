@@ -1132,7 +1132,7 @@ var display = (async function(){
 	box2.id = "s" + i;
 	container.appendChild(box1);
 	container.appendChild(box2);
-	container.insertAdjacentText('afterbegin', "  OFFER NO: " + i)
+	container.insertAdjacentHTML('afterbegin', '<p style="color:#5F6C6D; font-family: helvetica narrow, sans-serif;">  offer no: ' + i + '</p>')
 	//container.style = "font-weight: bold;"
 	
 	var contract_length = await contract_bal.methods.token_contracts_list1xyCount(i, address).call();
