@@ -1130,9 +1130,12 @@ var display = (async function(){
 	box1.id = "r" + i;
 	var box2 = document.createElement('div')
 	box2.id = "s" + i;
+	var latest = await contract_bal.methods.debt_obligation_listx(i, address).call();
+	console.log("test completed " + latest)
 	container.appendChild(box1);
 	container.appendChild(box2);
 	container.insertAdjacentHTML('afterbegin', '<p style="color:#5F6C6D; font-family: helvetica narrow, sans-serif;">  offer no: ' + i + '</p>')
+	container.insertAdjacentHTML('afterend', '<p style="color:#5F6C6D; font-family: helvetica narrow, sans-serif;">  swap completed ' + latest + '</p>')
 	//container.style = "font-weight: bold;"
 	
 	var contract_length = await contract_bal.methods.token_contracts_list1xyCount(i, address).call();
@@ -1201,8 +1204,7 @@ var display = (async function(){
 	container.appendChild(newBtn);
 	//document.getElementById("r" & _i).appendChild(newBtn);
 	
-	var latest = await contract_bal.methods.debt_obligation_listx(i, address).call();
-	console.log("test completed " + latest)
+	
 	
 	
 	//console.log(_image2);
