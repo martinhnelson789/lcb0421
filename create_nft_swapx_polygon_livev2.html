@@ -1135,7 +1135,8 @@ var display = (async function(){
 	container.appendChild(box1);
 	container.appendChild(box2);
 	container.insertAdjacentHTML('afterbegin', '<p style="color:#5F6C6D; font-family: helvetica narrow, sans-serif;">  offer no: ' + i + '</p>')
-	container.insertAdjacentHTML('afterend', '<p style="color:#5F6C6D; font-family: helvetica narrow, sans-serif;">  swap completed ' + latest + '</p>')
+	//container.insertAdjacentHTML('afterend', '<p style="color:#5F6C6D; font-family: helvetica narrow, sans-serif;">  swap completed ' + latest + '</p>')
+	container.insertAdjacentHTML('afterend', '<p style="color:#5F6C6D; font-family: helvetica narrow, sans-serif;"></p>')
 	//container.style = "font-weight: bold;"
 	
 	var contract_length = await contract_bal.methods.token_contracts_list1xyCount(i, address).call();
