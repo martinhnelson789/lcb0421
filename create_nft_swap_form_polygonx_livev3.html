@@ -1243,7 +1243,7 @@ var _image = (async function(){
 			
 			//JSONresult = JSON.parse(result);
 			
-			const contentType = result.headers.get("content-type");
+			const contentType = result.getResponseHeader();
 			console.log(contentType)
 			//JSONresult = result
 			
