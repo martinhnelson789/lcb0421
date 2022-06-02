@@ -65,10 +65,8 @@ font-size: large;
 
 
 <body>
-<center><img id="logo" src=logoCapture.PNG></img></center>
-<button style="color:#5F6C6D; font-family: helvetica narrow, sans-serif;font-size: x-large;  position:absolute; top:0; right:25;" onClick="connect_metamask()">
-          Connect
-        </Button>
+<center><img id="logo" src=barterNFT_logo.png></img></center>
+
 <button style="color:#5F6C6D; font-family: helvetica narrow, sans-serif;font-size: x-large;  position:absolute; top:0; right:0;" onclick="open_window()">offer trade</button>
 <center><p id="contract_address_ID"></p></center>
 
@@ -82,6 +80,9 @@ font-size: large;
 
 
 <script>
+//<button style="color:#5F6C6D; font-family: helvetica narrow, sans-serif;font-size: x-large;  position:absolute; top:0; right:25;" onClick="connect_metamask()">
+          //Connect
+        //</Button>
 //<meta http-equiv="Content-Type" content="text/plain"; Charset=UTF-8">
 //<div id="root"></div>
 function open_window() {
@@ -1130,9 +1131,13 @@ var display = (async function(){
 	box1.id = "r" + i;
 	var box2 = document.createElement('div')
 	box2.id = "s" + i;
+	var latest = await contract_bal.methods.debt_obligation_listx(i, address).call();
+	console.log("test completed " + latest)
 	container.appendChild(box1);
 	container.appendChild(box2);
 	container.insertAdjacentHTML('afterbegin', '<p style="color:#5F6C6D; font-family: helvetica narrow, sans-serif;">  offer no: ' + i + '</p>')
+	//container.insertAdjacentHTML('beforeend', '<p style="color:#5F6C6D; font-family: helvetica narrow, sans-serif;">  swap completed ' + latest + '</p>')
+	//container.insertAdjacentHTML('afterend', '<p style="color:#5F6C6D; font-family: helvetica narrow, sans-serif;"></p>')
 	//container.style = "font-weight: bold;"
 	
 	var contract_length = await contract_bal.methods.token_contracts_list1xyCount(i, address).call();
@@ -1201,7 +1206,6 @@ var display = (async function(){
 	container.appendChild(newBtn);
 	//document.getElementById("r" & _i).appendChild(newBtn);
 	
-	var latest = await contract_bal.methods.debt_obligation_listx(i, address).call();
 	
 	
 	
@@ -1209,7 +1213,7 @@ var display = (async function(){
 	
 	
 	chat.appendChild(documentFragment);
-	
+	//document.getElementById('a' + i).innerHTML = "swap completed " + latest;
 	
 	<!-- var newDiv = document.createElement('div'); -->
 	<!-- newDiv.id = 'w'+i; -->
