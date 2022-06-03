@@ -1586,7 +1586,7 @@ var contract_address = web3.utils.toChecksumAddress(nft_k)
 //var _image = await k(num1, addr, num2).call();
 //const imgurl = _image //"https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg"
 fetch(lnk, {'Access-Control-Allow-Origin': "*",
-'Access-Control-Allow-Headers': "*", "crossDomain: true"
+'Access-Control-Allow-Headers': "*", "crossDomain": true
 }).then(response => response.blob())
   .then(myBlob => {
   var urlCreator = window.URL || window.webkitURL;
