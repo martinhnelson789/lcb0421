@@ -1192,12 +1192,14 @@ var _image = (async function(){
 
 	try {
 			var image = await image_and_name(contract_ID1, tokenID, getImage);
+			}
 		catch(err){
 			canvas_3 (contract_ID1, tokenID)
 		}
 		
 		try {
 			var image = await image_and_name(contract_ID2, tokenID2, getImage1);
+			}
 		catch(err){
 			canvas_3 (contract_ID2, tokenID2)
 		}
@@ -1211,9 +1213,10 @@ var _image = (async function(){
 	//newDiv.addEventListener("load", "(image_and_name(" + contract_ID1 + ", " + tokenID + ", getImage))");
 	//chat.appendChild(newDiv);
 	//ew1Div.addEventListener("load", getImage);
-	return 1
+	
 	
 	})()
+	return 1
 	}
 	
 	function getImage(xhttp){
