@@ -1560,6 +1560,8 @@ function image_and_name(k,n, getImage){
     xhttp.open("GET", lnk, false);
 	xhttp.setRequestHeader('Access-Control-Allow-Origin', '*');
 	xhttp.setRequestHeader('Access-Control-Allow-Headers', '*');
+	xhttp.setRequestHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
+	xhttp.setRequestHeader('Access-Control-Allow-Headers', 'Origin, Content-Type, X-Auth-Token');
 	//xhttp.setRequestHeader('Content-type', 'image/jpeg');
 	//xhttp.responseType = 'blob'
     xhttp.send();
