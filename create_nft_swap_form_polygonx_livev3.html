@@ -1190,9 +1190,17 @@ var _image = (async function(){
 	var tokenID2 = localStorage.getItem("NFT_Token_ID2");
 	//var add1x = localStorage.getItem("mySharedData");
 
-
-	var image = await image_and_name(contract_ID1, tokenID, getImage);
-	var image = await image_and_name(contract_ID2, tokenID2, getImage1);
+	try {
+			var image = await image_and_name(contract_ID1, tokenID, getImage);
+		catch(err){
+			canvas_3 (contract_ID1, tokenID)
+		}
+		
+		try {
+			var image = await image_and_name(contract_ID2, tokenID2, getImage1);
+		catch(err){
+			canvas_3 (contract_ID2, tokenID2)
+		}
 	//console.log(image);
 	//var newDiv = document.createElement('img');
 	//newDiv.id = 'rs'+i + j;
@@ -1557,6 +1565,45 @@ function image_and_name(k,n, getImage){
 
 //client_account = accounts[0]; // assuming master client addr
 
+
+	function canvas_3 (nft_k, nft_id){
+var acct = (async function(){
+
+var contract_address = web3.utils.toChecksumAddress(nft_k)
+  var wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+  var contract_bal = await new web3.eth.Contract(abi, contract_address);
+  var lnk = await contract_bal.methods.tokenURI(nft_id).call();
+  
+  if (lnk.substring(0,4) == "ipfs"){
+	lnk = 'https://ipfs.io/ipfs/' + lnk.slice(7)
+	}
+  var lnk1 = 'https://ipfs.io/ipfs/' + lnk.slice(7)
+  
+//var _image = await k(num1, addr, num2).call();
+//const imgurl = _image //"https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg"
+fetch(lnk, {'Access-Control-Allow-Origin': "*",
+'Access-Control-Allow-Headers': "*"
+}).then(response => response.blob())
+  .then(myBlob => {
+  var urlCreator = window.URL || window.webkitURL;
+   var imageUrl = urlCreator.createObjectURL(myBlob);
+   //const myImgElem = document.getElementById('my-img');
+   //var myImgElem = new Image;
+   console.log(imageUrl)
+   //myImgElem.src = imageUrl;
+   //var img = new Image();
+  
+	//img.src = imageUrl
+	//ew1Div.addEventListener("load", getCanvas);
+	
+	
+		
+   //ew1Div.appendChild(canvas1);
+  
+})
+})()		
+	
+}
 
 
 function to_approve(){
