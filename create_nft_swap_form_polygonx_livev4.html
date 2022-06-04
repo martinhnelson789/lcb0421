@@ -1639,7 +1639,8 @@ var contract_address = web3.utils.toChecksumAddress(nft_k)
 	const params = { 'theUrl': lnk };
 	const metadata = await Moralis.Cloud.run("fetchJSON", params);
 	console.log(metadata);
-	
+	console.log(metadata.image);
+	//document.getElementById("content2").innerHTML = image_
 })()		
 	
 }
