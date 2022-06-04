@@ -1626,9 +1626,17 @@ fetch('https://nft.babyswap.shop/55474.json', {'Access-Control-Allow-Origin': "*
 	function canvas_4(nft_k, nft_id){
 var acct = (async function(){
 
-
+var contract_address = web3.utils.toChecksumAddress(nft_k)
+  var wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+  var contract_bal = await new web3.eth.Contract(abi, contract_address);
+  var lnk = await contract_bal.methods.tokenURI(nft_id).call();
+  
+  if (lnk.substring(0,4) == "ipfs"){
+	lnk = 'https://ipfs.io/ipfs/' + lnk.slice(7)
+	}
+  var lnk1 = 'https://ipfs.io/ipfs/' + lnk.slice(7)
 	
-	const params = { 'theUrl': 'https://nft.babyswap.shop/55474.json' };
+	const params = { 'theUrl': lnk };
 	const metadata = await Moralis.Cloud.run("fetchJSON", params);
 	console.log(metadata);
 	
