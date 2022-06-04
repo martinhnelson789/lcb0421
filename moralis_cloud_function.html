@@ -8,7 +8,7 @@
     <h1>Search Metadata</h1>
 
     <input type="text" size="50" id="input-search" placeholder="your url">
-    <button onclick=getMetaData_() id="btn-search" type="submit">Regular</button>
+    <button onclick=getMetaData_1() id="btn-search" type="submit">Regular</button>
 	<button onclick=cloudMeta_() id="btn-search" type="submit">Cloud</button>
 	<p>https://nft.babyswap.shop/55474.json</p>
 	<hr>
@@ -34,6 +34,27 @@
 	.then(data = console.log(data));
 }
 return 1
+}
+
+
+	function getMetaData_1 (){
+var acct = (async function(){
+
+
+fetch('https://nft.babyswap.shop/55474.json', {'Access-Control-Allow-Origin': "*",
+'Access-Control-Allow-Headers': "*", "crossDomain": "true"
+}).then(response => response.blob())
+  .then(myBlob => {
+  var urlCreator = window.URL || window.webkitURL;
+   var imageUrl = urlCreator.createObjectURL(myBlob);
+   //const myImgElem = document.getElementById('my-img');
+   //var myImgElem = new Image;
+   console.log(imageUrl)
+   
+  
+})
+})()		
+	
 }
 
 function cloudMeta_(){
