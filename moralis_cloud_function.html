@@ -9,7 +9,7 @@
 
     <input type="text" size="50" id="input-search" placeholder="your url">
     <button onclick=getMetaData_() id="btn-search" type="submit">Regular</button>
-	<button onclick=cloudMeta() id="btn-search" type="submit">Cloud</button>
+	<button onclick=cloudMeta_() id="btn-search" type="submit">Cloud</button>
 	<p>https://nft.babyswap.shop/55474.json</p>
 	<hr>
 	<h2>The Content</h2>
@@ -25,11 +25,11 @@
       Moralis.start({ serverUrl, appId });
 	
 		function getMetaData_(){
-	  getMetaData = async () => {
+	var getMetaData = async () => {
 	
-	let url = document.getElementById('input-search').value
+	var url = document.getElementById('input-search').value
 	
-	let metadata = await fetch('https://nft.babyswap.shop/55474.json')
+	var metadata = await fetch('https://nft.babyswap.shop/55474.json')
 	.then(response => response.json())
 	.then(data = console.log(data));
 }
@@ -37,7 +37,7 @@ return 1
 }
 
 function cloudMeta_(){
-cloudMeta = async () => {
+var cloudMeta = async () => {
 	
 	let url = document.getElementById('input-search').value
 	const params { theUrl: url }
