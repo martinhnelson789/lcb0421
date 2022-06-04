@@ -8,7 +8,7 @@ getMetaData = async () => {
 	.then(data = console.log(data));
 }
 
-getMetaData = async () => {
+cloudMeta = async () => {
 	
 	let url = document.getElementById('input-search').value
 	const params { theUrl: url }
