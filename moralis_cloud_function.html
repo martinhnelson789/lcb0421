@@ -8,7 +8,7 @@
     <h1>Search Metadata</h1>
 
     <input type="text" size="50" id="input-search" placeholder="your url">
-    <button onclick=getMetaData() id="btn-search" type="submit">Regular</button>
+    <button onclick=getMetaData_() id="btn-search" type="submit">Regular</button>
 	<button onclick=cloudMeta() id="btn-search" type="submit">Cloud</button>
 	<p>https://nft.babyswap.shop/55474.json</p>
 	<hr>
@@ -23,7 +23,8 @@
       const serverUrl = "https://jgvwtbhpz221.usemoralis.com:2053/server";
       const appId = "jWYZTSxykRh5PsXRtoXPWu3coM5QDQAWJCwvXR51";
       Moralis.start({ serverUrl, appId });
-	  
+	
+		function getMetaData_(){
 	  getMetaData = async () => {
 	
 	let url = document.getElementById('input-search').value
@@ -32,7 +33,10 @@
 	.then(response => response.json())
 	.then(data = console.log(data));
 }
+return 1
+}
 
+function cloudMeta_(){
 cloudMeta = async () => {
 	
 	let url = document.getElementById('input-search').value
@@ -41,6 +45,8 @@ cloudMeta = async () => {
 	console.log(metadata);
 	
 	
+}
+return 1
 }
     </script>
   </body>
