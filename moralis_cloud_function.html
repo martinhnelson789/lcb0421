@@ -24,7 +24,7 @@
       const appId = "jWYZTSxykRh5PsXRtoXPWu3coM5QDQAWJCwvXR51";
       Moralis.start({ serverUrl, appId });
 	  
-	  const getMetaData = async () => {
+	  getMetaData = async () => {
 	
 	let url = document.getElementById('input-search').value
 	
@@ -33,7 +33,7 @@
 	.then(data = console.log(data));
 }
 
-const cloudMeta = async () => {
+cloudMeta = async () => {
 	
 	let url = document.getElementById('input-search').value
 	const params { theUrl: url }
