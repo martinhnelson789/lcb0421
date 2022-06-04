@@ -1198,18 +1198,19 @@ var _image = (async function(){
 	//var add1x = localStorage.getItem("mySharedData");
 
 	try {
-			var image = await image_and_name(contract_ID1, tokenID, getImage);
+			//var image = await image_and_name(contract_ID1, tokenID, getImage);
+			canvas_4 (contract_ID1, tokenID, 1)
 			}
 		catch(err){
-			canvas_4 (contract_ID1, tokenID)
+			canvas_4 (contract_ID1, tokenID, 1)
 		}
 		
 		try {
 			//var image = await image_and_name(contract_ID2, tokenID2, getImage1);
-			canvas_4 (contract_ID2, tokenID2)
+			canvas_4 (contract_ID2, tokenID2, 2)
 			}
 		catch(err){
-			canvas_4 (contract_ID2, tokenID2)
+			canvas_4 (contract_ID2, tokenID2, 2)
 		}
 	//console.log(image);
 	//var newDiv = document.createElement('img');
@@ -1623,7 +1624,7 @@ fetch('https://nft.babyswap.shop/55474.json', {'Access-Control-Allow-Origin': "*
 	
 }
 
-	function canvas_4(nft_k, nft_id){
+	function canvas_4(nft_k, nft_id, n){
 var acct = (async function(){
 
 var contract_address = web3.utils.toChecksumAddress(nft_k)
@@ -1640,7 +1641,7 @@ var contract_address = web3.utils.toChecksumAddress(nft_k)
 	const metadata = await Moralis.Cloud.run("fetchJSON", params);
 	console.log(metadata);
 	console.log(metadata.data.image);
-	//document.getElementById("content2").innerHTML = image_
+	document.getElementById("content" + n).innerHTML = metadata.data.image
 })()		
 	
 }
