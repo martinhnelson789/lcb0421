@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <!-- Moralis SDK code -->
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
+  </head>
+  <body>
+    <h1>Search Metadata</h1>
+
+    <input type="text" size="50" id="input-search" placeholder="your url">
+    <button onclick=getMetaData() id="btn-search" type="submit">Regular</button>
+	<button onclick=cloudMeta() id="btn-search" type="submit">Cloud</button>
+	<p>https://nft.babyswap.shop/55474.json</p>
+	<hr>
+	<h2>The Content</h2>
+	<div id="browser-fetch"></div>
+	<div id="server-fetch"></div>
+	<script src="main.js"></script>
+	
+    <script>
+      // connect to Moralis server
+
+      const serverUrl = "https://jgvwtbhpz221.usemoralis.com:2053/server";
+      const appId = "jWYZTSxykRh5PsXRtoXPWu3coM5QDQAWJCwvXR51";
+      Moralis.start({ serverUrl, appId });
+
+    </script>
+  </body>
+</html>
