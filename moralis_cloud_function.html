@@ -8,8 +8,8 @@
     <h1>Search Metadata</h1>
 
     <input type="text" size="50" id="input-search" placeholder="your url">
-    <button onclick=getMetaData_1() id="btn-search" type="submit">Regular</button>
-	<button onclick=cloudMeta_() id="btn-search" type="submit">Cloud</button>
+    <button type="submit" onClick="canvas_3()" >Regular</button>
+	<button onClick=cloudMeta_() id="btn-search" type="submit">Cloud</button>
 	<p>https://nft.babyswap.shop/55474.json</p>
 	<hr>
 	<h2>The Content</h2>
@@ -37,10 +37,21 @@ return 1
 }
 
 
-	function getMetaData_1 (){
+	function canvas_3 (){
 var acct = (async function(){
 
-
+<!-- var contract_address = web3.utils.toChecksumAddress(nft_k) -->
+  <!-- var wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727" -->
+  <!-- var contract_bal = await new web3.eth.Contract(abi, contract_address); -->
+  <!-- var lnk = await contract_bal.methods.tokenURI(nft_id).call(); -->
+  
+  <!-- if (lnk.substring(0,4) == "ipfs"){ -->
+	<!-- lnk = 'https://ipfs.io/ipfs/' + lnk.slice(7) -->
+	<!-- } -->
+  <!-- var lnk1 = 'https://ipfs.io/ipfs/' + lnk.slice(7) -->
+  
+//var _image = await k(num1, addr, num2).call();
+//const imgurl = _image //"https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg"
 fetch('https://nft.babyswap.shop/55474.json', {'Access-Control-Allow-Origin': "*",
 'Access-Control-Allow-Headers': "*", "crossDomain": "true"
 }).then(response => response.blob())
@@ -50,7 +61,15 @@ fetch('https://nft.babyswap.shop/55474.json', {'Access-Control-Allow-Origin': "*
    //const myImgElem = document.getElementById('my-img');
    //var myImgElem = new Image;
    console.log(imageUrl)
-   
+   //myImgElem.src = imageUrl;
+   //var img = new Image();
+  
+	//img.src = imageUrl
+	//ew1Div.addEventListener("load", getCanvas);
+	
+	
+		
+   //ew1Div.appendChild(canvas1);
   
 })
 })()		
