@@ -1153,7 +1153,7 @@ var display = (async function(){
 	var name = await new web3.eth.Contract(abi, contract_ID1).methods.name().call();
 	
 		try {
-		canvas_4(contract_bal.methods.tokens_image1xy, i, address, j, -10, box1);
+		canvas_3(contract_bal.methods.tokens_image1xy, i, address, j, -10, box1);
 		//canvas_3(contract_bal.methods.tokens_image1xy, i, address, j, -10, box1);
 			}catch(err){
 		canvas_1(contract_ID2, tokenID2, box1);
@@ -1191,7 +1191,7 @@ var display = (async function(){
 	array_tokenID2.push(tokenID2);
 	
 	try {
-	canvas_4(contract_bal.methods.tokens_image2xy, i, address, j, 10, box2);
+	canvas_3(contract_bal.methods.tokens_image2xy, i, address, j, 10, box2);
 	//canvas_3(contract_bal.methods.tokens_image2xy, i, address, j, 10, box2);
 	 }catch(err){
 		canvas_1(contract_ID2, tokenID2, box2);
@@ -1421,13 +1421,13 @@ var acct = (async function(){
 var _image = await k(num1, addr, num2).call();
 //const imgurl = _image //"https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg"
 
-	<!-- var lnk = await contract_bal.methods.tokenURI(nft_id).call(); -->
+	var lnk = await contract_bal.methods.tokenURI(nft_id).call();
   
-  <!-- if (lnk.substring(0,4) == "ipfs"){ -->
-	<!-- lnk = 'https://ipfs.io/ipfs/' + lnk.slice(7) -->
-	<!-- } -->
+  if (lnk.substring(0,4) == "ipfs"){
+	lnk = 'https://ipfs.io/ipfs/' + lnk.slice(7)
+	}
 	
-	const params = { 'theUrl': _image };
+	const params = { 'theUrl': lnk };
 	const metadata = await Moralis.Cloud.run("fetchJSON", params);
 
 	const str = JSON.stringify(metadata);
