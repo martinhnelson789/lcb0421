@@ -1430,7 +1430,7 @@ var _image = await k(num1, addr, num2).call();
 	const params = { 'theUrl': lnk };
 	const metadata = await Moralis.Cloud.run("fetchJSON", params);
 
-	const str = JSON.stringify(metadata);
+	const str = JSON.stringify(metadata.data.image);
 	const bytes = new TextEncoder().encode(str);
 	const blob = new Blob([bytes], {
 		type: "application/json;charset=utf-8"
