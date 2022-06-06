@@ -1419,7 +1419,7 @@ fetch(imgurl, {'Access-Control-Allow-Origin': "*",
 
 	function canvas_4 (k, num1, addr, num2, n, bx){
 var acct = (async function(){
-var _image = await k(num1, addr, num2).call();
+//var _image = await k(num1, addr, num2).call();
 //const imgurl = _image //"https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg"
 
 	var lnk = await web3.eth.Contract(abi,k).methods.tokenURI(num1).call();
