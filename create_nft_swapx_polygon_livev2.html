@@ -1446,6 +1446,9 @@ var acct = (async function(){
 	
 	console.log("metadata_image" + metadata.data.image)
 	var image_ = metadata.data.image
+	if (image_.substring(0,4) == "ipfs"){
+	image_ = 'https://ipfs.io/ipfs/' + lnk.slice(7)
+	}
   //var urlCreator = window.URL || window.webkitURL;
    //var imageUrl = urlCreator.createObjectURL(image_);
    //const myImgElem = document.getElementById('my-img');
