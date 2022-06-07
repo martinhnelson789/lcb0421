@@ -1492,7 +1492,7 @@ var acct = (async function(){
         ctx.drawImage(img, 0, 0, width, height);
 		bx.insertBefore(canvas, bx.children[0]);
 		//container.id = "cc" & i;
-		return canvas.toDataURL("image/jpeg",0.2);
+		return canvas.toDataURL("image/*",0.2);
 		
 			
 			}
@@ -1519,7 +1519,9 @@ var acct = (async function(){
 
 
 
-
+function isError(obj){
+    return Object.prototype.toString.call(obj) === "[object Error]";
+}
 
 	
 
