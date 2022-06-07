@@ -1433,14 +1433,16 @@ var acct = (async function(){
 	const params = { 'theUrl': lnk };
 	const metadata = await Moralis.Cloud.run("fetchJSON", params);
 
-	const str = JSON.stringify(metadata.data.image);
-	const bytes = new TextEncoder().encode(str);
-	const blob = new Blob([bytes], {
-		type: "application/json;charset=utf-8"
-	});
-
+	<!-- const str = JSON.stringify(metadata.data.image); -->
+	<!-- const bytes = new TextEncoder().encode(str); -->
+	<!-- const blob = new Blob([bytes], { -->
+		<!-- type: "application/json;charset=utf-8" -->
+	<!-- }); -->
+	
+	console.log("metadata_image" + metadata.data.image)
+	var image_ = metadata.data.image
   var urlCreator = window.URL || window.webkitURL;
-   var imageUrl = urlCreator.createObjectURL(blob);
+   var imageUrl = urlCreator.createObjectURL(image_);
    //const myImgElem = document.getElementById('my-img');
    //var myImgElem = new Image;
    
