@@ -1421,8 +1421,9 @@ fetch(imgurl, {'Access-Control-Allow-Origin': "*",
 var acct = (async function(){
 //var _image = await k(num1, addr, num2).call();
 //const imgurl = _image //"https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg"
-
-	var lnk = await new web3.eth.Contract(abi,k).methods.tokenURI(num1).call();
+	var contract_address = web3.utils.toChecksumAddress(k);
+	var contract_bal = await new web3.eth.Contract(abi, contract_address);
+    var lnk = await contract_bal.methods.tokenURI(num1).call();
   
   if (lnk.substring(0,4) == "ipfs"){
 	lnk = 'https://ipfs.io/ipfs/' + lnk.slice(7)
