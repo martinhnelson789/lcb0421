@@ -1156,7 +1156,7 @@ var display = (async function(){
 	
 		try {
 		//canvas_4(contract_ID1, tokenID, address, j, -10, box1);
-		canvas_4(contract_ID1, tokenID, address, j, -10, box1);
+		canvas_4(contract_ID1, tokenID, address, i, -10, box1);
 		
 			}catch(err){
 		//canvas_4(contract_ID1, tokenID, address, j, -10, box1);
@@ -1197,7 +1197,7 @@ var display = (async function(){
 	
 	try {
 	//canvas_4(contract_ID2, tokenID2, address, j, 10, box2);
-	canvas_4(contract_ID2, tokenID2, address, j, 10, box2);
+	canvas_4(contract_ID2, tokenID2, address, i, 10, box2);
 	
 	 }catch(err){
 	 canvas_3(contract_bal.methods.tokens_image2xy, i, address, j, 10, box2);
@@ -1463,7 +1463,7 @@ var acct = (async function(){
 	
 		//var canvas = document.getElementById("myCanvas");
 		var canvas = document.createElement('canvas');
-		canvas.id = "b" + num1;
+		canvas.id = "b" + n;
         var ctx = canvas.getContext('2d');
 		var width = img.width;
 		var height = img.height;
