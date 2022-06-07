@@ -1441,15 +1441,15 @@ var acct = (async function(){
 	
 	console.log("metadata_image" + metadata.data.image)
 	var image_ = metadata.data.image
-  var urlCreator = window.URL || window.webkitURL;
-   var imageUrl = urlCreator.createObjectURL(image_);
+  //var urlCreator = window.URL || window.webkitURL;
+   //var imageUrl = urlCreator.createObjectURL(image_);
    //const myImgElem = document.getElementById('my-img');
    //var myImgElem = new Image;
    
    //myImgElem.src = imageUrl;
    var img = new Image();
   
-	img.src = imageUrl
+	img.src = image_ //imageUrl
 	//ew1Div.addEventListener("load", getCanvas);
 	img.onload = function (){
 	
