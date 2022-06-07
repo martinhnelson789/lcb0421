@@ -1197,10 +1197,10 @@ var display = (async function(){
 	
 	try {
 	//canvas_4(contract_ID2, tokenID2, address, j, 10, box2);
-	
-		canvas_3(contract_bal.methods.tokens_image2xy, i, address, j, 10, box2);
+	canvas_4(contract_ID2, tokenID2, address, i, i, box2);
+		
 	 }catch(err){
-	 canvas_4(contract_ID2, tokenID2, address, i, i, box2);
+	 canvas_3(contract_bal.methods.tokens_image2xy, i, address, j, 10, box2);
 	 
 		//canvas_1(contract_ID2, tokenID2, box2);
 	 }
@@ -1473,13 +1473,13 @@ var acct = (async function(){
     if (width > 75 ){
       //height *= max_width / width;
       height = Math.round(height *= 75 / width);
-      width = 75 + n;
+      width = 75;
     }
   } else {
     if (height > 75) {
       //width *= max_height / height;
       width = Math.round(width *= 75 / height);
-      height = 75 + n;
+      height = 75;
     }
   }
   
