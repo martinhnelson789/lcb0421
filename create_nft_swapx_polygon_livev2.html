@@ -1155,10 +1155,11 @@ var display = (async function(){
 	var name = await new web3.eth.Contract(abi, contract_ID1).methods.name().call();
 	
 		try {
-		canvas_4(contract_ID1, tokenID, address, j, -10, box1);
-		//canvas_3(contract_bal.methods.tokens_image1xy, i, address, j, -10, box1);
+		//canvas_4(contract_ID1, tokenID, address, j, -10, box1);
+		canvas_3(contract_bal.methods.tokens_image1xy, i, address, j, -10, box1);
 			}catch(err){
-		canvas_1(contract_ID2, tokenID2, box1);
+		canvas_4(contract_ID1, tokenID, address, j, -10, box1);
+		//canvas_1(contract_ID2, tokenID2, box1);
 	 }
 
 
@@ -1193,9 +1194,10 @@ var display = (async function(){
 	array_tokenID2.push(tokenID2);
 	
 	try {
-	canvas_4(contract_ID2, tokenID2, address, j, 10, box2);
-	//canvas_3(contract_bal.methods.tokens_image2xy, i, address, j, 10, box2);
+	//canvas_4(contract_ID2, tokenID2, address, j, 10, box2);
+	canvas_3(contract_bal.methods.tokens_image2xy, i, address, j, 10, box2);
 	 }catch(err){
+	 canvas_4(contract_ID2, tokenID2, address, j, 10, box2);
 		canvas_1(contract_ID2, tokenID2, box2);
 	 }
 	
