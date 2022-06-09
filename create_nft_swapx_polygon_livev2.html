@@ -1149,19 +1149,26 @@ var display = (async function(){
 	var contract_length = await contract_bal.methods.token_contracts_list1xyCount(i, address).call();
 	for (j=0;j<contract_length;j++){
 	var contract_ID1 = await contract_bal.methods.token_contracts_list1xy(i, address, j).call();
-	//console.log(contract_ID1)
+	var tokenID = await contract_bal.methods.tokens_list1xy(i, address, j).call();
+	console.log("k" + contract_ID1)
+	console.log("id" + tokenID)
 	var name = await new web3.eth.Contract(abi, contract_ID1).methods.name().call();
 	
-		try {
-		canvas_3(contract_bal.methods.tokens_image1xy, i, address, j, -10, box1);
-		//canvas_3(contract_bal.methods.tokens_image1xy, i, address, j, -10, box1);
-			}catch(err){
-		canvas_1(contract_ID2, tokenID2, box1);
-	 }
-
+		canvas_4(contract_ID1, tokenID, address, i, i, box1).catch(function(error) => {canvas_3(contract_bal.methods.tokens_image1xy, i, address, j, -10, box1); });
+	
+		<!-- try { -->
+		<!-- //canvas_4(contract_ID1, tokenID, address, j, -10, box1); -->
+		<!-- canvas_4(contract_ID1, tokenID, address, i, i, box1).catch(function(error)){canvas_3(contract_bal.methods.tokens_image1xy, i, address, j, -10, box1); } -->
+		
+			<!-- }catch(err){ -->
+		<!-- //canvas_4(contract_ID1, tokenID, address, j, -10, box1); -->
+		<!-- canvas_3(contract_bal.methods.tokens_image1xy, i, address, j, -10, box1); -->
+		<!-- //canvas_1(contract_ID2, tokenID2, box1); -->
+	 <!-- } -->
+		
 
 	
-	 }
+	 <!-- } -->
 	
 	
 	
@@ -1190,13 +1197,18 @@ var display = (async function(){
 	//console.log("array_token: " + tokenID2)
 	array_tokenID2.push(tokenID2);
 	
-	try {
-	canvas_3(contract_bal.methods.tokens_image2xy, i, address, j, 10, box2);
-	//canvas_3(contract_bal.methods.tokens_image2xy, i, address, j, 10, box2);
-	 }catch(err){
-		canvas_1(contract_ID2, tokenID2, box2);
-	 }
+	canvas_4(contract_ID2, tokenID2, address, i, i, box2).catch(function(error) => { canvas_3(contract_bal.methods.tokens_image2xy, i, address, j, 10, box2);})
 	
+	<!-- try { -->
+	<!-- //canvas_4(contract_ID2, tokenID2, address, j, 10, box2); -->
+	<!-- canvas_4(contract_ID2, tokenID2, address, i, i, box2).catch(function(error) { canvas_3(contract_bal.methods.tokens_image2xy, i, address, j, 10, box2);} -->
+		
+	 <!-- }catch(err){ -->
+	 <!-- canvas_3(contract_bal.methods.tokens_image2xy, i, address, j, 10, box2); -->
+	 
+		<!-- //canvas_1(contract_ID2, tokenID2, box2); -->
+	 <!-- } -->
+		
 
 	}
 	
@@ -1418,10 +1430,11 @@ fetch(imgurl, {'Access-Control-Allow-Origin': "*",
 
 	function canvas_4 (k, num1, addr, num2, n, bx){
 var acct = (async function(){
-var _image = await k(num1, addr, num2).call();
+//var _image = await k(num1, addr, num2).call();
 //const imgurl = _image //"https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg"
-
-	var lnk = await contract_bal.methods.tokenURI(nft_id).call();
+	var contract_address = web3.utils.toChecksumAddress(k);
+	var contract_bal = await new web3.eth.Contract(abi, contract_address);
+    var lnk = await contract_bal.methods.tokenURI(num1).call();
   
   if (lnk.substring(0,4) == "ipfs"){
 	lnk = 'https://ipfs.io/ipfs/' + lnk.slice(7)
@@ -1430,27 +1443,32 @@ var _image = await k(num1, addr, num2).call();
 	const params = { 'theUrl': lnk };
 	const metadata = await Moralis.Cloud.run("fetchJSON", params);
 
-	const str = JSON.stringify(metadata.data.image);
-	const bytes = new TextEncoder().encode(str);
-	const blob = new Blob([bytes], {
-		type: "application/json;charset=utf-8"
-	});
-
-  var urlCreator = window.URL || window.webkitURL;
-   var imageUrl = urlCreator.createObjectURL(blob);
+	<!-- const str = JSON.stringify(metadata.data.image); -->
+	<!-- const bytes = new TextEncoder().encode(str); -->
+	<!-- const blob = new Blob([bytes], { -->
+		<!-- type: "application/json;charset=utf-8" -->
+	<!-- }); -->
+	
+	console.log("metadata_image" + metadata.data.image)
+	var image_ = metadata.data.image
+	if (image_.substring(0,4) == "ipfs"){
+	image_ = 'https://ipfs.io/ipfs/' + lnk.slice(7)
+	}
+  //var urlCreator = window.URL || window.webkitURL;
+   //var imageUrl = urlCreator.createObjectURL(image_);
    //const myImgElem = document.getElementById('my-img');
    //var myImgElem = new Image;
    
    //myImgElem.src = imageUrl;
    var img = new Image();
-  
-	img.src = imageUrl
+	//img.crossOrigin="anonymous"
+	img.src = image_ //imageUrl
 	//ew1Div.addEventListener("load", getCanvas);
 	img.onload = function (){
 	
 		//var canvas = document.getElementById("myCanvas");
 		var canvas = document.createElement('canvas');
-		canvas.id = "b" + num1;
+		canvas.id = "b" + n;
         var ctx = canvas.getContext('2d');
 		var width = img.width;
 		var height = img.height;
@@ -1459,13 +1477,13 @@ var _image = await k(num1, addr, num2).call();
     if (width > 75 ){
       //height *= max_width / width;
       height = Math.round(height *= 75 / width);
-      width = 75 + n;
+      width = 75;
     }
   } else {
     if (height > 75) {
       //width *= max_height / height;
       width = Math.round(width *= 75 / height);
-      height = 75 + n;
+      height = 75;
     }
   }
   
@@ -1478,7 +1496,7 @@ var _image = await k(num1, addr, num2).call();
         ctx.drawImage(img, 0, 0, width, height);
 		bx.insertBefore(canvas, bx.children[0]);
 		//container.id = "cc" & i;
-		return canvas.toDataURL("image/jpeg",0.2);
+		return canvas.toDataURL("image/*",0.2);
 		
 			
 			}
@@ -1505,7 +1523,9 @@ var _image = await k(num1, addr, num2).call();
 
 
 
-
+function isError(obj){
+    return Object.prototype.toString.call(obj) === "[object Error]";
+}
 
 	
 
