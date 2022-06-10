@@ -1379,6 +1379,10 @@ var display = (async function(){
 	function canvas_3 (k, num1, addr, num2, n, bx){
 var acct = (async function(){
 var _image = await k(num1, addr, num2).call();
+
+if (_image.substring(0,4) == "ipfs"){
+	_image = 'https://ipfs.io/ipfs/' + lnk.slice(7)
+	}
 const imgurl = _image //"https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg"
 fetch(imgurl, {'Access-Control-Allow-Origin': "*",
 'Access-Control-Allow-Headers': "*"
