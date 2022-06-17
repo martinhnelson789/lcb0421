@@ -1,0 +1,244 @@
+
+<html>
+<head>
+
+<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="https://cdn.rawgit.com/ethereumjs/browser-builds/master/dist/ethereumjs-tx/ethereumjs-tx-1.3.3.js"></script>
+<!-- Moralis SDK code -->
+<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+<script src="https://unpkg.com/moralis/dist/moralis.js"></script>
+</script> 
+  
+
+<STYLE TYPE="text/css">
+
+
+label {
+margin-left: 0.5em;
+cursor: pointer;
+}
+
+
+
+
+div {
+padding: 10px;
+border-radius: 25px;
+border: 2px solid #5F6C6D;
+background-color: powderblue;
+
+
+}
+
+
+
+
+
+
+input {
+
+font-size: small;
+color:#5F6C6D;
+border: 2px solid #5F6C6D;
+
+}
+
+newDiv {
+
+color:#5F6C6D; 
+font-family: helvetica narrow;
+
+}
+
+center {
+
+color:grey; 
+font-family: helvetica narrow; 
+font-size: large;
+}
+
+
+
+
+</style>
+</head>
+
+
+<body>
+
+
+<button style="color:#5F6C6D; font-family: helvetica narrow, sans-serif;font-size: x-large;  position:absolute; top:0; right:0;" onclick="canvas_2()">offer trade</button>
+<center><p id="contract_address_ID"></p></center>
+
+	
+</body>
+
+
+
+
+
+
+
+<script>
+
+	  const serverUrl = "https://jgvwtbhpz221.usemoralis.com:2053/server";
+      const appId = "jWYZTSxykRh5PsXRtoXPWu3coM5QDQAWJCwvXR51";
+      Moralis.start({ serverUrl, appId });
+//<button style="color:#5F6C6D; font-family: helvetica narrow, sans-serif;font-size: x-large;  position:absolute; top:0; right:25;" onClick="connect_metamask()">
+          //Connect
+        //</Button>
+//<meta http-equiv="Content-Type" content="text/plain"; Charset=UTF-8">
+//<div id="root"></div>
+function open_window() {
+  var myWindow = window.open("create_nft_swap_form_polygonx_livev4.html", "offer trade");
+}             
+
+
+
+var metamask = (async function(){
+  	
+  await ethereum.enable();
+  	
+  
+  //alert(balance)
+
+})()
+
+//sleep(200);
+function connect(){
+    provider.request({ method: "eth_requestAccounts" })
+         
+  };
+web3 = new Web3(web3.currentProvider);        
+
+//var web3 = new Web3(new Web3.providers.HttpProvider(
+    //"https://mainnet.infura.io/v3/69462286c61f42d2891a2ced35c91f8d"
+//));
+
+
+web3.eth.net.getNetworkType()
+.then(console.log);
+
+web3.eth.net.isListening()
+   .then(() => console.log('web3 is connected'))
+   .catch(e => console.log('Wow. Something went wrong'));
+
+
+
+
+
+	//localStorage.setItem("NFT Contract", document.getElementById("NFT_contract").value);
+	//localStorage.setItem("NFT Token ID", document.getElementById("NFT_Token_ID").value);
+	//localStorage.setItem("Loan Amount", document.getElementById("loan_amount").value);
+	//localStorage.setItem("Loan Term", document.getElementById("loan_term").value);
+
+
+	function canvas_2(){
+	var acct = (async function(){
+	var _image = 'https://unstoppabledomains.g.alchemy.com/domains/brad.crypto'
+		var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+	  //this.open("get", _image, true);
+      //this.setRequestHeader('Access-Control-Allow-Origin', '*')
+	  var response = this;
+	  alert(response);
+	  //var urlCreator = this.blob; 
+	  //var blobObj = new Blob([atob(this.blob)], { type: "image/jpeg" });
+  
+	//ew1Div.addEventListener("load", getCanvas);
+
+	
+		
+   //ew1Div.appendChild(canvas1);
+    }
+  };
+  xhttp.open("GET", _image, true);
+  xhttp.setRequestHeader('Authorization', '5aFbXbAGl2zzm5t6mejb6WZPpfbn1vHb');
+  //xhttp.setRequestHeader('Access-Control-Allow-Headers', '*');
+  //xhttp.setRequestHeader('Content-type', 'image/jpeg');
+  //xhttp.responseType = 'blob'
+  xhttp.send();
+	
+})()
+}
+
+		
+
+
+
+
+	
+  	
+
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+    </script>
+	
+</body>
+</html>
