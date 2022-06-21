@@ -69,8 +69,10 @@ font-size: large;
 <body>
 
 
-<button style="color:#5F6C6D; font-family: helvetica narrow, sans-serif;font-size: x-large;  position:absolute; top:0; right:0;" onclick="canvas_2()">offer trade</button>
-<center><p id="contract_address_ID"></p></center>
+<input type="text" class="their-nft" id="NFT_contract2" name="NFT_contract2" style="color:grey; font-family: helvetica narrow, sans-serif; font-size:x-large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:432; right:795">contract address</label>
+<input type="button" class="btn" value="send btc" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;" onClick="sendbtc()"/>
+
+<div id="content1"></div>
 
 	
 </body>
@@ -134,47 +136,82 @@ web3.eth.net.isListening()
 	//localStorage.setItem("Loan Amount", document.getElementById("loan_amount").value);
 	//localStorage.setItem("Loan Term", document.getElementById("loan_term").value);
 
+function unstoppable_domain (){
 
-	function canvas_2(){
-	var acct = (async function(){
-	var _image = 'https://unstoppabledomains.g.alchemy.com/domains/brad.crypto'
-		var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-	  //this.open("get", _image, true);
-      //this.setRequestHeader('Access-Control-Allow-Origin', '*')
-	  var response = this;
-	  alert(response.records);
-	  //var urlCreator = this.blob; 
-	  //var blobObj = new Blob([atob(this.blob)], { type: "image/jpeg" });
+var _image = 'https://unstoppabledomains.g.alchemy.com/domains/brad.crypto'
+
+
+
+var addr = fetch(_image, { headers: {authorization : 'Bearer 5aFbXbAGl2zzm5t6mejb6WZPpfbn1vHb',
+'Accept': 'application/json'
+}}).then(response => response.json())
+  .then(data => console.log(data["records"]["crypto.BTC.address"]));
+
+  return dt
+   
+   
   
-	//ew1Div.addEventListener("load", getCanvas);
 
-	
 		
-   //ew1Div.appendChild(canvas1);
-    }
-  };
-  xhttp.open("GET", _image, true);
-  xhttp.setRequestHeader('Authorization', 'Bearer 5aFbXbAGl2zzm5t6mejb6WZPpfbn1vHb');
-  //xhttp.setRequestHeader('Access-Control-Allow-Headers', '*');
-  //xhttp.setRequestHeader('Content-type', 'image/jpeg');
-  //xhttp.responseType = 'blob'
-  xhttp.send();
 	
-})()
 }
-
 		
 
 
 
+ function send_btc(){
+var ud = document.getElementById("NFT_contract2").value
+if (ud != /^([13][a-km-zA-HJ-NP-Z1-9]{25,34}|bc1[ac-hj-np-zAC-HJ-NP-Z02-9]{11,71})$/){
+		
+	}
+  
+  var _image = 'https://unstoppabledomains.g.alchemy.com/domains/' + ud;
 
+
+
+var addr = (async function(){fetch(_image, { headers: {authorization : 'Bearer 5aFbXbAGl2zzm5t6mejb6WZPpfbn1vHb',
+'Accept': 'application/json'
+}}).then(response => response.json())
+  .then(data => btc(data["records"]["crypto.BTC.address"]));
+  
+  //document.getElementById("content1").innerHTML = data["records"]["crypto.BTC.address"]);
+  
+  //btc()
+  
+  
+  //btc_addr();
+	})()	
+	
+  
+  }
+
+
+  
+  function btc(xhr){
+  //alert(xhr);
+  //var acct = (async function(){
+  //var a = await send_btc();
+  document.getElementById("content1").innerHTML = xhr;
+  //localStorage.setItem("content1", document.getElementById("content1").value);
+//var addr = localStorage.getItem("content1");
+var addr = document.getElementById("content1").innerHTML;
+console.log(addr);
+
+  //console.log(addr);
+  //})()
+  }
 	
   	
 
 	
 
+
+
+function sendbtc(){
+var addr = send_btc();
+//var addr = document.getElementById("content1").innerHTML;
+
+}
 	
 	
 	
