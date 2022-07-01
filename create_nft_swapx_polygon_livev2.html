@@ -47,6 +47,7 @@ border: 2px solid #5F6C6D;
 
 newDiv {
 
+padding: 20px;
 color:#5F6C6D; 
 font-family: helvetica narrow;
 
@@ -1211,6 +1212,9 @@ var display = (async function(){
 		
 
 	}
+	
+	var trade_bool = await contract_bal.methods.debt_obligation_listx(i, address).call();
+	container.insertAdjacentHTML('afterend', '<p style="color:#5F6C6D; font-family: helvetica narrow, sans-serif;">  barter accepted: ' + trade_bool + '</p>')
 	
 	var _i = (i)
 	var newBtn = document.createElement('input');
