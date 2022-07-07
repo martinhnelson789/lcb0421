@@ -1155,11 +1155,11 @@ var _image = (async function(){
 	var contract_ID2 = localStorage.getItem("NFT_contract2");
 	var tokenID2 = localStorage.getItem("NFT_Token_ID2");
 	//var add1x = localStorage.getItem("mySharedData");
-		var contract_address = web3.utils.toChecksumAddress(contract_ID1)
+		var contract_address1 = web3.utils.toChecksumAddress(contract_ID1)
   //var wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
-  var contract_bal = await new web3.eth.Contract(abi, contract_address);
+  var contract_bal = await new web3.eth.Contract(abi, contract_address1);
   //var lnk = await contract_bal.methods.URI(nft_id).call();
-  var lnk = await contract_bal.methods.uri(nft_id).call();
+  var lnk = await contract_bal.methods.uri(contract_ID1).call();
   console.log(lnk);
   
   
