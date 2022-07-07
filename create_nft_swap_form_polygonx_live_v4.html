@@ -1142,6 +1142,18 @@ var wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
 var account_address = [];
 
 
+localStorage.setItem("NFT_contract1", document.getElementById("NFT_contract1").value);
+var contract_ID1 = localStorage.getItem("NFT_contract1");
+var contract_address1 = web3.utils.toChecksumAddress(contract_ID1)
+
+const contract = new web3.eth.Contract(abi, contract_address1)
+
+async function getNFTMetadata() {
+    const result = await contract.methods.uri(tokenId).call()
+
+    console.log(result); // https://nftdata.parallelnft.com/api/parallel-alpha/ipfs/QmSwnqTmpwvZH51Uv47opPUxGYx2nknYmGoKoRJQRMDcLL
+}
+
 function image_path(){
 var _image = (async function(){
 	localStorage.setItem("NFT_contract1", document.getElementById("NFT_contract1").value);
@@ -1159,7 +1171,7 @@ var _image = (async function(){
   //var wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
   var contract_bal = await new web3.eth.Contract(abi, contract_address1);
   //var lnk = await contract_bal.methods.URI(nft_id).call();
-  var lnk = await contract_bal.methods.uri(contract_ID1).call();
+  var lnk = await contract_bal.methods.uri(tokenID).call();
   console.log(lnk);
   
   
