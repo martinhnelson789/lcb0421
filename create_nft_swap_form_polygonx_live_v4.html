@@ -1589,7 +1589,7 @@ var acct = (async function(){
 var contract_address = web3.utils.toChecksumAddress(nft_k)
   var wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
   var contract_bal = await new web3.eth.Contract(abi, contract_address);
-  var lnk = await contract_bal.methods.tokenURI(nft_id).call();
+  var lnk = await contract_bal.methods.URI(nft_id).call();
   
   if (lnk.substring(0,4) == "ipfs"){
 	lnk = 'https://ipfs.io/ipfs/' + lnk.slice(7)
