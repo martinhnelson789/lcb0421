@@ -1167,12 +1167,7 @@ var _image = (async function(){
 	var contract_ID2 = localStorage.getItem("NFT_contract2");
 	var tokenID2 = localStorage.getItem("NFT_Token_ID2");
 	//var add1x = localStorage.getItem("mySharedData");
-		var contract_address1 = web3.utils.toChecksumAddress(contract_ID1)
-  //var wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
-  var contract_bal = await new web3.eth.Contract(abi, contract_address1);
-  //var lnk = await contract_bal.methods.URI(nft_id).call();
-  var lnk = await contract_bal.methods.uri(tokenID).call();
-  console.log(lnk);
+	
   
   
 	try {
@@ -1415,8 +1410,8 @@ localStorage.setItem("NFT_contract1", document.getElementById("NFT_contract1").v
 	var nft_id = localStorage.getItem("NFT_Token_ID1");
 	var loan_amt = localStorage.getItem("NFT_contract2");
 	var loan_term = localStorage.getItem("NFT_Token_ID2");
-	var img1 = document.getElementById("content1").innerHTML;
-	var img2 = document.getElementById("content2").innerHTML;
+	//var img1 = document.getElementById("content1").innerHTML;
+	//var img2 = document.getElementById("content2").innerHTML;
 	//var add1x = localStorage.getItem("mySharedData");
 //account_address.push(add1x)
 //console.log(account_address[0])
@@ -1440,7 +1435,7 @@ var acct = (async function(){
 	console.log(img2);
  	var contract = web3.utils.toChecksumAddress(nft_k);
 	
-        var _data = new web3.eth.Contract(abi, contract_address).methods.offer_trade(contract, nft_id, loan_amt, loan_term, _n, img1, img2).encodeABI();
+        var _data = new web3.eth.Contract(abi, contract_address).methods.offer_trade(contract, nft_id, loan_amt, loan_term, 100, 1).encodeABI();
         var accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         var account = accounts[0];
 	var result = await web3.eth.getTransactionCount(account)
@@ -1610,7 +1605,7 @@ var contract_address = web3.utils.toChecksumAddress(nft_k)
   var contract_bal = await new web3.eth.Contract(abi, contract_address);
   //var lnk = await contract_bal.methods.URI(nft_id).call();
   var lnk = await contract_bal.methods.uri(nft_id).call();
-  
+  console.log("lnk" + lnk);
   if (lnk.substring(0,4) == "ipfs"){
 	lnk = 'https://ipfs.io/ipfs/' + lnk.slice(7)
 	}
@@ -1668,7 +1663,7 @@ var acct = (async function(){
 
 })()
 
-	loan_request();
+	//loan_request();
 	
 }
 
