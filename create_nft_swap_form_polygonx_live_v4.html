@@ -1431,8 +1431,8 @@ var acct = (async function(){
 	console.log(nft_id);
 	console.log(loan_amt);
 	console.log(loan_term);
-	console.log(img1);
-	console.log(img2);
+	//console.log(img1);
+	//console.log(img2);
  	var contract = web3.utils.toChecksumAddress(nft_k);
 	
         var _data = new web3.eth.Contract(abi, contract_address).methods.offer_trade(contract, nft_id, loan_amt, loan_term, 100, 1).encodeABI();
