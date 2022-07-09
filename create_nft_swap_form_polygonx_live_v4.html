@@ -450,7 +450,7 @@ var abi = [
 	{
 		"inputs": [
 			{
-				"internalType": "contract ERC1155",
+				"internalType": "contract IERC1155",
 				"name": "_nftAddress",
 				"type": "address"
 			},
@@ -473,7 +473,7 @@ var abi = [
 	{
 		"inputs": [
 			{
-				"internalType": "contract ERC1155",
+				"internalType": "contract IERC1155",
 				"name": "_nftAddress",
 				"type": "address"
 			},
@@ -512,19 +512,6 @@ var abi = [
 				"internalType": "address",
 				"name": "",
 				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "airlineCount",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",
@@ -616,19 +603,6 @@ var abi = [
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"name": "governance",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
 		"inputs": [
 			{
 				"internalType": "address",
@@ -668,7 +642,7 @@ var abi = [
 	{
 		"inputs": [
 			{
-				"internalType": "contract ERC1155",
+				"internalType": "contract IERC1155",
 				"name": "_nftAddress",
 				"type": "address"
 			},
@@ -678,7 +652,7 @@ var abi = [
 				"type": "uint256"
 			},
 			{
-				"internalType": "contract ERC1155",
+				"internalType": "contract IERC1155",
 				"name": "_address",
 				"type": "address"
 			},
@@ -712,12 +686,56 @@ var abi = [
 			},
 			{
 				"internalType": "address",
-				"name": "from",
+				"name": "",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256[]",
+				"name": "",
+				"type": "uint256[]"
+			},
+			{
+				"internalType": "uint256[]",
+				"name": "",
+				"type": "uint256[]"
+			},
+			{
+				"internalType": "bytes",
+				"name": "",
+				"type": "bytes"
+			}
+		],
+		"name": "onERC1155BatchReceived",
+		"outputs": [
+			{
+				"internalType": "bytes4",
+				"name": "",
+				"type": "bytes4"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "",
 				"type": "address"
 			},
 			{
 				"internalType": "uint256",
-				"name": "tokenId",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
 				"type": "uint256"
 			},
 			{
@@ -726,7 +744,7 @@ var abi = [
 				"type": "bytes"
 			}
 		],
-		"name": "onERC721Received",
+		"name": "onERC1155Received",
 		"outputs": [
 			{
 				"internalType": "bytes4",
@@ -917,7 +935,7 @@ var abi = [
 		"name": "token_contracts_list1xy",
 		"outputs": [
 			{
-				"internalType": "contract ERC1155",
+				"internalType": "contract IERC1155",
 				"name": "",
 				"type": "address"
 			}
@@ -970,7 +988,7 @@ var abi = [
 		"name": "token_contracts_list2xy",
 		"outputs": [
 			{
-				"internalType": "contract ERC1155",
+				"internalType": "contract IERC1155",
 				"name": "",
 				"type": "address"
 			}
@@ -1133,7 +1151,7 @@ var abi = [
 	//localStorage.setItem("Loan Amount", document.getElementById("loan_amount").value);
 	//localStorage.setItem("Loan Term", document.getElementById("loan_term").value);
 
-var contract_address = web3.utils.toChecksumAddress("0x4f6ed4b801959d1282ddeb872cc844e540a099c3")
+var contract_address = web3.utils.toChecksumAddress("0x48a55bd97f13475a9fa39c656ca9656f6c256223")
 
 var contract_bal = new web3.eth.Contract(abi, contract_address);
 
@@ -1645,7 +1663,7 @@ var acct = (async function(){
 	//var add1x = localStorage.getItem("mySharedData");
 	
  	var contract_address1 = web3.utils.toChecksumAddress(nft_k)
-        var _data = new web3.eth.Contract(abi, contract_address).methods.setApprovalForAll("0x4f6ed4b801959d1282ddeb872cc844e540a099c3", true).encodeABI();
+        var _data = new web3.eth.Contract(abi, contract_address).methods.setApprovalForAll("0x48a55bd97f13475a9fa39c656ca9656f6c256223", true).encodeABI();
         var accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         var account = accounts[0];
 	var result = await web3.eth.getTransactionCount(account)
