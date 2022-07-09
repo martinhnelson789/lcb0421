@@ -1426,9 +1426,9 @@ var acct = (async function(){
   <!-- if (lnk.substring(0,4) == "ipfs"){ -->
 	<!-- lnk = 'https://ipfs.io/ipfs/' + lnk.slice(7) -->
 	<!-- } -->
-	lnk.replace('{id}', num1);
-	const params = { 'theUrl': lnk };
-	console.log(lnk);
+	var lnk1 = lnk.replace('{id}', num1);
+	const params = { 'theUrl': lnk1 };
+	console.log(lnk1);
 	const metadata = await Moralis.Cloud.run("fetchJSON", params);
 
 	<!-- const str = JSON.stringify(metadata.data.image); -->
