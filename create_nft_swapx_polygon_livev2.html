@@ -1317,7 +1317,8 @@ var display = (async function(){
    //myImgElem.src = imageUrl;
    var img = new Image();
   
-	img.src = imageUrl
+	img.src = imageUrl;
+	img.crossOrigin="anonymous";
 	//ew1Div.addEventListener("load", getCanvas);
 	img.onload = function (){
 	
@@ -1389,7 +1390,8 @@ fetch(imgurl, {'Access-Control-Allow-Origin': "*",
    //myImgElem.src = imageUrl;
    var img = new Image();
   
-	img.src = imageUrl
+	img.src = imageUrl;
+	img.crossOrigin="anonymous";
 	//ew1Div.addEventListener("load", getCanvas);
 	img.onload = function (){
 	
@@ -1473,6 +1475,7 @@ var acct = (async function(){
    var img = new Image();
 	//img.crossOrigin="anonymous"
 	img.src = image_ //imageUrl
+	img.crossOrigin="anonymous";
 	//ew1Div.addEventListener("load", getCanvas);
 	img.onload = function (){
 	
@@ -1746,6 +1749,7 @@ var acct = (async function(){
   //console.log('Woo done!', result[0])
   //balance = result
   //alert(balance)
+  
   }
 	make_trade(nft_k, add1, nft_id, n)
 })()
