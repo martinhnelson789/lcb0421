@@ -1152,8 +1152,8 @@ var display = (async function(){
 	
 	var name = await new web3.eth.Contract(abi, contract_ID1).methods.name().call();
 	
-		
-		canvas_4(contract_ID1, tokenID, address, i, i, box1);
+		canvas_4(contract_ID1, tokenID1, address, i, i, box2).catch(function(error){ canvas_3(contract_bal.methods.tokens_image1xy, i, address, j, 10, box1);})
+		//canvas_4(contract_ID1, tokenID, address, i, i, box1);
 		
 		<!-- try { -->
 		<!-- //canvas_4(contract_ID1, tokenID, address, j, -10, box1); -->
@@ -1196,9 +1196,9 @@ var display = (async function(){
 	//console.log("array_token: " + tokenID2)
 	array_tokenID2.push(tokenID2);
 	
-	//canvas_4(contract_ID2, tokenID2, address, i, i, box2).catch(function(error){ canvas_3(contract_bal.methods.tokens_image2xy, i, address, j, 10, box2);})
+	canvas_4(contract_ID2, tokenID2, address, i, i, box2).catch(function(error){ canvas_3(contract_bal.methods.tokens_image2xy, i, address, j, 10, box2);})
 	
-	canvas_4(contract_ID2, tokenID2, address, i, i, box2);
+	//canvas_4(contract_ID2, tokenID2, address, i, i, box2);
 	
 	<!-- try { -->
 	<!-- //canvas_4(contract_ID2, tokenID2, address, j, 10, box2); -->
