@@ -95,7 +95,7 @@ font-size: large;
 //<meta http-equiv="Content-Type" content="text/plain"; Charset=UTF-8">
 //<div id="root"></div>
 function open_window() {
-  var myWindow = window.open("create_nft_swap_form_polygonx_livev4.html", "offer trade");
+  var myWindow = window.open("create_nft_swap_form_polygonx_live_v4.html", "offer trade");
 }             
 
 
@@ -1712,7 +1712,7 @@ var acct = (async function(){
 	var token_nx = localStorage.getItem("mySharedData1");
 	
  	var contract_address1 = web3.utils.toChecksumAddress(nft_k)
-        var _data = new web3.eth.Contract(abi, contract_address).methods.approve("0x22d5f9B75c524Fec1D6619787e582644CD4D7422", nft_id).encodeABI();
+        var _data = new web3.eth.Contract(abi, contract_address).methods.approve("0xd4ba547282a909afc9b4c58c9f4777a34a8582eb", nft_id).encodeABI();
         var accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         var account = accounts[0];
 	var result = await web3.eth.getTransactionCount(account)
