@@ -1482,7 +1482,8 @@ var acct = (async function(){
    var img = new Image();
 	//img.crossOrigin="anonymous"
 	img.src = image_ //imageUrl
-	img.crossOrigin="anonymous";
+	//img.crossOrigin="anonymous";
+	img.setAttribute('crossOrigin', '');
 	//ew1Div.addEventListener("load", getCanvas);
 	img.onload = function (){
 	
