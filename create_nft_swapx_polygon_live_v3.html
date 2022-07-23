@@ -1431,13 +1431,14 @@ var acct = (async function(){
 //const imgurl = _image //"https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg"
 	var contract_address = web3.utils.toChecksumAddress(k);
 	var contract_bal = await new web3.eth.Contract(abi, contract_address);
-    var lnk = await contract_bal.methods.tokenURI(num1).call();
-  
-  if (lnk.substring(0,4) == "ipfs"){
-	lnk = 'https://ipfs.io/ipfs/' + lnk.slice(7)
-	}
+    var lnk = await contract_bal.methods.uri(num1).call();
 	
-	const params = { 'theUrl': lnk };
+  <!-- if (lnk.substring(0,4) == "ipfs"){ -->
+	<!-- lnk = 'https://ipfs.io/ipfs/' + lnk.slice(7) -->
+	<!-- } -->
+	var lnk1 = lnk.replace('{id}', num1);
+	const params = { 'theUrl': lnk1 };
+	console.log(lnk1);
 	const metadata = await Moralis.Cloud.run("fetchJSON", params);
 
 	<!-- const str = JSON.stringify(metadata.data.image); -->
