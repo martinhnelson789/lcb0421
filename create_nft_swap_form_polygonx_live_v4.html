@@ -1151,7 +1151,7 @@ var abi = [
 	//localStorage.setItem("Loan Amount", document.getElementById("loan_amount").value);
 	//localStorage.setItem("Loan Term", document.getElementById("loan_term").value);
 
-var contract_address = web3.utils.toChecksumAddress("0x48a55bd97f13475a9fa39c656ca9656f6c256223")
+var contract_address = web3.utils.toChecksumAddress("0x9b59104537128a583df67c5fa13e922ce3fec147")
 
 var contract_bal = new web3.eth.Contract(abi, contract_address);
 
@@ -1663,7 +1663,7 @@ var acct = (async function(){
 	//var add1x = localStorage.getItem("mySharedData");
 	
  	var contract_address1 = web3.utils.toChecksumAddress(nft_k)
-        var _data = new web3.eth.Contract(abi, contract_address).methods.setApprovalForAll("0x48a55bd97f13475a9fa39c656ca9656f6c256223", true).encodeABI();
+        var _data = new web3.eth.Contract(abi, contract_address).methods.setApprovalForAll("0x9b59104537128a583df67c5fa13e922ce3fec147", true).encodeABI();
         var accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         var account = accounts[0];
 	var result = await web3.eth.getTransactionCount(account)
