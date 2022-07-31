@@ -1201,7 +1201,7 @@ var display = (async function(){
 	
 	var trade_bool = await contract_bal.methods.debt_obligation_listx(i, address).call();
 	container.insertAdjacentHTML('beforeend', '<p style="color:#5F6C6D; font-family: helvetica narrow, sans-serif;">  barter accepted: ' + trade_bool + '</p>');
-	container.insertAdjacentHTML('afterend', '<hr style="color:#ffffff; font-family: helvetica narrow, sans-serif;>');
+	container.insertAdjacentHTML('afterend', '<p>&nbsp;</p>');
 	
 	var _i = (i)
 	var newBtn = document.createElement('input');
