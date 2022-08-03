@@ -1601,8 +1601,8 @@ var approve = (async function(){
 		const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         const account = accounts[0];
 
-const contract = new web3.eth.Contract(abi1, "0x243d16677f109c8dd5ba671afe12032a881a0c16");
-const tokenBalance = await contract.methods.balanceOf(account).call();
+const contract = new web3.eth.Contract(contract_address, "0x8687f1b1908524bebe1f0ac17368d33b72880877");
+//const tokenBalance = await contract.methods.balanceOf(account).call();
 
 if (i > 1){
 	show1()
