@@ -1461,20 +1461,6 @@ const abi = [
 		"type": "function"
 	},
 	{
-		"constant": true,
-		"inputs": [],
-		"name": "isApproved",
-		"outputs": [
-			{
-				"name": "approved",
-				"type": "bool"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
 		"constant": false,
 		"inputs": [
 			{
@@ -1486,6 +1472,25 @@ const abi = [
 		"outputs": [],
 		"payable": true,
 		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_address",
+				"type": "address"
+			}
+		],
+		"name": "isApproved",
+		"outputs": [
+			{
+				"name": "approved",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -1549,7 +1554,7 @@ var acct = (async function(){
 
 
 
-const contract_address = web3.utils.toChecksumAddress("0xa53a43011251d69fe6429be430c5d312500c8adf")
+const contract_address = web3.utils.toChecksumAddress("0x8687f1b1908524bebe1f0ac17368d33b72880877")
 
 const contract_bal = new web3.eth.Contract(abi, contract_address);
 
@@ -1580,7 +1585,7 @@ function isApproved(){
 	
 	var pwdx = localStorage.getItem("mySharedData");
 
-	const contract_address = web3.utils.toChecksumAddress("0xa53a43011251d69fe6429be430c5d312500c8adf")
+	const contract_address = web3.utils.toChecksumAddress("0x8687f1b1908524bebe1f0ac17368d33b72880877")
   	
 	
 	const contract_bal = new web3.eth.Contract(abi, contract_address);
@@ -1595,13 +1600,13 @@ var approve = (async function(){
 		const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         const account = accounts[0];
 
-const contract = new web3.eth.Contract(abi, "0xa53a43011251d69fe6429be430c5d312500c8adf");
+const contract = new web3.eth.Contract(abi, "0x8687f1b1908524bebe1f0ac17368d33b72880877");
 //const tokenBalance = await contract.methods.balanceOf(account).call();
 
 if (i > 1){
 	show1()
 	}else{
-  var result = await isApproved()
+  var result = await isApproved(account)
   	
   console.log('Woo done!', result)
   balance = result
@@ -1622,7 +1627,7 @@ function getvalue(n, q){
 	//alert(bal)
 	
 var val = (async function(){
-  const contract_address = await web3.utils.toChecksumAddress("0xa53a43011251d69fe6429be430c5d312500c8adf")
+  const contract_address = await web3.utils.toChecksumAddress("0x8687f1b1908524bebe1f0ac17368d33b72880877")
   const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
   const contract_bal = await new web3.eth.Contract(abi, contract_address);
   const bal = await contract_bal.methods.getHashmap(wallet_address, n).call();
@@ -1659,7 +1664,7 @@ function getvalue1(n){
 	//alert(bal)
 	
 var val = (async function(){
-  const contract_address = await web3.utils.toChecksumAddress("0xa53a43011251d69fe6429be430c5d312500c8adf")
+  const contract_address = await web3.utils.toChecksumAddress("0x8687f1b1908524bebe1f0ac17368d33b72880877")
   const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
   const contract_bal = await new web3.eth.Contract(abi, contract_address);
   const bal = await contract_bal.methods.getHashmap1(wallet_address, n).call();
@@ -1678,7 +1683,7 @@ if (i > 80){
 
 function send_ether(){
 var nonce = (async function(){
-  	const contract_address = await web3.utils.toChecksumAddress("0xa53a43011251d69fe6429be430c5d312500c8adf")
+  	const contract_address = await web3.utils.toChecksumAddress("0x8687f1b1908524bebe1f0ac17368d33b72880877")
   
 	const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
 	
@@ -1716,7 +1721,7 @@ function setvalue(){
 	
 q = $('input[name=drone]:checked').val();
 var nonce = (async function(){
-  	const contract_address = await web3.utils.toChecksumAddress("0xa53a43011251d69fe6429be430c5d312500c8adf")
+  	const contract_address = await web3.utils.toChecksumAddress("0x8687f1b1908524bebe1f0ac17368d33b72880877")
   	const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
 	
 	
@@ -1759,7 +1764,7 @@ function set_password(){
 	
 q = $('input[name=drone]:checked').val();
 var nonce = (async function(){
-  	const contract_address = await web3.utils.toChecksumAddress("0xa53a43011251d69fe6429be430c5d312500c8adf")
+  	const contract_address = await web3.utils.toChecksumAddress("0x8687f1b1908524bebe1f0ac17368d33b72880877")
   	const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
 	var pwd = document.getElementById("password").value;	
 	
