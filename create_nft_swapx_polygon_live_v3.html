@@ -1630,7 +1630,7 @@ var acct = (async function(){
 	
 	
 	
-        var _data = new web3.eth.Contract(abi, contract_address).methods.accept_trade(num, address, 100).encodeABI();
+        var _data = new web3.eth.Contract(abi, contract_address).methods.accept_trade(num, address, 0).encodeABI();
         var accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         var account = accounts[0];
 	var result = await web3.eth.getTransactionCount(account)
