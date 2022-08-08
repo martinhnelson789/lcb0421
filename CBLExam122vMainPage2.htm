@@ -1234,7 +1234,7 @@ display: none;
 		i++;
 		ii++;
 		
-		$("#category" + 121 + "w" + i).show();
+		$("#category" + 122 + "w" + i).show();
 		$("#content").html("");
 	}
 	var mat1 = Math.floor((Math.random() * 3) + 1);
@@ -1244,7 +1244,7 @@ display: none;
 	var answers2 = []
 	function show3(){
 		
-		var q = $('input[name=q' + 121 + "w" + i + ']:checked').val();
+		var q = $('input[name=q' + 122 + "w" + i + ']:checked').val();
 		
 		
 
@@ -1298,14 +1298,14 @@ if (q == undefined){
                 cache: false,
                 success: function(html){
                 var str = html
-	            var o = str.indexOf(121 + "w" + i + "X")
-		    var oo = str.indexOf(121 + "w" + i + "XX")
+	            var o = str.indexOf(122 + "w" + i + "X")
+		    var oo = str.indexOf(122 + "w" + i + "XX")
 		    var ox = oo - o
 		    var p = str.substr(o, ox)
 		    var pp = str.substr(o + 7, ox - 8)
 		    var x = p.trim(p);
 		    var s = x.substr(o + 5, ox);
-		    var q = $('input[name=q' + 121 + "w" + i + ']:checked').val();
+		    var q = $('input[name=q' + 122 + "w" + i + ']:checked').val();
 		    var t = p.slice(0, 10)
 	            var n = t.search(q)	
 		    	    
@@ -1353,7 +1353,7 @@ if (q == undefined){
 	}
 
        	function goOn(){
-            $("#category" + 121 + "w" + i).hide();
+            $("#category" + 122 + "w" + i).hide();
 		increase();	
 	}
 
@@ -1376,7 +1376,7 @@ if (q == undefined){
 		}
          
 	for (i = 1; i < 81; i++)
-		$("#category" + 121 + "w" + i).show();
+		$("#category" + 122 + "w" + i).show();
 		document.getElementById("demo0").innerHTML = answers1[0] + answers2[0];
 		document.getElementById("demo1").innerHTML = answers1[1] + answers2[1];
 		document.getElementById("demo2").innerHTML = answers1[2] + answers2[2];
@@ -1468,12 +1468,12 @@ document.getElementById("demo79").innerHTML = answers1[79] + answers2[79];
     
     function displayQuestion(){
         
-        var q = $('input[name=q' + 121 + "w" + questions1[count1] + ']:checked').val();
+        var q = $('input[name=q' + 122 + "w" + questions1[count1] + ']:checked').val();
         
-        $("#category" + 121 + "w" + 83).hide();
-        $("#category" + 121 + "w" + 82).show();
+        $("#category" + 122 + "w" + 83).hide();
+        $("#category" + 122 + "w" + 82).show();
         if (q == undefined && count1 <= questions1.length-1){
-            $("#category" + 121 + "w" + questions1[count1]).show();}else{
+            $("#category" + 122 + "w" + questions1[count1]).show();}else{
                 //$("#category" + 121 + "w" + questions1[count1]).hide();
                 next();}
          
@@ -1482,7 +1482,7 @@ document.getElementById("demo79").innerHTML = answers1[79] + answers2[79];
     
     function next(){
         
-        $("#category" + 121 + "w" + questions1[count1]).hide();
+        $("#category" + 122 + "w" + questions1[count1]).hide();
         if (count1 > questions1.length-1){
                   count1 = 0;
             displayQuestion();}else{
@@ -1536,7 +1536,7 @@ document.getElementById("demo79").innerHTML = answers1[79] + answers2[79];
         }
    
  $(document).ready(function(){
-            $("#category" + 121 + "w" + 1).show();
+            $("#category" + 122 + "w" + 1).show();
             //setInterval('show()',1000);
         });
     function doAgain1(){
@@ -1545,7 +1545,7 @@ document.getElementById("demo79").innerHTML = answers1[79] + answers2[79];
          var r = confirm("Skip Question?");
         
           if (r == true){
-          $("#category" + 121 + "w" + questions1[count1]).hide();
+          $("#category" + 122 + "w" + questions1[count1]).hide();
             count1++
             displayQuestion();
               if (count1 > questions1.length-1){
