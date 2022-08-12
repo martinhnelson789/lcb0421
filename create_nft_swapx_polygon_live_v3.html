@@ -7,7 +7,7 @@
 <script src="https://cdn.rawgit.com/ethereumjs/browser-builds/master/dist/ethereumjs-tx/ethereumjs-tx-1.3.3.js"></script>
 <!-- Moralis SDK code -->
 <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
-<script src="https://unpkg.com/moralis-v1@latest/dist/moralis.js"></script>
+<script src="https://unpkg.com/moralis/dist/moralis.js"></script>
 </script> 
   
 
@@ -85,6 +85,7 @@ font-size: large;
 
 <script>
 //https://unpkg.com/moralis/dist/moralis.js
+//https://unpkg.com/moralis-v1@latest/dist/moralis.js
 	  const serverUrl = "https://jgvwtbhpz221.usemoralis.com:2053/server";
       const appId = "jWYZTSxykRh5PsXRtoXPWu3coM5QDQAWJCwvXR51";
       Moralis.start({ serverUrl, appId });
@@ -1034,7 +1035,7 @@ var acct = (async function(){
 		
 		var supply = await contract_bal.methods.balanceOfBatch(account, num).call();
 		console.log(supply);
-        var _data = new web3.eth.Contract(abi, contract_address).methods.accept_trade(num, address, supply).encodeABI();
+        var _data = new web3.eth.Contract(abi, contract_address).methods.accept_trade(num, address, 0).encodeABI();
         
 	var result = await web3.eth.getTransactionCount(account)
 	_nonce = result
