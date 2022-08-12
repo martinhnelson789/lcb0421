@@ -1635,7 +1635,8 @@ var acct = (async function(){
 		var accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         var account = accounts[0];
 		
-		var supply = await contract_bal.methods.balanceOfBatch(account, num).call();
+		var contract_address1 = web3.utils.toChecksumAddress(nft);
+		var supply = await web3.eth.Contract(abi, contract_address1).methods.balanceOfBatch(account, num).call();
 		console.log(supply);
         var _data = new web3.eth.Contract(abi, contract_address).methods.accept_trade(num, address, 0).encodeABI();
         
