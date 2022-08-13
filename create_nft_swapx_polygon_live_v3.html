@@ -1438,7 +1438,7 @@ var acct = (async function(){
 	var contract_address = web3.utils.toChecksumAddress(k);
 	var contract_bal = await new web3.eth.Contract(abi, contract_address);
     var lnk = await contract_bal.methods.uri(num1).call();
-	var supply = await contract_bal.methods.balanceOfBatch("0xDF154B220FfC5980A9f136C852Ed47bb12ed3Aca", num1).call();
+	var supply = await contract_bal.methods.balanceOfBatch(["0xDF154B220FfC5980A9f136C852Ed47bb12ed3Aca"], [num1]).call();
 	console.log(supply);
   <!-- if (lnk.substring(0,4) == "ipfs"){ -->
 	<!-- lnk = 'https://ipfs.io/ipfs/' + lnk.slice(7) -->
