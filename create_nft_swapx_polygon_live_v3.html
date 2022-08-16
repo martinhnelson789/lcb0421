@@ -1638,7 +1638,7 @@ var acct = (async function(){
 		console.log("account " + account);
 		console.log("nft address " + nft);
 		console.log("nft id " + nft_id);
-		var contract_address1 = web3.utils.toChecksumAddress(nft);
+		var contract_address1 = web3.utils.toChecksumAddress(add1x);
 		
 		
 		var contract_bal = await new web3.eth.Contract(abi, contract_address1);
