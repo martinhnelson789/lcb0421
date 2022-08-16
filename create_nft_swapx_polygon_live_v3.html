@@ -1642,7 +1642,7 @@ var acct = (async function(){
 		
 		
 		//var contract_bal = await new web3.eth.Contract(abi, nft).methods.balanceOf(account, nft_id).call();
-		var supply = await new web3.eth.Contract(abi, nft).methods.balanceOf(account, nft_id).call();
+		var supply = await new web3.eth.Contract(abi, '0x22d5f9B75c524Fec1D6619787e582644CD4D7422').methods.balanceOf(account, nft_id).call();
 		//var supply = await contract_bal.methods.balanceOf(account, nft_id).call();
 		
 		console.log(supply);
