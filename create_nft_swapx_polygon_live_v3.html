@@ -1622,7 +1622,7 @@ function isError(obj){
 
 function make_trade(add1x, add2x, tokenID, n){
 
-	var nft = add1x
+	var nft = "'" + add1x + "'";
 	var address = add2x
 	var nft_id = tokenID
 	var num = n
@@ -1635,9 +1635,9 @@ var acct = (async function(){
 	
 		var accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         var account = accounts[0];
-		console.log("account " + account);
-		console.log("nft address " + nft);
-		console.log("nft id " + nft_id);
+		//console.log("account " + account);
+		//console.log("nft address " + nft);
+		//console.log("nft id " + nft_id);
 		//var contract_address1 = web3.utils.toChecksumAddress(nft);
 		
 		
