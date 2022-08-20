@@ -2401,18 +2401,7 @@ const abi = [
 
 
 
- $(document).ready(function(){
-		var acct = (async function(){
-		//need to map address to nft id
-		const contract = web3.utils.toChecksumAddress("0xd5b82c2f0cac6b4180e5f8d5f0114c8325d4ec68")
-		const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-        const account = accounts[0];
-            var supply = await new web3.eth.Contract(abi, contract).methods.balanceOf(account, 0).call();
-		//var supply = await contract_bal.methods.balanceOf(account, nft_id).call();
-		
-		console.log("supply: " + supply);
-		})()
-        });
+
 
 
 		
@@ -2504,6 +2493,23 @@ function contribute_to_the_project() {
   console.log("Transaction: ", tx); 
   });
 }
+
+// $(document).ready(function(){
+function getSupply(acct){
+		//var acct = (async function(){
+		//need to map address to nft id
+		const contract = web3.utils.toChecksumAddress("0xd5b82c2f0cac6b4180e5f8d5f0114c8325d4ec68")
+		//const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        //const account = accounts[0];
+            const supply = new web3.eth.Contract(abi, contract).methods.balanceOf(acct, 0).call();
+		//var supply = await contract_bal.methods.balanceOf(account, nft_id).call();
+		
+		//console.log("supply: " + supply);
+		return supply;
+		//})()
+		}
+        //});
+		
 function isApproved(act){
 
 
@@ -2533,12 +2539,14 @@ const contract = new web3.eth.Contract(abi, "0xd5b82c2f0cac6b4180e5f8d5f0114c832
 if (i > 1){
 	show1()
 	}else{
-  var result = await isApproved(account)
+  //var result = await isApproved(account)
+  var result = await getSupply(account)
   	
   console.log('Woo done!', result)
   balance = result
   
-	if(balance == true){
+	//if(balance == true){
+	if(balance > 0){
   	show1();
 	}else{
 	alert("send 1 matic for full & repeat access")
