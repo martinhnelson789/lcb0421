@@ -114,17 +114,32 @@ function connect(){
     provider.request({ method: "eth_requestAccounts" })
          
   };
-web3 = new Web3(web3.currentProvider);        
+web3 = new Web3(web3.currentProvider);    
+
+
+    
 
 //var web3 = new Web3(new Web3.providers.HttpProvider(
     //"https://mainnet.infura.io/v3/69462286c61f42d2891a2ced35c91f8d"
 //));
 
 
-var net = web3.eth.net.getNetworkType().then(console.log);
-if(net == "main"){
-alert("Please switch to the Polygon Network to use the dApp");
-}
+web3.eth.net.getNetworkType().then(console.log);
+
+
+ //$(document).ready(function(){
+
+var my_nft =(async function(){
+
+var net = await web3.eth.net.getNetworkType()
+alert(net)
+if(net=="main")
+//if(str(net).indexOf("Polygon") > -1) 
+{alert("Please connect to the Polygon Network to use this dApp")};
+})()
+//return val
+	
+//}
 
 web3.eth.net.isListening()
    .then(() => console.log('web3 is connected'))
