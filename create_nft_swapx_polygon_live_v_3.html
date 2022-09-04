@@ -72,6 +72,8 @@ font-size: large;
 <center><img id="logo" src=barterNFT_logo_1155.png></img></center>
 
 <button style="color:#5F6C6D; font-family: helvetica narrow, sans-serif;font-size: 40px;  position:absolute; border: 15px solid orange; top:0.5; right:0;" onclick="open_window()">offer trade</button>
+<input type="file" name="fileInput" id="fileInput"><br><br>
+<button onclick="submit_file()">file upload</button>
 <center><p id="contract_address_ID"></p></center>
 
 	
@@ -128,6 +130,12 @@ web3 = new Web3(web3.currentProvider);
 
 
  //$(document).ready(function(){
+ 
+ login= async() => {
+	Moralis.Web3.authenticate().then(function (user)
+		console.log('logged in');
+ })
+ 
 
 var my_nft =(async function(){
 
@@ -1075,6 +1083,10 @@ var abi = [
 	//localStorage.setItem("NFT Token ID", document.getElementById("NFT_Token_ID").value);
 	//localStorage.setItem("Loan Amount", document.getElementById("loan_amount").value);
 	//localStorage.setItem("Loan Term", document.getElementById("loan_term").value);
+	
+	
+
+
 
 const contract_address = web3.utils.toChecksumAddress("0x9b59104537128a583df67c5fa13e922ce3fec147")
 
@@ -1084,8 +1096,39 @@ const contract_bal = new web3.eth.Contract(abi, contract_address);
 
 
 
+const file_input = document.getElementById("fileInput");
 
 
+function submit_file(){
+var display = (async function(){
+
+// Save file input to IPFS
+const data = file_input.files[0];
+const file = new Moralis.File(data.name, data);
+await file.saveIPFS();
+
+//console.log(file.ipfs(), file.hash())
+
+// Save file reference to Moralis
+const jobApplication = new Moralis.Object("Applications");
+jobApplication.set("name", "Satoshi");
+jobApplication.set("resume", file);
+await jobApplication.save();
+
+// Retrieve file
+const query = new Moralis.Query("Applications");
+query.equalTo("name", "Satoshi");
+query.find().then(function ([application]) {
+  const ipfs = application.get("resume").ipfs();
+  const hash = application.get("resume").hash();
+  console.log("IPFS url", ipfs);
+  console.log("IPFS hash", hash);
+});
+
+return file.ipfs()
+
+})()
+}
 
 
 
@@ -1099,8 +1142,28 @@ const contract_bal = new web3.eth.Contract(abi, contract_address);
  $(document).ready(function(){
 //function display_loan_info(){
 var display = (async function(){
-  
-  
+
+<!-- const options = { -->
+  <!-- abi: [ -->
+    <!-- { -->
+      <!-- path: "moralis/logo.jpg", -->
+      <!-- content: -->
+        <!-- "iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAApgAAAKYB3X3", -->
+    <!-- }, -->
+  <!-- ], -->
+<!-- }; -->
+<!-- const path = await Moralis.Web3API.storage.uploadFolder(options); -->
+
+
+
+
+
+
+
+
+
+console.log(path);
+
   //localStorage.setItem("mySharedData", document.getElementById("password").value);
     
 	
