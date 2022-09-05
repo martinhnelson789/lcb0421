@@ -1058,6 +1058,16 @@ const abi = [
 
 
 
+
+const query = new Moralis.Query("Applications");
+query.equalTo("name", "john");
+query.find().then(function ([application]) {
+  const ipfs = application.get("resume").ipfs();
+  const hash = application.get("resume").hash();
+  console.log("IPFS url", ipfs);
+  console.log("IPFS hash", hash);
+});
+
 		
 		
 		
