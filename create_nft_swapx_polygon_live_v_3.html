@@ -131,8 +131,8 @@ web3 = new Web3(web3.currentProvider);
 
  //$(document).ready(function(){
  
- login= async() => {
-	Moralis.Web3.authenticate().then(function (user)
+
+Moralis.Web3.authenticate().then(function (user){
 		console.log('logged in');
  })
  
