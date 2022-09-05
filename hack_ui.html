@@ -1092,14 +1092,14 @@ function loadJSON(path, success, error) {
   xhr.send();
 }
 
-var question1;
+//var question1;
 
-function myData(Data)
+var question1 = function myData(Data)
 {
 
   // Output only the details on the first post
   console.log(Data["questions"][0]["question"]);
-  question1 = Data["questions"][0]["question"]
+  return question1 = Data["questions"][0]["question"]
   // output the details of first three posts
   //console.log("First three posts");
   //for(var i=0; i<3; i=i+1)
