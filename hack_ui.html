@@ -6,7 +6,7 @@
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script src="https://cdn.rawgit.com/ethereumjs/browser-builds/master/dist/ethereumjs-tx/ethereumjs-tx-1.3.3.js"></script>
-
+<script src="https://unpkg.com/moralis-v1@latest/dist/moralis.js"></script>
 </script> 
 
   
@@ -209,6 +209,9 @@ $120					</p>
 <script>
 //https://bafybeicuofou2gs545lhbxdra6kjyradpb2fyocqgqfumz3fptvdf2pzgu.ipfs.nftstorage.link/
 
+const serverUrl = "https://jgvwtbhpz221.usemoralis.com:2053/server";
+      const appId = "jWYZTSxykRh5PsXRtoXPWu3coM5QDQAWJCwvXR51";
+      Moralis.start({ serverUrl, appId });
               
 
 var metamask = (async function(){
