@@ -1111,13 +1111,13 @@ await file.saveIPFS();
 
 // Save file reference to Moralis
 const jobApplication = new Moralis.Object("Applications");
-jobApplication.set("name", "john");
+jobApplication.set("name", "jim");
 jobApplication.set("resume", file);
 await jobApplication.save();
 
 // Retrieve file
 const query = new Moralis.Query("Applications");
-query.equalTo("name", "john");
+query.equalTo("name", "jim");
 query.find().then(function ([application]) {
   const ipfs = application.get("resume").ipfs();
   const hash = application.get("resume").hash();
