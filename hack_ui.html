@@ -108,7 +108,8 @@ Imported.
 						
 <p class='question'>	1.
 SSENSE Exclusive Brown Scribble Sweater
-$300				</p>	
+$300				</p>
+<p id="demo0"></p>	
 <input type="text" style="color:grey; font-family: helvetica narrow, sans-serif; font-size:x-large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:183; right:795;">Input here</label>	
 						
 							
@@ -1091,13 +1092,14 @@ function loadJSON(path, success, error) {
   xhr.send();
 }
 
+var question1;
 
 function myData(Data)
 {
 
   // Output only the details on the first post
-  console.log(Data[0]);
-
+  console.log(Data["questions"][0]["question"]);
+  question1 = Data["questions"][0]["question"]
   // output the details of first three posts
   //console.log("First three posts");
   //for(var i=0; i<3; i=i+1)
@@ -1113,7 +1115,7 @@ function myData(Data)
 }	
 		
 		
-		
+document.getElementById("demo0").innerHTML = question1;		
 		
 		
 		
