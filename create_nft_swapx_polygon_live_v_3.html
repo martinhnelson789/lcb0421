@@ -1103,6 +1103,7 @@ function submit_file(){
 var display = (async function(){
 
 var fname = document.getElementById("file_name").innerText;
+var f_name = fname.trim();
 console.log(fname)
 
 // Save file input to IPFS
@@ -1114,13 +1115,13 @@ await file.saveIPFS();
 
 // Save file reference to Moralis
 const jobApplication = new Moralis.Object("Applications");
-jobApplication.set("name", fname);
+jobApplication.set("name", f_name);
 jobApplication.set("resume", file);
 await jobApplication.save();
 
 // Retrieve file
 const query = new Moralis.Query("Applications");
-query.equalTo("name", fname);
+query.equalTo("name", f_name);
 query.find().then(function ([application]) {
   const ipfs = application.get("resume").ipfs();
   const hash = application.get("resume").hash();
