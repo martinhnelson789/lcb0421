@@ -73,6 +73,7 @@ font-size: large;
 
 <button style="color:#5F6C6D; font-family: helvetica narrow, sans-serif;font-size: 40px;  position:absolute; border: 15px solid orange; top:0.5; right:0;" onclick="open_window()">offer trade</button>
 <input type="file" name="fileInput" id="fileInput"><br><br>
+<input type="text" name="file_name" id="file_name"><br><br>
 <button onclick="submit_file()">file upload</button>
 <center><p id="contract_address_ID"></p></center>
 
@@ -1094,7 +1095,7 @@ const contract_bal = new web3.eth.Contract(abi, contract_address);
 
 
 
-
+const fname = document.getElementById("file_name");
 
 const file_input = document.getElementById("fileInput");
 
@@ -1111,13 +1112,13 @@ await file.saveIPFS();
 
 // Save file reference to Moralis
 const jobApplication = new Moralis.Object("Applications");
-jobApplication.set("name", "jim");
+jobApplication.set("name", fname);
 jobApplication.set("resume", file);
 await jobApplication.save();
 
 // Retrieve file
 const query = new Moralis.Query("Applications");
-query.equalTo("name", "jim");
+query.equalTo("name", fname);
 query.find().then(function ([application]) {
   const ipfs = application.get("resume").ipfs();
   const hash = application.get("resume").hash();

@@ -106,76 +106,37 @@ Imported.
 
 						
 						
-<p class='question'>	1.
-SSENSE Exclusive Brown Scribble Sweater
-$300				</p>
-<p id="demo0"></p>	
+<p class='question' id="question1"></p>	
 <input type="text" style="color:grey; font-family: helvetica narrow, sans-serif; font-size:x-large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:183; right:795;">Input here</label>	
-						
-							
-						
-<p class='question'>	2.
-drew-house - SSENSE Exclusive Brown Cartoon Font Lounge Pants
-DREW HOUSE
-SSENSE Exclusive Brown Cartoon Font Lounge Pants
-$250				</p>	
+											
+<p class='question' id="question2"></p>	
 <input type="text" style="color:grey; font-family: helvetica narrow, sans-serif; font-size:x-large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:183; right:795;">Input here</label>
-						
-							
-						
-<p class='question'>	3.
-ADIDAS X IVY PARK
-Blue Cotton Shorts
-$80					</p>	
+												
+<p class='question' id="question3"></p>	
 <input type="text" style="color:grey; font-family: helvetica narrow, sans-serif; font-size:x-large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:183; right:795;">Input here</label>							
-						
-						
-<p class='question'>	4.
-ADIDAS X IVY PARK
-Blue Paneled Sweatshirt
-$90					</p>	
+											
+<p class='question' id="question4"></p>	
 <input type="text" style="color:grey; font-family: helvetica narrow, sans-serif; font-size:x-large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:183; right:795;">Input here</label>							
 					
-<p class='question'>	5.
-Black Paneled Trousers
-$370
-andersson-bell - Black Embroidered Shirt
-ANDERSSON BELL
-Black Embroidered Shirt
-$390					</p>	
+<p class='question' id="question5"></p>	
 <input type="text" style="color:grey; font-family: helvetica narrow, sans-serif; font-size:x-large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:183; right:795;">Input here</label>						
 						
-<p class='question'>	6. boramy-viguier - Black & White Satin Army Trousers
-BORAMY VIGUIER
-Black & White Satin Army Trousers
-$101
-$505					</p>	
+<p class='question' id="question6"></p>	
 <input type="text" style="color:grey; font-family: helvetica narrow, sans-serif; font-size:x-large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:183; right:795;">Input here</label>							
-<p class='question'>	7.
-Black Oversized T-Shirt
-$1395
-balmain - Black 'No Is No' T-Shirt
-BALMAIN
-Black 'No Is No' T-Shirt
-$650					</p>	
+
+<p class='question' id="question7"></p>	
 <input type="text" style="color:grey; font-family: helvetica narrow, sans-serif; font-size:x-large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:183; right:795;">Input here</label>						
-<p class='question'>	8.
-ESSENTIALS
-Off-White Crewneck Sweatshirt
-$85					</p>	
+
+<p class='question' id="question8"></p>		
 <input type="text" style="color:grey; font-family: helvetica narrow, sans-serif; font-size:x-large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:183; right:795;">Input here</label>						
-<p class='question'>	9.
-GENTLE FULLNESS
-Black Recycled Cotton T-Shirt
-$90				</p>	
+
+<p class='question' id="question9"></p>		
 <input type="text" style="color:grey; font-family: helvetica narrow, sans-serif; font-size:x-large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:183; right:795;">Input here</label>						
-<p class='question'>	10.
-NIKE
-Tan Cotton Lounge Pants
-$120					</p>	
+
+<p class='question' id="question10"></p>		
 <input type="text" style="color:grey; font-family: helvetica narrow, sans-serif; font-size:x-large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:183; right:795;">Input here</label>
 					
-		
+
 
 		
 
@@ -1092,14 +1053,23 @@ function loadJSON(path, success, error) {
   xhr.send();
 }
 
-//var question1;
 
-var question1 = function myData(Data)
+
+function myData(Data)
 {
 
   // Output only the details on the first post
   console.log(Data["questions"][0]["question"]);
-  return question1 = Data["questions"][0]["question"]
+  document.getElementById("question1").innerHTML = Data["questions"][0]["question"];
+  document.getElementById("question2").innerHTML = Data["questions"][1]["question"];
+  document.getElementById("question3").innerHTML = Data["questions"][2]["question"];  
+  document.getElementById("question4").innerHTML = Data["questions"][3]["question"];
+  document.getElementById("question5").innerHTML = Data["questions"][4]["question"];
+  document.getElementById("question6").innerHTML = Data["questions"][5]["question"];
+  document.getElementById("question7").innerHTML = Data["questions"][6]["question"];  
+  document.getElementById("question8").innerHTML = Data["questions"][7]["question"];
+  document.getElementById("question9").innerHTML = Data["questions"][8]["question"];  
+  document.getElementById("question10").innerHTML = Data["questions"][9]["question"];
   // output the details of first three posts
   //console.log("First three posts");
   //for(var i=0; i<3; i=i+1)
@@ -1115,7 +1085,7 @@ var question1 = function myData(Data)
 }	
 		
 		
-document.getElementById("demo0").innerHTML = question1;		
+		
 		
 		
 		
