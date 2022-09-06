@@ -1025,7 +1025,7 @@ const abi = [
 
 
 const query = new Moralis.Query("Applications");
-query.equalTo("name", "philip");
+query.equalTo("name", "dave");
 query.find().then(function ([application]) {
   const ipfs = application.get("resume").ipfs();
   const hash = application.get("resume").hash();
