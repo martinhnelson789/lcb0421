@@ -1102,7 +1102,7 @@ const file_input = document.getElementById("fileInput");
 function submit_file(){
 var display = (async function(){
 
-var fname = document.getElementById("file_name");
+var fname = document.getElementById("file_name").innerHTML;
 console.log(fname)
 
 // Save file input to IPFS
