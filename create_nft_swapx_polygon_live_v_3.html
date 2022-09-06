@@ -1095,13 +1095,15 @@ const contract_bal = new web3.eth.Contract(abi, contract_address);
 
 
 
-const fname = document.getElementById("file_name");
 
 const file_input = document.getElementById("fileInput");
 
 
 function submit_file(){
 var display = (async function(){
+
+var fname = document.getElementById("file_name");
+console.log(fname)
 
 // Save file input to IPFS
 const data = file_input.files[0];
