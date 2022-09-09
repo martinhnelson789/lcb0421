@@ -416,7 +416,7 @@ var contract_address = await web3.utils.toChecksumAddress("0x17868047286a8ec9ace
 var contract_bal = await new web3.eth.Contract(abi, contract_address);
 var file_name = await contract_bal.methods.filename().call();
 alert(file_name)
-})()
+
 
 
 
@@ -449,7 +449,7 @@ function loadJSON(path, success, error) {
   xhr.send();
 }
 
-
+})()
 
 function myData(Data)
 {
