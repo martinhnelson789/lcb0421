@@ -73,7 +73,7 @@ display: none;
 
 <body>
 
-<h2 style="color:grey; font-family: helvetica narrow, sans-serif;"> H.I.T. Jobs </h2>
+<h2 style="color:grey; font-family: Exo 2, sans-serif;"> H.I.T. Jobs </h2>
 
 
 <p> Please carefully read the instructions: </p>
@@ -421,7 +421,7 @@ alert(file_name)
 
 
 const query = new Moralis.Query("Applications");
-query.equalTo("name", "betty");
+query.equalTo("name", file_name);
 query.find().then(function ([application]) {
   const ipfs = application.get("resume").ipfs();
   const hash = application.get("resume").hash();
