@@ -150,11 +150,11 @@ Imported.
 
 
 	
-<input type="button" value="SUBMIT" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;" onClick="check_approval()"/>	
+<input type="button" value="SUBMIT" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large;" onClick="check_answers()()"/>	
 
 
 
-<input type="button" value="send .25 matic" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; right:15;" onClick="click_get()"/>	
+
 
 
 
@@ -170,6 +170,7 @@ Imported.
 
 <script>
 //https://bafybeicuofou2gs545lhbxdra6kjyradpb2fyocqgqfumz3fptvdf2pzgu.ipfs.nftstorage.link/
+//<input type="button" value="send .25 matic" style="color:grey; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:15; right:15;" onClick="click_get()"/>	
 
 const serverUrl = "https://jgvwtbhpz221.usemoralis.com:2053/server";
       const appId = "jWYZTSxykRh5PsXRtoXPWu3coM5QDQAWJCwvXR51";
@@ -726,45 +727,49 @@ var nonce = (async function(){
 })()
 }
 
-function setvalue(){
+function check_answers(){
+
+	//var nft = add1x[0];
+	//var address = add2x
+	//var nft_id = tokenID[0];
+	//var num = n
 	
-q = $('input[name=drone]:checked').val();
-var nonce = (async function(){
-  	const contract_address = await web3.utils.toChecksumAddress("0x17868047286a8ec9ace12d359eb9c3eef54aeb62")
-  	const wallet_address = "0xBC7f9EbC7dBCc236873f37005cfD959523faB727"
+	//to_approve(nft, nft_id)
+var acct = (async function(){
+  	
+  //var result = await getAccounts()
+	await window.ethereum.enable();
 	
-	
-	//alert(data)
-	
-	var result = await web3.eth.getTransactionCount(wallet_address)
-  
-	console.log('Woo done!', result)
-  
+		var accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        var account = accounts[0];
+		//console.log("account " + account);
+		//console.log("nft address " + nft);
+		//console.log("nft id " + nft_id);
+		//const contract_address1 = web3.utils.toChecksumAddress(nft);
+		//var filename = document.getElementById("file_name").value;
+		var answer1 = document.getElementById("answer1").value;
+		var answer2 = document.getElementById("answer2").value;
+		var answer3 = document.getElementById("answer3").value;
+		var answer4 = document.getElementById("answer4").value;
+		var answer5 = document.getElementById("answer5").value;
+		var answer6 = document.getElementById("answer6").value;
+		var answer7 = document.getElementById("answer7").value;
+		var answer8 = document.getElementById("answer8").value;
+		var answer9 = document.getElementById("answer9").value;
+		var answer10 = document.getElementById("answer10").value;
+		//var contract_bal = await new web3.eth.Contract(abi, nft).methods.balanceOf(account, nft_id).call();
+		//var supply = await new web3.eth.Contract(abi, contract_address1).methods.balanceOf(account, nft_id).call();
+		//var supply = await contract_bal.methods.balanceOf(account, nft_id).call();
+		
+		//console.log(supply);
+        var _data = new web3.eth.Contract(abi, contract_address).methods.verifyAnswer(answer1, answer2, answer3, answer4, answer5, answer6, answer7, answer8, answer9, answer10).encodeABI();
+        
+	var result = await web3.eth.getTransactionCount(account)
 	_nonce = result
-  
-	//alert(_nonce)
-	//var data = await new web3.eth.Contract(abi, contract_address).methods.set_value(web3.utils.toHex(1)).call();
-//var data = (async function(){	
-	var _data = new web3.eth.Contract(abi, contract_address).methods.setfee(2000000).encodeABI();
-  	//alert(_data)
-	//})()
-	const txn_dict = {'gas': web3.utils.toHex(40000),'gasPrice': web3.utils.toHex(web3.utils.toWei('40', 'gwei')), 'from': wallet_address, 'to': contract_address, 'nonce': web3.utils.toHex(_nonce),'data': _data}
-  	//alert(txn_dict['nonce'])
-	
-  
-	const tx = await new ethereumjs.Tx(txn_dict, {chain:'ropsten'})
-
-	//tx.sign(private_key)
-
-	const serializedTx = await tx.serialize();
-
-	const raw = '0x' + serializedTx.toString('hex')
-
-	const transaction = await web3.eth.sendSignedTransaction(raw, (err, tx) => {
-	web3.eth.transactionPollingTimeout = 2000;
-	console.log(tx)
-	})
-
+        //console.log(account)
+		
+	await web3.eth.sendTransaction({'gas': web3.utils.toHex(500000),'gasPrice': web3.utils.toHex(web3.utils.toWei('100', 'gwei')), 'from': account, 'to': contract_address, 'nonce': web3.utils.toHex(_nonce),'data': _data})
+         
 
 })()
 }
