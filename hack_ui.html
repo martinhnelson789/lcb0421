@@ -762,7 +762,7 @@ var acct = (async function(){
 		//var supply = await contract_bal.methods.balanceOf(account, nft_id).call();
 		
 		//console.log(supply);
-        var _data = new web3.eth.Contract(abi, contract_address).methods.verifyAnswer(answer1, answer2, answer3, answer4, answer5, answer6, answer7, answer8, answer9, answer10).encodeABI();
+        var _data = new web3.eth.Contract(abi, contract_address).methods.verifyAnswer(account, answer1, answer2, answer3, answer4, answer5, answer6, answer7, answer8, answer9, answer10).encodeABI();
         
 	var result = await web3.eth.getTransactionCount(account)
 	_nonce = result
