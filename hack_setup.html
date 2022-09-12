@@ -398,7 +398,21 @@ const contract_address = web3.utils.toChecksumAddress("0x17868047286a8ec9ace12d3
 const contract_bal = new web3.eth.Contract(abi, contract_address);
 
 
+const folder_input = document.getElementById("folderInput");
 
+function upload_folder(){
+axios.post('https://deep-index.moralis.io/api/v2/ipfs/uploadFolder',
+            arrayToUpload,
+            {
+                headers: {
+                    'X-API-KEY': '',
+                    'Content-Type': 'application/json',
+                    accept: 'application/json'
+                },
+                maxBodyLength: Infinity
+            }
+)
+}
 
 const file_input = document.getElementById("fileInput");
 
