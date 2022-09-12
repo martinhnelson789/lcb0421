@@ -69,20 +69,33 @@ font-size: large;
 
 
 <body>
-<center><img id="logo" src=barterNFT_logo_1155.png></img></center>
+
 
 <button style="color:#5F6C6D; font-family: helvetica narrow, sans-serif;font-size: 40px;  position:absolute; border: 15px solid orange; top:0.5; right:0;" onclick="open_window()">offer trade</button>
+<p>Please attach JSON file to populate questions on H.I.T. page</p>
 <input type="file" name="fileInput" id="fileInput"><br><br>
+<p>Please name your JSON file</p>
 <input type="text" name="file_name" id="file_name"><br><br>
+<p>Please input answers here. At least 3 of the answers must be correct and the remaining are dummy answers</p>
+<p>1.</p>
 <input type="text" name="answer1" id="answer1"><br><br>
+<p>2.</p>
 <input type="text" name="answer2" id="answer2"><br><br>
+<p>3.</p>
 <input type="text" name="answer3" id="answer3"><br><br>
+<p>4.</p>
 <input type="text" name="answer4" id="answer4"><br><br>
+<p>5.</p>
 <input type="text" name="answer5" id="answer5"><br><br>
+<p>6.</p>
 <input type="text" name="answer6" id="answer6"><br><br>
+<p>7.</p>
 <input type="text" name="answer7" id="answer7"><br><br>
+<p>8.</p>
 <input type="text" name="answer8" id="answer8"><br><br>
+<p>9.</p>
 <input type="text" name="answer9" id="answer9"><br><br>
+<p>10.</p>
 <input type="text" name="answer10" id="answer10"><br><br>
 <button onclick="submit_file()">file upload</button>
 <center><p id="contract_address_ID"></p></center>
@@ -99,6 +112,7 @@ font-size: large;
 <script>
 //https://unpkg.com/moralis/dist/moralis.js
 //https://unpkg.com/moralis-v1@latest/dist/moralis.js
+//<center><img id="logo" src=barterNFT_logo_1155.png></img></center>
 	  const serverUrl = "https://jgvwtbhpz221.usemoralis.com:2053/server";
       const appId = "jWYZTSxykRh5PsXRtoXPWu3coM5QDQAWJCwvXR51";
       Moralis.start({ serverUrl, appId });
@@ -677,6 +691,7 @@ var acct = (async function(){
 		//console.log("nft id " + nft_id);
 		//const contract_address1 = web3.utils.toChecksumAddress(nft);
 		var filename = document.getElementById("file_name").value;
+		console.log(filename)
 		var answer1 = document.getElementById("answer1").value;
 		var answer2 = document.getElementById("answer2").value;
 		var answer3 = document.getElementById("answer3").value;
