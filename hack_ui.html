@@ -77,34 +77,10 @@ display: none;
 <p style="color:grey; font-family: Papyrus;">Blockchain-powered Human Intelligence Tasks - Earn Crypto!</p>
 
 
-<a href="https://bafybeifc6mfrl4toiftozt7qnv4wmpv5jt3ozhwxssj57b4h4cv2ctbw6m.ipfs.nftstorage.link/questions.json">JSON Question Template</a>
+
 
 <p> Please carefully read the instructions: </p>
-<li> Find the description of the item <a href>google.com</a></li>
-<li> classify according to the terms of the heading and subheadings of the HTSUS <a href>https://hts.usitc.gov/current</a></li>
-<li> To receive payment, you must correctly classify a certain number of the below items, which have been previously classified </li>
-
-
-<p> Example: </p>
-LEVI'S
-Blue 511 Slim-Fit Jeans
-
-Description:
-Slim-fit stretch denim jeans. Fading and whiskering throughout.
-
-· Belt loops
-· Five-pocket styling
-· Zip-fly
-· Leather logo patch at back waistband
-· Contrast stitching in tan
-
-Supplier color: Corfu got friends ad
-
-70% cotton, 28% lyocell, 2% elastane.
-
-Imported.
-
-<p>Correct answer: 6203420711 </p>
+<input type="text" name="instructions" id="instructions"><br><br>
 
 
 						
@@ -469,17 +445,18 @@ function myData(Data)
 
   // Output only the details on the first post
   console.log(Data["questions"][0]["question"]);
-  document.getElementById("image1").src = "https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg"
-  document.getElementById("question1").innerHTML = Data["questions"][0]["question"];
-  document.getElementById("question2").innerHTML = Data["questions"][1]["question"];
-  document.getElementById("question3").innerHTML = Data["questions"][2]["question"];  
-  document.getElementById("question4").innerHTML = Data["questions"][3]["question"];
-  document.getElementById("question5").innerHTML = Data["questions"][4]["question"];
-  document.getElementById("question6").innerHTML = Data["questions"][5]["question"];
-  document.getElementById("question7").innerHTML = Data["questions"][6]["question"];  
-  document.getElementById("question8").innerHTML = Data["questions"][7]["question"];
-  document.getElementById("question9").innerHTML = Data["questions"][8]["question"];  
-  document.getElementById("question10").innerHTML = Data["questions"][9]["question"];
+//document.getElementById("image1").src = "https://gateway.pinata.cloud/ipfs/QmTLwrSf7fk8jzFRgVZ2r11pzMZQ87nAHYqDBzHEtrZiF5/10.jpg"
+  document.getElementById("instructions").innerHTML = Data["questions"][0]["instruction"];
+  document.getElementById("question1").innerHTML = Data["questions"][1]["question"];
+  document.getElementById("question2").innerHTML = Data["questions"][2]["question"];
+  document.getElementById("question3").innerHTML = Data["questions"][3]["question"];  
+  document.getElementById("question4").innerHTML = Data["questions"][4]["question"];
+  document.getElementById("question5").innerHTML = Data["questions"][5]["question"];
+  document.getElementById("question6").innerHTML = Data["questions"][6]["question"];
+  document.getElementById("question7").innerHTML = Data["questions"][7]["question"];  
+  document.getElementById("question8").innerHTML = Data["questions"][8]["question"];
+  document.getElementById("question9").innerHTML = Data["questions"][9]["question"];  
+  document.getElementById("question10").innerHTML = Data["questions"][10]["question"];
   // output the details of first three posts
   //console.log("First three posts");
   //for(var i=0; i<3; i=i+1)
