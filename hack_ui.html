@@ -78,7 +78,7 @@ display: none;
 
 
 						
-<img id="image1" style="width=50px; height=60px"></img>						
+<img id="image1" style="width=500px; height=600px"></img>						
 <p class='question' id="question1"></p>	
 <input type="text" id="answer1" style="color:grey; font-family: helvetica narrow, sans-serif; font-size:x-large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:183; right:795;"></label>	
 
@@ -438,7 +438,7 @@ function myData(Data)
 {
 
   // Output only the details on the first post
-  console.log(Data["questions"][1]["image_url"]);
+  console.log(Data["questions"][0]["question"]);
   document.getElementById("image1").src = Data["questions"][1]["image_url"];
   document.getElementById("instructions").innerHTML = Data["questions"][0]["question"];
   document.getElementById("question1").innerHTML = Data["questions"][1]["question"];
