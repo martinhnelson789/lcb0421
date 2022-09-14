@@ -465,22 +465,20 @@ return file.ipfs()
 
 
 
- $(document).ready(function(){
-//function display_loan_info(){
-var display = (async function(){
+ <!-- $(document).ready(function(){ -->
+<!-- //function display_loan_info(){ -->
+<!-- var display = (async function(){ -->
 
-<!-- const options = { -->
-  <!-- abi: [ -->
-    <!-- { -->
-      <!-- path: "moralis/logo.jpg", -->
-      <!-- content: -->
-        <!-- "iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAApgAAAKYB3X3", -->
-    <!-- }, -->
-  <!-- ], -->
-<!-- }; -->
-<!-- const path = await Moralis.Web3API.storage.uploadFolder(options); -->
-
-
+<!-- <!-- const options = { --> -->
+  <!-- <!-- abi: [ --> -->
+    <!-- <!-- { --> -->
+      <!-- <!-- path: "moralis/logo.jpg", --> -->
+      <!-- <!-- content: --> -->
+        <!-- <!-- "iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAApgAAAKYB3X3", --> -->
+    <!-- <!-- }, --> -->
+  <!-- <!-- ], --> -->
+<!-- <!-- }; --> -->
+<!-- <!-- const path = await Moralis.Web3API.storage.uploadFolder(options); --> -->
 
 
 
@@ -488,170 +486,170 @@ var display = (async function(){
 
 
 
-//console.log(path);
 
-  //localStorage.setItem("mySharedData", document.getElementById("password").value);
+
+<!-- //console.log(path); -->
+
+  <!-- //localStorage.setItem("mySharedData", document.getElementById("password").value); -->
     
 	
-	//var pwdx = localStorage.getItem("mySharedData");
+	<!-- //var pwdx = localStorage.getItem("mySharedData"); -->
 
 	
   	
-	const addressCount = await contract_bal.methods.Address_listCount().call();
+	<!-- //const addressCount = await contract_bal.methods.Address_listCount().call(); -->
 		
 		
 	
-	//const contract_bal = new web3.eth.Contract(abi, contract_address);
+	<!-- //const contract_bal = new web3.eth.Contract(abi, contract_address); -->
 	
 	
 	
 	
-	//address_count = addressCount
+	<!-- //address_count = addressCount -->
 	
-	var chat = document.getElementById("contract_address_ID");	// finds the container
-	//var chat = document.getElementById("root");
-	var documentFragment = document.createDocumentFragment();
+	<!-- var chat = document.getElementById("contract_address_ID");	// finds the container -->
+	<!-- //var chat = document.getElementById("root"); -->
+	<!-- var documentFragment = document.createDocumentFragment(); -->
 	
-	for (var i = addressCount; i>0; i--){
-	var address = await contract_bal.methods.address_list(i-1).call();
-	var address = web3.utils.toChecksumAddress(address)
+	<!-- for (var i = addressCount; i>0; i--){ -->
+	<!-- var address = await contract_bal.methods.address_list(i-1).call(); -->
+	<!-- var address = web3.utils.toChecksumAddress(address) -->
 	
-	var container = document.createElement('div')
-	container.id = "q" + i;
-	documentFragment.appendChild(container);
-	//var chat = document.createElement("box");
+	<!-- var container = document.createElement('div') -->
+	<!-- container.id = "q" + i; -->
+	<!-- documentFragment.appendChild(container); -->
+	<!-- //var chat = document.createElement("box"); -->
 	
-	var box1 = document.createElement('div')
-	box1.id = "r" + i;
-	var box2 = document.createElement('div')
-	box2.id = "s" + i;
-	var latest = await contract_bal.methods.debt_obligation_listx(i, address).call();
-	//console.log("test completed " + latest)
-	container.appendChild(box1);
-	container.appendChild(box2);
-	container.insertAdjacentHTML('afterbegin', '<p style="color:#5F6C6D; font-family: helvetica narrow, sans-serif;">  offer no: ' + i + '</p>')
+	<!-- var box1 = document.createElement('div') -->
+	<!-- box1.id = "r" + i; -->
+	<!-- var box2 = document.createElement('div') -->
+	<!-- box2.id = "s" + i; -->
+	<!-- var latest = await contract_bal.methods.debt_obligation_listx(i, address).call(); -->
+	<!-- //console.log("test completed " + latest) -->
+	<!-- container.appendChild(box1); -->
+	<!-- container.appendChild(box2); -->
+	<!-- container.insertAdjacentHTML('afterbegin', '<p style="color:#5F6C6D; font-family: helvetica narrow, sans-serif;">  offer no: ' + i + '</p>') -->
 	
 	
-	var contract_length = await contract_bal.methods.token_contracts_list1xyCount(i, address).call();
-	for (j=0;j<contract_length;j++){
-	var contract_ID1 = await contract_bal.methods.token_contracts_list1xy(i, address, j).call();
-	var tokenID = await contract_bal.methods.tokens_list1xy(i, address, j).call();
+	<!-- var contract_length = await contract_bal.methods.token_contracts_list1xyCount(i, address).call(); -->
+	<!-- for (j=0;j<contract_length;j++){ -->
+	<!-- var contract_ID1 = await contract_bal.methods.token_contracts_list1xy(i, address, j).call(); -->
+	<!-- var tokenID = await contract_bal.methods.tokens_list1xy(i, address, j).call(); -->
 	
-	//var name = await new web3.eth.Contract(abi, contract_ID1).methods.name().call();
+	<!-- //var name = await new web3.eth.Contract(abi, contract_ID1).methods.name().call(); -->
 	
-		//canvas_4(contract_ID1, tokenID, address, i, i, box2).catch(function(error){ canvas_3(contract_bal.methods.tokens_image1xy, i, address, j, 10, box1);})
-		try{
-		canvas_4(contract_ID1, tokenID, address, i, i, box1);
-		}catch(err){ 
-		canvas_5(contract_ID1, tokenID, address, i, i, box1);
-		}
-		<!-- try { -->
-		<!-- //canvas_4(contract_ID1, tokenID, address, j, -10, box1); -->
-		//canvas_4(contract_ID1, tokenID, address, i, i, box1).catch(function(error)){canvas_3(contract_bal.methods.tokens_image1xy, i, address, j, -10, box1); }
+		<!-- //canvas_4(contract_ID1, tokenID, address, i, i, box2).catch(function(error){ canvas_3(contract_bal.methods.tokens_image1xy, i, address, j, 10, box1);}) -->
+		<!-- try{ -->
+		<!-- canvas_4(contract_ID1, tokenID, address, i, i, box1); -->
+		<!-- }catch(err){  -->
+		<!-- canvas_5(contract_ID1, tokenID, address, i, i, box1); -->
+		<!-- } -->
+		<!-- <!-- try { --> -->
+		<!-- <!-- //canvas_4(contract_ID1, tokenID, address, j, -10, box1); --> -->
+		<!-- //canvas_4(contract_ID1, tokenID, address, i, i, box1).catch(function(error)){canvas_3(contract_bal.methods.tokens_image1xy, i, address, j, -10, box1); } -->
 		
-			<!-- }catch(err){ -->
-		<!-- //canvas_4(contract_ID1, tokenID, address, j, -10, box1); -->
-		<!-- canvas_3(contract_bal.methods.tokens_image1xy, i, address, j, -10, box1); -->
-		<!-- //canvas_1(contract_ID2, tokenID2, box1); -->
-	 <!-- } -->
+			<!-- <!-- }catch(err){ --> -->
+		<!-- <!-- //canvas_4(contract_ID1, tokenID, address, j, -10, box1); --> -->
+		<!-- <!-- canvas_3(contract_bal.methods.tokens_image1xy, i, address, j, -10, box1); --> -->
+		<!-- <!-- //canvas_1(contract_ID2, tokenID2, box1); --> -->
+	 <!-- <!-- } --> -->
 		
 
 	
-	 <!-- } -->
+	 <!-- <!-- } --> -->
 	
-	}
-	
-	
-	
-	var contract_length1 = await contract_bal.methods.token_contracts_list2xyCount(i, address).call();
-	
-	var array_contract_ID2 = new Array();
-	var array_tokenID2 = new Array();
-	box1.insertAdjacentHTML('afterend','<center style="color:#5F6C6D; font-family: helvetica narrow, sans-serif;"> &#8657; trade &#8659;</center>')
-	
-	for (j=0;j<contract_length1;j++){ 
-	
-	var contract_ID2 = await contract_bal.methods.token_contracts_list2xy(i, address, j).call();
-	//console.log("array_contract: " + contract_ID2 + "no# " + i + ' ' + j)
-	array_contract_ID2.push("'" + contract_ID2 + "'");
-	
-	
-	//var name2 = await new web3.eth.Contract(abi, contract_ID2).methods.name().call();
+	<!-- } -->
 	
 	
 	
+	<!-- var contract_length1 = await contract_bal.methods.token_contracts_list2xyCount(i, address).call(); -->
+	
+	<!-- var array_contract_ID2 = new Array(); -->
+	<!-- var array_tokenID2 = new Array(); -->
+	<!-- box1.insertAdjacentHTML('afterend','<center style="color:#5F6C6D; font-family: helvetica narrow, sans-serif;"> &#8657; trade &#8659;</center>') -->
+	
+	<!-- for (j=0;j<contract_length1;j++){  -->
+	
+	<!-- var contract_ID2 = await contract_bal.methods.token_contracts_list2xy(i, address, j).call(); -->
+	<!-- //console.log("array_contract: " + contract_ID2 + "no# " + i + ' ' + j) -->
+	<!-- array_contract_ID2.push("'" + contract_ID2 + "'"); -->
 	
 	
-	var tokenID2 = await contract_bal.methods.tokens_list2xy(i, address, j).call();
-	//console.log("array_token: " + tokenID2)
-	array_tokenID2.push(tokenID2);
+	<!-- //var name2 = await new web3.eth.Contract(abi, contract_ID2).methods.name().call(); -->
 	
-	try{
-	//canvas_4(contract_ID2, tokenID2, address, i, i, box2).catch(function(error){ canvas_3(contract_bal.methods.tokens_image2xy, i, address, j, 10, box2);}
-	canvas_4(contract_ID2, tokenID2, address, i, i, box2);
-	}catch(err){
-	canvas_5(contract_ID2, tokenID2, address, i, i, box2);
-	}
-	//canvas_4(contract_ID2, tokenID2, address, i, i, box2);
 	
-	<!-- try { -->
-	<!-- //canvas_4(contract_ID2, tokenID2, address, j, 10, box2); -->
-	<!-- canvas_4(contract_ID2, tokenID2, address, i, i, box2).catch(function(error) { canvas_3(contract_bal.methods.tokens_image2xy, i, address, j, 10, box2);} -->
+	
+	
+	
+	<!-- var tokenID2 = await contract_bal.methods.tokens_list2xy(i, address, j).call(); -->
+	<!-- //console.log("array_token: " + tokenID2) -->
+	<!-- array_tokenID2.push(tokenID2); -->
+	
+	<!-- try{ -->
+	<!-- //canvas_4(contract_ID2, tokenID2, address, i, i, box2).catch(function(error){ canvas_3(contract_bal.methods.tokens_image2xy, i, address, j, 10, box2);} -->
+	<!-- canvas_4(contract_ID2, tokenID2, address, i, i, box2); -->
+	<!-- }catch(err){ -->
+	<!-- canvas_5(contract_ID2, tokenID2, address, i, i, box2); -->
+	<!-- } -->
+	<!-- //canvas_4(contract_ID2, tokenID2, address, i, i, box2); -->
+	
+	<!-- <!-- try { --> -->
+	<!-- <!-- //canvas_4(contract_ID2, tokenID2, address, j, 10, box2); --> -->
+	<!-- <!-- canvas_4(contract_ID2, tokenID2, address, i, i, box2).catch(function(error) { canvas_3(contract_bal.methods.tokens_image2xy, i, address, j, 10, box2);} --> -->
 		
-	 <!-- }catch(err){ -->
-	 <!-- canvas_3(contract_bal.methods.tokens_image2xy, i, address, j, 10, box2); -->
+	 <!-- <!-- }catch(err){ --> -->
+	 <!-- <!-- canvas_3(contract_bal.methods.tokens_image2xy, i, address, j, 10, box2); --> -->
 	 
-		<!-- //canvas_1(contract_ID2, tokenID2, box2); -->
-	 <!-- } -->
+		<!-- <!-- //canvas_1(contract_ID2, tokenID2, box2); --> -->
+	 <!-- <!-- } --> -->
 		
 
-	}
+	<!-- } -->
 	
-	var trade_bool = await contract_bal.methods.debt_obligation_listx(i, address).call();
-	container.insertAdjacentHTML('beforeend', '<p style="color:#5F6C6D; font-family: helvetica narrow, sans-serif;">  barter accepted: ' + trade_bool + '</p>');
-	container.insertAdjacentHTML('afterend', '<p>&nbsp;</p>');
+	<!-- var trade_bool = await contract_bal.methods.debt_obligation_listx(i, address).call(); -->
+	<!-- container.insertAdjacentHTML('beforeend', '<p style="color:#5F6C6D; font-family: helvetica narrow, sans-serif;">  barter accepted: ' + trade_bool + '</p>'); -->
+	<!-- container.insertAdjacentHTML('afterend', '<p>&nbsp;</p>'); -->
 	
-	var _i = (i)
-	var newBtn = document.createElement('input');
-	newBtn.setAttribute('type', 'button');
-	newBtn.value = "approve";
-	//newBtn.setAttribute('onclick', 'to_approve(' + "'" + contract_ID2 + "'" + ","  + "'" + address + "'" + "," + tokenID2 + "," + _i + ')');
-	newBtn.setAttribute('onclick', 'to_approve(' + "[" + array_contract_ID2 + "]" + ","  + "'" + address + "'" + ", [" + array_tokenID2 + "]," + _i + ')');
-	var newBtn1 = document.createElement('input');
-	newBtn1.setAttribute('type', 'button');
-	newBtn1.value = "accept trade";
-	newBtn1.setAttribute('onclick', 'make_trade(' + "[" + array_contract_ID2 + "]" + ","  + "'" + address + "'" + ", [" + array_tokenID2 + "]," + _i + ')');
-	//console.log('make_trade(' + "'" + array_contract_ID2 + "'" + ","  + "'" + address + "'" + "," + array_tokenID2 + ')')
-	newBtn.style = "color:grey; font-family: helvetica narrow, sans-serif;font-size: large;";
+	<!-- var _i = (i) -->
+	<!-- var newBtn = document.createElement('input'); -->
+	<!-- newBtn.setAttribute('type', 'button'); -->
+	<!-- newBtn.value = "approve"; -->
+	<!-- //newBtn.setAttribute('onclick', 'to_approve(' + "'" + contract_ID2 + "'" + ","  + "'" + address + "'" + "," + tokenID2 + "," + _i + ')'); -->
+	<!-- newBtn.setAttribute('onclick', 'to_approve(' + "[" + array_contract_ID2 + "]" + ","  + "'" + address + "'" + ", [" + array_tokenID2 + "]," + _i + ')'); -->
+	<!-- var newBtn1 = document.createElement('input'); -->
+	<!-- newBtn1.setAttribute('type', 'button'); -->
+	<!-- newBtn1.value = "accept trade"; -->
+	<!-- newBtn1.setAttribute('onclick', 'make_trade(' + "[" + array_contract_ID2 + "]" + ","  + "'" + address + "'" + ", [" + array_tokenID2 + "]," + _i + ')'); -->
+	<!-- //console.log('make_trade(' + "'" + array_contract_ID2 + "'" + ","  + "'" + address + "'" + "," + array_tokenID2 + ')') -->
+	<!-- newBtn.style = "color:grey; font-family: helvetica narrow, sans-serif;font-size: large;"; -->
 	
-	newBtn.id = 'a' + i;
-	newBtn1.id = 'a' + i;
-	container.appendChild(newBtn);
-	container.appendChild(newBtn1);
-	//document.getElementById("r" & _i).appendChild(newBtn);
-	
-	
+	<!-- newBtn.id = 'a' + i; -->
+	<!-- newBtn1.id = 'a' + i; -->
+	<!-- container.appendChild(newBtn); -->
+	<!-- container.appendChild(newBtn1); -->
+	<!-- //document.getElementById("r" & _i).appendChild(newBtn); -->
 	
 	
-	//console.log(_image2);
 	
 	
-	chat.appendChild(documentFragment);
-	//document.getElementById('a' + i).innerHTML = "swap completed " + latest;
-	
-	<!-- var newDiv = document.createElement('div'); -->
-	<!-- newDiv.id = 'w'+i; -->
-	<!-- ewDiv.appendChild(newDiv); -->
-	
-	<!-- document.getElementById("w" + i).innerHTML = "swap completed: " + latest; -->
-	//document.getElementById("latest_block").innerHTML = latest;
-	//console.log(latest)
+	<!-- //console.log(_image2); -->
 	
 	
-	//}
-	}
+	<!-- chat.appendChild(documentFragment); -->
+	<!-- //document.getElementById('a' + i).innerHTML = "swap completed " + latest; -->
+	
+	<!-- <!-- var newDiv = document.createElement('div'); --> -->
+	<!-- <!-- newDiv.id = 'w'+i; --> -->
+	<!-- <!-- ewDiv.appendChild(newDiv); --> -->
+	
+	<!-- <!-- document.getElementById("w" + i).innerHTML = "swap completed: " + latest; --> -->
+	<!-- //document.getElementById("latest_block").innerHTML = latest; -->
+	<!-- //console.log(latest) -->
 	
 	
+	<!-- //} -->
+	<!-- } -->
 	
 	
 	
@@ -662,22 +660,24 @@ var display = (async function(){
 	
 	
 	
-
-
-
-
-
 	
-
-
 	
 
 
 
 
-})()
 
-        });
+	
+
+
+	
+
+
+
+
+<!-- })() -->
+
+        <!-- }); -->
 
 
 function isError(obj){
