@@ -83,43 +83,43 @@ height:200px;
 
 
 						
-<img id="image1" style="width=50px; height=60px"></img>						
+					 
 <p class='question' id="question1"></p>	
 <input type="text" id="answer1" style="color:grey; font-family: helvetica narrow, sans-serif; font-size:x-large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:183; right:795;"></label>	
 
-<img id="image2"></img>												
+												 
 <p class='question' id="question2"></p>	
 <input type="text" id="answer2" style="color:grey; font-family: helvetica narrow, sans-serif; font-size:x-large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:183; right:795;"></label>
 
-<img id="image3"</img>												
+											 
 <p class='question' id="question3"></p>	
 <input type="text" id="answer3" style="color:grey; font-family: helvetica narrow, sans-serif; font-size:x-large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:183; right:795;"></label>							
 
-<img id="image4"</img>										
+									 
 <p class='question' id="question4"></p>	
 <input type="text" id="answer4"  style="color:grey; font-family: helvetica narrow, sans-serif; font-size:x-large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:183; right:795;"></label>							
 
-<img id="image5"</img>					
+				
 <p class='question' id="question5"></p>	
 <input type="text" id="answer5" style="color:grey; font-family: helvetica narrow, sans-serif; font-size:x-large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:183; right:795;"></label>						
 
-<img id="image6"</img>						
+						 
 <p class='question' id="question6"></p>	
 <input type="text" id="answer6" style="color:grey; font-family: helvetica narrow, sans-serif; font-size:x-large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:183; right:795;"></label>							
 
-<img id="image7"</img>
+
 <p class='question' id="question7"></p>	
 <input type="text" id="answer7" style="color:grey; font-family: helvetica narrow, sans-serif; font-size:x-large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:183; right:795;"></label>						
 
-<img id="image8"</img>
+
 <p class='question' id="question8"></p>		
 <input type="text" id="answer8" style="color:grey; font-family: helvetica narrow, sans-serif; font-size:x-large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:183; right:795;"></label>						
 
-<img id="image9"</img>
+
 <p class='question' id="question9"></p>		
 <input type="text" id="answer9" style="color:grey; font-family: helvetica narrow, sans-serif; font-size:x-large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:183; right:795;"></label>						
 
-<img id="image10"</img>
+
 <p class='question' id="question10"></p>		
 <input type="text" id="answer10" style="color:grey; font-family: helvetica narrow, sans-serif; font-size:x-large;"><label style="color:#DCDCDC; font-family: helvetica narrow, sans-serif;font-size: large; position:absolute; top:183; right:795;"></label>
 					
@@ -444,17 +444,59 @@ function myData(Data)
 
   // Output only the details on the first post
   console.log(Data["questions"][1]["image_url"]);
-  document.getElementById("image1").src = Data["questions"][1]["image_url"];
+  //document.getElementById("image1").src = Data["questions"][1]["image_url"];
   document.getElementById("instructions").innerHTML = Data["questions"][0]["question"];
   document.getElementById("question1").innerHTML = Data["questions"][1]["question"];
+  if (Data["questions"][1]["image_url"] != null){
+  var img = new Image();
+  
+	img.src = Data["questions"][1]["image_url"];}
+  document.getElementById("question1").appendChild(img);
+  if (Data["questions"][2]["image_url"] != null){
+  var img = new Image();
+  
+	img.src = Data["questions"][2]["image_url"];}
+  document.getElementById("question1").appendChild(img);
   document.getElementById("question2").innerHTML = Data["questions"][2]["question"];
-  document.getElementById("question3").innerHTML = Data["questions"][3]["question"];  
+  if (Data["questions"][3]["image_url"] != null){
+  var img = new Image();
+  
+	img.src = Data["questions"][3]["image_url"];}
+  document.getElementById("question3").innerHTML = Data["questions"][3]["question"]; 
+  if (Data["questions"][4]["image_url"] != null){
+  var img = new Image();
+  
+	img.src = Data["questions"][4]["image_url"];}
   document.getElementById("question4").innerHTML = Data["questions"][4]["question"];
+  if (Data["questions"][5]["image_url"] != null){
+  var img = new Image();
+  
+	img.src = Data["questions"][5]["image_url"];}
   document.getElementById("question5").innerHTML = Data["questions"][5]["question"];
+  if (Data["questions"][6]["image_url"] != null){
+  var img = new Image();
+  
+	img.src = Data["questions"][6]["image_url"];}
   document.getElementById("question6").innerHTML = Data["questions"][6]["question"];
-  document.getElementById("question7").innerHTML = Data["questions"][7]["question"];  
+  if (Data["questions"][7]["image_url"] != null){
+  var img = new Image();
+  
+	img.src = Data["questions"][7]["image_url"];}
+  document.getElementById("question7").innerHTML = Data["questions"][7]["question"]; 
+  if (Data["questions"][8]["image_url"] != null){
+  var img = new Image();
+  
+	img.src = Data["questions"][8]["image_url"];}  
   document.getElementById("question8").innerHTML = Data["questions"][8]["question"];
+  if (Data["questions"][9]["image_url"] != null){
+  var img = new Image();
+  
+	img.src = Data["questions"][9]["image_url"];}
   document.getElementById("question9").innerHTML = Data["questions"][9]["question"];  
+  if (Data["questions"][10]["image_url"] != null){
+  var img = new Image();
+  
+	img.src = Data["questions"][10]["image_url"];}
   document.getElementById("question10").innerHTML = Data["questions"][10]["question"];
   // output the details of first three posts
   //console.log("First three posts");
