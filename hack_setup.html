@@ -101,6 +101,7 @@ font-size: large;
 <input type="text" name="answer9" id="answer9"><br><br>
 <p>10.</p>
 <input type="text" name="answer10" id="answer10"><br><br>
+<button onclick="authenticate_upload()">authenticate upload</button>
 <button onclick="submit_file()">file upload</button>
 <center><p id="contract_address_ID"></p></center>
 
@@ -162,10 +163,11 @@ web3 = new Web3(web3.currentProvider);
  //$(document).ready(function(){
  
 
+function authenticate_upload(){
 Moralis.Web3.authenticate().then(function (user){
 		console.log('logged in');
  })
- 
+ }
 
 var my_nft =(async function(){
 
