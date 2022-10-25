@@ -1155,7 +1155,7 @@ var display = (async function(){
 	
 		//canvas_4(contract_ID1, tokenID, address, i, i, box2).catch(function(error){ canvas_3(contract_bal.methods.tokens_image1xy, i, address, j, 10, box1);})
 		try{
-		canvas_4(contract_ID1, tokenID, address, i, i, box1);
+		canvas_2(contract_ID1, tokenID, address, i, i, box1);
 		}catch(err){ 
 		canvas_5(contract_ID1, tokenID, address, i, i, box1);
 		}
@@ -1202,7 +1202,7 @@ var display = (async function(){
 	
 	try{
 	//canvas_4(contract_ID2, tokenID2, address, i, i, box2).catch(function(error){ canvas_3(contract_bal.methods.tokens_image2xy, i, address, j, 10, box2);}
-	canvas_4(contract_ID2, tokenID2, address, i, i, box2);
+	canvas_2(contract_ID2, tokenID2, address, i, i, box2);
 	}catch(err){
 	canvas_5(contract_ID2, tokenID2, address, i, i, box2);
 	}
@@ -1308,7 +1308,10 @@ var display = (async function(){
 	
 	function canvas_2(k, num1, addr, num2, n, bx){
 	var acct = (async function(){
-	var _image = await k(num1, addr, num2).call();
+	//var _image1 = await k(num1, addr, num2).call();
+	//console.log(_image1);
+	var _image = "https://deep-index.moralis.io/api/v2/nft/0x76Cb0647698857D301Cb3Fe1b6f0E79C03817245/356"
+	console.log(_image);
 		var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -1317,8 +1320,10 @@ var display = (async function(){
 	  //var response = this.blob;
 	  //var urlCreator = this.blob; 
 	  //var blobObj = new Blob([atob(this.blob)], { type: "image/jpeg" });
-  var urlCreator = window.URL || window.webkitURL;
-   var imageUrl = urlCreator.createObjectURL(this);
+	  
+  //var urlCreator = window.URL || window.webkitURL;
+   var imageUrl = window.URL.createObjectURL(this);
+   console.log(imageUrl)
    //const myImgElem = document.getElementById('my-img');
    //var myImgElem = new Image;
    
@@ -1370,11 +1375,16 @@ var display = (async function(){
     }
   };
   xhttp.open("GET", _image, true);
-  xhttp.setRequestHeader('Access-Control-Allow-Origin', '*');
-  xhttp.setRequestHeader('Access-Control-Allow-Headers', '*');
+  //xhttp.setRequestHeader('Access-Control-Allow-Origin', '*');
+  //xhttp.setRequestHeader('Access-Control-Allow-Headers', '*');
+  //'X-API-Key: test'
+  xhttp.setRequestHeader('X-API-Key', 'EmZJ2mUyWFLj3LGVGOaGMcigKXnn8kAMboOEnrNawscl0C6r6bylmpfmXfoG8OEi')
+  //'accept: application/json'
+  //xhttp.setRequestHeader('Content-type', 'application/json');
   xhttp.setRequestHeader('Content-type', 'image/jpeg');
   xhttp.responseType = 'blob'
   xhttp.send();
+  
 	
 })()
 }
