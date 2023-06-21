@@ -1566,8 +1566,8 @@ var metamask = (async function(){
 
 })()
 
-web3 = new Web3(web3.currentProvider);        
-
+//web3 = new Web3(web3.currentProvider);        
+web3 = new window.ethereum
 //var web3 = new Web3(new Web3.providers.HttpProvider(
     //"https://mainnet.infura.io/v3/69462286c61f42d2891a2ced35c91f8d"
 //));
