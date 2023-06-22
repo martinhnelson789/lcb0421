@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gem Gobbler</title>
+    <style>
+        /* Styling for game elements */
+        #game-board {
+            width: 400px;
+            height: 400px;
+            border: 1px solid black;
+            position: relative;
+        }
+
+        .gem {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            position: absolute;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gem Gobbler</h1>
+    <div id="game-board">
+        <!-- Gems will be dynamically created here -->
+    </div>
+
+    <!--<script src="game.js"></script>-->
+	<script>
+	document.addEventListener("DOMContentLoaded", function() {
+    const gameBoard = document.getElementById("game-board");
+    let score = 0;
+
+    // Function to create a gem at a random position on the game board
+    function createGem() {
+        const gem = document.createElement("div");
+        gem.className = "gem";
+
+        // Generate random position
+        const xPos = Math.floor(Math.random() * (gameBoard.clientWidth - gem.clientWidth));
+        const yPos = Math.floor(Math.random() * (gameBoard.clientHeight - gem.clientHeight));
+        gem.style.left = xPos + "px";
+        gem.style.top = yPos + "px";
+
+        // Increment score on gem click and remove gem
+        gem.addEventListener("click", function() {
+            score++;
+            updateScore();
+            gem.remove();
+        });
+
+        gameBoard.appendChild(gem);
+    }
+
+    // Function to update the score on the page
+    function updateScore() {
+        const scoreElement = document.getElementById("score");
+        scoreElement.innerText = "Score: " + score;
+    }
+
+    // Create initial gems
+    for (let i = 0; i < 5; i++) {
+        createGem();
+    }
+
+    // Create new gem every second
+    setInterval(function() {
+        createGem();
+    }, 1000);
+});
+
+	</script>
+	
+</body>
+</html>
