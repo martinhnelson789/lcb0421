@@ -30,8 +30,8 @@
 }
 
         #avatar {
-            width: 25px;
-            height: 25px;
+            width: 5px;
+            height: 5px;
             background-color: blue;
             position: absolute;
             top: 0;
@@ -109,7 +109,8 @@
 
                     if (isColliding(avatarRect, gemRect)) {
                         score++;
-                        updateScore();
+                        //updateScore();
+                        //alert("yes")
                         gem.remove();
                     }
                 }
@@ -117,13 +118,13 @@
 
             // Function to check collision between two rectangles
             function isColliding(rect1, rect2) {
-                return (
-                    rect1.left < rect2.right &&
-                    rect1.right > rect2.left &&
-                    rect1.top < rect2.bottom &&
-                    rect1.bottom > rect2.top
-                );
-            }
+    return !(
+        rect1.right < rect2.left ||
+        rect1.left > rect2.right ||
+        rect1.bottom < rect2.top ||
+        rect1.top > rect2.bottom
+    );
+}
 
             // Handle arrow key presses to move the avatar
             document.addEventListener("keydown", function(event) {
