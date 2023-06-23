@@ -704,7 +704,12 @@ const contract_address = web3.utils.toChecksumAddress("0x624E4fa6980Afcf8EA27BFe
 const contract_bal = new web3.eth.Contract(abi, contract_address);
 
 var display = (async function(){
-const sum = await contract_bal.methods.tokenURI(1).call(function (err, res) {
+//const sum = await contract_bal.methods.tokenURI(8623).call(function (err, res) {
+
+var accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        var account = accounts[0];
+		//alert(account);
+const Owner_ = await contract_bal.methods.tokenOfOwnerByIndex(account, 0).call(function (err, res) {
     if (err) {
       console.log("An error occured", err)
       return
@@ -712,7 +717,7 @@ const sum = await contract_bal.methods.tokenURI(1).call(function (err, res) {
     console.log(`The balance is: ${res}`)
   })
 
-alert(sum)
+alert(Owner_)
 })()
 
 </script>
@@ -734,18 +739,12 @@ alert(sum)
             cursor: pointer;
         }
         
-        .center-screen {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  min-height: 100vh;
-}
+
 
         #avatar {
             width: 5px;
             height: 5px;
-            background-color: blue;
+            <!-- background-color: blue; -->
             position: absolute;
             top: 0;
             left: 0;
