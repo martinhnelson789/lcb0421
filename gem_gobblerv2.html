@@ -481,29 +481,39 @@ alert(Owner_);
 
 var URI = await contract_bal.methods.tokenURI(Owner_).call();
 alert(URI);
+const image1 = image_and_name(URI, getImage);
+
+})()
 
 
-const image1 = image_and_name(URI,2, getImage)
 
 function getImage(xhttp){
 			var result = xhttp.response;
 			JSONresult = JSON.parse(result);
-			//console.log(JSONresult.image);
+			console.log(JSONresult.image);
 			//var result1 = JSONresult.image
 			//return result1
+	
 			var img = new Image();
             img.src = JSONresult.image
 			
-            //chat.appendChild(img);
+			//img.style.width = '15%'
+			//img.style.height = '15%'
+			//img.setAttribute('width', '15%');
+			//img.setAttribute('height', '15%');
 			
+            
+			
+	//document.getElementById("rs" + i).loading = "lazy";
+	//document.getElementById("rs" + i).src = JSONresult.image;
+	
 	}
 
-function image_and_name(k,n, getImage){
 
-	
+function image_and_name(uri, getImage){
+
+
   var val = (async function(){
-  
-  const lnk = await contract_bal.methods.tokenURI(k).call();
   
 	var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
@@ -512,14 +522,13 @@ function image_and_name(k,n, getImage){
 			
        }
     };
-    xhttp.open("GET", lnk, false);
+    xhttp.open("GET", uri, false);
     xhttp.send();
 	
 
 })()
 //return val
 	}
-
 
 
 
@@ -666,7 +675,7 @@ function image_and_name(k,n, getImage){
         });
     </script>
     
-	<div id="avatar"><img src=barterNFT_logo_1155.png></img>
+	<div id="avatar"><></img>
 
 </body>
 </html>
