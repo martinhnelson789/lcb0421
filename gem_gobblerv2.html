@@ -482,7 +482,7 @@ alert(Owner_);
 
 var URI = await contract_bal.methods.tokenURI(Owner_).call();
 alert(URI);
-const image1 = image_and_name(URI, getImage);
+
 var proxy = 'https://cors-anywhere.herokuapp.com/';
 
 const image_ = $.ajax({
@@ -503,6 +503,7 @@ const image_ = $.ajax({
   success: function(data, status, xhr) {
    
     var JSONresult = JSON.parse(xhr.responseText);
+    alert(JSONresult.image);
     document.getElementById("avatar").src = JSONresult.image;
     //return JSONresult.image
   }
