@@ -3,6 +3,7 @@
 
 
 <head>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
 <script src="https://cdn.rawgit.com/ethereumjs/browser-builds/master/dist/ethereumjs-tx/ethereumjs-tx-1.3.3.js"></script>
 
@@ -482,6 +483,30 @@ alert(Owner_);
 var URI = await contract_bal.methods.tokenURI(Owner_).call();
 alert(URI);
 const image1 = image_and_name(URI, getImage);
+var proxy = 'https://cors-anywhere.herokuapp.com/';
+
+const image_ = $.ajax({
+	cache: false,
+  dataType : 'json', 
+  async:true,
+  crossDomain:true,
+  url: proxy + URI,
+  type: "GET",
+  
+  //data:{q:idiom},
+  
+  
+    //you may use jsonp for cross origin request
+ headers: {"Content-Type": "application/json", "Access-Control-Allow-Origin":"*"},
+  
+  
+  success: function(data, status, xhr) {
+   
+    var JSONresult = JSON.parse(xhr.responseText);
+    document.getElementById("avatar").src = JSONresult.image;
+    //return JSONresult.image
+  }
+});
 
 })()
 
@@ -517,6 +542,7 @@ function image_and_name(uri, getImage){
   
 	var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
+	
         if (this.readyState == 4 && this.status == 200) {
             getImage(this)
 			
@@ -529,6 +555,8 @@ function image_and_name(uri, getImage){
 })()
 //return val
 	}
+
+
 
 
 
@@ -556,7 +584,7 @@ function image_and_name(uri, getImage){
         #avatar {
             width: 5px;
             height: 5px;
-            <!-- background-color: blue; -->
+            background-color: blue;
             position: absolute;
             top: 0;
             left: 0;
@@ -675,7 +703,7 @@ function image_and_name(uri, getImage){
         });
     </script>
     
-	<div id="avatar"><></img>
+	<img id="avatar"></img>
 
 </body>
 </html>
