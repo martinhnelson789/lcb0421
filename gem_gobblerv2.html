@@ -486,8 +486,8 @@ var URI = await contract_bal.methods.tokenURI(Owner_).call();
 var imagePath = window.location.protocol + "//" + window.location.host + "/"
 alert(imagePath);
 
-var proxy = 'https://cors-anywhere.herokuapp.com/';
-
+//var proxy = 'https://cors-anywhere.herokuapp.com/';
+var proxy = imagePath + 'proxy-server.js/'
 const image_ = $.ajax({
 	cache: false,
   dataType : 'json', 
