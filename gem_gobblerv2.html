@@ -483,6 +483,9 @@ const Owner_ = await contract_bal.methods.tokenOfOwnerByIndex(account, 0).call(f
 var URI = await contract_bal.methods.tokenURI(Owner_).call();
 //alert(URI);
 
+var imagePath = window.location.protocol + "//" + window.location.host + "/"
+alert(imagePath);
+
 var proxy = 'https://cors-anywhere.herokuapp.com/';
 
 const image_ = $.ajax({
