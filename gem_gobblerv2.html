@@ -615,6 +615,9 @@ const image_ = $.ajax({
                 avatar.style.left = newLeft + "px";
                 avatar.style.top = newTop + "px";
 
+
+				setInterval(moveAvatar, 10);
+
                 // Check for collision with gems
                 const gems = document.getElementsByClassName("gem");
                 for (let i = 0; i < gems.length; i++) {
